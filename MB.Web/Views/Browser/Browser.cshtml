@@ -1,0 +1,116 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <meta name="renderer" content="webkit">
+    <title></title>
+    <style>
+        body{
+            font-family: "微软雅黑", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 12px;
+        }
+        a {
+            text-decoration:none;
+        }
+        a:hover {
+            text-decoration:underline;
+        }
+        a img{
+            border: none;
+        }
+        .container{
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: url("../../Images/common/browserbg.jpg") center;
+            background-size: 100% 100%;
+        }
+        .showContainer{
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            margin-top: -150px;
+        }
+        .showWindow{
+            text-align: center;
+        }
+        .showWindow:after{
+            content: "";
+            display: inline-block;
+            height: 200px;
+            vertical-align: middle;
+        }
+        .showWindow img{
+            display: inline-block;
+            width: 150px;
+            height: 150px;
+            vertical-align: middle;
+            cursor: pointer;
+
+            transition: width 1s, height 1s, transform 1s;
+            -moz-transition: width 1s, height 1s, -moz-transform 1s;
+            -webkit-transition: width 1s, height 1s, -webkit-transform 1s;
+            -o-transition: width 1s, height 1s,-o-transform 1s;
+        }
+        .showWindow img:hover{
+            width: 200px;
+            height: 200px;
+        }
+
+        .description{
+            font-size: 14px;
+            text-align: center;
+            color: #124836;
+        }
+        .description .showy{
+            font-size: 16px;
+        }
+        .operate{
+            margin-top: 50px;
+            text-align: center;
+        }
+        .btn{
+            display: inline-block;
+            padding: 5px;
+            color: white;
+            cursor: pointer;
+            outline: 3px double;
+        }
+        .btn.default{
+            background-color: #a0a0a0;
+            outline-color: #a0a0a0;
+        }
+        .btn.warning{
+            background-color: #fbbf3d;
+            outline-color: #fbbf3d;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="showContainer">
+            <div class="showWindow">
+                <a href="http://www.opera.com/zh-cn" target="_blank"><img src="../../Images/common/Opera.png" title="Opera"></a>
+                <a href="http://windows.microsoft.com/zh-cn/internet-explorer/download-ie" target="_blank"><img src="../../Images/common/IE.png" title="IE"></a>
+                <a href="http://www.google.cn/intl/zh-CN/chrome/browser/" target="_blank"><img src="../../Images/common/Chrome.png" title="Chrome"></a>
+                <a href="http://www.firefox.com.cn/" target="_blank"><img src="../../Images/common/FireFox.png" title="FireFox"></a>
+                <a href="http://support.apple.com/zh_CN/downloads/#safari" target="_blank"><img src="../../Images/common/Safari.png" title="Safari"></a>
+            </div>
+            <div class="description">
+                支持<b class="showy">Opera，IE(10及10以上)，Google，Firefox，Safari</b>浏览器
+            </div>
+            <div class="description">
+                请点击图标下载
+            </div>
+            <div class="operate">
+                <a href="/?browserUncheck=1" class="btn warning" style="width: 250px;margin-left: 80px;">进入系统</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

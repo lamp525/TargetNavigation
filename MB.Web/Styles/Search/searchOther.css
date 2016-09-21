@@ -1,0 +1,1296 @@
+﻿
+/*搜索目标样式开始*/
+#object_detail_modal  ul{
+    padding-top: 10px;
+}
+#object_detail_modal table td ,#object_modify_modal td{
+    border: 0px;
+    padding: 3px;
+}
+#object_detail_modal table,#object_modify_modal table{
+    margin-bottom: 0px;
+}
+.noMarginBottom{
+    margin-bottom: 0px;
+}
+#object_detail_modal  hr, #object_modify_modal hr{
+    margin-left: -15px;
+    width: 735px;
+}
+
+
+.glyphicon-comment {
+    margin-left: 5px;
+    vertical-align: middle;
+    display: none;
+}
+
+.disabledColor{
+    color:#d1d1d1;
+}
+#object_detail_modal .modal-content,#object_modify_modal .modal-content{
+    width:670px;
+}
+#object_detail_modal .formulaHr{
+    width: 87%;
+    margin: 3px 0px 3px -4px;
+    border-top: 1px solid #d6d6d6;
+}
+#object_detail_modal input[type='number']{
+    margin-left:3px;
+    width:85px;
+    display: inline-block;
+}
+#object_detail_modal input:disabled,#object_detail_modal .btn:disabled{
+    cursor: default;
+    background-color: transparent;
+}
+#object_modify_modal .progress, #object_detail_modal .progress{
+    display: block;
+    height: 10px;
+    width: 100px;
+    float: right;
+    margin-top: 15px;
+    display: none;
+    margin-bottom: 0px;
+}
+#object_modify_modal .input-group-addon, #object_detail_modal .input-group-addon{
+    padding:0px;
+}
+#object_modify_modal .glyphicon-yen, #object_detail_modal .glyphicon-yen{
+    width: 24px;
+}
+#objectDetailLabel{
+    margin-right:20px;
+    float:left;
+    cursor: pointer;
+}
+#objectRoleLabel{
+    cursor: pointer;
+}
+
+.unfoldChild {
+    text-align: center;
+    white-space: nowrap;
+}
+.oneChild {
+    display: inline-block;
+    vertical-align: top;
+    position: relative;
+}
+.unfoldChild .oneBlock {
+    display: inline-block;
+    position: relative;
+}
+.oneBlock .glyphicon-remove{
+    font-size: 13px;
+
+}
+.oneBlock .glyphicon-remove:hover{
+   color: #55b050;
+}
+.oneBlock {
+    width: 233px;
+    height: 98px;
+    background-color: #f9f9f9;
+    vertical-align: middle;
+    border: 1px solid #bbb;
+    margin-right: 20px;
+}
+.labels {
+    display: inline-block;
+    color: #fff;
+    width: 100%;
+    padding-top: 3px;
+}
+.labels .labelOne {
+    float: left;
+    display: block;
+    width: 3px;
+    height: 24px;
+    background: url(../../Images/plan/labelOne.png) no-repeat;
+    margin-left: -3px;
+}
+.labels .labelTwo {
+    float: left;
+    width: auto;
+    height: 20px;
+    background: url(../../Images/plan/labelTwo.png) repeat-x;
+    padding: 0px 2px 0px 4px;
+    cursor: pointer;
+}
+.labels .labelThree {
+    float: left;
+    display: block;
+    width: 6px;
+    height: 20px;
+    background: url(../../Images/plan/labelThree.png) no-repeat;
+}
+.modifyDocumentAdd {
+    background: url("../../Images/objective/add.png");
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    margin-top: 8px;
+}
+.noMarginTop {
+    margin-top: 0px;
+}
+.oneBlock>ul {
+    margin: 0px 3px;
+    text-align: left;
+}
+.list-unstyled {
+    padding-left: 0;
+    list-style: none;
+}
+.unfoldWeight {
+    color: #f8ab0e;
+    font-size: 16px;
+    float: right;
+    margin-right: 20px;
+    margin-top: -5px;
+}
+.unfoldObjName {
+    max-width: 155px;
+}
+.textOverFlow {
+    white-space: nowrap;
+    max-width: 100px;
+    text-overflow: ellipsis;
+    display: inline-block;
+    overflow: hidden;
+    vertical-align: middle;
+}
+.operateDiv.unfoldOperate {
+    background-color: #a8d6a7;
+    opacity: 1;
+    padding-right: 23px;
+}
+.operateMessage {
+    position: absolute;
+    top: 16px;
+    left: 3px;
+    display: none;
+    width: 90%;
+    height: 30px;
+    line-height: 30px;
+    max-width: 400px;
+}
+.hrVertical {
+    height: 14px;
+    margin: 0px auto;
+    width: 0px;
+    border: 1px solid #bbbbbb;
+}
+.hrHorizontal {
+    border: 1px solid #bbbbbb;
+    margin: 0 auto;
+    display: none;
+    position: absolute;
+}
+#object_modify_modal, #object_detail_modal {
+    z-index: 1051;
+}
+
+.operateDiv {
+    position: absolute;
+    bottom: -3px;
+    right: 0px;
+    z-index: 1;
+    display: none;
+    width: 88%;
+    height: 40px;
+    background-color: #58b456;
+    opacity: 0.8;
+}
+.unfoldOperate {
+    width: 101%;
+    bottom: 0px;
+    left: -1px;
+    height: 30px;
+    text-align: right;
+}
+.oneBlock:hover .operateDiv{
+    display: block;
+}
+.unfoldOperate ul {
+    margin: 0px;
+}
+.oneBlock .slideBtn {
+    margin: 3px;
+    z-index: 100;
+    cursor: pointer;
+}
+.operateDiv.unfoldOperate li {
+    margin: 3px 0px 3px 0px;
+}
+.operateDiv .liDetail {
+    background: url(../../Images/plan/planDetail.png) no-repeat;
+}
+.operateDiv ul li {
+    height: 24px;
+    line-height: 24px;
+    margin: 8px 3px;
+    padding-left: 24px;
+    cursor: pointer;
+    color: white;
+}
+.operateDiv .liChecks {
+    background: url(../../Images/plan/checks.png) no-repeat;
+}
+.operateDiv .liChecks:hover{
+    background: url(../../Images/plan/checksHit.png) no-repeat;
+    color:#136012;
+}
+
+.operateDiv .liSure {
+    background: url(../../Images/objective/sure.png) no-repeat;
+}
+.operateDiv .liSure:hover{
+    background: url(../../Images/objective/sureHit.png) no-repeat;
+    color:#136012;
+}
+
+.operateDiv .liDetail {
+    background: url(../../Images/plan/planDetail.png) no-repeat;
+}
+.operateDiv .liDetail:hover {
+    background: url(../../Images/plan/planDetailHit.png) no-repeat;
+    color:#136012;
+}
+.operateDiv .liModify{
+    background: url(../../Images/plan/modification.png) no-repeat;
+ }
+.operateDiv .liModify:hover{
+    background: url(../../Images/plan/modificationHit.png) no-repeat;
+    color:#136012;
+}
+.operateDiv .liPower{
+    background: url(../../Images/objective/impower.png) no-repeat 1px;
+}
+.operateDiv .liPower:hover{
+    background: url(../../Images/objective/impowerHit.png) no-repeat 1px;
+    color:#136012;
+}
+.operateDiv .liPowerCancel{
+
+}
+.operateDiv .liPowerCancel:hover{
+    color:#136012;
+}
+
+.operateDiv .liOpen{
+    background: url(../../Images/objective/unfold.png) no-repeat 1px;
+}
+.operateDiv .liOpen:hover{
+    background: url(../../Images/objective/unfoldHit.png) no-repeat 1px;
+    color:#136012;
+}
+.operateDiv .liCommit{
+    background: url(../../Images/plan/submit.png) no-repeat;
+}
+.operateDiv .liCommit:hover{
+    background: url(../../Images/plan/submitHit.png) no-repeat;
+    color:#136012;
+}
+.operateDiv .liSplit{
+    background: url(../../Images/plan/resolve.png) no-repeat;
+}
+.operateDiv .liSplit:hover{
+    background: url(../../Images/plan/resolveHit.png) no-repeat;
+    color:#136012;
+}
+.operateDiv .liRevocation{
+    background: url(../../Images/plan/revocation.png) no-repeat;
+}
+.operateDiv .liRevocation:hover{
+    background: url(../../Images/plan/revocationHit.png) no-repeat;
+    color:#136012;
+}
+.operateDiv .liDel{
+    background: url(../../Images/objective/deleteWhite.png) no-repeat;
+}
+.operateDiv .liDel:hover{
+    background: url(../../Images/objective/deleteHit.png) no-repeat 1px;
+    color:#136012;
+}
+
+.unfoldObjObject {
+    max-width: 170px;
+}
+
+
+#modifyObjectContent, #modifyObjectTime, #modifyObjectPerson {
+    padding-top: 10px;
+}
+.borderTop {
+    border-top: 1px solid #eee;
+}
+#object_modify_modal .control-label {
+    width: 11%;
+}
+#modifyObjectContent .form-control, #modifyObjectContent .dropdown, #expectInput {
+    width: 210px;
+}
+#object_modify_modal .control-label {
+    width: 11%;
+}
+.marginSm {
+    margin-left: 40px;
+}
+#modifyObjectContent .form-control, #modifyObjectContent .dropdown, #expectInput {
+    width: 210px;
+}
+#modifyObjectContent .dropdown, #targetInput, #expectInput {
+    display: inline-block;
+}
+.dropdownBtn {
+    width: 100%;
+    text-align: left;
+    background-color: transparent;
+    line-height: 26px;
+    height: 30px;
+    padding-right: 0px;
+    padding-top: 0px;
+}
+
+.dropdown-menu {
+    width: 100%;
+    min-width: 0px;
+}
+#modifyObjectContent .form-control, #modifyObjectContent .dropdown, #expectInput {
+    width: 210px;
+}
+#modifyObjectContent .input-group .form-control {
+    width: 186px;
+}
+#object_modify_modal .input-group-addon, #object_detail_modal .input-group-addon {
+    padding: 0px;
+}
+#object_modify_modal .glyphicon-yen, #object_detail_modal .glyphicon-yen {
+    width: 24px;
+}
+#modifyObjectTime .input-group, #modifyObjectPerson .input-group {
+    margin-right: 5px;
+}
+#modifyObjectTime .form-control, #modifyObjectPerson .form-control {
+    width: 100px;
+}
+.dateCorn {
+    background: url(../../Images/objective/date.png) no-repeat;
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+}
+.responseCorn {
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    background: url("../../Images/objective/response.png");
+}
+.confirmCorn {
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    background: url("../../Images/objective/confirmUser.png");
+}
+#object_modify_modal .form-inline {
+    margin-bottom: 10px;
+}
+#object_modify_modal .fifty-fifty > * {
+    width: 33.333333%;
+}
+.fileUploadBtn {
+    opacity: 0;
+    direction: rtl;
+    cursor: pointer;
+}
+.targetListAll .glyphicon {
+    display: inline-block;
+    margin: 2px 4px;
+}
+.objectChild {
+    margin-left:20px;
+}
+.backParent {
+    margin-left: -7px;
+    padding-left: 7px;
+    background-color: #e3e3e3;
+    margin-right: -7px;
+    padding-right: 7px;
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+}
+.upPic {
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    background: url(../../Images/objective/up.png) no-repeat;
+    float: right;
+    margin-top: 2px;
+}
+.rightModal {
+    background-color: #f9f9f9;
+    overflow: hidden;
+    position: absolute;
+    display: none;
+    top: 0px;
+    width: 330px;
+    height: 100%;
+    padding-left: 15px;
+    border: 1px solid #999;
+    border: 1px solid rgba(0, 0, 0, .2);
+    outline: 0;
+    -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, .5);
+    box-shadow: 0 3px 9px rgba(0, 0, 0, .5);
+    z-index: -1;
+}
+#chooseContent {
+    height: 100%;
+    margin-left: -7px;
+}
+#personZtree {
+    width: 100%;
+    height: 246px;
+    overflow-y: auto;
+}
+#modifyPersonList {
+    padding-left: 5px;
+    height: 272px;
+    overflow-y: auto;
+}
+
+#objectModifyTab {
+    float: left;
+    margin-right: 20px;
+}
+#default-formula {
+    height: 38px;
+    width: 140px;
+}
+#default-formula-up {
+    float: left;
+    border-bottom: 1px solid;
+}
+#default-formula-down {
+    float: left;
+}
+#default-formula-right {
+    margin-top: 10px;
+    height: 38px;
+}
+#maxValue, #minValue {
+    width: 45%;
+    display: inline;
+}
+#objectiveRule-setFormula {
+    float: right;
+}
+#formula-set-content {
+    height: 300px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+#objectiveRule-Sure {
+    float: right;
+}
+#objectiveNew_modal .modal-content {
+    width: 738px;
+}
+#modal_con_objective .modal-body {
+    margin-bottom: 150px;
+}
+#objectiveNew_modal .row {
+    margin-bottom: 10px;
+}
+#modal_con_objective table {
+    width: 100%;
+}
+#modal_con_objective table td {
+    border-top: none;
+}
+#table-objective-content input, #table-objective-content .dropdown {
+    width: 75%;
+}
+#objectiveNew_modal .upPic {
+    background: url(../../Images/objective/up.png)no-repeat;
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    margin-top: -3px;
+    margin-right: -10px;
+    float: right;
+}
+#new-objectiveValue-money-group a, #new-expectedValue-money-group a {
+    width: 30px;
+    height: 33px;
+    padding-left: 8px;
+    margin-top: -1px;
+    border-left: 0;
+}
+#table-objective-date input {
+    width: 100px;
+}
+#objectiveNew_modal .new-date {
+    background: url(../../Images/objective/date.png) 0 no-repeat;
+    width: 30px;
+    height: 33px;
+    border-left: 0;
+    background-position: center;
+}
+#objectiveNew_modal .new-responsibleUser {
+    background: url(../../Images/objective/response.png) 0 no-repeat;
+    width: 30px;
+    height: 33px;
+    border-left: 0;
+    background-position: center;
+}
+#objectiveNew_modal .modal-footer.thirty-thirty {
+    padding: 0;
+    margin: 0;
+}
+#objectiveNew_modal .thirty-thirty {
+    display: block;
+}
+#objectiveNew_modal .modal-footer.thirty-thirty>.btn {
+    margin: 0;
+    border-top: none;
+    border-bottom: none;
+    border-left: none;
+}
+#objectiveNew_modal .thirty-thirty>* {
+    float: left;
+    display: block;
+    width: 33.333333%;
+    height: 100%;
+    /* box-sizing: border-box; */
+    border-right: 1px solid #ccc;
+    overflow: auto;
+}
+#modal_con_objective table .table-span {
+    display: inline-block;
+    margin-top: 6px;
+}
+#new-objectiveType-dropdown .dropdown-toggle {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 198px;
+}
+#objectiveNew_modal .dropdown-toggle {
+    border: 1px solid #ccc;
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+    padding: 6px 12px;
+    font-size: 12px;
+    line-height: 1.6;
+}
+#table-objective-content .input-group {
+    width: 85%;
+}
+#objectiveNew_modal .new-confirmUser {
+    background: url(../../Images/objective/confirmUser.png) 0 no-repeat;
+    width: 30px;
+    height: 33px;
+    border-left: 0;
+    background-position: center;
+}
+#objectiveNew_modal .modal-right-content {
+    left: 731px;
+}
+#objectiveNew_modal .modal-right-content {
+    width: 300px !important;
+    position: absolute;
+    height: 100%;
+    top: 0;
+}
+
+#rightContent {
+    padding-right: 10px;
+}
+#completeRight {
+    margin-bottom: 100px;
+}
+.btn_xs {
+    width: 70px;
+    margin-left: 20px;
+}
+.chosebox {
+    height: 200px;
+}
+.chosenbox {
+    height: 400px;
+}
+.chosenbox .chosen-count {
+    padding: 3px 10px;
+    border-bottom: 1px solid #ccc;
+}
+.ul.list-inline li input {
+    vertical-align: top;
+}
+.adopt {
+    height: 30px;
+    border-bottom: 1px solid #dddddd;
+}
+.choseClass {
+    height: 200px;
+    margin-top: -200px;
+    overflow-y: hidden;
+}
+.list-inline>li {
+    display: inline-block;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+.chosens {
+    padding-left: 0;
+    list-style: none;
+}
+.chosens li {
+    padding: 5px 10px;
+}
+
+/*搜索目标样式结束*/
+
+
+
+
+/*计划样式开始*/
+em.accessory {
+    display: inline-block;
+    background: url(../../Images/plan/accessoryAsh.png) no-repeat;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.optionCell {
+    /* width: 31%; */
+    padding: 10px 0;
+    display: inline-block;
+
+}
+.optionCell em {
+    margin-right: 5px;
+}
+.optionCell input, .optionCell select {
+    width: 130px;
+    height: 33px;
+    margin-left: 10px;
+}
+
+.icon {
+    font-size: 0;
+    vertical-align: middle;
+}
+.hasborder {
+    border: 1px solid #e3e3e3;
+}
+.add-min {
+    display: inline-block;
+    height: 24px;
+    width: 24px;
+    background: url('../../Images/common/add.png') no-repeat;
+    cursor: pointer;
+}
+.bound {
+    height: 30px;
+    border-top: 1px solid #e3e3e3;
+    border-bottom: 1px solid #e3e3e3;
+    width: 540px;
+    margin: 5px 0 0 -10px;
+    line-height: 30px;
+    padding-left: 20px;
+    background-color: #fffffa;
+}
+#detail_operateinfo .uploadBox {
+    background-color: white;
+}
+
+.uploadBox .allProcessBar {
+    height: 30px;
+    position: relative;
+}
+.uploadBox .allProcessBar span {
+    display: block;
+    position: absolute;
+}
+.uploadBox .allProcessBar .processBar {
+    padding: 3px;
+    position: absolute;
+    width: 222px;
+    height: 12px;
+    left: 68px;
+}
+
+.ui-slider {
+    width: 216px;
+    height: 10px;
+    border: none;
+    background: url("../../Images/plan/sliderBg.png") repeat-x;
+}
+
+#slider .ui-slider-range {
+    background: #58b557;
+}
+#slider .ui-slider-handle {
+    margin-top: 1px;
+    width: 15px;
+    height: 15px;
+    background: url("../../Images/plan/sliderDrag.png");
+    border: none;
+}
+#time_slider .ui-slider-range {
+    background: #58b557;
+}
+#time_slider .ui-slider-handle {
+    margin-top: 1px;
+    width: 15px;
+    height: 15px;
+    background: url("../../Images/plan/sliderDrag.png");
+    border: none;
+}
+#qua_slider .ui-slider-range {
+    background: #58b557;
+}
+#qua_slider .ui-slider-handle {
+    margin-top: 1px;
+    width: 15px;
+    height: 15px;
+    background: url("../../Images/plan/sliderDrag.png");
+    border: none;
+}
+#num_slider .ui-slider-range {
+    background: #58b557;
+}
+#num_slider .ui-slider-handle {
+    margin-top: 1px;
+    width: 15px;
+    height: 15px;
+    background: url("../../Images/plan/sliderDrag.png");
+    border: none;
+}
+.uploadBox .allProcessBar span {
+    display: block;
+    position: absolute;
+}
+.uploadBox .allProcessBar span.degree {
+    right: 1px;
+}
+.uploadBox .file_upload .fileinput_frame {
+    height: auto;
+    /* line-height: 32px; */
+    position: relative;
+}
+.uploadBox .file_upload span.uploadTag {
+    display: block;
+    height: 30px;
+    line-height: 30px;
+}
+.uploadBox .file_upload .fileinput-button {
+    position: absolute;
+    top: 100px;
+    left: 70px;
+    overflow: hidden;
+    width: 70px;
+    height: 32px;
+    text-align: center;
+    line-height: 32px;
+    padding: 0;
+    margin: 0;
+    float: right;
+    top: 0;
+    right: 350px;
+    background: url("../../Images/plan/uploadBtnM.png") repeat-x;
+}
+.uploadBox .file_upload .files {
+    padding: 1px 0;
+    top: 36px;
+    width: 100%;
+    min-height: 30px;
+    height: auto;
+}
+.uploadBox .finishTime {
+    padding-bottom: 7px;
+    border-bottom: 1px solid #bbb;
+}
+.uploadBox .finishTime input {
+    width: 32px;
+    height: 20px;
+}
+
+.uploadBox .uploadOperate {
+    width: 360px;
+    height: 30px;
+    margin-top: 30px;
+}
+.uploadBox .uploadOperate span {
+    margin-right: 10px;
+    float: right;
+    width: 78px;
+    height: 28px;
+    line-height: 28px;
+    text-align: center;
+    border: 1px solid #e3e3e3;
+    cursor: pointer;
+}
+.uploadBox .file_upload .fileinput-button {
+    position: absolute;
+    top: 100px;
+    left: 70px;
+    overflow: hidden;
+    width: 70px;
+    height: 32px;
+    text-align: center;
+    line-height: 32px;
+    padding: 0;
+    margin: 0;
+    float: right;
+    top: 0;
+    right: 350px;
+    background: url("../../Images/plan/uploadBtnM.png") repeat-x;
+}
+.uploadBox .file_upload .fileinput-button .fileinput-button_l {
+    background: url("../../Images/plan/uploadBtnL.png") no-repeat;
+}
+.uploadBox .file_upload .fileinput-button .fileinput-button_l, .uploadBox .file_upload .fileinput-button .fileinput-button_r {
+    position: absolute;
+    width: 4px;
+    height: 32px;
+    top: 0;
+}
+.uploadBox .file_upload .fileinput-button input {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    height: 30px;
+    opacity: 0;
+    direction: ltr;
+    cursor: pointer;
+}
+.uploadBox .file_upload .fileinput-button .fileinput-button_r {
+    right: 0;
+    background: url("../../Images/plan/uploadBtnR.png") no-repeat;
+}
+.uploadBox .file_upload .fileinput-button .fileinput-button_l, .uploadBox .file_upload .fileinput-button .fileinput-button_r {
+    position: absolute;
+    width: 4px;
+    height: 32px;
+    top: 0;
+}
+.uploadBox .file_upload .files {
+    padding: 1px 0;
+    top: 36px;
+    width: 100%;
+    min-height: 30px;
+    height: auto;
+}
+ul, li {
+    margin: 0px;
+    padding: 0px;
+    list-style-type: none;
+}
+.uploadBox .file_upload .files li {
+    width: 100%;
+    height: 40px;
+    vertical-align: bottom;
+    margin: 2px 0;
+    position: relative;
+}
+.uploadBox .file_upload .file span {
+    display: none;
+    cursor: pointer;
+}
+#submitUploadFile {
+    margin-right: 30px !important;
+}
+.addon_icon {
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+}
+.pointerClass {
+    cursor: pointer;
+}
+.noBorder {
+    border: 0px;
+}
+.traspanren_icon {
+    background: transparent;
+    border: 0px;
+    padding: 0px;
+}
+
+
+.start li {
+    width: 20px;
+    height: 17px;
+    margin-right: -3px;
+    margin-top: 2px;
+    overflow: hidden;
+}
+.needStartNoChosen li {
+    background: url(../../Images/plan/fiveStarR.png) no-repeat;
+    height: 20px;
+    margin-top: -3px;
+}
+.importantDegree .liHover, .importantDegree .liHit {
+    background: url("../../Images/planSchedule/startImportent.png") -24px -20px;
+}
+
+.addDecplan {
+    border-bottom: 1px solid #bbb;
+    border-top: 1px solid #bbb;
+    background-color: #f9f9f9;
+    width: 106%;
+    padding: 0px 9px;
+    line-height: 30px;
+    margin: 10px -15px;
+}
+.pic_corn {
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    cursor: pointer;
+}
+.addB {
+    display: none;
+}
+.pointerClass {
+    cursor: pointer;
+}
+
+.ztreeChosen {
+    width: 527px;
+    display: none;
+    overflow-y: auto;
+    max-height: 150px;
+}
+
+.urgenceDegree .liHover, .urgenceDegree .liHit {
+    background: url("../../Images/planSchedule/startUrgent.png") -24px -20px;
+}
+.difficultDegree .liHover, .difficultDegree .liHit {
+    background: url("../../Images/planSchedule/startDiffcult.png") -24px -20px;
+}
+.needStartNoChosen li {
+    background: url(../../Images/plan/fiveStarR.png) no-repeat;
+    height: 20px;
+    margin-top: -3px;
+}
+.checkBox, .commentBox {
+    position: absolute;
+    top: 0;
+    left: 560px;
+    display: none;
+    width: 390px;
+    height: 40px;
+    padding: 0 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #bbb;
+}
+.checkBox .checkHeader, .commentBox .checkHeader, .evaluateBox .checkHeader {
+    display: block;
+    width: 338px;
+    height: 29px;
+    line-height: 29px;
+    font-size: 16px;
+    border-bottom: 1px solid #bbb;
+}
+.replyDiv {
+    float: left;
+    display: none;
+    width: 360px;
+    height: 0;
+    min-height: 0px;
+    margin-left: -20px;
+    padding: 0 20px;
+    background-color: #fff;
+}
+.portraitComment {
+    float: left;
+    display: block;
+    width: 32px;
+    height: 32px;
+    margin: 9px;
+    border-radius: 50%;
+}
+.replyDiv textarea {
+    float: left;
+    width: 270px !important;
+    height: 40px !important;
+    line-height: 26px;
+    margin: 10px 0;
+    border: 1px solid #bbb;
+    overflow: hidden;
+    resize: none;
+}
+.replyDiv .replyHandle {
+    float: left;
+    width: 360px;
+    height: 40px;
+}
+.replyHandle span {
+    float: right;
+    margin-right: 40px !important;
+    width: 58px;
+    height: 28px;
+    line-height: 28px;
+    text-align: center;
+    margin-bottom: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid #bbb;
+    cursor: pointer;
+}
+.commentBox .commentList {
+    width: 360px;
+}
+.commentList li {
+    width: 360px;
+    min-height: 50px;
+    /* border-bottom: 1px solid #e3e3e3; */
+}
+.commentDiv .discuss {
+    float: left;
+    display: block;
+    width: 275px;
+    min-height: 30px;
+    line-height: 30px;
+    margin-right: 35px;
+    /* overflow-x: hidden; */
+}
+.commentDiv .botComent {
+    float: left;
+    display: block;
+    width: 310px;
+    height: 20px;
+}
+.botComent .time {
+    float: left;
+    color: #bbb;
+    line-height: 20px;
+}
+.botComent .reply, .botComent .delete {
+    margin-right: 30px;
+    float: right;
+    line-height: 20px;
+    cursor: pointer;
+}
+.botComent .delete {
+    margin-right: 10px;
+}
+.botComent .reply, .botComent .delete {
+    margin-right: 30px;
+    float: right;
+    line-height: 20px;
+    cursor: pointer;
+}
+
+.checkBox .degreeDiv {
+    width: 360px;
+    height: 60px;
+    border-bottom: 1px solid #e3e3e3;
+}
+.degreeDiv .degree {
+    float: left;
+    width: 180px;
+    height: 30px;
+    line-height: 30px;
+}
+.stars {
+    float: left;
+}
+.degree .stars ul li {
+    margin-top: 2px;
+}
+.starsR ul li {
+    background: url(../../Images/plan/fiveStarR.png) no-repeat;
+}
+.starsY ul li {
+    background: url(../../Images/plan/fiveStarY.png) no-repeat;
+}
+.starsG ul li {
+    background: url(../../Images/plan/fiveStarR.png) no-repeat;
+}
+.stars ul li {
+    float: left;
+    width: 24px;
+    height: 23px;
+    margin-top: -2px;
+    cursor: pointer;
+}
+.starsR ul li.liHover, .starsR ul li.liHit {
+    background: url(../../Images/plan/fiveStarR.png) 0 -20px no-repeat;
+}
+.starsY ul li.liHover, .starsY ul li.liHit {
+    background: url(../../Images/plan/fiveStarY.png) 0 -20px no-repeat;
+}
+.starsG ul li.liHover, .starsG ul li.liHit {
+    background: url(../../Images/plan/fiveStarG.png) 0 -20px no-repeat;
+}
+
+.checkBox .view {
+    width: 360px;
+    height: 60px;
+}
+.view span {
+    display: block;
+    width: 360px;
+    height: 25px;
+    line-height: 25px;
+    margin-top: 5px;
+}
+.view textarea {
+    float: left;
+    width: 356px;
+    height: 26px;
+    line-height: 26px;
+    border: 1px solid #e3e3e3;
+    overflow: hidden;
+    resize: none;
+}
+.checkBox .checkOperate {
+    width: 360px;
+    height: 30px;
+    margin-top: 30px;
+}
+.checkOperate span {
+    float: right;
+    width: 78px;
+    height: 28px;
+    line-height: 28px;
+    text-align: center;
+    border: 1px solid #e3e3e3;
+    cursor: pointer;
+}
+
+.evaluateBox .evaluateArea .com {
+    position: relative;
+    height: 33px;
+    line-height: 33px;
+}
+.evaluateBox .com span {
+    display: block;
+    position: absolute;
+}
+.evaluateBox .evaluateArea .processBar {
+    padding: 3px 0;
+    position: absolute;
+    width: 214px;
+    height: 12px;
+    left: 65px;
+    top: 9px;
+}
+.ui-slider {
+    width: 216px;
+    height: 10px;
+    border: none;
+    background: url("../../Images/plan/sliderBg.png") repeat-x;
+}
+#num_slider .ui-slider-range, #qua_slider .ui-slider-range, #time_slider .ui-slider-range {
+    background: #58b557;
+}
+.evaluateBox .com span {
+    display: block;
+    position: absolute;
+}
+.evaluateArea .ui-slider-handle {
+    margin-top: 1px;
+    width: 15px;
+    height: 15px;
+    background: url("../../Images/plan/sliderDrag.png");
+    border: none;
+}
+.evaluateBox .com .degInput {
+    margin: 0;
+    margin-top: -2px;
+    padding: 0;
+    width: 40px;
+    height: 20px;
+    border: 1px solid #e3e3e3;
+    position: absolute;
+    right: 2px;
+    top: 9px;
+    text-align: center;
+}
+.evaluateBox .finishTime {
+    padding-bottom: 7px;
+    border-bottom: 1px solid #bbb;
+}
+.evaluateBox .finishTime .number {
+    font-size: 14px;
+}
+.evaluateBox .auditOpinion {
+    padding-top: 10px;
+    height: 50px;
+    width: 100%;
+}
+.evaluateBox .auditOpinion span {
+    display: block;
+}
+.evaluateBox .auditOpinion input {
+    margin-top: 5px;
+    border: 1px solid #e3e3e3;
+    height: 24px;
+    width: 100%;
+}
+.evaluateBox .confirmOperate {
+    width: 360px;
+    height: 30px;
+    margin-top: 30px;
+}
+.evaluateBox .confirmOperate span {
+    margin-right: 10px;
+    float: right;
+    width: 78px;
+    height: 28px;
+    line-height: 28px;
+    text-align: center;
+    border: 1px solid #e3e3e3;
+    cursor: pointer;
+}
+.evaluateBox .confirmOperate {
+    width: 320px;
+    height: 30px;
+    margin-top: 30px;
+}
+.evaluateBox {
+   background-color:#fff;
+}
+
+
+
+.fifty-fifty > * {
+    float: left;
+    display: block;
+    width: 50%;
+    height: 100%;
+    /* box-sizing: border-box; */
+    border-right: 1px solid #ccc;
+    overflow: auto;
+}
+
+.modal-footer.fifty-fifty {
+    padding: 0;
+    margin: 0;
+}
+.fifty-fifty {
+    display: block;
+}
+.modal-footer.fifty-fifty>.btn {
+    margin: 0;
+    border-top: none;
+    border-bottom: none;
+    border-left: none;
+}
+
+.imitateSelect-img li {
+   height:auto!important;
+}
+
+
+
+/*计划样式结束*/

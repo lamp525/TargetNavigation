@@ -1,0 +1,234 @@
+﻿@model MB.Model.UserInfo
+@{
+    // Layout = "UserLogin";
+    //登录错误几次弹出验证码
+    var time = Convert.ToInt32(ViewBag.time);
+}
+<!DOCTYPE html>
+@{
+    
+}
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <script src="~/Libs/jQuery/jquery-1.11.2.js"></script>
+      <script src="~/Scripts/common/jquery.cookie.js"></script>
+    <link href="~/Styles/CommonStyle.css" rel="stylesheet" />
+    <link href="~/Styles/LoginStyle.css" rel="stylesheet" />
+    <title>能诚集团-目标导航系统</title>
+</head>
+<body style="display:none">
+    <div class="allthing">
+        <div class="login">
+            <div class="loginContain">
+                <div class="logo"></div>
+                <div class="wrongMessage">
+                    <div id="wrongMsgLogin" runat="server" style="display: none">
+                        <img src="~/Images/loginImages/wrongLeft.png" width="4" height="47" />
+                        <div class="wrongMessageDiv">
+                            <img style="margin: 12px 0 0 9px;" src="~/Images/loginImages/wrongHeader.png" width="20" height="20" />
+                            <span style="margin: 12px 0 0 13px;" id="message"></span>
+                            <img class="wrongClose" style="margin: 18px 0 0 13px;" src="~/Images/loginImages/wrongClose.png" width="7" height="8" onclick="CloseWong('wrongMsgLogin')" />
+                        </div>
+                        <img src="~/Images/loginImages/wrongRight.png" width="4" height="47" />
+                        <img style="position: absolute; top: 43px; left: 161px;" src="~/Images/loginImages/wrongArrow.png" width="16" height="8" />
+                    </div>
+                </div>
+                <div class="inputs">
+                    <ul>
+                        <li>
+                            <span>
+                                <img src="~/Images/loginImages/username.png" width="32" height="32" />
+                            </span>
+                            <em>
+                                <label for="txtUser"></label>
+                                <input type="text" id="LoginName" maxlength="20" placeholder="请输入用户名" />
+                            </em>
+                        </li>
+                        <li style="margin-top: 18px;">
+                            <span>
+                                <img src="~/Images/loginImages/password.png" width="24" height="32" />
+                            </span>
+                            <em>
+                                <label for="txtPassword"></label>
+                                <input type="password" id="LoginPassword" maxlength="20" placeholder="请输入密码" />
+                            </em>
+                              <input type="checkbox" id="ck_rmbUser"/>记住用户名和密码<br />
+                        </li>
+
+                        <li style="margin-top: 18px; display: none;" id="ValidateCode">
+                            <span>
+                                <img src="~/Images/loginImages/validateCode.png" width="24" height="20" />
+                            </span>
+                            <em style="width: 149px;">
+                                <input runat="server" id="txtValidate" style="width: 110px;" autocomplete="off" placeholder="请输入验证码" />
+                            </em>
+                            <i>
+                                <img src="~/ValidateCode/ValidateCode?Id=1" id="imgCode" alt="单击可刷新" onclick="ClickRemoveChangeCode()" />
+                            </i>
+
+                        </li>
+                    </ul>
+                </div>
+                <div class="buts">
+                    <img class="butLeft" src="~/Images/loginImages/buttonLeft.png" width="4" height="47" />
+                    <a href="javascript:void(0)" onclick="Login()">登&nbsp;录</a>
+                    <img class="butRight" src="~/Images/loginImages/buttonRight.png" width="4" height="47" />
+                </div>
+
+                <div class="experience">
+                    <a>体验目标导航</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="theme">
+    </div>
+    <div class="bottom">
+    </div>
+    @* 存储配置文件中设置的登录错误次数 *@
+    <input type="hidden" id="errorTime" value="@time" />
+</body>
+</html>
+<script>
+    function GetQueryString(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+        var r = window.location.search.substr(1).match(reg);
+        if (r != null) {
+            return decodeURIComponent(r[2]);
+        } else {
+            return null;
+        }
+    }
+
+    var uncheck = GetQueryString("browserUncheck");
+    if (!uncheck) {
+        //浏览器支持情况
+        var result;
+        try {
+            document.createElement('canvas').getContext('2d');
+        } catch (e) {
+            result = "不支持canvas";
+        }
+
+        try {
+            if (document.createElementNS("http://www.w3.org/2000/svg", "svg").createSVGRect == undefined) {
+                result = "不支持SVG";
+            }
+        } catch (e) {
+            result = "不支持SVG";
+        }
+
+
+        if (window.WebSocket == undefined && window.MozWebSocket == undefined) {
+            result = "不支持websocket";
+        }
+
+        if (result) {
+            location.href = "Login/BrowserView";
+        }
+    }
+    $("body").show();
+</script>
+<script>
+    var Failcount = 0;
+    function Login() {
+        var userName = $("#LoginName").val();
+        var pass = $("#LoginPassword").val();
+        var vCode = "";
+        if ($("#ValidateCode").css("display") == "none") {
+            vCode = "false";
+        } else {
+            vCode = $("#txtValidate").val();
+        }
+        
+
+        $.post("/Login/UserLogin", { userId: userName, userPass: pass, VCode: vCode }, function (msg) {
+            if (msg == "ok") {
+                Save();
+                window.location.href = "XXXViews/HomePageNavigation/HomePageNavigation";
+            } else if (msg == "Vf") {
+                fnWrongMessage("验证码错误");
+                fnValidateCode();
+                ClickRemoveChangeCode();
+            } else {
+                fnWrongMessage("用户名或密码输入有误");
+                if (parseInt(msg) >= parseInt($("#errorTime").val())) {
+                    fnValidateCode();
+                    ClickRemoveChangeCode();
+                }
+            }
+        })
+    }
+    //记住用户名密码
+    function Save() {
+        if ($("#ck_rmbUser").prop("checked")) {
+            var str_username = $("#LoginName").val();
+            var str_password = $("#LoginPassword").val();
+            $.cookie("rmbUser", "true", { expires: 99 }); //存储一个带7天期限的cookie
+            $.cookie("username", str_username, { expires: 99 });
+            $.cookie("password", str_password, { expires:99 });
+        }
+        else {
+            $.cookie("rmbUser", "false", { expire: -1 });
+            $.cookie("username", "", { expires: -1 });
+            $.cookie("password", "", { expires: -1 });
+        }
+    };
+</script>
+
+<script>
+
+    $(document).ready(function () {
+        if ($.cookie("rmbUser") == "true") {
+            $("#ck_rmbUser").attr("checked", true);
+            $("#LoginName").val($.cookie("username"));
+            $("#LoginPassword").val($.cookie("password"));
+        }
+    });
+
+  
+</script>
+
+
+<script>
+    $(document).keydown(function (event) {
+        if (event.keyCode == 13) {
+            Login();
+        }
+    })
+    function ClickRemoveChangeCode() {
+        var code = $("#imgCode").attr("src");
+        $("#imgCode").attr("src", code + "1");
+    }
+    function fnWrongMessage(message) {
+        $('#message').text(message)
+        $('#wrongMsgLogin').show();
+    }
+    function fnValidateCode() {
+        $('#ValidateCode').show();
+    }
+    $('.wrongClose').hover(function () {
+        $(this).attr({ 'src': 'Images/loginImages/wrongCloseHit.png' });
+    }, function () {
+        $(this).attr({ 'src': 'Images/loginImages/wrongClose.png' });
+    });
+    $('.refresh').hover(function () {
+        $(this).attr({ 'src': 'Images/loginImages/refreshHit.png' });
+    }, function () {
+        $(this).attr({ 'src': 'Images/loginImages/refresh.png' });
+    });
+    $('.buts').hover(function () {
+        $('.butLeft').attr({ 'src': 'Images/loginImages/buttonLeftHit.png' });
+        $('a', this).css({ 'background-image': 'url(images/loginImages/buttonMidHit.png)' });
+        $('.butRight').attr({ 'src': 'Images/loginImages/buttonRightHit.png' });
+    }, function () {
+        $('.butLeft').attr({ 'src': 'Images/loginImages/buttonLeft.png' });
+        $('a', this).css({ 'background-image': 'url(images/loginImages/buttonMid.png)' });
+        $('.butRight').attr({ 'src': 'Images/loginImages/buttonRight.png' });
+    });
+    function CloseWong(MsgLogin) {
+        var clicktext = document.getElementById(MsgLogin);
+        clicktext.style.display = "none";
+    }
+</script>

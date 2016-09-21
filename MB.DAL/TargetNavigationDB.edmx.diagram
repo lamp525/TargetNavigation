@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="8a34e4c6ed764625b5ff953d2f5d2e68" Name="关系图1" ZoomLevel="52">
+        <EntityTypeShape EntityType="TargetNavigationDBModel.tblAuth" Width="1.5" PointX="3.1807436566710212" PointY="10.940924664466142" />
+        <EntityTypeShape EntityType="TargetNavigationDBModel.tblAuthResult" Width="1.5" PointX="10.142774841814664" PointY="13.378540626437655" />
+        <EntityTypeShape EntityType="TargetNavigationDBModel.tblBank" Width="1.5" PointX="2.6283976000865907" PointY="10.100161244208069" />
+        <EntityTypeShape EntityType="TargetNavigationDBModel.tblBankCard" Width="1.5" PointX="10.347589702507291" PointY="2.1030236492413206" />
+        <EntityTypeShape EntityType="TargetNavigationDBModel.tblBatchResult" Width="1.5" PointX="2.6958153595662746" PointY="1.4595515734793394" />
+        <EntityTypeShape EntityType="TargetNavigationDBModel.tblCalendar" Width="1.5" PointX="3.5828424895102353" PointY="30.988193675404506" />
+        <EntityTypeShape EntityType="TargetNavigationDBModel.tblCalendarUser" Width="1.5" PointX="5.0613798224653026" PointY="1.7718000569249504" />
+        <EntityTypeShape EntityType="TargetNavigationDBModel.tblClient" Width="1.5" PointX="4.2291763854348927" PointY="5.121880682707709" />
+        <EntityTypeShape EntityType="TargetNavigationDBModel.tblCompanyDocument" Width="1.5" PointX="5.6667811356795861" PointY="1.4992576993532747" />
+        <EntityTypeShape EntityType="TargetNavigationDBModel.tblCompanyDocumentLog" Width="1.5" PointX="0.17596894883362993" PointY="16.337499864556595" />
+        <EntityTypeShape EntityType="TargetNavigationDBModel.tblControlItem" Width="1.5" PointX="7.9548325016884274" PointY="12.649170851637223" />
+        <EntityTypeShape EntityType="TargetNavigationDBModel.tblDelayRule" Width="1.5" PointX="8.1196057983299745" PointY="22.810223902952963" />
+        <EntityTypeShape EntityType="TargetNavigationDBModel.tblDetailFormula" Width="1.5" PointX="9.2416501721561186" PointY="20.037865856680025" />
+        <EntityTypeShape EntityType="TargetNavigationDBModel.tblDistrict" Width="1.5" PointX="4.8700145971356026" PointY="17.305014499139514" />
+        <EntityTypeShape EntityType="TargetNavigationDBModel.tblDocumentShared" Width="1.5" PointX="7.9103635046213689" PointY="13.744383848153234" />
+        <EntityTypeShape EntityType="TargetNavigationDBModel.tblEntrustResult" Width="1.5" PointX="0.6966893415417007" PointY="3.8604187387323092" />
+        <EntityTypeShape EntityType="TargetNavigationDBModel.tblEquipment" Width="1.5" PointX="0.4414613397985051" PointY="4.1583023835710726" />
+        <EntityTypeShape EntityType="TargetNavigationDBModel.tblExecutionMode" Width="1.5" PointX="4.6589852872579289" PointY="29.522676690259331" />
+        <EntityTypeShape EntityType="TargetNavigationDBModel.tblFlowEntrust" Width="1.5" PointX="9.5340870346567073" PointY="16.202024020348688" />
+        <EntityTypeShape EntityType="TargetNavigationDBModel.tblFlowNode" Width="1.5" PointX="3.2114102743619166" PointY="3.0438260599243576" />
+        <EntityTypeShape EntityType="TargetNavigationDBModel.tblFolderAuth" Width="1.5" PointX="5.326109873748436" PointY="25.023469638555994" />
+        <EntityTypeShape EntityType="TargetNavigationDBModel.tblFormContent" Width="1.5" PointX="7.7246337177812272" PointY="26.76961546892748" />
+        <EntityTypeShape EntityType="TargetNavigationDBModel.tblFormDetail" Width="1.5" PointX="2.4299742143740755" PointY="19.860213870117541" />
+        <EntityTypeShape EntityType="TargetNavigationDBModel.tblFormDuplicate" Width="1.5" PointX="4.5579359850650354" PointY="11.222607588033474" />
+        <EntityTypeShape EntityType="TargetNavigationDBModel.tblFormFlow" Width="1.5" PointX="4.1593541038033335" PointY="8.007093820724215" />
+        <EntityTypeShape EntityType="TargetNavigationDBModel.tblImage" Width="1.5" PointX="11.642832767052033" PointY="24.144483219899463" />
+        <EntityTypeShape EntityType="TargetNavigationDBModel.tblImContacts" Width="1.5" PointX="8.1480142474863744" PointY="14.39822872653521" />
+        <EntityTypeShape EntityType="TargetNavigationDBModel.tblImGroups" Width="1.5" PointX="8.897346936584146" PointY="16.198836363944615" />
+        <EntityTypeShape EntityType="TargetNavigationDBModel.tblImGroupUser" Width="1.5" PointX="6.5459102944219065" PointY="7.5557066833394142" />
+        <EntityTypeShape EntityType="TargetNavigationDBModel.tblImLogin" Width="1.5" PointX="7.9186192713298924" PointY="21.883826459703887" />
+        <EntityTypeShape EntityType="TargetNavigationDBModel.tblImMessages" Width="1.5" PointX="4.6369683354333828" PointY="27.809862790540727" />
+        <EntityTypeShape EntityType="TargetNavigationDBModel.tblIndexDocument" Width="1.5" PointX="10.923883286734988" PointY="9.6365941211751629" />
+        <EntityTypeShape EntityType="TargetNavigationDBModel.tblIndexImage" Width="1.5" PointX="0.22296368154835128" PointY="8.2786487081454361" />
+        <EntityTypeShape EntityType="TargetNavigationDBModel.tblIndexModule" Width="1.5" PointX="1.0896934350438852" PointY="13.755127004233714" />
+        <EntityTypeShape EntityType="TargetNavigationDBModel.tblIndexNews" Width="1.5" PointX="4.3866182213586837" PointY="30.909392341463544" />
+        <EntityTypeShape EntityType="TargetNavigationDBModel.tblIndexNotice" Width="1.5" PointX="9.3508113628955609" PointY="29.425424470298655" />
+        <EntityTypeShape EntityType="TargetNavigationDBModel.tblIndexStatistics" Width="1.5" PointX="0.80045257546028714" PointY="28.189417032613147" />
+        <EntityTypeShape EntityType="TargetNavigationDBModel.tblLinkCondition" Width="1.5" PointX="9.0188053515827313" PointY="26.882666659952452" />
+        <EntityTypeShape EntityType="TargetNavigationDBModel.tblLinkFormula" Width="1.5" PointX="6.1238597492332847" PointY="4.7841865889654436" />
+        <EntityTypeShape EntityType="TargetNavigationDBModel.tblLinkResult" Width="1.5" PointX="2.9562637111899739" PointY="1.7640980043281327" />
+        <EntityTypeShape EntityType="TargetNavigationDBModel.tblLogin" Width="1.5" PointX="2.3300263333739837" PointY="13.087208858266104" />
+        <EntityTypeShape EntityType="TargetNavigationDBModel.tblLoopplanAttachment" Width="1.5" PointX="0.875" PointY="10" />
+        <EntityTypeShape EntityType="TargetNavigationDBModel.tblLoopplanOperate" Width="1.5" PointX="2.125" PointY="29.875" />
+        <EntityTypeShape EntityType="TargetNavigationDBModel.tblMeetingAttachment" Width="1.5" PointX="11.52984871320885" PointY="1.0080540482923641" />
+        <EntityTypeShape EntityType="TargetNavigationDBModel.tblMeetingMember" Width="1.5" PointX="5.375" PointY="23.5" />
+        <EntityTypeShape EntityType="TargetNavigationDBModel.tblMeetingRoom" Width="1.5" PointX="3" PointY="25.125" />
+        <EntityTypeShape EntityType="TargetNavigationDBModel.tblMeetingRoomAppointment" Width="1.5" PointX="11.114722514112817" PointY="28.843337117155706" />
+        <EntityTypeShape EntityType="TargetNavigationDBModel.tblMeetingRoomEquipment" Width="1.5" PointX="7.2246165197457257" PointY="3.8758472520279916" />
+        <EntityTypeShape EntityType="TargetNavigationDBModel.tblMonthPlanCompleteStatistics" Width="1.5" PointX="13.25" PointY="32.625" />
+        <EntityTypeShape EntityType="TargetNavigationDBModel.tblMonthTargetCompleteStatistics" Width="1.5" PointX="10.616041961412897" PointY="12.795638194678183" />
+        <EntityTypeShape EntityType="TargetNavigationDBModel.tblNews" Width="1.5" PointX="9.625" PointY="0.75" />
+        <EntityTypeShape EntityType="TargetNavigationDBModel.tblNewsDirectory" Width="1.5" PointX="12.75" PointY="26.125" />
+        <EntityTypeShape EntityType="TargetNavigationDBModel.tblNodeField" Width="1.5" PointX="8.3805304208679736" PointY="28.84359183760527" />
+        <EntityTypeShape EntityType="TargetNavigationDBModel.tblNodeLink" Width="1.5" PointX="11.950703887245947" PointY="12.671574196159641" />
+        <EntityTypeShape EntityType="TargetNavigationDBModel.tblNodeOperate" Width="1.5" PointX="11.877126295062308" PointY="19.35222005255158" />
+        <EntityTypeShape EntityType="TargetNavigationDBModel.tblNoticeDirectory" Width="1.5" PointX="5.8764085890149733" PointY="31.278040036222915" />
+        <EntityTypeShape EntityType="TargetNavigationDBModel.tblObjective" Width="1.5" PointX="9" PointY="30.375" />
+        <EntityTypeShape EntityType="TargetNavigationDBModel.tblObjectiveChange" Width="1.5" PointX="1.8088985354681024" PointY="23.561822797899051" />
+        <EntityTypeShape EntityType="TargetNavigationDBModel.tblObjectiveDocument" Width="1.5" PointX="9.69314411920176" PointY="4.8801171206310938" />
+        <EntityTypeShape EntityType="TargetNavigationDBModel.tblObjectiveFormula" Width="1.5" PointX="2.9845158043245394" PointY="2.4722528618165538" />
+        <EntityTypeShape EntityType="TargetNavigationDBModel.tblObjectiveOperate" Width="1.5" PointX="0.061173414839978055" PointY="23.927442919429133" />
+        <EntityTypeShape EntityType="TargetNavigationDBModel.tblOperateResult" Width="1.5" PointX="5.8117186752202539" PointY="9.8154069976021567" />
+        <EntityTypeShape EntityType="TargetNavigationDBModel.tblOrganization" Width="1.5" PointX="5.8241986082048154" PointY="31.260987147344736" />
+        <EntityTypeShape EntityType="TargetNavigationDBModel.tblOrgDayWorkTime" Width="1.5" PointX="10.966277483369353" PointY="19.486955547466387" />
+        <EntityTypeShape EntityType="TargetNavigationDBModel.tblOrgMonthWorkTime" Width="1.5" PointX="6.5694534511163143" PointY="4.0075226444786054" />
+        <EntityTypeShape EntityType="TargetNavigationDBModel.tblPerDayWorkTime" Width="1.5" PointX="9.5427523411543831" PointY="8.8769196164221125" />
+        <EntityTypeShape EntityType="TargetNavigationDBModel.tblPerMonthWorkTime" Width="1.5" PointX="6.2916613604368923" PointY="21.243715117333323" />
+        <EntityTypeShape EntityType="TargetNavigationDBModel.tblPersonalSetting" Width="1.5" PointX="8.02245784179422" PointY="3.190735118086792" />
+        <EntityTypeShape EntityType="TargetNavigationDBModel.tblPlan" Width="1.5" PointX="7.133551500334196" PointY="20.891643429590221" />
+        <EntityTypeShape EntityType="TargetNavigationDBModel.tblPlanAttachment" Width="1.5" PointX="5.5" PointY="8.875" />
+        <EntityTypeShape EntityType="TargetNavigationDBModel.tblPlanCompleteStatistics" Width="1.5" PointX="3.5088195109315308" PointY="18.074689039063962" />
+        <EntityTypeShape EntityType="TargetNavigationDBModel.tblPlanCooperation" Width="1.5" PointX="0.50089397304733008" PointY="26.575287950493063" />
+        <EntityTypeShape EntityType="TargetNavigationDBModel.tblPlanFront" Width="1.5" PointX="3.2432663623445048" PointY="13.380180707844058" />
+        <EntityTypeShape EntityType="TargetNavigationDBModel.tblPlanObjective" Width="1.5" PointX="11.631994116879998" PointY="31.666685700261354" />
+        <EntityTypeShape EntityType="TargetNavigationDBModel.tblPlanOperate" Width="1.5" PointX="14.75" PointY="27.625" />
+        <EntityTypeShape EntityType="TargetNavigationDBModel.tblPlanStatistics" Width="1.5" PointX="3.7602986003087358" PointY="3.4366413072853543" />
+        <EntityTypeShape EntityType="TargetNavigationDBModel.tblPlanStatisticsOrg" Width="1.5" PointX="11" PointY="26.75" />
+        <EntityTypeShape EntityType="TargetNavigationDBModel.tblPlanSuggestion" Width="1.5" PointX="4.73719090816434" PointY="17.837117263040096" />
+        <EntityTypeShape EntityType="TargetNavigationDBModel.tblPrimary" Width="1.5" PointX="6.796579915469783" PointY="12.194536021069872" />
+        <EntityTypeShape EntityType="TargetNavigationDBModel.tblProject" Width="1.5" PointX="3.752784252051629" PointY="23.087093974969861" />
+        <EntityTypeShape EntityType="TargetNavigationDBModel.tblProvince" Width="1.5" PointX="11.850069455732623" PointY="12.381588151856134" />
+        <EntityTypeShape EntityType="TargetNavigationDBModel.tblRewardPunish" Width="1.5" PointX="13" PointY="28" />
+        <EntityTypeShape EntityType="TargetNavigationDBModel.tblSuggestionAttachment" Width="1.5" PointX="5.4376036531467005" PointY="4.526794361195897" />
+        <EntityTypeShape EntityType="TargetNavigationDBModel.tblTemplate" Width="1.5" PointX="8" PointY="0.5" />
+        <EntityTypeShape EntityType="TargetNavigationDBModel.tblTemplateCategory" Width="1.5" PointX="1.702132048877949" PointY="4.9567408882811392" />
+        <EntityTypeShape EntityType="TargetNavigationDBModel.tblTemplateControl" Width="1.5" PointX="11.125" PointY="33.5" />
+        <EntityTypeShape EntityType="TargetNavigationDBModel.tblUserContacts" Width="1.5" PointX="8.4718971217385945" PointY="20.922628516760948" />
+        <EntityTypeShape EntityType="TargetNavigationDBModel.tblUserDocument" Width="1.5" PointX="0.5" PointY="1.5" />
+        <EntityTypeShape EntityType="TargetNavigationDBModel.tblUserForm" Width="1.5" PointX="3.75" PointY="34.125" />
+        <EntityTypeShape EntityType="TargetNavigationDBModel.tblUserProject" Width="1.5" PointX="10.300255446834608" PointY="21.814721281553954" />
+        <EntityTypeShape EntityType="TargetNavigationDBModel.tblUserStation" Width="1.5" PointX="12.375" PointY="22.375" />
+        <EntityTypeShape EntityType="TargetNavigationDBModel.tblValueIncentive" Width="1.5" PointX="9.875" PointY="23.75" />
+        <EntityTypeShape EntityType="TargetNavigationDBModel.tblValueIncentiveCustom" Width="1.5" PointX="3" PointY="6.875" />
+        <EntityTypeShape EntityType="TargetNavigationDBModel.tblWeekPlanCompleteStatistics" Width="1.5" PointX="7.5" PointY="7.625" />
+        <EntityTypeShape EntityType="TargetNavigationDBModel.tblWeekTargetCompleteStatistics" Width="1.5" PointX="7" PointY="17.25" />
+        <EntityTypeShape EntityType="TargetNavigationDBModel.tblYearPlanCompleteStatistics" Width="1.5" PointX="7.625" PointY="31" />
+        <EntityTypeShape EntityType="TargetNavigationDBModel.tblYearTargetCompleteStatistics" Width="1.5" PointX="8.5956215172054335" PointY="5.6709031191053345" />
+        <EntityTypeShape EntityType="TargetNavigationDBModel.tblStation" Width="1.5" PointX="4.25" PointY="0.5" />
+        <EntityTypeShape EntityType="TargetNavigationDBModel.tblCity" Width="1.5" PointX="4.192731926307423" PointY="6.5725925744383558" />
+        <EntityTypeShape EntityType="TargetNavigationDBModel.vOrgPersonMonthWorkTime" Width="1.5" PointX="8.125" PointY="4.5" />
+        <EntityTypeShape EntityType="TargetNavigationDBModel.vOrgPersonWeekWorkTime" Width="1.5" PointX="8.9593740985539618" PointY="10.774124984989932" />
+        <EntityTypeShape EntityType="TargetNavigationDBModel.tblVersion" Width="1.5" PointX="1.0052375518741261" PointY="13.7959456508029" />
+        <EntityTypeShape EntityType="TargetNavigationDBModel.tblUser" Width="1.5" PointX="14.375" PointY="14.75" />
+        <EntityTypeShape EntityType="TargetNavigationDBModel.tblHoliday" Width="1.5" PointX="16.375" PointY="14.75" />
+        <EntityTypeShape EntityType="TargetNavigationDBModel.tblLoopPlan" Width="1.5" PointX="16.375" PointY="17.75" />
+        <EntityTypeShape EntityType="TargetNavigationDBModel.vPlanList" Width="1.5" PointX="18.375" PointY="6.75" />
+        <EntityTypeShape EntityType="TargetNavigationDBModel.tblLoopPlanCooperation" Width="1.5" PointX="20.375" PointY="0.75" />
+        <EntityTypeShape EntityType="TargetNavigationDBModel.vLoopPlanList" Width="1.5" PointX="14.375" PointY="0.75" />
+        <EntityTypeShape EntityType="TargetNavigationDBModel.tblLoopplanSubmit" Width="1.5" PointX="16.375" PointY="0.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

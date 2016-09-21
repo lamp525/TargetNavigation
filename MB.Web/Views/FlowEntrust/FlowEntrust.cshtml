@@ -1,0 +1,202 @@
+﻿@{
+    //Layout = "~/Views/Shared/_TopView.cshtml";
+    var admin = Convert.ToBoolean(Session["admin"]);
+    var userId = Convert.ToInt32(Session["userId"]);
+    var userName = Session["userName"];
+}
+<link rel="stylesheet" href="../../Styles/flow/flow-entrust.css" />
+
+    <div class="row over-hide">
+        <!--<div class="filterBox"></div>-->
+        <div class="col-lg-9">
+            <div class="panel panel-default hashandle" id="filterbox">
+                <div class="panel-heading">
+                    <div class="selectedbar">
+                        <span class="selected-label">已选条件</span>
+                        <span class="operate">
+                            <a class="btn btn-transparency" id="filterbox_clear">清空</a>
+                        </span>
+                        <span class="selecteds"></span>
+                    </div>
+                </div>
+                <div class="panel-body pos-r">
+                    <div class="selection">
+                        <span class="select-label">状态：</span>
+                        <div class="selects">
+                            <a href="#" class="option" id="filterbox_processing">进行中</a>
+                            <a href="#" class="option" id="filterbox_complete">已完结</a>
+                        </div>
+                        <span class="select-label">委托时间：</span>
+                        <div class="selects">
+                            <a href="#" class="option" id="filterbox_week">近一周</a>
+                            <a href="#" class="option" id="filterbox_month">近一月</a>
+                            <input type="text" class="select-time laydate-icon" id="filterbox_starttime">-<input type="text" class="select-time laydate-icon" id="filterbox_endtime">
+                            <a class="btn btn-transparency" id="filterbox_time_submit">确定</a>
+                        </div>
+                        <span class="select-label">被委托人：</span>
+                        <div class="selects" id="filterbox_staff">
+                            <span class="pos-r">
+                                <input type="text" class="select-name" id="filterbox_select_staff" placeholder="姓名">
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="drawer-handle" id="filterbox_shrink">
+                        看完了，点我收起来吧
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading entrustHead">
+                    <ul class="nav nav-pills">
+                        <li class="nav-right">
+                            <ul>
+                                <li><a id="add_entrust" data-toggle="modal" data-target="#new_modal" href="#">新建委托</a></li>
+                                <li id="go_filter"><a href="#">筛选</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div class="panel-body">
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane active" id="resource_manage">
+                            <div id="entrust_list" class="row entrust">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3">
+            <div class="sidebar">
+                @Html.Partial("~/Views/Shared/_UserInfo.cshtml")
+                <div class="panel panel-default panel-chart" id="file_statistics">
+                    <div class="panel-heading">流程进程</div>
+                    <div class="chart">
+                        <div id="chart3"></div>
+                        <div class="planNum">流程<span style="color: #58b456"></span>项</div>
+                        <div class="month">
+                            <span style="width: 23px" class="arrowsBBLCom"></span>
+                            <span class="text"></span>
+                            <span style="width: 23px; display: none" class="arrowsBBRCom"></span>
+                        </div>
+                    </div>
+
+                    <div class="sign">
+                    </div>
+                </div>
+            </div>
+        </div>
+    <!-- 页面内容 结束 -->
+        </div>
+    <!-- 弹出层 开始 -->
+    <!-- 个人资料设置 开始 -->
+    <div class="modal fade" id="personal_modal" tabindex="-1" role="dialog" aria-labelledby="personal_modal_label" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                @Html.Partial("~/Views/Shared/_EditUserInfo.cshtml")
+            </div>
+        </div>
+    </div>
+    <!-- 个人资料设置 结束 -->
+    <!--新建委托开始-->
+    <div class="modal fade" id="new_modal" tabindex="-1" role="dialog" aria-labelledby="new_modal_label" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+                    <h4 class="modal-title" id="new_modal_label">新建委托</h4>
+                </div>
+                <div class="modal-body">
+                    <div style="height: 50px">
+                        <span class="title">被委托人</span><span class="pos-r"><input type="text" class="input" id="input_mandatary"></span>
+                        <span class="title">委托人</span><span class="pos-r"><input type="text" class="input" id="input_entrust" @(admin == true ? "" : "disabled")></span>
+                        <span style="display: none">
+                            <input type="text" class="input" id="input_userId" value="@userId">
+                            <input type="text" class="input" id="input_userName" value="@userName">
+                        </span>
+                        <span class="title">数量</span><span class="content" id="flow_count">0</span>
+                    </div>
+                    <div style="height: 50px">
+                        <span class="title">有效时间</span>
+                        <input type="text" class="select-time laydate-icon time" id="input_start_time" placeholder="开始时间">
+                        <span style="margin-right: 15px">-</span>
+                        <input type="text" class="select-time laydate-icon time" id="input_end_time" placeholder="结束时间">
+                    </div>
+                </div>
+                <div class="head">
+                    <span>流程</span>
+                </div>
+                <div class="modal-body">
+                    <div class="chosenbox">
+                        <div class="ztree" id="flow_list"></div>
+                    </div>
+                </div>
+                <div class="add_table">
+                    <table class="table table-condensed tableuser" id="add_modal_list">
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="modal-footer fifty-fifty">
+                    <a class="btn btn-transparency btn-lg" data-dismiss="modal">取消</a>
+                    <a class="btn btn-transparency btn-lg" id="new_modal_submit">确定</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--新建委托结束-->
+
+    <!--委托详情开始-->
+    <div class="modal fade" id="detail_modal" tabindex="-1" role="dialog" aria-labelledby="new_modal_label" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+                    <h4 class="modal-title" id="detail_modal_label">委托详情</h4>
+                </div>
+                <div class="modal-body">
+                    <div style="height: 50px">
+                        <span class="title">被委托人</span><span class="content" id="mandatary_user"></span>
+                        <span class="title">委托人</span><span class="content" id="entrust_user"></span>
+                        <span class="title">数量</span><span class="content" id="entrust_number"></span>
+                    </div>
+                    <div style="height: 50px">
+                        <span class="title">有效时间</span>
+                        <span style="margin-left: 15px; margin-right: 10px" id="start_time"></span>-<span style="margin-left: 10px;" id="end_time"></span>
+                    </div>
+                </div>
+                <div class="head">
+                    <span>流程</span>
+                </div>
+                <div class="detail_table">
+                    <table class="table table-condensed tableuser" id="detail_modal_list">
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="modal-footer fifty-fifty">
+                    <a class="btn btn-transparency btn-lg" data-dismiss="modal">取消</a>
+                    <a class="btn btn-transparency btn-lg" id="detail_modal_submit">确定</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--委托详情结束-->
+
+    <!-- 弹出层 结束 -->
+<!-- 本页调用的JS 开始 -->
+
+@*@section Remark_JS {
+    <script src="../../Scripts/common/units.js"></script>
+    <script src="../../Scripts/common-bootstrap/common.js"></script>
+    <script src="../../Libs/layer/layer.js"></script>
+    <script src="../../Scripts/component/dount.js"></script>
+    <script src="../../Scripts/flow/flow-entrust.js"></script>
+
+    <script src="../../Libs/jQuery-ui/jquery-ui.js"></script>
+
+}*@
+
+<script src="../../Scripts/flow/flow-entrust.js"></script>
+<!-- 本页调用的JS 结束 -->

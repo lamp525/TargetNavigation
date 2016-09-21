@@ -1,0 +1,812 @@
+﻿ @{
+    var tagNames  = ViewBag.TagNames;
+    var userId = ViewBag.UserId;
+}  
+<!-- 会议室样式开始 -->
+<link href="~/Styles/Search/search.css" rel="stylesheet" />
+
+<link href="~/Styles/Search/searchOther.css" rel="stylesheet" />
+<!-- 会议室样式结束 -->
+<div id="idifySearch">
+    <input id="xxc_planId" type="hidden" />
+    <input id="xxc_status" type="hidden" value="0" />
+    <input id="xxc_stop" type="hidden" value="0" />
+    <input type="hidden" id="completeQuantity" value="@ViewBag.CompleteQuantity"/>
+    <input type="hidden" id="completeQuality" value="@ViewBag.CompleteQuality"/>
+    <input type="hidden" id="completeTime" value="@ViewBag.CompleteTime"/>
+
+ <div class="row">
+       <div id="searchContainer" class="col-xs-9">
+            <div class="col-xs-12 searchEle" id="searchTitle">
+                
+            </div>
+            <div class="panel panel-default searchPanel" style="margin-bottom: 0">
+                <div class="panel-heading object">
+                    <div class="panel-title">
+                        <ul class="nav nav-tabs" >
+                            <li role="presentation" class="active"><a href="#planList" aria-controls="myObject" role="tab" id="planSearch" data-toggle="tab">计划</a></li>
+                            <li role="presentation" class=""><a href="#targetList" aria-controls="myObject" role="tab" id="targetSearch" data-toggle="tab">目标</a></li>
+                            @*<li role="presentation"><a href="#flotList"  aria-controls="subObject"  id="flotSearch" role="tab" data-toggle="tab">流程</a></li>*@
+                            <li role="presentation"><a href="#toNews"  aria-controls="subObject"  id="newsSearch" role="tab" data-toggle="tab">新闻</a></li>
+                            <li role="presentation"><a href="#toWord"  aria-controls="subObject"  id="wordSearch" role="tab" data-toggle="tab">文档</a></li>
+                            <li class="nav-right">
+                                <ul>
+                                    <li class="dropdown opearteClick wordAction downLoadWord">
+                                        @*<a href="#"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-chevron-down"></i></a>*@
+                                       @* <ul class="dropdown-menu">
+                                            <li class="downLoadWord">下载</li>
+                                            <li class="delWord">删除</li>
+                                         </ul>*@
+                                        <a href="#"><i class="fa fa-download"></i>下载</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div  class="panel-body">
+                    <div class="tab-content row" id="searchTabContent">
+                        <!--计划搜索-->
+                        <div class="tab-pane active row" role="tabpanel" id="planList">
+
+                        </div>
+                        <!--目标搜索-->
+                        <div class="tab-pane" role="tabpanel" id="targetList">
+
+                        </div>
+                        <!--流程搜索-->
+                        <div class="tab-pane row" role="tabpanel" id="flotList">
+
+                        </div>
+                        <!--新闻搜索-->
+                        <div class="tab-pane" role="tabpanel" id="toNews">
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th class="col-xs-4">名称</th>
+                                    <th class="col-xs-2">所属类型</th>
+                                    @*<th class="col-xs-2">姓名</th>*@
+                                    <th class="col-xs-3">创建时间</th>
+                                    <th class="col-xs-3">修改时间</th>
+                                </tr>
+                                </thead>
+                                <tbody id="newsList">
+
+
+                                </tbody>
+                            </table>
+                        </div>
+                        <!--文档搜索-->
+                        <div class="tab-pane" role="tabpanel" id="toWord">
+                            <table class="table">
+                                <thead>
+                                   <tr>
+                                       <th class="col-xs-4"><input type="checkbox" name="name" value=" " class="clickAll">名称</th>
+                                       @*<th class="col-xs-2">所属类型</th>*@
+                                       <th class="col-xs-2">姓名</th>
+                                       <th class="col-xs-3">创建时间</th>
+                                       <th class="col-xs-3">修改时间</th>
+                                   </tr>
+                                </thead>
+                                <tbody id="wordList">
+
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="meetingSidebar" class="col-xs-3">
+             <button class="addMeeting meetingCommon">新建会议</button>  
+            @Html.Partial("~/Views/Shared/_UserInfo.cshtml")   
+        </div>
+    </div>
+
+
+
+<!--目标详情 开始-->
+<div class="modal fade" id="object_detail_modal" tabindex="-1" role="dialog" aria-labelledby="object_detail_modal" aria-hidden="true" data-backdrop="false" data-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+                 <h4 class="modal-title" id="objectDetailLabel">目标详情</h4>
+                 <h4 class="modal-title" id="objectRoleLabel">目标规则</h4>
+            </div>
+            <div class="tab-content" >
+                <div role="tabpanel" id="detailViewTab" class="tab-pane active">
+                    <div class="modal-body" style="overflow-y: auto;overflow-x: hidden;height:590px">
+
+                    </div>
+                </div>
+                <div role="tabpanel" id="FormularViewTab" class="tab-pane ">
+                    <div class="modal-body" style="overflow-y: auto;overflow-x: hidden;height:590px">
+
+                    </div>
+                </div>
+            </div>
+            <!--右边弹窗画面-->
+            <div class="rightModal">
+                <h4 id="rightTitle" style="margin-bottom: 7px;" ></h4>
+                <hr/>
+                <div id="rightContent">
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+<!--目标详情 结束-->
+
+
+
+<!--目标展开 开始-->
+<div class="modal fade" tabindex="-1"  role="dialog" aria-labelledby="object_unfold_modal" id="object_unfold_modal" aria-hidden="true" data-backdrop="false" data-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content" style="min-width: 760px;height: 603px;">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+                <h4 class="modal-title">展开</h4>
+            </div>
+            <div class="modal-body" style="overflow: auto;height: 566px;">
+                <div class="unfoldChild" >
+                    <div class="oneChild"  >
+                        <div  class="oneBlock">
+                            <div class="labels">
+                                <span class="labelOne"></span>
+                                <div class="labelTwo">
+                                    <span>已分解</span>
+                                </div>
+                                <span class="labelThree"></span>
+                                <span class="modifyDocumentAdd pull-right noMarginTop" aria-hidden="true" term="0"></span>
+                            </div>
+                            <ul class="list-unstyled">
+                                <li><span class="unfoldObjName textOverFlow">目标导航项目</span> <span class="unfoldWeight">60%</span></li>
+                                <li>目标对象: </li>
+                                <li>起止时间:<span class="unfoldSETime"> 2012-01-01~2012-02-02 </span><span class="pull-right glyphicon glyphicon-triangle-top slideBtn"></span></li>
+                            </ul>
+                            <div class="operateDiv unfoldOperate">
+                                <ul class="list-inline">
+                                    <li class='liDetail'  >详情</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!--目标展开 结束-->
+<!--目标修改 开始-->
+<div class="modal fade" tabindex="-1"  role="dialog" aria-labelledby="object_modify_modal" id="object_modify_modal" aria-hidden="true" data-backdrop="false" data-keyboard="false">
+    <div class="modal-dialog" >
+        <div class="modal-content">
+            <div class="modal-header" style="height:35px">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+                <a href="#modifyView" aria-controls="modifyView" role="tab" data-toggle="tab"><h4 class="modal-title" id="objectModifyTab">目标修改</h4></a>
+                <a href="#modifyFormularView" aria-controls="modifyFormularView" role="tab" data-toggle="tab"><h4 class="modal-title disabledColor" id="objectModifyRole">目标规则</h4></a>
+            </div>
+
+             <div class="tab-content" >
+                <div role="tabpanel" id="modifyView" class="tab-pane active">              
+                     <div class="modal-body" style="overflow-y: auto;overflow-x: hidden;height:560px">
+                            <h4 style="margin-top: 0px;">目标内容</h4>
+                            <hr/>
+                            <form class="borderTop" id="modifyObjectContent">
+                                <div class="form-inline">
+                                    <label for="objectName" class="control-label" style="">目标名称:</label>
+                                    <input type="text" id="objectName" class="form-control" maxlength="50">
+                                    <label for="modifyObjectInput" class="control-label  marginSm">目标对象:</label>
+                                    <div class="dropdown" id="modifyObjectInput">
+                                        <button class="btn btn-default dropdown-toggle dropdownBtn" data-toggle="dropdown" data-delay="50" role="button" aria-expanded="false">
+                                            <span chooseId="" class="textOverFlow" style="max-width:155px"></span>
+                                            <span class="pull-right upPic"></span>
+                                        </button>
+                                        <ul class="dropdown-menu" role="menu">
+                                            <li><a herf='#' term='1'>架构</a></li>
+                                            <li><a herf='#' term='2'>人员</a></li>
+                                        </ul>
+                                    </div>
+                                    <!--<input type="text" class="form-control" id="modifyObjectInput" maxlength="50">-->
+                                </div>
+                                <div class="form-inline">
+                                    <label for="objectBonus" class="control-label">奖励基数:</label>
+                                    <input type="text" id="objectBonus" class="form-control"   maxlength="18">
+                                    <label for="modifyWeight" class="control-label  marginSm">权重</label>
+                                    <input type="text" class="form-control" id="modifyWeight"  maxlength="18" >
+                                </div>
+                                <div class="form-inline">
+                                    <label for="modifyCheckType" class="control-label">考核类型:</label>
+                                    <div class="dropdown" id="modifyCheckType">
+                                        <button class="btn btn-default dropdown-toggle dropdownBtn" data-toggle="dropdown" data-delay="50" role="button" aria-expanded="false">
+                                            <span></span>
+                                            <span class="pull-right upPic"></span>
+                                        </button>
+                                        <ul class="dropdown-menu" role="menu">
+                                            <li><a herf='#' term='1'>金额</a></li>
+                                            <li><a herf='#' term='2'>时间</a></li>
+                                            <li><a herf='#'  term='3'>数字</a></li>
+                                        </ul>
+                                    </div>
+                                    <label class=" control-label  marginSm">指标值:</label>
+                                    <div id="targetInput"  class="modifyObjectValue">
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" id="targetMoney" maxlength="20">
+                                            <span class="input-group-addon">
+                                                <span class="glyphicon glyphicon-yen" ></span>
+                                            </span>
+                                        </div>
+                                        <div class="input-group">
+                                            <input type="button" class="form-control" id="targetTime" placeholder="日期">
+                                            <span class="input-group-addon">
+                                               <span class="dateCorn" ></span>
+                                            </span>
+                                        </div>
+                                        <input type="text" class="form-control" id="targetNumber" maxlength="20" oninput="value=value.replace(/[^\d]/g,'')">
+                                    </div>
+                                </div>
+                                <div class="form-inline">
+                                    <label  class="control-label">理想值:</label>
+                                    <div  id="expectInput"  class="modifyObjectValue">
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" id="expectMoney" maxlength="20" >
+                                            <span class="input-group-addon" >
+                                               <span class="glyphicon glyphicon-yen"></span>
+                                            </span>
+                                        </div>
+                                        <div class="input-group">
+                                            <input type="button" class="form-control" id="expectTime" placeholder="日期">
+                                            <span class="input-group-addon">
+                                                <span class="dateCorn" ></span>
+                                            </span>
+                                        </div>
+                                        <input type="text" class="form-control" id="expectNumber" maxlength="20" oninput="value=value.replace(/[^\d]/g,'')">
+                                    </div>
+
+                                     <label class="control-label marginSm" >备注项目:</label>
+                                     <input type="text" class="form-control" id="modifyRemark" maxlength="100">
+                                </div>
+                            </form>
+
+                            <div class="form-inline borderTop" id="modifyObjectTime">
+                                <label class="control-label">开始时间：</label>
+                                <div class="input-group">
+                                    <input type="button" class="form-control" id="modifyStartTime" placeholder="开始时间">
+                                    <span class="input-group-addon">
+                                       <span class="dateCorn" ></span>
+                                    </span>
+                                </div>
+                                <label class="control-label">结束时间：</label>
+                                <div class="input-group">
+                                    <input type="button" class="form-control" id="modifyEndTime" placeholder="结束时间">
+                                     <span class="input-group-addon">
+                                       <span class="dateCorn" ></span>
+                                    </span>
+                                </div>
+                        @*        <label class="control-label">警戒时间：</label>
+                                <div class="input-group">
+                                    <input type="button" class="form-control" id="modifyAlertTime" placeholder="警戒时间">
+                                     <span class="input-group-addon">
+                                       <span class="dateCorn" ></span>
+                                    </span>
+                                </div>*@
+                            </div>
+
+                            <div class="form-inline borderTop" id="modifyObjectPerson">
+                                <label class="control-label">责任人：</label>
+                                <div class="input-group">
+                                    <input type="button" class="form-control" id="responsePerson">
+                                     <button class="input-group-addon commonBtn" style="height: 33px;">
+                                       <span class="responseCorn" ></span>
+                                    </button>
+                                </div>
+                                <label class="control-label">确认人：</label>
+                                <div class="input-group">
+                                    <input type="button" class="form-control" id="confirmPerson">
+                                         <span class="input-group-addon commonBtn">
+                                           <span class="confirmCorn" ></span>
+                                        </span>
+                                </div>
+                            </div>
+
+                            <div class="row"><h4 class="col-xs-6"> 相关文档 </h4>
+                                <span class="modifyDocumentAdd  pull-right"><input type="file"  class="fileUploadBtn" id="fileUpload" name="files[]" multiple ></span>
+                                <div class="progress"><div class="bar" style="width:0%;"></div></div>
+                            </div>
+                            <hr class="noMarginTop"  />
+                            <table class="table table-hover" id="modifyObjectDocument">
+                            </table>
+
+                            <h4>意见</h4>
+                            <hr class="noMarginTop"/>
+                            <textarea class="form-control" id="modifyMessage"  rows="2" maxlength="250"></textarea>
+
+                            <h4>操作日志</h4>
+                            <hr class="noMarginTop"/>
+                            <table class="table table-hover" id="modifyObjectLog">
+                            </table>
+                        </div>
+                        
+                     <div class="modal-footer fifty-fifty">
+                            <a class="btn btn-transparency " data-dismiss="modal" id="objectModifyCancel">取消</a>
+                            <a class="btn btn-transparency " term="1" id="objectModifySave">保存</a>
+                            <a class="btn btn-transparency " term="2" id="objectModifyCommit">提交</a>
+                     </div>
+                </div>
+                <div role="tabpanel" id="modifyFormularView" class="tab-pane ">
+                    <div class="modal-body" style="overflow-y: auto;overflow-x: hidden;height:590px">
+
+                    </div>
+                </div>
+            </div>
+
+            <!--右边弹窗画面-->
+            <div class="rightModal">
+                <h4 id="chooseTitle" style="margin-bottom: 7px;" ></h4>
+                <hr/>
+                <div id="chooseContent">
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!--目标修改 结束-->
+<!--------目标新建弹窗 开始--------->
+<div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="objectiveNew_modal" id="objectiveNew_modal" aria-hidden="true" data-backdrop="false" data-keyboard="false">
+<div class="modal-dialog">
+<div class="modal-content modal-left-content">
+<div class="modal-header">
+    <a class="modal-titleClick nav-item" href="#modal_con_objective" aria-controls="modal_con_objective" role="tab" id="ModalObjectiveTab" data-toggle="tab">目标</a>
+    <a class=" nav-item" href="#modal_con_objectiveRule" aria-controls="modal_con_objectiveRule" role="tab" id="ModalObjectiveRuleTab" data-toggle="tab">目标规则 </a>
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+</div>
+<div class="tab-content" >
+<div id="modal_con_objective" role="tabpanel" class="tab-pane active">
+    <!--目标内容-->
+    <div class="modal-body">
+        <div class="row">
+            <h4>目标内容</h4>
+        </div>
+        <hr/>
+        <table  id="table-objective-content" class="table">
+            <tr>
+                <td style="width:10%"> <span class="table-span">目标名称:</span> </td>
+                <td style="width:40%"> <input type="text" id="new-objectiveName" maxlength="50" class="form-control"></td>
+                <td style="width:10%"> <span class="table-span">目标对象:</span></td>
+                <td style="width:40%">
+                    <div class="dropdown"id="new-objectiveType-dropdown">
+                                        <span class="dropdown-toggle" data-toggle="dropdown"  data-delay="50" role="button" aria-expanded="false">
+                                            <span term="" value="" id="new-objectiveType"></span><!--term判断选择的是架构还是人员选择，value用于在选择架构时记录责任部门的架构id，在选择人员时 记录责任人所在架构名------->
+                                            <span class="upPic"></span>
+                                        </span>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="javascript:void(0)" term="1">架构</a></li>
+                            <li class="divider short"></li>
+                            <li><a href="javascript:void(0)" term="2">人员选择</a></li>
+                        </ul>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td style="width:10%"> <span class="table-span">奖励基数:</span></td>
+                <td style="width:40%"> <input id="new-bonus" type="text" class="form-control"></td>
+                <td style="width:10%"> <span class="table-span">权重:</span></td>
+                <td style="width:40%">
+                    <input class="form-control" id="new-weight" maxlength="18">
+                </td>
+            </tr>
+            <tr>
+                <td style="width:10%"><span class="table-span">考核类型:</span></td>
+                <td style="width:40%">
+                    <div class="dropdown"  id="new-checkType-dropdown">
+                                       <span class="dropdown-toggle" data-toggle="dropdown"  data-delay="50" role="button" aria-expanded="false">
+                                          <span term="1" id="new-checkType">金额</span>
+                                           <span class="upPic"></span>
+                                       </span>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="javascript:void(0)" term="1">金额</a></li>
+                            <li class="divider short"></li>
+                            <li><a href="javascript:void(0)" term="2">时间</a></li>
+                            <li class="divider short"></li>
+                            <li><a href="javascript:void(0)" term="3">数字</a></li>
+                        </ul>
+                    </div>
+                </td>
+                <td style="width:10%"><span class="table-span">指标值:</span></td>
+                <td style="width:40%">
+                    <div class="input-group" id="new-objectiveValue-money-group">
+                        <input type="text" maxlength="20" id="new-objectiveValue-money" class="form-control" > <a class="btn btn-default glyphicon glyphicon-yen" type="button"></a>
+                    </div>
+                    <div class="input-group"  style="display:none;"  id="new-objectiveValue-date-group">
+                        <input type="button" maxlength="20" id="new-objectiveValue-date" class="form-control"> <a class="btn btn-default new-date" type="button"></a>
+                    </div>
+                    <input type="text" maxlength="20" id="new-objectiveValue-number"  style="display:none;" oninput="value=value.replace(/[^\d]/g,'')" class="form-control">
+                </td>
+            </tr>
+            <tr>
+                <td style="width:10%"><span class="table-span">理想值:</span></td>
+                <td style="width:40%">
+                    <div class="input-group"  id="new-expectedValue-money-group">
+                        <input type="text" maxlength="20" id="new-expectedValue-money" class="form-control"> <a class="btn btn-default glyphicon glyphicon-yen" type="button"></a>
+                    </div>
+                    <div class="input-group" style="display:none;" id="new-expectedValue-date-group">
+                        <input type="button" maxlength="20" id="new-expectedValue-date"  class="form-control"> <a class="btn btn-default new-date" type="button"></a>
+                    </div>
+                    <input type="text" maxlength="20" style="display:none;" id="new-expectedValue-number" class="form-control"  oninput="value=value.replace(/[^\d]/g,'')">
+                </td>
+                <td style="width:10%"><span class="table-span">备注项目:</span></td>
+                <td style="width:40%"> <input type="text" id="new-description" class="form-control" maxlength="100" ></td>
+            </tr>
+        </table>
+        <hr/>
+        <table id="table-objective-date" class="table">
+            <tr><!-------- style="border-bottom: 1px solid #eee;"---------------->
+                <td style="width:10%">
+                    <span class="table-span">开始时间:</span>
+                </td>
+                <td style="width:23%">
+                    <div class="input-group" >
+                        <input type="button" id="new-startTime" class="form-control">
+                        <a class="btn btn-default new-date" type="button"></a>
+                    </div>
+                </td>
+                <td style="width:10%">
+                    <span class="table-span">截止时间:</span>
+                </td >
+                <td style="width:23%">
+                    <div class="input-group" >
+                        <input type="button" id="new-endTime" class="form-control">
+                        <a class="btn btn-default new-date" type="button"></a>
+                    </div>
+
+                </td>
+               @* <td style="width:10%">
+                    <span class="table-span">警戒时间:</span>
+                </td>
+                <td style="width:23%">
+                    <div class="input-group" >
+                        <input type="button" id="new-alarmTime" class="form-control">
+                        <a class="btn btn-default new-date" type="button"></a>
+                    </div>
+
+                </td>*@
+            </tr>
+            <tr>
+                <td style="width: 10%;">
+                    <span class="table-span">责任人:</span>
+                </td>
+                <td  style="width:23%">
+                    <div class="input-group" >
+                        <input type="button" id="new-responsibleUser" term="" class="form-control">
+                        <a class="btn btn-default new-responsibleUser" type="button"></a>
+                    </div>
+                </td>
+                <td style="width: 10%;">
+                    <span class="table-span">确认人:</span>
+                </td>
+                <td  style="width:23%">
+                    <div class="input-group" >
+                        <input type="button" id="new-confirmUser" term="" class="form-control">
+                        <a class="btn btn-default new-confirmUser" type="button"></a>
+                    </div>
+
+                </td>
+
+            </tr>
+        </table>
+    </div>
+
+    <div class="modal-footer thirty-thirty">
+        <a class="btn btn-transparency btn-lg"  data-dismiss="modal" id="newModal-Cancel">取消</a>
+        <a class="btn btn-transparency btn-lg"  id="newModal-Save">保存</a>
+        <a class="btn btn-transparency btn-lg"  id="newModal-Submit">提交</a>
+    </div>
+</div>
+
+<div id="modal_con_objectiveRule" role="tabpanel" class="tab-pane" >
+    <!--目标规则-->
+    <div class="modal-body">
+        
+    </div>
+</div>
+</div>
+</div>
+
+<div class="modal-right-content modal-content" style="display:none">
+    <div class="modal-header">
+        <h4 class="modal-title"id="newModal-rightTitle" ></h4>
+    </div>
+    <div id="node-rightContent">
+
+    </div>
+</div>
+</div>
+</div>
+
+<!--------目标新建弹窗 结束--------->
+
+<!--人资添加开始-->
+<div class="modal fade" id="HR_modal"  tabindex="-1"   role="dialog" aria-labelledby="station_modal_label" aria-hidden="true" data-backdrop="false" data-keyboard="false">
+    <div class="modal-dialog" >
+        <div class="modal-content">
+            @Html.Partial("~/Views/Shared/PersonSelect.cshtml")
+        </div>
+    </div>
+</div>
+<!--人资添加结束-->
+
+
+ @Html.Partial("~/Views/Shared/PlanShared.cshtml")  
+
+
+</div>
+
+
+<!-- 模板文件开始 -->
+<script type="text/template" id="wordTarget">
+    <%for(var i = 0, len = list.length; i < len; i++ ){ %>
+    <% var item = list[i] %>
+    <tr>
+        <td><p class="pTitle noWrap" title=<%=item.displayName %>><input type="checkbox" name="name" value=" " class="chooseDown" isCompany=<%=item.isCompany %> wid=<%=item.documentId %>/><%=item.displayName %></p></td>
+        <td><%=item.createUserName %></td>
+        <td><%=item.createTime.replace('T',' ').substring(0,16) %></td>
+        <td><%=item.updateTime.replace('T',' ').substring(0,16)  %></td>
+    </tr>
+    <%} %>
+
+</script>
+<script type="text/template" id="newsTarget">
+    <%for(var i = 0, len = list.length; i < len; i++ ){ %>
+    <% var item = list[i] %>
+    <tr>
+        <td><p class="pTitle noWrap" title=<%=item.title %> ><a href="/NewsDel/NewsDel?id=<%=item.newId %>" ><%=item.title %></a></p></td>
+        <td><p class="pType noWrap" title=<%=item.directoryName %>><%=item.type %><%=item.directoryName %></p></td>
+        <td><%=item.createTime.replace('T',' ').substring(0,16) %></td>
+        <td><%=item.updateTime.replace('T',' ').substring(0,16)  %></td>
+    </tr>
+    <%} %>
+
+</script>
+<script type="text/template" id="planTarget">
+    <%for(var i = 0, len = list.length; i < len; i++ ){ %>
+    <% var item = list[i] %>
+    <div class="col-xs-6 planModule planListAll">
+        <div class="planWrap">
+            <div class="wrapInfo">
+                <div class="circlePer planPer">
+                   <%if((item.status == 20 || item.status == 40) && item.stop == 0) { %>
+                     <input term=<%=item.planId %> data-readonly="false" data-max=90 data-angleArc = 324 data-fgColor="#be1d9a" class="knob"  data-skin="tron" data-displayinput="true" value=<%=item.progress?item.progress:0 %> >
+                   <%} else if((item.status == 0 || item.status == 15) && item.stop == 0) { %>
+                     <input data-text = "待提交" data-font-weight="normal" data-max=90 data-angleArc = 324 data-fgColor="#57acdb" class="knob" data-readonly="true"  data-skin="tron" data-displayinput="true" value=<%=item.progress?item.progress:0 %> >
+                   <%} else if(((item.status == 10 || item.status == 25) && item.stop == 0) || item.stop == 10) { %>  
+                       <input  data-max=90 data-angleArc = 324 data-text = "待审核" data-font-weight="normal" data-fgColor="#e00e16" class="knob" data-readonly="true"  data-skin="tron" data-displayinput="true" value=<%=item.progress?item.progress:0 %> >   
+                   <%} else if(item.status == 30 && item.stop == 0) { %>
+                       <input  data-max=90 data-angleArc = 324 data-text = "待确认" data-font-weight="normal" data-fgColor="#fbab11" class="knob" data-readonly="true"  data-skin="tron" data-displayinput="true" value=<%=item.progress?item.progress:0 %> >         
+                   <%} else if(item.status == 90 && item.stop == 0) { %>
+                         <input data-fgColor="#58b557" class="knob" data-readonly="true"  data-skin="tron" data-displayinput="true" value=<%=item.progress?item.progress:0 %> > 
+                   <%} else if(item.stop == 90){ %>
+                        <input data-fgColor="#49dca7" class="knob" data-readonly="true"  data-skin="tron" data-displayinput="true" value=<%=item.progress?item.progress:0 %>>
+                   <% } %>
+
+                </div>
+                <div class="detailInformation">
+                    <ul>
+                        <li>执行方：<%=item.executionMode %></li>
+                        <li>输出结果：<%=item.eventOutput %></li>
+                        <li>计划完成时间：<%=item.endTime.substring(0,10) %></li>
+                        <li>确认人：<%=item.confirmUserName %></li>
+                        <li class="impotrtant">重要度：<%for (var j = 1;j<=5;j++){ %> <% var star= j<=item.importance?"fa-star":"fa-star-o"  %><i class="fa <%=star %>"></i> <%} %></li>
+                        <li class="exigence">紧急度：<%for (var j = 1;j<=5;j++){ %> <% var star= j<=item.urgency?"fa-star":"fa-star-o"  %><i class="fa <%=star %>"></i> <%} %></li>
+                        <li class="hard">难易度：<%for (var j = 1;j<=5;j++){ %> <% var star= j<=item.difficulty?"fa-star":"fa-star-o"  %><i class="fa <%=star %>"></i> <%} %></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="wrapDate">
+                <span> <%= item.create %></span> <span><%= item.createTime %></span>
+            </div>
+        </div>
+        <div class="bottomHover">
+            <ul>
+                <li class="decPlan planHide">分解</li>
+                <li class="transimitPlan planHide">转办</li>
+                <li class="modification planHide">修改</li>
+                <li class="suspend planHide">终止</li>
+                <li class="submit planHide">提交</li>
+                <li class="submitTo planHide">提交</li>
+                <li class="audit planHide">审核</li>
+                <li class="revocation planHide">撤销</li>
+                <li class="confirmPlan planHide">确认</li>
+                <li class="restart planHide">重新开始</li>
+                <li class="planDetail" withfront="0" collplan="0"  status="0" stop="0" isloop="0" initial="1">详情</li>
+            </ul>
+        </div>
+    </div>
+    <%} %>
+
+</script>
+@*<span class='glyphicon glyphicon-triangle-bottom pull-right slideDown' flag=1></span>*@
+<script type="text/template" id="actionTarget">
+    <%for(var i = 0, len = list.length; i < len; i++ ){ %>
+    <% var item = list[i] %>
+    <% var per = { 1: 90, 2: 90, 3: item.progress ? item.progress : 90, 4: 90, 5: item.progress ? item.progress : 90 }[item.status] %>
+    <% var colorFul = { 1: '#be1d9a', 2: '#fbab11', 3: '#64d8ae', 4: '#57acdb', 5: '#58b557' }[item.status] %>
+    <% var text = {1:'待提交',2:'待审核',3:item.progress?item.progress+'%':'0%',4:'待确认',5:item.progress?item.progress+'%':'0%'}[item.status] %>
+    <div class="wrapAll parentObject">
+    <div class="targetListAll">
+        <div class="targetHead">
+            互联网产业 - 目标导航事业部
+        </div>
+        <div class="targetBody">
+           <div class="leftTarget">
+               <div class="circle circleTarget" style="left:0">
+                  <input data-text = <%=text %> data-font-weight="normal" data-max=90 data-angleArc = 324 data-fgColor=<%=(!item.progress && (item.status == 3 || item.status == 5)) ? '#e3e3e3' : colorFul %> class="knob" data-readonly="true"  data-skin="tron" data-displayinput="true" value=<%=per %> >
+
+               </div>
+           </div>
+            <div class="rightTarget">
+                <div class="col-xs-5 targetInfo">
+                    <ul>
+                        <li>目标名称：<%=item.objectiveName %></li>
+                        <li>起止时间：<%=item.startTime.replace('T','至').substring(0,11) %>-<%=item.endTime.substring(0,10) %></li>
+                        <li>奖励基数：<%=item.bonus %></li>
+                        <li>确认人：<%=item.confirmUserName %></li>
+                    </ul>
+                </div>
+                <div class="col-xs-5 targetInfo">
+                    <ul>
+                        <li>理想值：<%=item.expectedValue %></li>
+                        <li>指标值：<%=item.objectiveValue %></li>
+                        <li>警戒时间：<%=item.alarmTime?item.alarmTime.substring(0,10):'' %></li>
+                        <li>考核类型：<%=item.objectiveType == 1?'金融':'时间' %></li>
+                    </ul>
+                </div>
+                <div class="col-xs-2 power targetInfo">
+                    <%=item.weight?'权重：'+item.weight+'%':'' %>
+                </div>
+                <div class="lastShowTarget">
+                    <ul>
+                        <li class="liPower planHide" term=<%=item.objectiveId %> >授权</li>
+                        <li class="liConfirm planHide" term=<%=item.objectiveId %> >提交确认</li>
+                        <li class="liDel planHide" term=<%=item.objectiveId %> flag=1>删除</li>
+                        <li class="liRevocation planHide" term=<%=item.objectiveId %>  flag=1>撤销</li>
+                        <li class="liModify planHide" term=<%=item.objectiveId %> >修改</li>
+                        <li class="liCommit planHide" term=<%=item.objectiveId %> >提交</li>
+                        <li class="liCheck planHide" term=<%=item.objectiveId %> >审核</li>
+                        <li class="liSure planHide" term=<%=item.objectiveId %> >确认</li>
+                        <li class="liOpen" term=<%=item.objectiveId %> >展开</li>
+                        <li class="liDetail" term=<%=item.objectiveId %> >详情</li>
+                        <li class="liPowerCancel planHide" term=<%=item.objectiveId %>  flag=1>取消授权</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <%} %>
+
+</script>
+
+
+<script type="text/template" id="childTarget">
+    <div class="wrapAll objectChild">
+    <div class="targetListAll">
+        <div class="targetHead" style="background:#ffffff">
+            互联网产业 - 目标导航事业部<span class='glyphicon glyphicon-triangle-bottom pull-right slideDown' flag=2></span>
+        </div>
+        <div class="targetBody">
+           <div class="leftTarget">
+               <div class="circle circleTarget" style="left:0">
+                   <div class="pie_left"><div class="left"></div></div>
+                   <div class="pie_right"><div class="right"></div></div>
+                   <div class="mask"><span>20</span>%</div>
+               </div>
+           </div>
+            <div class="rightTarget">
+                <div class="col-xs-5 targetInfo">
+                    <ul>
+                        <li>目标名称：</li>
+                        <li>起止时间：</li>
+                        <li>奖励基数：</li>
+                        <li>确认人：</li>
+                    </ul>
+                </div>
+                <div class="col-xs-5 targetInfo">
+                    <ul>
+                        <li>理想值：</li>
+                        <li>指标值：</li>
+                        <li>警戒时间：</li>
+                        <li>考核类型：</li>
+                    </ul>
+                </div>
+                <div class="col-xs-2 power targetInfo">
+                    权重：76%
+                </div>
+                <div class="lastShowTarget">
+                    <ul>
+                        <li class="liPower" term=2>授权</li>
+                        <li class="liConfirm" term=2>提交确认</li>
+                        <li class="liDel" term=2,flag=2>删除</li>
+                        <li class="liRevocation" term=2 flag=2>撤销</li>
+                        <li class="liModify" term=2>修改</li>
+                        <li class="liCommit" term=2>提交</li>
+                        <li class="liOpen" term=2>展开</li>
+                        <li class="liDetail" term=2>详情</li>
+                        <li class="liPowerCancel" term=2 flag=2>取消授权</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+</script>
+
+<script type="text/template" id="flotTarget">
+    <%for(var i = 0, len = list.length; i < len; i++ ){ %>
+    <% var item = list[i] %>
+    <div class="col-xs-6 planModule flotListAll">
+        <div class="planWrap flotWrap">
+            <div class="wrapInfo wrapflot">
+                <div class="circlePer">
+                    <div class="circle circleFlot" style="left:0">
+                        <div class="pie_left"><div class="left"></div></div>
+                        <div class="pie_right"><div class="right"></div></div>
+                        <div class="mask"><span><%=item.per %></span>%</div>
+                    </div>
+                </div>
+                <div class="detailInformation">
+                    <ul style="margin-top: 8px;">
+                        <li>工作流：加上空间的拉升的扣阿里看得见啊肯德基点击啥计划的嗷呜丿得快</li>
+                        <li>请求标题：</li>
+                        <li>当前未操作者：</li>
+                        <li>当前节点：</li>
+                        <li class="exigence">紧急度：<%for (var j = 1;j<=5;j++){ %> <% var star= j<=2?"fa-star":"fa-star-o"  %><i class="fa <%=star %>"></i> <%} %></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="wrapDate flotDate">
+                <span> <%= item.create %></span> <span><%= item.createTime %></span>
+            </div>
+        </div>
+        <div class="bottomHover">
+            <ul>
+                <li class="decPlan">分解</li>
+                <li class="transimitPlan">转办</li>
+                <li class="modification" term=333>修改</li>
+                <li class="suspend">终止</li>
+                <li class="submit" term=222>提交</li>
+                <li class="planDetail" term=111>详情</li>
+            </ul>
+        </div>
+    </div>
+    <%} %>
+
+</script>
+<script type="text/template" id="searchWord">
+    <%for(var i = 0, len = list.length; i < len; i++ ){ %>
+    <% var item = list[i] %>
+        <button class="searchBtn"><span title=<%=item %>><%=item %></span><i class="fa fa-remove removeKeywords" idx=<%=i %> ></i></button>
+    <%} %>
+    <input type="text" class="searchKey hideKeywords" onkeydown="this.value=this.value.replace(/[^\s\w\u4e00-\u9fa5]$/g,'')" onkeyup="this.value=this.value.replace(/[^\s\w\u4e00-\u9fa5]$/g,'')"/>
+    <i class="searchIcon fa fa-search"></i>
+</script>
+<script type="text/javascript">
+    var tagNames = "@tagNames";
+    var userId = "@userId";
+</script>
+<!-- 模板文件结束 -->
+
+
+<script src="../../Scripts/Search/Search.js"></script>
+<script src="../../Scripts/Search/other.js"></script>
+<!--弹出层  结束-->

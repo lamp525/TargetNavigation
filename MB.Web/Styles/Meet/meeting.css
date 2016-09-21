@@ -1,0 +1,1149 @@
+#meetTabContent{
+   min-height: 590px;
+}
+ul {
+    padding:0;
+    margin:0;
+}
+ul > li {
+    list-style:none;
+}
+#meetTabContent #byDate #meetDate{
+    width:100%;
+
+}
+#meetTabContent .tab-pane{
+    /*padding-right:5px; */
+
+}
+#meetTabContent #byDate #meetDate .ui-datepicker{
+    width:100%;
+    min-height: 290px;
+    background: #ffffff;
+    border: 1px solid #bfbfbf;
+    border-radius:0 ;
+}
+#meetContainer .addIcon {
+    position:absolute;
+    right: 20px;
+    top: 8px;
+    font-size: 16px;
+}
+#meetTabContent #byDate #meetDate .ui-datepicker td a{
+    text-align: center;
+    padding: .4em;
+    font-size: 14px;
+}
+
+#meetTabContent #byDate #meetDate .ui-datepicker .ui-state-default{
+    background: none;
+    color: #000000;
+    border:none;
+}
+#meetTabContent #byDate #meetDate .ui-datepicker .ui-state-active{
+    border:none;
+    background: #ff0000;
+    color:#ffffff;
+}
+#meetTabContent #byDate #meetDate .ui-datepicker .ui-corner-all{
+    border-radius:0;
+}
+#meetTabContent #byDate #meetDate .ui-datepicker .ui-widget-header{
+    border:none;
+    background: none;
+}
+#meetTabContent #byDate .meetDetail{
+    height: 290px;
+    border:1px solid #bfbfbf;
+    padding:0px;
+}
+#meetTabContent #byDate .meetDetail .detailHead{
+    width: 100%;
+    border-bottom:1px solid #bfbfbf;
+    line-height: 29px;
+    text-indent: 15px;
+}
+#meetTabContent #byDate .meetDetail .listDate{
+    width:100%;
+    height: 260px;
+    overflow-y: auto;
+}
+#meetTabContent #byDate .meetDetail .listDate .meetMsg{
+    height: 129px;
+    padding: 20px;
+    cursor: pointer;
+    position:relative;
+    padding-top:15px;
+}
+#meetTabContent #byDate .meetDetail .listDate .meetMsg span{
+    margin-right: 3px;
+}
+.ellipsis{
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+#meetTabContent #byDate .meetDetail .listDate .meetMsg div{
+    width:100%;
+    line-height: 20px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+#meetTabContent #byDate .meetDetail .listDate .meetMsg .downLoadAppoint {
+    width:50px;
+    height:33px;
+    position:absolute;
+    top:0px;
+    left:0px;
+    background:#20A73C;
+}
+#meetTabContent #byDate .meetDetail .listDate .meetMsg .downLoadAppoint i {
+    font-size: 30px;
+    color: #fff;
+    line-height: 33px;
+    margin-left: 8px;
+    transform:rotate(80deg);
+    -ms-transform:rotate(80deg); 	/* IE 9 */
+    -moz-transform:rotate(80deg); 	/* Firefox */
+    -webkit-transform:rotate(80deg); /* Safari 和 Chrome */
+    -o-transform:rotate(80deg); 	/* Opera */
+}
+#meetTabContent .attachAll {
+    position:absolute;
+    min-height:20px;
+    line-height:20px;
+    top:35px;
+    left:0px;
+    width:150px;
+    background-color:#000;
+    filter:alpha(opacity=0.6);   
+    -moz-opacity:0.6; 
+    opacity:0.6;
+    padding:0 5px;
+}
+#meetTabContent .attachAll .attachHead{
+    height:20px;
+    width:100%;
+    text-align:right;
+    padding:0px 2px;
+}
+#meetTabContent .attachAll .attachHead a{
+    color:#fff;
+}
+#meetTabContent .attachAll .listDownloads{
+    color:#fff;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width:100%;
+    line-height:25px;
+    border-top:1px solid #000;
+}
+#meetTabContent .attachAll .listDownloads span{
+    margin-right:5px;
+}
+#meetTabContent #byDate .meetDetail .listDate .meetMsg .downLoadAppoint .trangle{
+    position:absolute;
+    right:0px;
+    top:0px;
+    width: 0;
+    height: 0;
+    border-top: 17px solid transparent;
+    border-right: 12px solid #fff;
+    border-bottom: 16px solid transparent;
+    
+}
+#meetTabContent #byDate .meetDetail .listDate .meetMsg .downLoadAppoint .tragleBorder{
+    border-right: 12px solid #E3E3E3;
+}
+/*#meetTabContent #byDate .meetDetail .listDate .meetMsg .downFilter{
+    filter:alpha(opacity=0.1);   
+    -moz-opacity:0.1; 
+    opacity:0.1;
+}*/
+.hideAttach {
+    display:none;
+}
+#meetTabContent #byDate .meetDetail .listDate .meetMsg .downLoadAppoint .downBottom {
+    position:absolute;
+    top:33px;
+    height:1px;
+    width:5px;
+    background:#000;
+    left:0px;
+}
+#meetTabContent .selected{
+    background-color:#E3E3E3;
+}
+#meetTabContent #byDate .meetArea{
+    min-height: 200px;
+    border-top: 1px solid #bfbfbf;
+    margin-top: 20px;
+    padding: 0;
+}
+#meetTabContent #byDate .meetArea .areaHead{
+    height: 40px;
+    border-bottom: 1px solid #bfbfbf;
+    line-height: 40px;
+    position: relative;
+    overflow: hidden;
+    width:100%;
+}
+#meetTabContent #byDate .meetArea .areaHead .secondArea{
+    height: 100%;
+    position: absolute;
+    width: 100%;
+    top:0px;
+    left:0px;
+}
+#meetTabContent #byDate .meetArea .areaHead .firstArea{
+    height: 100%;
+    position: absolute;
+    width: 100%;
+    left:-100%;
+    top:0;
+}
+#meetTabContent #byDate .meetArea .areaHead .thirdArea{
+    height: 100%;
+    position: absolute;
+    width: 100%;
+    left:100%;
+    top:0;
+}
+#meetTabContent #byDate .meetArea .areaHead div{
+    text-align: center;
+}
+#meetTabContent #byDate .meetArea .areaHead i{
+    position: absolute;
+    display: block;
+    right:-2px;
+    width:4px;
+    height:4px;
+    top:18px;
+    background: #000000;
+    border-radius: 2px;
+}
+#meetTabContent #byDate .meetArea .areaHead div .rightClick{
+    position: absolute;
+    right: 4px;
+    top: 14px;
+    cursor: pointer;
+}
+#meetTabContent #byDate .meetArea .areaHead div .rightToClick{
+    position: absolute;
+    right: 4px;
+    top: 14px;
+    cursor: pointer;
+}
+#meetTabContent #byDate .meetArea .areaHead div .leftClick{
+    position: absolute;
+    left: 4px;
+    top: 14px;
+    cursor: pointer;
+}
+#meetTabContent #byDate .meetArea .areaHead div .leftToClick{
+    position: absolute;
+    left: 4px;
+    top: 14px;
+    cursor: pointer;
+}
+#meetTabContent #byDate .meetArea .areaBody{
+    border-bottom: 1px solid #bfbfbf;
+    line-height: 40px;
+}
+#meetTabContent #byDate .meetArea .areaBody .draw{
+    width:100%;
+    height: 40px;
+
+}
+#meetTabContent #byDate .meetArea .areaBody .drawHead{
+    height: 100%;
+    border-bottom: 1px solid #bfbfbf;
+    border-right: 1px solid #bfbfbf;
+    padding-right: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    cursor:default;
+}
+
+#meetTabContent #byDate .meetArea .areaBody .drawBody{
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    padding: 0px;
+}
+#meetTabContent #byDate .meetArea .areaBody .drawBody .drawPic{
+    position: absolute;
+    height: 24px;
+    top:8px;
+    border-radius: 2px;
+    border: 1px solid #bfbfbf;
+    background:#E3E3E3;
+}
+#meetTabContent #byDate .meetArea .areaBody .drawBody .selectedColor{
+    background: #59B457;
+    border: 1px solid #2FB02C;
+}
+
+#meetTabContent #bySite .siteList{
+    padding:10px 0px 0px;
+    background-color: #F9F9F9;
+}
+#meetTabContent #bySite .siteList .siteBody{
+    padding: 10px 0px 0px;
+}
+
+#meetTabContent #bySite .roomName{
+    height: 80px;
+    text-align: center;
+    line-height: 80px;
+    font-size: 14px;
+}
+#meetTabContent #bySite .roomDetail {
+    cursor:default;
+}
+#meetTabContent #bySite .roomDetail div{
+    height: 40px;
+    line-height: 40px;
+}
+#meetTabContent #bySite .appointRoom{
+    height: 80px;
+    vertical-align: middle;
+    line-height: 80px;
+}
+#meetTabContent #bySite .appointBtn{
+    width:60px;
+    height: 25px;
+    line-height: 20px;
+    border:1px solid #bfbfbf;
+    border-radius:1px;
+}
+#meetTabContent #bySite .dateLine{
+    height: 35px;
+    background: #E3E3E3;
+    border-top:1px solid #D5D5D5;
+    padding: 0px;
+}
+
+#meetTabContent #bySite .dateLine .dateLineDraw{
+    height: 100%;
+    margin-right: 30px;
+    border-bottom: 1px solid #bfbfbf;
+    overflow: hidden;
+    position: relative;
+}
+#meetTabContent #bySite .dateLine .dateLineDraw .dateShow{
+    width:100%;
+    position: absolute;
+    top:0;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+}
+#meetTabContent #bySite .dateLine .dateLineDraw .siteDateLine{
+    width:100%;
+    height: 10px;
+    position: absolute;
+    top:30px;
+    left:0px;
+}
+#meetTabContent #bySite .dateLine .dateLineDraw .siteDateLine .drawSitePic{
+    height: 100%;
+    background: #BBBBBB;
+    position: absolute;
+    top:0px;
+    border-radius: 10px;
+}
+#meetTabContent #bySite .dateLine .dateLineDraw .siteDateLine .siteColor{
+    background: #56B557;
+}
+#meetTabContent #bySite .dateLine .dateLineDraw .dateShow .leftChevron{
+    position: absolute;
+    line-height: 32px;
+    left:5px;
+    cursor: pointer;
+}
+#meetTabContent #bySite .dateLine .dateLineDraw .dateShow .rightChevron{
+    position: absolute;
+    line-height: 32px;
+    right:5px;
+    cursor: pointer;
+}
+#meetTabContent #bySite .dateLine .dateLineDraw .preDate{
+    left: -100%;
+}
+#meetTabContent #bySite .dateLine .dateLineDraw .midDate{
+    left: 0;
+}
+#meetTabContent #bySite .dateLine .dateLineDraw .lastDate{
+    left: 100%;
+}
+#meetTabContent #bySite .dateLine .dateMeetMsg{
+    position: absolute;
+    height: 100%;
+    width:30px;
+    right: 0px;
+    top:0px;
+    background: #ffffff;
+    text-align: center;
+    cursor: pointer;
+    display: block;
+}
+#meetTabContent #bySite .dateLine .dateMeetMsg i{
+    line-height: 35px;
+}
+#meetTabContent #bySite .listDateAppoint{
+    padding: 0px;
+}
+#meetTabContent #bySite .listDateAppoint .appointHead{
+    width:100%;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    background-color: #ffffff;
+    border-bottom: 1px solid #bfbfbf;
+}
+#meetTabContent #bySite .listDateAppoint .appointHead i:last-child{
+    margin-left: 10px;
+    cursor:pointer;
+}
+#meetTabContent #bySite .listDateAppoint .appointHead i:first-child{
+    margin-right: 10px;
+    cursor: pointer;
+}
+#meetTabContent #bySite .appointBody{
+    width: 100%;
+}
+#meetTabContent #bySite .appointBody .bodyHead{
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    background-color: #ffffff;
+    border-bottom: 1px solid #bfbfbf;
+}
+#meetTabContent #bySite .appointBody .bodyHead div{
+    /*text-align: center;*/
+}
+#meetTabContent #bySite .appointBody .listApp{
+   width: 100%;
+    height: 30px;
+    background-color: #ffffff;
+    cursor: pointer;
+}
+#meetTabContent #bySite .appointBody .listAppGray{
+    background: #E3E3E3;
+}
+#meetTabContent #bySite .appointBody .listApp div{
+    /*height: 30px;*/
+    line-height: 30px;
+    /*text-align: center;*/
+}
+#meetTabContent #bySite .appointBody .listApp div:first-child{
+    text-align:center;
+}
+#meetTabContent #bySite .appointBody .listApp div:first-child i{
+    font-size:14px;
+    color:#56B557;
+}
+
+
+
+
+
+#meeting_modal .intro_head{
+    line-height: 35px;
+    text-align: right;
+    padding-right: 18px;
+}
+#meeting_modal .row{
+    margin-bottom:20px;
+}
+#meeting_modal .row div{
+    line-height: 35px;
+}
+#meeting_modal .appEvent{
+    padding-left: 30px;
+}
+#meeting_modal .modal-body{
+    min-height: 480px;
+    padding-right:40px;
+    position:relative;
+}
+#meeting_modal .appEvent textarea{
+    width:100%;
+    text-indent:10px;
+    resize: none;
+    line-height: 20px;
+}
+#meeting_modal .modal-dialog{
+    width:665px;
+}
+#meeting_modal .select-clock{
+    width:45px;
+   text-align: center;
+    padding: 1px;
+}
+
+#meeting_modal .input-group{
+    width:80px;
+    float: left;
+}
+#meeting_modal #startDateMeet{
+    float:left;
+    height: 33px;
+ }
+#meeting_modal #endDateMeet{
+    float:left;
+    height: 33px;
+    border: 1px solid #bfbfbf;
+ }
+#meeting_modal .input-group-addon{
+    padding: 5px 5px;
+}
+
+#meeting_modal .clockIcon{
+    height: 23px;
+    line-height: 21px;
+    border:1px solid #bfbfbf;
+    border-left: none;
+    background: #ffffff;
+    text-align: center;
+    top:1px;
+    position: relative;
+}
+#meeting_modal  .downName{
+    width: 100%;
+    height: 35px;
+    line-height: 35px;
+    border: 1px solid #bfbfbf;
+    border-radius: 2px;
+    cursor: pointer;
+}
+#meeting_modal .nameSelect {
+    padding:0;
+}
+#meeting_modal .nameSelect i{
+    position: absolute;
+    right: 10px;
+    top:0px;
+    line-height: 35px;
+}
+#meeting_modal .roomSelect{
+    width: 100%;
+    overflow-y:auto;
+    max-height:163px;
+}
+#meeting_modal .roomSelect li{
+    border-bottom: 1px dotted #bfbfbf;
+}
+#meeting_modal .roomSelect li:last-child{
+    border-bottom: none;
+}
+#meeting_modal .memberRoom{
+    position: relative;
+}
+#meeting_modal .appointSee {
+    position:absolute;
+    top:230px;
+    right:0px;
+    width:30px;
+    height:40px;
+    text-align:center;
+    border:1px solid #bfbfbf;
+    border-right:none;
+    cursor:pointer;
+}
+#meeting_modal .appointTimeSet {
+    width:80px;
+    height:100%;
+    border:1px solid  #bfbfbf;
+    position:absolute;
+    top:0px;
+    right:-80px;
+    background:#fff;
+}
+#meeting_modal .appointTimeSet .timeHead{
+    width:100%;
+    height:25px;
+    position:absolute;
+    top:0;
+    background-color:#F9F9F9;
+    cursor:pointer;
+    text-align:center;
+    line-height:25px;
+}
+#meeting_modal .appointTimeSet i{
+    font-size:16px;
+    color:#A4A4A4;
+}
+#meeting_modal .appointTimeSet .timeBody {
+  position:absolute;
+  top:25px;
+  bottom:25px;
+  overflow:hidden;
+  width:100%;
+}
+#meeting_modal .appointTimeSet .timeBody .appointCommon{
+    width:100%;
+    position:absolute;
+    height:100%;
+   
+
+}
+#meeting_modal .appointTimeSet .timeBody .appointCommon div{
+    height: calc(100% / 8);    /* 此处运用了一个css3的表达式，将div三等分，IE8及以上可以支持，当然也可以根据需要设置固定值 */
+    height: -webkit-calc(100% /8); /*3.09 排除margin的宽度*/
+    height: -moz-calc(100% / 8);
+    width:100%;
+    text-align:center;
+
+}
+#meeting_modal .appointTimeSet .timeBody .appointPre{
+    top:-100%;
+}
+#meeting_modal .appointTimeSet .timeBody .appointMiddle{
+    top:0;
+}
+#meeting_modal .appointTimeSet .timeBody .appointLast{
+    top:100%;
+}
+#meeting_modal .appointTimeSet .timeFoot{
+    width:100%;
+    height:25px;
+    position:absolute;
+    bottom:0;
+    background-color:#F9F9F9;
+    cursor:pointer;
+    text-align:center;
+    line-height:25px;
+}
+#meeting_modal .appointTimeSet .timeBody::before{
+    left:100%;
+    height:100%;
+    margin-left:-6px;
+    width:6px;
+    background:#E3E3E3;
+    position:absolute;
+    content: '';
+    position:absolute;
+    top:0px;
+}
+#meeting_modal .appointTimeSet .timeLimit {
+    position:absolute;
+    width:100%;
+    background:#E3E3E3;
+    text-align:center;
+}
+.timeLimit::before {
+    left:100%;
+    margin-left:-6px;
+    height:100%;
+    width:6px;
+    background:#56B557;
+    position:absolute;
+    content: '';
+    
+    top:0px;
+}
+#meeting_modal .memberRoom .memberList{
+    margin-left: 45px;
+    min-height: 70px;
+    /*border:1px solid #bfbfbf;*/
+}
+#meeting_modal .memberRoom .memberList div{
+    background: #31b0d5;
+    border-radius: 4px;
+    margin-bottom: 5px;
+    height: 30px;
+    line-height: 30px;
+    color:#ffffff;
+}
+
+#meeting_modal .memberRoom .memberList div i{
+    position: absolute;
+    right: 4px;
+    line-height: 30px;
+    cursor: pointer;
+}
+#meeting_modal .uploadButton {
+    display:block;
+    width:70px;
+    height:35px;
+    border:1px solid #bfbfbf;
+    line-height:35px;
+    text-align:center;
+    position:relative;
+    cursor:pointer
+}
+#meeting_modal .fileList ul {
+    padding:0px;
+    width:100%;
+}
+#meeting_modal .fileList li {
+    list-style:none;
+}
+#meeting_modal .fileList li i {
+    margin-left:20px;
+    cursor:pointer;
+}
+#fileuploadAppoint {
+    width:100%;
+    height:100%;
+    position:absolute;
+    top:0px;
+    left:0px;
+    filter:alpha(opacity=0);   
+    -moz-opacity:0; 
+    opacity:0;
+}
+
+#meeting_modal .fileList {
+
+    margin-top:10px;
+}
+#meeting_modal .plusMain{
+    width: 35px;
+    height: 35px;
+    border:1px solid #bfbfbf;
+    cursor:pointer;
+    position: absolute;
+
+    text-align: center;
+}
+#meeting_modal .plusMain i{
+    font-size: 26px;
+    line-height: 35px;
+    color: #bfbfbf;
+}
+#meeting_modal .memberTreeSelect{
+    height: 100%;
+    width:350px;
+    border: 1px solid #bfbfbf;
+    border-left:none;
+    position: absolute;
+    right: -350px;
+    top:0px;
+    background: #ffffff;
+}
+#meeting_modal .memberTreeSelect .treeIntro{
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    text-indent: 5px;
+    border-bottom: 1px solid #bfbfbf;
+    position: absolute;
+    top:0px;
+    width:100%;
+}
+#meeting_modal .memberTreeSelect .treeIntro i{
+    position: absolute;
+    right: 5px;
+    line-height: 30px;
+    cursor:pointer;
+}
+#meeting_modal .memberTreeSelect .isLower{
+    width: 100%;
+    /*height: 20px;*/
+    line-height: 20px;
+    text-indent: 5px;
+    background-color:#fff;
+    z-index:22;
+    border-bottom: 1px solid #bfbfbf;
+    position: absolute;
+    top:282px;
+    width:100%;
+}
+#meeting_modal #Meet-haschildren {
+    position:relative;
+    top:2px;
+}
+#meeting_modal #Meet-checkall {
+    position:relative;
+    top:2px;
+    margin-left:70px;
+}
+#meeting_modal .memberTreeSelect .treeMain{
+    height: 250px;
+    border-bottom: 1px solid #bfbfbf;
+    overflow: auto;
+    position: absolute;
+    top:31px;
+    width:100%;
+}
+#meeting_modal .memberTreeSelect .treeChoose{
+    position: absolute;
+    top:302px;
+    width:100%;
+    bottom:0;;
+    overflow-y:auto;
+}
+#meeting_modal .memberTreeSelect .treeChoose ul{
+    margin: 0;
+    padding: 0;
+}
+#meeting_modal .memberTreeSelect .treeChoose ul li{
+   width:100%;
+    height: 30px;
+    line-height: 30px;
+}
+#meeting_modal .memberTreeSelect .treeChoose ul li a{
+    display: block;
+    width:100%;
+    height: 30px;
+    line-height: 30px;
+    text-indent: 5px;
+}
+#meeting_modal .memberTreeSelect .treeChoose ul li a i{
+    position: absolute;
+    right:20px;
+    color: lawngreen;
+    line-height: 30px;
+}
+#meeting_modal .hideCheck{
+    display: none;
+}
+#meeting_modal .memberTreeSelect .treeChoose ul li a:hover{
+    background: #bfbfbf;
+    color:#ffffff;
+}
+#meeting_modal .memberTreeSelect .treeMain #treeRoom{
+    padding: 0px;
+
+}
+
+#meeting_modal .clockChoose{
+    position: absolute;
+    right: 7px;
+    top:-30px;
+    width:120px;
+    height:270px;
+    border: 1px solid #bfbfbf;
+    overflow: hidden;
+}
+#meeting_modal .clockChoose .clockTime{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+#meeting_modal .clockChoose .top{
+    top:-100%;
+}
+#meeting_modal .clockChoose .middle{
+    top:0;
+}
+#meeting_modal .clockChoose .foot{
+    top:100%;
+}
+
+
+
+/*议室管理*/
+
+#manageContainer .addNewRoom{
+    text-align: right;
+}
+#manageContainer .panel-heading  .nav>li{
+    line-height: 30px;
+}
+#manageContainer .panel-heading  .nav>li>a{
+    display: inline;
+}
+#manageContainer .panel-heading  .nav>li>a:hover{
+    background: none;
+}
+#manageContainer .deleteRoom{
+    margin-left: 10px;
+}
+#manageContainer .trBack{
+    background: #6B6B6B;
+}
+#manageContainer .table>tbody>tr>td{
+    color: #000000;
+}
+#manageContainer .table>tbody>tr>td a{
+    color: #ffffff;
+}
+#manageContainer .hideOpt{
+    display: none;
+}
+#manage_modal .modal-dialog{
+    width:620px;
+}
+#manage_modal .modal-body .row{
+    margin-bottom: 10px;
+}
+#manage_modal .manage_room_head{
+    text-align: right;
+    line-height: 35px;
+}
+#manage_modal .panel-default>.panel-heading{
+    background-color: #ffffff;
+    border: none;
+    border-bottom: 1px solid #bfbfbf;
+}
+#manage_modal .panel{
+    border: none;
+}
+#manage_modal .checkEqu div{
+    margin-bottom: 20px;
+}
+#manage_modal .checkEqu input{
+    position: relative;
+    top:2px;
+    margin-right: 3px;
+    cursor:pointer
+}
+#manage_modal .checkEqu label {
+    cursor:pointer;
+}
+#manage_modal .modal-body{
+    min-height: 500px;
+}
+#manageContainer .showEquName {
+    max-width:134px;
+    overflow:hidden;
+    cursor:default;
+    height:20px;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+}
+
+
+
+/*我的预约*/
+
+#appointContainer .panel-heading  .nav>li{
+    line-height: 30px;
+}
+#appointContainer .panel-heading  .nav>li>a{
+    display: inline;
+}
+#appointContainer .panel-heading  .nav>li>a:hover{
+    background: none;
+}
+#appointContainer .panel-heading .addNewPoint{
+    text-align: right;
+}
+#appointContainer .timeCondition{
+    width:100%;
+    height:50px;
+    line-height: 50px;
+}
+#appointContainer .timeCondition input{
+    height: 30px;
+}
+#appointContainer .timeCondition label{
+    margin-left: 15px;
+    margin-right: 15px;
+}
+#appointContainer .timeCondition .typeLeft{
+    float: left;
+}
+#appointContainer .timeCondition .checkType{
+    display: inline-block;
+    /*width:180px;*/
+    height: 33px;
+    margin-top: 7px;
+    background: #ff0000;
+}
+#appointContainer .timeCondition .checkType button{
+    width:60px;
+    height: 35px;
+    line-height: 35px;
+    float: left;
+    background: -ms-linear-gradient(top, #fff,  #F4F4F4);        /* IE 10 */
+    background:-moz-linear-gradient(top,#fff,#F4F4F4);/*火狐*/
+    background:-webkit-gradient(linear, 0% 0%, 0% 100%,from(#fff), to(#F4F4F4));/*谷歌*/
+    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#fff), to(#F4F4F4));      /* Safari 4-5, Chrome 1-9*/
+    background: -webkit-linear-gradient(top, #fff, #F4F4F4);   /*Safari5.1 Chrome 10+*/
+    background: -o-linear-gradient(top, #fff, #F4F4F4);  /*Opera 11.10+*/
+    border:1px solid #CECECE;
+    border-right:none;
+}
+#appointContainer .timeCondition .checkType button:last-child{
+    border-right:1px solid #CECECE;
+}
+#appointContainer .timeCondition .typeCondition{
+    width:60px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    display: inline-block;
+    border: 1px solid #bfbfbf;
+}
+#appointContainer .timeCondition .confirmCondition{
+    margin-left: 50px;
+    width: 60px;
+    height: 30px;
+    line-height: 25px;
+    border: 1px solid #bfbfbf;
+    border-radius: 1px;
+}
+#appointContainer .timeCondition .checkType .btnSelected{
+    background: -ms-linear-gradient(top, #E7E7E7,  #FEFEFE);        /* IE 10 */
+    background:-moz-linear-gradient(top,#E7E7E7,#FEFEFE);/*火狐*/
+    background:-webkit-gradient(linear, 0% 0%, 0% 100%,from(#E7E7E7), to(#FEFEFE));/*谷歌*/
+    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#E7E7E7), to(#FEFEFE));      /* Safari 4-5, Chrome 1-9*/
+    background: -webkit-linear-gradient(top, #E7E7E7, #FEFEFE);   /*Safari5.1 Chrome 10+*/
+    background: -o-linear-gradient(top, #E7E7E7, #FEFEFE);  /*Opera 11.10+*/
+    color: #86C486;
+
+}
+#appointCondition{
+    border-bottom: 1px solid #bfbfbf;
+}
+#appointContainer .myList .wrapList{
+    margin-top: 20px;
+    padding-right:15px;
+    padding-left: 15px;
+
+}
+#appointContainer .myList .wrapList .wrapDetail{
+    border:1px solid #bfbfbf;
+    min-height: 100px;
+    background: #F9F9F9;
+    position: relative;
+    width: 100%;
+    padding-bottom: 15px;
+    cursor:default;
+}
+#appointContainer .myList .wrapList .wrapDetail .detailLine{
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    padding-left: 15px;
+}
+#appointContainer .myList .wrapList .wrapDetail .showLine{
+    background: #5fca4a;
+    text-align: right;
+    position: absolute;
+    bottom:0px;
+    height: 0px;
+    width: 100%;
+    line-height: 40px;
+    overflow: hidden;
+    opacity: 0.6;
+    filter:alpha(opacity=60);
+}
+#appointContainer .myList .wrapList .wrapDetail .showLine a{
+    margin-right: 15px;
+    margin-left: 15px;
+    color:#fff;
+}
+#appointContainer .myList .wrapList .wrapDetail .showLine a:hover{
+    color:#000;
+}
+#appointContainer .myList .wrapList .wrapDetail  .labelOne{
+    float: left;
+    display: block;
+    width: 3px;
+    height: 24px;
+    margin-left: -18px;
+    background: url(../../Images/plan/labelOne.png) no-repeat;
+}
+#appointContainer .myList .wrapList .wrapDetail  .labelTwo{
+    float: left;
+    height: 20px;
+    width:45px;
+    margin-left: -18px;
+    line-height: 20px;
+    color:#fff;
+    text-align: center;
+    background: url(../../Images/plan/labelTwo.png) repeat-x;
+}
+#appointContainer .myList .wrapList .wrapDetail  .labelThree{
+    float: left;
+    display: block;
+    width: 6px;
+    height: 20px;
+    background: url(../../Images/plan/labelThree.png) no-repeat;
+}
+#appointContainer .appointBody{
+    min-height: 620px;
+}
+
+#appoint_modal .modal-body{
+    min-height: 480px;
+}
+
+#appoint_modal .modal-body .row{
+    line-height: 25px;
+    margin-bottom: 20px;
+}
+
+#appoint_modal .modal-body .row .col-xs-2{
+    text-align: center;
+}
+
+#appPlan_modal .modal-dialog{
+    width:660px;
+}
+#appPlan_modal .modal-body{
+    min-height: 480px;
+}
+#appPlan_modal .modal-body .planList{
+    padding: 10px;
+}
+#appPlan_modal .modal-body .planList .wrapPlan{
+    border: 1px solid #bfbfbf;
+    width: 100%;
+    min-height: 150px;
+    padding: 8px 8px 0px 8px;
+    cursor:default;
+}
+#appPlan_modal .modal-body .planList .wrapPlan .wrapTop{
+    height: 110px;
+    width: 100%;
+    background: #F9F9F9;
+}
+#appPlan_modal .modal-body .planList .wrapPlan .wrapTop .planIcon{
+    width:60px;
+    height: 110px;
+    position: absolute;
+
+}
+#appPlan_modal .modal-body .planList .wrapPlan .wrapTop .planIcon img{
+    width:56px;
+    height: 56px;
+    line-height: 110px;
+    margin-top: 27px;
+    border-radius:28px;
+}
+#appPlan_modal .modal-body .planList .wrapPlan .wrapTop .planMsg{
+    margin-left: 65px;
+    height: 110px;
+}
+#appPlan_modal .modal-body .planList .wrapPlan .wrapTop .planMsg div{
+    line-height: 25px;
+}
+#appPlan_modal .modal-body .planList .wrapPlan .wrapTop .responseUser{
+    line-height: 30px;
+    width: 100%;
+}
+#appPlan_modal .modal-body .planList .wrapPlan .wrapTop .responseUser span{
+    margin-right: 15px;
+}
+
+#meetingSidebar .meetingCommon {
+    margin-bottom: 10px;
+    line-height: 30px;
+    text-align: center;
+    color: #fff;
+    background-color: #fbac0f;
+    border: 1px solid #fbbf3d;
+    cursor: pointer;
+    width:100%;
+    height:30px;
+}
+.editRoom:hover {
+    color:#58b456!important;
+}
+.deleteRoom:hover {
+    color:#58b456!important;
+}
+
+#meeting_modal .ztree li a.curSelectedNode span{
+    color:#58b456;
+}

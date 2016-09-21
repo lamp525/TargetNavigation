@@ -1,0 +1,327 @@
+﻿<!-- 引入的组件的样式 开始 -->
+    <link rel="stylesheet" href="../../Libs/font-awesome/css/font-awesome.min.css" />
+    <!-- 折线图  -->
+	<link href="../../Styles/index/graph.css" rel="stylesheet" />
+
+    <!-- 引入的组件的样式 结束 -->
+
+    <!-- 本页所需的样式 开始 -->
+    
+<link href="../../Styles/common/common-before-bs.css" rel="stylesheet" />
+    <link href="../../Styles/index/index-management.css" rel="stylesheet">
+
+          
+<div class="container-before-bootstrap clearfix">
+    <div class="all">
+
+    </div>
+</div>
+<!--弹出层 开始 -->
+    <!--图片预览  开始  <div class="photoview">
+
+        </div>-->
+    <div class="modal fade" id="photoviewModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+       
+    </div>
+    <!--图库 开始 -->
+    <div class="modal fade" id="photo_modal" tabindex="-1" role="dialog" aria-labelledby="classifyModify_modal_label" aria-hidden="true" data-backdrop="false" data-keyboard="false">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+                    <h4 class="modal-title" >图库</h4>
+                </div>
+                <div class="modal-row modal-phonto modalbody">
+                    <div  class="upload">
+                        <input type="file" name="files[]" id="fileupload"multiple="">上传图片  <!--修改-->
+                      
+                    </div>
+                    <span class="pull-right">
+                        <span >建议尺寸：800*300</span>
+                    </span>
+                    <div class="set-group photochoose" >
+                    </div>
+                </div>
+                <div class="modal-footer fifty-fifty">
+                    <a class="btn btn-transparency btn-lg cancleAll">取消全部</a>
+                    <a class="btn btn-transparency btn-lg photo-modalsure" >确定</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--图库 结束 -->
+    <!--图片预览 结束 -->
+    <!--模块选择 开始-->
+    <div class="modal fade" id="Setup_modal" tabindex="-1" role="dialog" aria-labelledby="classifyModify_modal_label" aria-hidden="true" data-backdrop="false" data-keyboard="false">
+        <div class="modal-dialog">
+            
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+                    <h4 class="modal-title" id="personal_modal_label">添加模块</h4>
+                </div>
+            
+                 <div class="modal-row  modalRadio">
+                    <div class="row">
+                        <label class="radio-inline col-xs-2">
+                        <input type="radio" name="modalRadio[1]"  class="modal-radio" id="baz1" > 新闻类
+                        </label>
+                     </div> 
+                     <div class="row">
+                        <label class="radio-inline col-xs-2">
+                        <input type="radio" name="modalRadio[1]"  class="modal-radio" id="baz2" > 通知类
+                        </label>
+                     </div> 
+                     <div class="row">
+                        <label class="radio-inline col-xs-2">
+                        <input type="radio" name="modalRadio[1]"  class="modal-radio" id="baz3" > 文档类
+                        </label>
+                     </div> 
+                     <div class="row">
+                        <label class="radio-inline col-xs-2">
+                        <input type="radio" name="modalRadio[1]"  class="modal-radio" id="baz4" > 图片轮播类
+                        </label>
+                     </div> 
+                        <div class="row">
+                        <label class="radio-inline col-xs-2">
+                        <input type="radio" name="modalRadio[1]"  class="modal-radio" id="baz5" > 功效价值类
+                        </label>
+                     </div> 
+                </div>
+                <!--新闻 通知 上半部分开始-->
+                <div class="modal-row  modaltitle modalmessage modalnews">
+                    <div class="set-group">
+                        <div class="set-label">模块标题</div>
+                        <div class="set">
+                            <!-- title -->
+                            <input type="text" class="short form-control"   value=""  maxlength="10" id="news-title"/>  <input type="checkbox" class="displayTitle"/> 显示
+                        </div>
+                        <div class="set-label">显示条数</div>
+                        <div class="set">
+                            <input type="text"  style="width:150px;height: 30px;" class="maxRow  form-control"  onInput="value=value.replace(/[^\d]/g,'')" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))" value="" />
+                        </div>
+                        <div class="set-label">链接方式</div>
+                        <div class="set">
+                              <div class="dropdown newOrg_cell  "style="width:150px" >
+                                     <span class="dropdown-toggle span-orgType" role="button" aria-expanded="true" data-toggle="dropdown" data-delay="50" >
+                                        <span term="" id="linkTarget" class="dropdown-span"></span>
+                                        <span class="upPic upPicHit"></span>
+                                     </span>
+                                     <ul class="dropdown-menu orgType-dropdown" role="menu">
+                                           <li><a href="javascript:void(0)" term="0">当前页</a></li>
+                                           <li class="divider short"></li>
+                                           <li><a href="javascript:void(0)" term="1">弹出页</a></li>                                           
+                                      </ul>
+                              </div>                                 
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="modal-row modaltitle modaldocument">
+                    <div class="set-group">
+                        <div class="set-label">模块标题</div>
+                        <div class="set">
+                            <input type="text" class="short form-control" id="document-title" value="" maxlength="10"/>  <input type="checkbox" class="displayTitle"/> 显示
+                        </div>
+                        <div class="set-label">显示条数</div>
+                        <div class="set">
+                            <input type="text" class=" short form-control"  style="width:150px" id="document-maxRow"onkeyup="value=value.replace(/[^\d]/g,'')" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))" value="" >
+                        </div>
+                    </div>
+                </div>
+                <!--文档上半部分 结束-->
+            
+                 
+                <div class="modal-row modalbody modal-size">
+                    <div class="set-group">
+                        
+                        <div class="set-label"> 来源</div>
+                        <div class="set">
+                            <button  class="setbutton">设置</button>
+                        </div>
+                    </div>
+                </div>
+                <!--新闻 通知 文档 下半部分结束-->
+            
+                <!--图片部分 开始-->
+                <div class="modal-row modal-phonto modalbody">
+                    <button class="choosephoto">选择图片</button>
+                            <span class="pull-right">
+                                <span >建议尺寸：800*300</span>
+                            </span>
+                    <div class="set-group photochoose">
+            
+                    </div>
+                </div>
+                <!--图片部分 结束-->
+            
+                <!--价值功效 上半部分 开始-->
+                <div class="modal-row modaltitle efficiencyValue" >
+                    <div class="set-group">
+                        <div class="set-label">模块标题</div>
+                        <div class="set">
+                            <input type="text" class="short form-control" id="efficiency-title" value="" maxlength="10">  <input type="checkbox" class="displayTitle"> 显示
+                        </div>
+            
+                        <div class="dis-table">
+                            <div class="dis-cell">
+                                <div class="set-label">默认功效</div>
+                                <div class="set">
+                                    <div class="dropdown newOrg_cell" style="width:150px;">
+                                           <span class="dropdown-toggle span-orgType" role="button" aria-expanded="true" data-toggle="dropdown" data-delay="50" >
+                                              <span term=""id="defaultEfficiency" class="dropdown-span"></span>
+                                              <span class="upPic upPicHit"></span>
+                                           </span>
+                                            <ul class="dropdown-menu orgType-dropdown" role="menu">
+                                               <li><a href="javascript:void(0)" term="1">年功效</a></li>
+                                               <li class="divider short"></li>
+                                               <li><a href="javascript:void(0)" term="2">月功效</a></li>  
+                                                                                                                          
+                                          </ul>
+                                     </div>                  
+                                     
+                                </div>
+                            </div>
+                            <div class="dis-cell">
+                                <div class="set-label">TOP排名</div>
+                                <div class="set">
+                                    <div class="dropdown newOrg_cell" style="width:150px;" >
+                                         <span class="dropdown-toggle span-orgType" role="button" aria-expanded="true" data-toggle="dropdown" data-delay="50" >
+                                            <span term=""id="topselect" class="dropdown-span"></span>
+                                            <span class="upPic upPicHit"></span>
+                                         </span>
+                                         <ul class="dropdown-menu orgType-dropdown" role="menu">
+                                               <li><a href="javascript:void(0)" term="1">1</a></li>
+                                               <li class="divider short"></li>
+                                               <li><a href="javascript:void(0)" term="2">2</a></li>  
+                                              <li class="divider short"></li>
+                                               <li><a href="javascript:void(0)" term="3">3</a></li>  
+                                              <li class="divider short"></li>
+                                               <li><a href="javascript:void(0)" term="4">4</a></li>  
+                                              <li class="divider short"></li>
+                                               <li><a href="javascript:void(0)" term="5">5</a></li>  
+                                               <li class="divider short"></li>
+                                               <li><a href="javascript:void(0)" term="6">6</a></li> 
+                                              <li class="divider short"></li>
+                                               <li><a href="javascript:void(0)" term="7">7</a></li>  
+                                              <li class="divider short"></li>
+                                               <li><a href="javascript:void(0)" term="8">8</a></li>  
+                                              <li class="divider short"></li>
+                                               <li><a href="javascript:void(0)" term="9">9</a></li>  
+                                              <li class="divider short"></li>
+                                               <li><a href="javascript:void(0)" term="10">10</a></li>  
+                                                                                    
+                                          </ul>
+                                   </div>                                                                                 
+                                   
+                                </div>
+                            </div>
+                        </div>
+            
+                        <div class="dis-table">
+                            <div class="dis-cell">
+                                <div class="set-label">曲线显示</div>
+                                <div class="set">
+                                      <div class="dropdown newOrg_cell" style="width:150px;">
+                                           <span class="dropdown-toggle span-orgType" role="button" aria-expanded="true" data-toggle="dropdown" data-delay="50"  >
+                                              <span term=""id="topDisplayLine" class="dropdown-span"></span>
+                                              <span class="upPic upPicHit"></span>
+                                           </span>
+                                            <ul class="dropdown-menu orgType-dropdown" role="menu">
+                                               <li><a href="javascript:void(0)" term="1">1</a></li>
+                                               <li class="divider short"></li>
+                                               <li><a href="javascript:void(0)" term="2">2</a></li>  
+                                              <li class="divider short"></li>
+                                               <li><a href="javascript:void(0)" term="3">3</a></li>  
+                                              <li class="divider short"></li>
+                                               <li><a href="javascript:void(0)" term="4">4</a></li>  
+                                              <li class="divider short"></li>
+                                               <li><a href="javascript:void(0)" term="5">5</a></li>  
+                                               <li class="divider short"></li>
+                                               <li><a href="javascript:void(0)" term="6">6</a></li> 
+                                              <li class="divider short"></li>
+                                               <li><a href="javascript:void(0)" term="7">7</a></li>  
+                                              <li class="divider short"></li>
+                                               <li><a href="javascript:void(0)" term="8">8</a></li>  
+                                              <li class="divider short"></li>
+                                               <li><a href="javascript:void(0)" term="9">9</a></li>  
+                                              <li class="divider short"></li>
+                                               <li><a href="javascript:void(0)" term="10">10</a></li>                                                                                     
+                                          </ul>
+                                     </div>                                      
+                                </div>
+                            </div>
+                            <div class="dis-cell">
+                                <div class="set-label">统计对象</div>
+                                <div class="set">
+                                    <a class="btn btn-default setbutton" href="javascript:void(0)" role="button"  >设置</a>
+            
+                                </div>
+                            </div>
+                        </div>
+            
+                        <div class="set-label">显示</div>
+                        <div class="set">
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" id="efficiencyValue" value="">
+                                    功效价值
+                                    <a class="btn btn-default  " href="javascript:void(0)" role="button" id="defaultLine1" style="border: none;display: none;">默认</a>
+                                      
+                                </label>
+                            </div>
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" id="executiveForce" value="" >
+                                    执行力
+                                    <a class="btn btn-default  " href="javascript:void(0)" role="button" id="defaultLine2" style="border: none;display: none;">默认</a>
+                                </label>
+                            </div>
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" id="objective" value="" >
+                                    目标考核
+                                     <a class="btn btn-default  " href="javascript:void(0)" role="button" id="defaultLine3" style="border: none;display: none;">默认</a>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+            
+                </div>
+                
+            
+                <div class="modal-footer fifty-fifty">
+                    <a class="btn btn-transparency btn-lg cancle-setup"  data-dismiss="modal">取消</a>
+                    <a class="btn btn-transparency btn-lg" id="newDoc_modal_submit">确定</a>
+                </div>
+        
+            </div>
+        
+            <div class="modal-content content">
+                <div class="modal-header content-header">
+                    <h4 class="modal-title">设置</h4>
+                </div>
+                <div class="modal-row">
+                    <div>
+                        <ul class="panel-body ztree creDepart" id="catalogue"></ul>
+                    </div>
+                    
+                </div>
+        
+            </div>
+        </div>
+    </div>
+
+    <!--弹出层 结束 -->
+ <!-- 引入的组件的JS 开始 -->
+
+    <script src="../../Libs/excanvas/excanvas.js" type="text/javascript"></script>
+    <!-- 导航条悬浮  -->
+    <script src="../../Libs/smint/jquery.smint.js" type="text/javascript"></script>
+
+    <script src="../../Scripts/component/rating.js"></script>
+    <!-- 引入的组件的JS 结束 -->
+
+    <!-- 本页使用的JS 开始 -->
+    <script src="../../Scripts/index/indexmanagement.js"></script>
+    <!-- 本页使用的JS 结束 -->

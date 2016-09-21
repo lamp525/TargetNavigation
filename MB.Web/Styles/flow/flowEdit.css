@@ -1,0 +1,910 @@
+﻿.edit-panel{
+    /*height: 700px;*/
+    margin-left: -1px;
+    margin-top: -1px;
+}
+.edit-panel .left-panel{
+    width: 300px;
+    vertical-align: top;
+}
+
+.edit-panel .center-panel{
+    width: 570px;
+    vertical-align: top;
+}
+
+.edit-panel .right-panel{
+    width: 330px;
+    vertical-align: top;
+}
+
+.widget-box,
+.edit-box{
+    min-height: 200px;
+}
+.widget-box .box-title,
+.edit-box .box-title{
+    padding: 5px;
+    margin-left: 10px;
+    margin-right: 10px;
+    border-bottom: 1px solid #e3e3e3;
+}
+.widget-box .widget-item{
+    float: left;
+    width: 129px;
+    padding: 5px 30px;
+    margin: 10px 10px 0;
+    border: 1px solid #ccc;
+    cursor: move;
+}
+.widget-box .widget-item:hover{
+    color: #fff;
+    background-color: #5cb85c;
+}
+
+.edit-box .box-content{
+    padding: 10px;
+}
+.edit-box .form-group{
+    margin-bottom: 10px;
+}
+
+.calculator .modal-dialog{
+    height: 600px;
+}
+.calculator .monitor{
+    position: relative;
+    height: 100px;
+    margin: 10px 20px;
+}
+.calculator .monitor-inner{
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    left: 10px;
+    max-height: 80px;
+    font-size: 23px;
+    line-height: 40px;
+    word-break: break-all;
+    overflow: auto;
+}
+.calculator .operate{
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-bottom: 10px;
+}
+.calculator hr{
+    margin-bottom: 20px;
+}
+.calculator .operate .btn{
+    padding: 5px 18px;
+    margin-left: 10px;
+}
+.calculator .area-key{
+    margin-bottom: 20px;
+}
+.area-key .area{
+    height: 280px;
+    padding-left: 20px;
+    padding-right: 10px;
+    overflow: visible;
+}
+.area .areabox{
+    margin-top: -10px;
+    margin-bottom: -10px;
+}
+.area .btn{
+    float: left;
+    width: 52px;
+    height: 52px;
+    padding: 0;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    line-height: 52px;
+    background-color: #f9f9f9;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.area .btn.pull-right{
+    margin-right: 11px;
+}
+.area .btn.btn-high{
+    height: 114px;
+    line-height: 114px;
+}
+.area .btn.btn-long{
+    width: 114px;
+}
+.area .btn.btn-operational{
+    background-color: #d7d7d7;
+}
+.area-number{
+    border-right: none;
+}
+.area-number .btn{
+    font-size: 14px;
+}
+
+
+.widget-box .i-col2{
+    background: url("../../Images/flow/col2.png") no-repeat left;
+}
+.widget-box .i-col2:hover{
+    background-image: url("../../Images/flow/col2-hit.png");
+}
+.widget-box .i-col3{
+    background: url("../../Images/flow/col3.png") no-repeat left;
+}
+.widget-box .i-col3:hover{
+    background-image: url("../../Images/flow/col3-hit.png");
+}
+.widget-box .i-table{
+    background: url("../../Images/flow/table.png") no-repeat left;
+}
+.widget-box .i-table:hover{
+    background-image: url("../../Images/flow/table-hit.png");
+}
+.widget-box .i-label{
+    background: url("../../Images/flow/label.png") no-repeat left;
+}
+.widget-box .i-label:hover{
+    background-image: url("../../Images/flow/label-hit.png");
+}
+.widget-box .i-input{
+    background: url("../../Images/flow/input.png") no-repeat left;
+}
+.widget-box .i-input:hover{
+    background-image: url("../../Images/flow/input-hit.png");
+}
+.widget-box .i-date{
+    background: url("../../Images/flow/date.png") no-repeat left;
+}
+.widget-box .i-date:hover{
+    background-image: url("../../Images/flow/date-hit.png");
+}
+.widget-box .i-checkbox{
+    background: url("../../Images/flow/checkbox.png") no-repeat left;
+}
+.widget-box .i-checkbox:hover{
+    background-image: url("../../Images/flow/checkbox-hit.png");
+}
+.widget-box .i-radio{
+    background: url("../../Images/flow/radio.png") no-repeat left;
+}
+.widget-box .i-radio:hover{
+    background-image: url("../../Images/flow/radio-hit.png");
+}
+.widget-box .i-browse{
+    background: url("../../Images/flow/browse.png") no-repeat left;
+}
+.widget-box .i-browse:hover{
+    background-image: url("../../Images/flow/browse-hit.png");
+}
+.widget-box .i-select{
+    background: url("../../Images/flow/select.png") no-repeat left;
+}
+.widget-box .i-select:hover{
+    background-image: url("../../Images/flow/select-hit.png");
+}
+.widget-box .i-money{
+    background: url("../../Images/flow/money.png") no-repeat left;
+}
+.widget-box .i-money:hover{
+    background-image: url("../../Images/flow/money-hit.png");
+}
+.widget-box .i-line{
+    background: url("../../Images/flow/line.png") no-repeat left;
+}
+.widget-box .i-line:hover{
+    background-image: url("../../Images/flow/line-hit.png");
+}
+
+.optionsBox .glyphicon{
+    margin-left: 5px;
+    cursor: pointer;
+}
+.optionsBox [type='checkbox'],
+.optionsBox [type='radio']{
+    margin-right: 5px;
+}
+
+.sub-nav{
+    padding: 5px 20px;
+    border-bottom: 1px solid #ddd;
+}
+.sub-nav .nav-item{
+    margin-right: 20px;
+}
+
+/*.sub-nav .nav-item:active{
+    color:#58b456;
+}*/
+
+
+
+
+/* 节点设置 开始 */
+#nodeOperateSet_modal input[type="radio"][disabled], input[type="checkbox"][disabled], input[type="radio"].disabled, input[type="checkbox"].disabled, fieldset[disabled] input[type="radio"], fieldset[disabled] input[type="checkbox"] {
+    cursor:default;  
+}
+#nodeFieldSet_modal input[type="radio"][disabled], input[type="checkbox"][disabled], input[type="radio"].disabled, input[type="checkbox"].disabled, fieldset[disabled] input[type="radio"], fieldset[disabled] input[type="checkbox"] {
+    cursor:default;  
+}
+#nodeTable  td,#nodeOperateSet_modal .table td {
+    border-top:none !important;
+}
+#nodeTable .btn:hover{
+    color:#58b456;
+}
+/*去掉table的边框*/
+#nodeAllSave,  #nodeAllSaveReturn{
+    background-color: #f5f5f5;
+}
+ 
+#nodeAllSave:hover, #nodeAllSaveReturn:hover{
+    background-color: #fbac0f;
+}
+#nodeTable  .delPic{
+    float: right;
+}
+#nodeTable .nodeName{
+    background-color:#fff;
+    width: 100%;
+    height: 32px;
+}
+#nodeTable .dropdown-menu,#nodeOperateSet_modal  .dropdown-menu {
+    width: 100%;
+    min-width: 0px;
+}
+#nodeTable span.dropdown-toggle, #nodeOperateSet_modal span.dropdown-toggle {
+    background-color: #fff;
+    border: 1px solid #bbbbbb;
+    display: inline-block;
+    width: 100%;
+    line-height: 30px;
+    padding-left: 10px;
+}
+#nodeOperateSet_modal .table td{
+    padding-left:0px;
+}
+/* 创建节点和归档节点不能选类型  */
+#nodeTable tr:first-child .nodeTypeTd .dropdown-toggle{
+    cursor:default;
+    background-color: #eee;
+}
+#nodeTable tr:last-child .nodeTypeTd .dropdown-toggle{
+    cursor:default;
+    background-color: #eee;
+}
+.noChoose{
+    cursor:default!important;
+    background-color: #eee!important;
+}
+.noClick{
+    cursor:default!important;
+}
+/* 节点操作人设置弹窗 开始 */
+#nodeOperateSet_modal .chooseName .glyphicon-remove
+{
+  margin-top: -2px;
+}
+
+.node-rightModal {
+    display:none;
+}
+.node-rightModal .modal-header{
+    background-color: #f9f9f9;
+
+}
+
+#nodeZtreeTitle{
+    color: #333;
+}
+
+.Operate-nodeName{
+ border: 1px solid #bbbbbb;
+  width: 134px;
+  margin-left: 60px;
+  padding-top: 6px;
+  padding-left: 10px;
+  padding-right: 10px;
+  height: 32px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+#nodeOperateSet_modal_content{
+    min-height:550px;
+    overflow-x:hidden;
+}
+#nodeOperateSet_modal_content .row{
+    margin-bottom: 10px;
+}
+#nodeOperateSet_modal_content .radio-inline{
+    margin: 5px 0px 0px 5px;
+}
+#nodeOperateSet_modal_content label{
+    font-weight:normal;
+    height: 30px;
+    margin-bottom: 0px;
+}
+#nodeOperateSet_modal .node-rightModal{
+    height:100%;
+    background-color: #f9f9f9;
+    position: absolute;
+    top:0px;
+    width: 400px;
+    border: 1px solid #999;
+    border: 1px solid rgba(0, 0, 0, .2);
+    outline: 0;
+    -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, .5);
+    box-shadow: 0 3px 9px rgba(0, 0, 0, .5);
+    z-index:-1;
+}
+
+#nodeOperateSet-clear{
+    margin-left:10px;
+    margin-right:5px;
+}
+/* 节特殊处理最后一个choosename  
+#nodeOperateSet_modal_content .chooseName:last-child{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 34px;
+}
+/* 节点操作人设置弹窗 右侧ztree树设置 */
+#node-ZtreeContent,#nodeChooseList{
+    overflow:auto;
+}
+#nodeChooseList{
+    margin-left:10px;
+    height: 282px;
+}
+#nodeChooseList li{
+    margin-bottom: -13px;
+}
+/* 设置表格中的内容超 */
+#nodeOperateConditionTable tbody span{
+    white-space: nowrap;
+  overflow: hidden;
+  max-width: 150px;
+  text-overflow: ellipsis;
+  display: inline-block;
+}
+#nodeOperateConditionTable tbody .order-upPic{
+    background:url(../../Images/flow/orderUp.png)no-repeat;
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    cursor: pointer;
+}
+ 
+#nodeOperateConditionTable tbody .order-downPic{
+    background:url(../../Images/flow/orderDown.png)no-repeat;
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    cursor: pointer;
+}
+ 
+
+/* 节点操作人设置弹窗 结束 */
+/* 节点字段设置弹窗 开始 */
+#nodeFieldSet_modal_content label{
+    font-weight:normal;
+}
+.nodeFieldDiv{
+    margin-bottom: 70px;
+    max-height: 200px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+.nodeFieldDiv .col-xs-3 label{
+        height: 19px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+/* 节点字段设置弹窗 开始 */
+#nodeChooseList li label .disabled
+{
+     cursor:not-allowed;
+}
+#nodeOperateSet_modal .chooseName span:hover{
+    color:#58b456;
+}
+#nodeOperateSet_modal .chooseName
+{
+    word-wrap: break-word;
+}
+
+/* 节点设置 结束 */
+
+
+
+/* 流程设置 开始 */
+#flowTable  .dropdown-toggle span{
+    display: inline-block;
+}
+
+#fieldOther label{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.upPic{
+    background:url(../../Images/flow/up.png)no-repeat;
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    margin-top:3px;
+    float:right;
+}
+
+.upPic_hit{
+    background:url(../../Images/flow/up_hit.png)no-repeat;
+}
+
+.delPic{
+    background:url(../../Images/flow/delete.png)no-repeat;
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    cursor: pointer;
+}
+.delPic:hover{
+    background:url(../../Images/flow/delete_hit.png)no-repeat;
+}
+
+#flowTable  .dropdown-toggle,#flowSet_modal .dropdown-toggle{
+   
+    border: 1px solid #bbbbbb;
+    display:inline-block;
+    width: 100%;
+    line-height: 30px;
+    padding-left: 10px;
+    height: 33px;
+}
+#flowTable button.dropdown-toggle{
+    padding-top: 0px;
+    padding-right: 0px;
+    text-align:left;
+}
+#flowTable .form-control[disabled], #flowSet_modal .btn-transparency[disabled]{
+  cursor: auto;
+}
+
+#flowTable ul.dropdown-menu, #flowSet_modal ul.dropdown-menu{
+    width:100%;
+}
+#flowSet_modal_content{
+    min-height:550px;
+    overflow-x:hidden;
+}
+#flowSet_modal_content .row{
+   margin-bottom: 10px;
+}
+#flowSet_modal_content .radio-inline{
+    margin: 5px 0px 0px 5px;
+}
+#flowSet_modal_content label{
+    font-weight:normal;
+    height: 30px;
+    margin-bottom: 0px;
+}
+.flow_btn_sm{
+    width:60px;
+    background-color: #fafafa;
+
+}
+#flowSet_modal_content .dropdown-menu{
+    min-width: 0px;
+}
+
+#flowField{
+    overflow-y: auto;
+    overflow-x: hidden;
+    margin: -11px -13px -10px 0px;
+    position: relative;
+    height: 225px;
+    padding-top: 10px;
+}
+.conditionAdd{
+    position: fixed;
+    /* left: 9px; */
+    /*top: 257px;*/
+    width: 513px;
+    background-color: #fff;
+    height: 45px;
+    margin-top: -35px
+}
+#conditionTable td{
+    border-top:0px;
+    padding-top:0px;
+    padding-bottom: 0px;
+}
+
+.mathBtn{
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    margin-right: 10px;
+    background-color: #fafafa;
+    padding: 0px;
+    line-height: 27px;
+    float:left;
+    display:inline-block;
+}
+#conditionIndex button{
+    float:none;
+}
+#conditionIndex{
+    overflow-x: auto;
+    white-space: nowrap;
+    overflow-y: hidden;
+}
+
+#mathLetter {
+    overflow-x: auto;
+    white-space: nowrap;
+}
+#mathResult{
+    margin-top: 7px;
+}
+
+#flowJobList , .flowZtreeOrg{
+    width: 100%;
+    height: 246px;
+    overflow-y: auto;
+}
+.flowZtreeOrg{
+    padding-top: 5px;
+}
+#flowJobList{
+    padding-left: 5px;
+    height: 287px;
+}
+#flowJobList li{
+    margin-bottom: -13px;
+}
+
+#conditionTable td{
+    max-width: 140px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+#flowTable td{
+    border-top: 0px;
+}
+#flowAllSave, #flowAllSaveReturn {
+    background-color: #f5f5f5;
+}
+#flowAllSave:hover, #flowAllSaveReturn:hover{
+    background-color: #fbac0f;
+}
+
+#flowJobList ul li label,#nodeChooseList ul li label {
+    width: 300px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+#fieldOther .conditionResult {
+ width:130px;
+ background-color: transparent;
+ text-align:left;
+}
+
+
+
+/*常见通用样式*/
+.widthParent{
+    width:100%;
+}
+.colorGray{
+    color:#c4c4c4;
+}
+.hrAll{
+    width: 600px;
+    margin-left: -15px;
+    border: 0px;
+    border-bottom: 1px solid #bbbbbb;
+}
+
+.rightModal{
+    background-color: #f9f9f9;
+    overflow: hidden;
+    position: absolute;
+    top:0px;
+    width: 400px;
+    height: 100%;
+    padding-left:15px;
+    border: 1px solid #999;
+    border: 1px solid rgba(0, 0, 0, .2);
+    outline: 0;
+    -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, .5);
+    box-shadow: 0 3px 9px rgba(0, 0, 0, .5);
+    z-index:-1;
+}
+
+#rightZtree{
+    display: none;
+}
+
+ 
+ .chooseName li span{
+    display: inline-block;
+    max-width: 189px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.chooseName .glyphicon-remove{
+  vertical-align: middle;
+   margin-top: -14px;
+}
+
+
+.ztree li a span {
+  width: 300px;
+  text-overflow: ellipsis;
+  display: inline-block;
+  overflow: hidden;
+}
+.green_color {
+  color: #58b456 !important;
+}
+
+
+/*加号+*/
+.add-min {
+    display: inline-block;
+    height: 24px;
+    width: 24px;
+    background: url('../../Images/common/add.png') no-repeat;
+    cursor: pointer;
+}
+.add-min:hover{
+    background: url('../../Images/common/addHit.png') no-repeat;
+}
+
+#flow_orgTarget li:hover, #flow_personTarget li:hover, #flow_jobTarget li:hover{
+    color:#58B456;
+}
+
+/* 流程设置 结束 */
+
+
+
+
+
+/* 流程图 开始 */
+/* 流程图 结束 */
+
+
+/* 流程进程 开始 */
+
+.panel-chart .chart {
+    position: relative;
+    float: left;
+    width: 292px;
+    height: 310px;
+    background: white;
+    border: 1px solid #ccc;
+}
+
+.chart #chart3 {
+    float: left;
+    width: 292px;
+    height: 300px;
+    margin-top: -10px;
+}
+
+
+.chart .planNum {
+    position: absolute;
+    top: 135px;
+    left: 100px;
+    width: 90px;
+    text-align: center;
+    font-size: 13px;
+}
+
+.chart .month {
+    float: left;
+    width: 330px;
+    height: 24px;
+    margin-top: -5px;
+}
+
+    .chart .month .text {
+        display: block;
+        float: left;
+        width: 282px;
+        line-height: 24px;
+        text-align: center;
+    }
+
+.panel-chart .sign {
+    float: left;
+    width: 292px;
+    height: 50px;
+    border-top: 1px solid #bbb;
+    background: white;
+    border: 1px solid #ccc;
+}
+
+.sign ul li {
+    float: left;
+    width: 55px;
+    list-style-type: none;
+}
+
+.sign ul {
+    position: absolute;
+    left: -27px;
+    margin-top: 5px;
+}
+
+.sign .color {
+    float: left;
+    width: 10px;
+    height: 10px;
+    margin: 5px 2px 9px 5px;
+    border-radius: 2px;
+}
+
+#chart3 svg {
+    margin-left: -20px;
+}
+
+.panel-chart .arrowsBBRCom {
+    position: absolute;
+    right: 0px;
+}
+/* 箭头 开始 */
+/* 箭头:Black,Big,方向 开始 */
+.arrowsBBTCom,
+.arrowsBBRCom,
+.arrowsBBBCom,
+.arrowsBBLCom {
+    position: relative;
+    float: left;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+}
+
+.arrowsBBTCom {
+    background: url(../../Images/common/arrowsBBT.png) no-repeat;
+}
+
+    .arrowsBBTCom:hover {
+        background: url(../../Images/common/arrowsBBTHit.png) no-repeat;
+    }
+
+.arrowsBBRCom {
+    background: url(../../Images/common/arrowsBBR.png) no-repeat;
+}
+
+    .arrowsBBRCom:hover {
+        background: url(../../Images/common/arrowsBBRHit.png) no-repeat;
+    }
+
+.arrowsBBBCom {
+    background: url(../../Images/common/arrowsBBB.png) no-repeat;
+}
+
+    .arrowsBBBCom:hover {
+        background: url(../../Images/common/arrowsBBBHit.png) no-repeat;
+    }
+
+.arrowsBBLCom {
+    background: url(../../Images/common/arrowsBBL.png) no-repeat;
+}
+
+    .arrowsBBLCom:hover {
+        background: url(../../Images/common/arrowsBBLHit.png) no-repeat;
+    }
+/* 箭头:Black,Big,方向 结束 */
+/* 箭头:Black,Small,方向 开始 */
+.arrowsBSTCom,
+.arrowsBSRCom,
+.arrowsBSBCom,
+.arrowsBSLCom {
+    float: left;
+    width: 12px;
+    height: 12px;
+    cursor: pointer;
+}
+
+.arrowsBSTCom {
+    background: url(../../Images/common/arrowsBST.png) no-repeat;
+}
+
+    .arrowsBSTCom:hover {
+        background: url(../../Images/common/arrowsBSTHit.png) no-repeat;
+    }
+
+.arrowsBSRCom {
+    background: url(../../Images/common/arrowsBSR.png) no-repeat;
+}
+
+    .arrowsBSRCom:hover {
+        background: url(../../Images/common/arrowsBSRHit.png) no-repeat;
+    }
+
+.arrowsBSBCom {
+    background: url(../../Images/common/arrowsBSB.png) no-repeat;
+}
+
+    .arrowsBSBCom:hover {
+        background: url(../../Images/common/arrowsBSBHit.png) no-repeat;
+    }
+
+.arrowsBSLCom {
+    background: url(../../Images/common/arrowsBSL.png) no-repeat;
+}
+
+    .arrowsBSLCom:hover {
+        background: url(../../Images/common/arrowsBSLHit.png) no-repeat;
+    }
+/* 箭头:Black,Small,方向 结束 */
+/* 箭头(实心):Black,Small,方向 开始 */
+.arrowSolidTCom,
+.arrowSolidRCom,
+.arrowSolidBCom,
+.arrowSolidLCom,
+.arrowSolidTComHit,
+.arrowSolidRComHit,
+.arrowSolidBComHit,
+.arrowSolidLComHit {
+    float: left;
+    width: 12px;
+    height: 12px;
+    cursor: pointer;
+}
+
+.arrowSolidTCom {
+    background: url(../../Images/common/arrowSolidT.png) no-repeat;
+}
+
+    .arrowSolidTComHit,
+    .arrowSolidTCom:hover,
+    .arrowSolidTCom.hit {
+        background: url(../../Images/common/arrowSolidTHit.png) no-repeat;
+    }
+
+.arrowSolidRCom {
+    background: url(../../Images/common/arrowSolidR.png) no-repeat;
+}
+
+    .arrowSolidRCom:hover {
+        background: url(../../Images/common/arrowSolidRHit.png) no-repeat;
+    }
+
+.arrowSolidBCom {
+    background: url(../../Images/common/arrowSolidB.png) no-repeat;
+}
+
+    .arrowSolidBComHit,
+    .arrowSolidBCom:hover,
+    .arrowSolidBCom.hit {
+        background: url(../../Images/common/arrowSolidBHit.png) no-repeat;
+    }
+
+.arrowSolidLCom {
+    background: url(../../Images/common/arrowSolidL.png) no-repeat;
+}
+
+    .arrowSolidLCom:hover {
+        background: url(../../Images/common/arrowSolidLHit.png) no-repeat;
+    }
+/* 箭头(实心):Black,Small,方向 结束 */
+/* 箭头 结束 */
+/* 流程进程 结束 */

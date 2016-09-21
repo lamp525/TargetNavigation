@@ -1,0 +1,1131 @@
+
+
+
+/*筛选框开始*/
+.hashandle{
+    display: none;
+}
+.sidebar.creDepart{
+    margin-top: 20px;
+}
+.panel.panel-default.creDepart{
+    border-style: none;
+}
+.department.glyphicon.glyphicon-chevron-down{
+    margin-right: 10px;
+    float: right;
+}
+a#removeFilter{
+    border:none;
+}
+
+.col-xs-3.list{
+    width: 100%;
+}
+/*列表画面*/
+.grayTop{
+    width: 100%;
+    height: 25px;
+    margin-left: -10px;
+    margin-top: -10px;
+    margin-bottom: 30px;
+    position: absolute;
+    background-color:darkgray;
+    filter:alpha(opacity=10);
+    -moz-opacity:0.1;
+    opacity:0.1;
+    z-index: 1;
+}
+/*.row-docChunk.col-xs-3.nest.filepng.grayTop{
+    display: none;
+}*/
+/* 选择框 开始 */
+.col-xs-3 .choose
+{
+    position: relative;
+    top: -20px;
+    right: -382px;
+    z-index: 10;
+    display: none;
+    width: 30px;
+    height: 30px;
+    background: #dadada;
+    cursor: pointer;
+}
+
+.col-xs-3 .choose.chooseHit
+{
+    border-left: 1px solid #bababa;
+    border-bottom: 1px solid #bababa;
+}
+
+.col-xs-3 .choose span
+{
+    position: relative;
+    top: 3px;
+    left: 3px;
+    display: block;
+    width: 24px;
+    height: 24px;
+    background: url(../../Images/plan/choose.png) no-repeat;
+}
+
+.col-xs-3 .choose span.spanHit
+{
+    background: url(../../Images/plan/chooseHit.png) no-repeat;
+}
+
+.col-xs-3 .prohibit
+{
+    position: relative;
+    top: -20px;
+    right: -384px;
+    z-index: 2;
+    width: 28px;
+    height: 28px;
+    background: url(../../Images/plan/prohibit.png) no-repeat;
+}
+
+
+
+.row-docChunk .col-xs-3 .choose,
+.row-docChunk .col-xs-3 .prohibit
+{
+    position: absolute;
+    right: 0px;
+    top: 0px;
+}
+/* 选择框 结束 */
+.panel-heading .moreBg,
+.panel-heading .moreCancel
+{
+    display: none;
+    padding: 0;
+    margin-left: 5px;
+}
+
+.panel-heading .moreBg
+{
+    margin-left: 15px;
+}
+
+.panel-heading .more:hover,
+.panel-heading .moreCancel:hover
+{
+    color: #58b456;
+}
+/*文档分类和操作开始*/
+.panel-heading.document{
+    height: 34px;
+    padding: 0 10px;
+}
+.tab-content.frontDoc{
+    width: 50%;
+    float: left;
+    padding-top: 8px;
+}
+
+ul.sortbar{
+    margin-top: 8px;
+    float: right;
+}
+.docclass li,.shareclass li{
+    width:100px;
+    text-align: -webkit-center;
+    cursor: pointer;
+}
+
+
+.frontDoc span{
+    width: 20px;
+    height: 19px;
+    margin-right: 5px;
+    display: inline-block;
+    vertical-align: top;
+}
+span.groupDocNot{
+    background: url(../../Images/document/group.png)no-repeat;
+}
+span.personalDocNot{
+
+    background:url(../../Images/document/personal.png)no-repeat ;
+}
+span.pershareNot{
+    background:url(../../Images/document/mine.png)no-repeat ;
+}
+span.elseshareNot{
+    background:url(../../Images/document/other.png)no-repeat ;
+}
+span.groupDocHit,a.groupDocHit:hover{
+    background: url(../../Images/document/groupHit.png);
+}
+ span.personalDocHit{
+    background: url(../../Images/document/personalHit.png);
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+}
+span.pershareHit{
+    background: url(../../Images/document/mineHit.png);
+}
+span.elseshareHit{
+    background: url(../../Images/document/otherHit.png);
+}
+li.active{
+    color: #58b456;
+}
+
+/*文档分类和操作结束*/
+
+
+
+
+
+
+
+/*文档列表开始*/
+.panel-body.listcommen{
+    margin-bottom:-10px;
+    /*position: relative;*/
+}
+
+/*卡片形式*/
+.documents {
+    min-height:200px;
+}
+
+.documents  .col-xs-3 .choose,
+.documents .col-xs-3 .prohibit
+{
+    position: absolute;
+    right: 0px;
+    top: 0px;
+}
+.row .row-docChunk{
+    margin-top: 25px;
+ /*   position:absolute;
+    display: inline-block;*/
+}
+.col-xs-3 .nest{
+    margin-top: 10px;
+    position: relative;
+    height: 120px;
+    padding: 10px 10px 30px;
+    border: 1px solid #ddd;
+    background-color: #f5f5f5;
+}
+.row-docChunk .nest .title{
+    display: inline-block;
+    width: 100%;
+    height:60px;
+    line-height: 30px;
+    font-size: 14px;
+    vertical-align: top;
+    text-overflow:ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.docpng .title:before{
+    content: url(../../Images/document/document.png);
+    display:inline-block;
+    vertical-align: top;
+    margin-right: 5px;
+}
+
+.filepng .title:before{
+    display: inline-block;
+    height: 30px;
+    vertical-align: top;
+    margin-right:5px;
+    content: url(../../Images/document/file.png);
+}
+dl.dl-horizontal{
+    margin-bottom: 0;
+    overflow: hidden;
+    -webkit-line-clamp: 2;
+    width: 180px;
+}
+ .dl-horizontal dt{
+    width: 55px;
+    font-weight: normal;
+    color: #aaa;
+}
+  .dl-horizontal dt:after{
+    content: ":";
+}
+   .dl-horizontal dd{
+    margin-left: 65px;
+    color: #aaa;
+}
+    .dl-horizontal dd{
+    margin-left: 30px;
+    line-height:1.4em;
+    /* 3 times the line-height to show 3 lines */
+    height:2.8em;
+    position:relative;
+    -webkit-line-clamp: 2;
+}
+   .dl-horizontal dd{
+    margin-left: 30px;
+    text-overflow:ellipsis;
+}
+.col-xs-3 .nest .content{
+    padding-left: 5px;
+    font-size: 12px;
+    margin-top: 10px;
+}
+
+.nest  .operate{
+    position: absolute;
+    display: none;
+    bottom: 0;
+    width: 100%;
+    height: 30px;
+    background:#58b456;
+    margin-left: -10px;
+    z-index: 20;
+}
+.nest >.operate .btns{
+    height: 30px;
+    line-height: 30px;
+    font-size: 12px;
+    z-index: 20;
+    float: right;
+    margin-right: 5px;
+}
+.col-xs-3 .btns>a{
+    margin-right: 6px;
+    color: #fff;
+}
+.col-xs-3 .btns>a:hover{
+    color: #136012;
+}
+
+/*列表形式*/
+.row .row-docList{
+   /* margin-top: 20px;*/
+    /*   position:absolute;
+       display: inline-block;*/
+}
+.col-xs-12 .nest{
+    margin-top: 10px;
+    position: relative;
+    height: 80px;
+    padding: 10px 10px 10px;
+    border: 1px solid #ddd;
+    background-color: #f5f5f5;
+}
+.col-xs-12 .nest.filepng .title{
+    display: block;
+  margin-top: 15px;
+  /* margin-bottom: 10px; */
+  line-height: 30px;
+  font-size: 14px;
+  vertical-align: top;
+}
+.col-xs-12 .nest.docpng .title{
+    display: block;
+  margin-top: 15px;
+  /* margin-bottom: 10px; */
+  line-height: 30px;
+  font-size: 14px;
+  vertical-align: top;
+}
+.col-xs-12 .nest.docpng  .title:before{
+    margin-right: 5px;
+    content: url(../../Images/document/document.png);
+}
+
+.col-xs-12 .nest.filepng .title:before{
+    margin-right:5px;
+    content: url(../../Images/document/file.png);
+}
+.col-xs-12 .nest.filepng .dl-horizontal{
+    margin-left: 20px;
+    font-size: 14px;
+    display:none;
+}
+.col-xs-12 .nest.docpng .content{
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+.col-xs-12 .nest.docpng .content-label{
+    display: none;
+}
+
+.col-xs-12 .nest.docpng .content>div{
+    float: left;
+    margin-right: 20px;
+}
+.col-xs-12 .nest  .operate{
+    position: absolute;
+    right: 0;
+    top: 35px;
+    display: block !important;
+    margin-left: -10px;
+    width: auto;
+    height: 30px;
+    background:transparent;
+    z-index: 20;
+}
+.col-xs-12 .nest >.operate .btns{
+    margin-left: 25px;
+    margin-right:10px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 12px;
+    z-index: 20;
+    color:black;
+}
+.col-xs-12 .nest>.operate .btns>a{
+    margin-right: 10px;
+}
+.col-xs-12 .choose,
+.col-xs-12 .prohibit
+{
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.col-xs-12 .choose
+{
+    position: relative;
+    top: -20px;
+    right: -382px;
+    z-index: 2;
+    display: none;
+    width: 27px;
+    height: 25px;
+    background: #dadada;
+    cursor: pointer;
+}
+
+.col-xs-12 .choose.chooseHit
+{
+    border-left: 1px solid #bababa;
+    border-bottom: 1px solid #bababa;
+}
+
+.col-xs-12 .choose span
+{
+    position: relative;
+    top: 2px;
+    left: 2px;
+    display: block;
+    width: 24px;
+    height: 24px;
+    background: url(../../Images/plan/choose.png) no-repeat;
+}
+.col-xs-12 .choose span.spanHit
+{
+    background: url(../../Images/plan/chooseHit.png) no-repeat;
+}
+
+.col-xs-12 .prohibit
+{
+    position: relative;
+    top: -20px;
+    right: -384px;
+    z-index: 2;
+    width: 28px;
+    height: 28px;
+    background: url(../../Images/plan/prohibit.png) no-repeat;
+}
+
+
+
+ .col-xs-12 .choose,
+ .col-xs-12 .prohibit
+{
+    position: absolute;
+    right: 0px;
+    top: 0px;
+}
+/*.btns>a{
+    margin-right: 8px;
+    color: #fff;
+}
+.btns>a:hover{
+    color: #136012;
+}*/
+
+
+/*弹出层-复制*/
+.chosebox{
+    height: 400px;
+}
+.chosenbox .chosen-count{
+    padding: 3px 10px;
+    border-bottom: 1px solid #ccc;
+}
+.chosens{
+    padding-left: 0;
+    list-style: none;
+}
+.chosens li{
+    padding: 5px 10px;
+}
+.chosens li:hover{
+    background-color: #eee;
+}
+#copy_modal_folder{
+    padding: 5px;
+}
+
+/*弹出层-新建文件夹*/
+.modal-body.newfile,.modal-body.newdoc{
+    height: 300px;
+    background-color:white;
+}
+.input-file,.input-doc{
+    height: 50px;
+    margin: 3px 0 10px 0;
+    position: relative;
+}
+span.group-laber{
+    height: 33px;
+    width: 13%;
+    line-height: 33px;
+    float: left;
+    margin-right: 5px
+}
+#input_filename.form-control{
+    max-width:267px;
+}
+#input_filedes.form-control{
+    max-width:267px;
+    height: 66px;
+}
+span.outborder{
+    border: 1px solid #e3e3e3;
+    height: 30px;
+    width: 30px;
+    display: inline-block;
+    cursor: pointer;
+}
+.outborder .position{
+    margin: 3px 3px;
+    vertical-align: middle;
+}
+.position .glyphicon-plus{
+    height: 24px;
+    width: 24px;
+    margin-left: 5px;
+    line-height: 24px;
+}
+input.upload-container{
+    display:none;
+}
+
+/* 确认上传 开始 */
+.uploadBox .allProcessBar {
+    height: 30px;
+    position: relative;
+}
+
+.uploadBox .allProcessBar span {
+    display: block;
+    position: absolute;
+}
+
+.uploadBox .allProcessBar .processBar {
+    padding: 3px;
+    position: absolute;
+    width: 222px;
+    height: 12px;
+    left: 68px;
+}
+
+#slider .ui-slider-range {
+    background: #58b557;
+}
+
+.ui-slider {
+    width: 216px;
+    height: 10px;
+    border: none;
+    background: url("../../Images/plan/sliderBg.png") repeat-x;
+}
+
+#slider .ui-slider-handle {
+    margin-top: 1px;
+    width: 15px;
+    height: 15px;
+    background: url("../../Images/plan/sliderDrag.png");
+    border: none;
+}
+
+#slider .ui-slider-handle:focus {
+    outline: none;
+}
+
+#slider .ui-slider-handle:hover {
+    /*background: url("../../Images/plan/sliderDragHit.png");*/
+}
+
+.uploadBox .allProcessBar span.degree {
+    right: 30px;
+}
+
+.uploadBox .file_upload .fileinput_frame {
+    height: auto;
+    /*line-height: 32px;*/
+    position: relative;
+}
+
+.uploadBox .file_upload .fileinput-button {
+    position: absolute;
+    top: 100px;
+    left: 70px;
+    overflow: hidden;
+    width: 70px;
+    height: 32px;
+    text-align: center;
+    line-height: 32px;
+    padding: 0;
+    margin: 0;
+    float: right;
+    top: 0;
+    right: 350px;
+    background: url("../../Images/plan/uploadBtnM.png") repeat-x;
+}
+
+.uploadBox .file_upload .fileinput-button .fileinput-button_l,
+.uploadBox .file_upload .fileinput-button .fileinput-button_r{
+    position: absolute;
+    width: 4px;
+    height: 32px;
+    top:0;
+}
+.uploadBox .file_upload .fileinput-button .fileinput-button_l{
+    background: url("../../Images/plan/uploadBtnL.png") no-repeat;
+}.uploadBox .file_upload .fileinput-button .fileinput-button_r{
+     right:0;
+     background: url("../../Images/plan/uploadBtnR.png") no-repeat;
+ }
+.uploadBox .file_upload .fileinput-button input {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    height: 30px;
+    opacity: 0;
+    direction: ltr;
+    cursor: pointer;
+}
+.uploadBox .file_upload span.uploadTag{
+    display: block;
+    height:30px;
+    line-height: 30px;
+    margin-bottom:30px;
+}
+.uploadBox .file_upload .files{
+    padding:1px 0;
+    
+    width: 100%;
+    max-height:80px;
+    height:auto;
+    overflow:auto;
+}
+.uploadBox .file_upload .files li{
+    width:100%;
+    height:40px;
+    vertical-align: bottom;
+    margin:2px 0;
+    position: relative;
+}
+.uploadBox .file_upload .files li.uploaded{
+    height:25px;
+}
+.uploadBox .file_upload .files li .file{
+    display: block;
+    position: absolute;
+    bottom: 5px;
+    left:3px;
+    margin-top: -20px;
+}
+.uploadBox .file_upload .file span{
+    display: none;
+    cursor: pointer;
+}
+.uploadBox .file_upload .files .up_progress{
+    position: absolute;
+    top:2px;
+    height:10px;
+    border:1px solid #ccc;
+    border-radius: 5px;
+    background: #58b557;
+}
+
+.uploadBox .finishTime {
+    padding-bottom: 7px;
+    border-bottom: 1px solid #bbb;
+}
+
+.uploadBox .finishTime input {
+    width: 30px;
+    height: 20px;
+}
+/* 确认上传 结束 */
+
+
+.icon{
+    font-size: 0;
+    vertical-align: middle;
+}
+.add-min{
+    display: inline-block;
+    /*height: 30px;
+    width: 30px;
+    background: url('../../Images/common/add.png') no-repeat;*/
+    cursor: pointer;
+    width: 33px;
+    height: 33px;
+    background: green;
+    margin-left: -5px;
+    margin-top: -2px;
+    text-align:center;
+}
+.add-min i{
+    font-size:20px;
+    color:#fff;
+    line-height:33px;
+}
+/*.add-min:hover{
+    background-image: url("../../Images/common/addHit.png");
+}*/
+.add-min-grey{
+    display: inline-block;
+    height: 24px;
+    width: 24px;
+    background: url('../../Images/plan/add-mini.png') no-repeat;
+    cursor: pointer;
+}
+.add-min-grey:hover{
+    background-image: url("../../Images/common/addHit.png");
+    background-color: #ffffff !important;
+}
+.add-min-wide{
+    display: inline-block;
+    width: 40px;
+    height: 24px;
+    vertical-align: middle;
+    border: 1px solid #e3e3e3;
+    background: url('../../Images/plan/add-mini.png') 50% no-repeat;
+    cursor: pointer;
+}
+.add-min-wide:hover{
+    border-color: #58b456;
+    background-image: url("../../Images/common/addHit.png");
+}
+
+/*.hasborder{
+    border: 1px solid #e3e3e3;
+}
+.hasborder:hover{
+    border-color: #58b456;
+}*/
+
+/*左边tree*/
+.leftTree-showbtn{
+      background: url(../../Images/document/catalogueL.png) no-repeat left center;
+      float: left;
+      width: 24px;
+      height: 24px;
+      top: 370px;
+      left: 10px;
+      z-index: 1;
+      position: absolute;
+      cursor: pointer;
+}
+.leftTree-showbtn:hover{
+      background: url(../../Images/document/catalogueLHit.png) no-repeat left center;
+     
+}
+.leftTree-hidebtn{
+    background: url(../../Images/document/catalogueLHit.png) no-repeat left center;
+    float: left;
+    width: 24px;
+    height: 24px;
+    right: 2px;
+    top: 290px;
+    z-index: 1;
+    position: absolute;
+    cursor: pointer;
+    display: inline-block;
+}
+.leftTree-hidebtn:before{
+    display: none;
+}
+.left-tree{
+    width: 40%;
+    height: 581px;
+    margin-top: 10px;
+    display: none;
+    z-index: 100;
+    position: absolute;
+    border: 1px solid #dddddd;
+    background-color: #ffffff;
+}
+/*弹出层共享*/
+.chosebox{
+    height: 400px;
+}
+.chosenbox .chosen-count{
+    padding: 3px 10px;
+    border-bottom: 1px solid #ccc;
+}
+.chosens{
+    padding-left: 0;
+    list-style: none;
+}
+.chosens li{
+    padding: 5px 10px;
+}
+.chosens li:hover{
+    background-color: #eee;
+}
+#share_modal_folder{
+    padding: 5px;
+}
+.choseClass{
+    height: 200px;
+    margin-top: -200px;
+}
+#share_modal_folder{
+    height: 200px;
+    border-bottom: 1px solid #dddddd;
+}
+.adopt{
+    height: 30px;
+    border-bottom: 1px solid #dddddd;
+}
+.adopt>ul.list-inline{
+    padding: 5px 5px;
+}
+ul.list-inline li input{
+    vertical-align: top;
+}
+.getadopt{
+   padding: 5px;
+}
+.btn-width>a{
+    width: 49%;
+    margin-left: 5px;
+}
+.btn.btn-transparency.user-defined{
+    width: 49%;
+    margin-left: 5px;
+    float: left;
+}
+
+#file_count{
+    position: absolute;
+    width: 90px;
+    top: 135px;
+    left: 100px;
+    text-align: center;
+}
+.sign {
+    float:left;
+    width:330px;
+    height:29px;
+    border-top:1px solid #bbb;
+}
+.sign ul li {
+    float:left;
+    width:55px;
+    line-height:29px;
+}
+.sign .color {
+    float:left;
+    width:10px;
+    height:10px;
+    margin:10px 2px 9px 5px;
+    border-radius:2px;
+}
+.sidebar .addPlan
+{
+    float: left;
+    width: 330px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    color: #fff;
+    background-color: #fbac0f;
+    border: 1px solid #fbbf3d;
+    cursor: pointer;
+}
+.sidebar .mine
+{
+    float: left;
+    width: 330px;
+    height: 208px;
+    margin-top: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid #bbb;
+}
+
+.mine .myself
+{
+    float: left;
+    width: 100%;
+    height: 79px;
+    border-bottom: 1px solid #bbb;
+    cursor: pointer;
+}
+
+    .mine .myself .introduce
+    {
+        float: left;
+        width: 212px;
+        height: 49px;
+        margin: 15px 0 15px 10px;
+    }
+
+        .mine .myself .introduce span
+        {
+            float: left;
+            width: 100%;
+        }
+
+        .mine .myself .introduce .name
+        {
+            height: 29px;
+            line-height: 29px;
+            color: #373737;
+            font-size: 14px;
+        }
+
+        .mine .myself .introduce .post
+        {
+            height: 20px;
+            line-height: 20px;
+        }
+
+    .mine .myself .portraitBox
+    {
+        float: left;
+        width: 70px;
+        height: 70px;
+        margin: 4px 5px 3px 31px;
+        background-color: #fff;
+        border: 1px solid #bbb;
+        border-radius: 50%;
+    }
+    
+.portraitBox .portraitCom
+{
+    width: 64px;
+    height: 64px;
+    margin: 3px;
+}
+
+
+    .add{
+    background-color: #f5f5f5;
+    margin-top: 10px;
+    position: relative;
+    height: 120px;
+    padding: 10px 10px 30px;
+    border: 1px solid #ddd;
+}
+.addPicture{
+    width: 65px;
+    height: 65px;
+    margin-left: 15px;
+    margin-top: 15px;
+    background: url(../../Images/plan/addB.png);
+}
+.wordPosition{
+     width: 80px;
+     position: absolute;
+     float: right;
+     margin: -45px 85px;
+     font-size: 14px;
+
+}
+.newadd.col-xs-12
+{
+    display: none;
+}
+
+/*.row .tag
+{
+    position: relative;
+    padding: 5px 20px 5px 10px;
+    border: 1px solid #fff;
+    display: inline-block;
+    height: 28px;
+    line-height: 16px;
+}*/
+.row .tag .glyphicon {
+    position: absolute;
+    line-height: 33px;
+    top: 0px;
+    right: 5px;
+}
+.row .tag {
+    display:inline-block;
+    width: 70px;
+    background: #31b0d5;
+    border-radius: 4px;
+    color: #ffffff;
+    padding: 0 5px;
+    cursor: default;
+    position: relative;
+    /* top: 2px; */
+    height: 33px;
+    line-height: 33px;
+    margin-right:5px;
+    margin-bottom:5px;
+}
+    .row .tag:hover
+    {
+        /*border-color: #58b456;*/
+        /*color: #58b456;*/
+    }
+
+    .row .tag .close
+    {
+        position: absolute;
+        top: 5px;
+        right: 6px;
+        cursor: pointer;
+    }
+.docType {
+    width: 100%;
+  height: 33px;
+  padding-left: 13px;
+  line-height: 33px;
+  /* border-bottom: 1px solid #ccc; */
+  /* border-left: 1px solid #ccc; */
+  border: 1px solid #ccc;
+  border-top: none;
+  color: #686868;
+}
+.docType span {
+    margin-right:10px;
+    cursor:pointer;
+}
+.docType span:hover {
+    color:#58b456;
+        }
+span.active {
+    color:#58b456;
+}
+.directory-set {
+    color:#333;
+}
+/*加载局部视图位置*/
+.xubox_loading_0{
+    margin-top:80px;
+}
+
+
+.dirc_span,.dic_first {
+    cursor:pointer;
+}
+
+ 
+#firstdirc_span>span {
+  width: auto;
+  font-size: 12px;
+ 
+}
+span#firstdirc_span
+{
+     background-color: #fff;
+}
+ 
+.label-head,.label-main {
+ 
+    height:49px;
+    line-height:49px;
+}
+.label-main input{
+    width:100px;
+    height:33px;
+    padding: 6px 12px;
+    color:#000;
+}
+.label-head {
+    padding-right:12px;
+    padding-left:8px;
+    width:12%;
+}
+.label-main {
+    /*padding-left:10px;*/
+    min-height:49px;
+}
+.label-main button{
+    width:33px;
+    height:33px;
+    background:green;
+    margin-left:-5px;
+    position: relative;
+    top: 2px;
+    display:inline-block;
+    border:none;
+}
+.label-list .label-ul {
+    width:100%;
+    padding:0;
+    margin:0;
+    line-height:30px;
+}
+.label-main button i {
+    color:#fff;
+    line-height:33px;
+    font-size:20px;
+}
+.label-list .label-ul .label-list-ul,.list-lab{
+    list-style:none;
+    display:block;
+    float:left;
+    margin-right:5px;
+    height: 33px;
+    line-height: 33px;
+    margin-top:10px;
+    position:relative;
+}
+.list-lab {
+    width:70px;
+    background: #31b0d5;
+    border-radius: 4px;
+    color: #ffffff;
+    padding:0 5px;
+    cursor:default;
+    position:relative;
+    top:2px;
+}
+.label-list .label-ul .label-list-ul {
+    margin-left:5px;
+}
+.label-hide {
+    display:none;
+}
+.list-lab i{
+    position:absolute;
+    line-height:33px;
+    right:4px;
+    top:0px;
+    cursor:pointer;
+    display:none;
+}
+.list-lab span {
+    display:block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width:50px;
+}
+.autocompleter {
+    margin-top:3px;
+}
+.list-lab:hover i {
+    display:block;
+}

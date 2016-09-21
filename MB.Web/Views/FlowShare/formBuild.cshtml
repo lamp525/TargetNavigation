@@ -1,0 +1,36 @@
+﻿<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+    <h4 class="modal-title" data-toggle="modal" id="newform_modal_label">新建表单</h4>
+</div>
+<div class="modal-body newform">
+    <div class="input-file">
+        <span class="group-laber">表单名称</span>
+        <span class="inputBox"><input type="text" class="form-control "  aria-describedby="basic-addon2" id="input_filename" maxlength="20"></span>
+    </div>
+    <div class="input-file"style="margin-top: -5px">
+        <span class="group-laber" style="height: 50px;line-height: 50px">表单描述</span>
+        <textarea class="form-control"  aria-describedby="basic-addon2" id="input_filedes" maxlength="100"></textarea>
+    </div>
+    <div class="input-file" style="margin-top: 20px">
+        <span class="group-laber">表单分类</span>
+        <div class="">
+            <ul class="list-inline">
+                <li class="dropdown addborder">
+                    <span id="power-span" class="dropdown-toggle" style="width:100%;display:block" data-toggle="dropdown" data-hover="dropdown" data-delay="50" role="button" aria-expanded="false">
+                        <span term="4"style="margin-left:-10px"></span>
+                        <span class="caret" style="float: right;margin-top: 8px;" ></span>
+                    </span>
+                             
+                    <ul class="dropdown-menu authy-dropdown formClassify newbuilde" role="menu" style="min-width: 95px">
+              
+                    </ul>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="modal-footer fifty-fifty">
+    <a class="btn btn-transparency btn-lg" data-dismiss="modal">取消</a>
+    <a class="btn btn-transparency btn-lg" id="newfile_modal_submit">确定</a>
+</div>

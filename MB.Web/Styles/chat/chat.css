@@ -1,0 +1,1585 @@
+
+#chat * {
+    box-sizing: border-box;
+}
+
+#chat .fl {
+    float: left;
+}
+
+#chat .fr {
+    float: right;
+}
+
+#chat input, button {
+    padding: 0px;
+    margin: 0px;
+    background: #ffffff;
+}
+
+#chat ul {
+    padding: 0px;
+    margin: 0px;
+}
+
+#chat ul li {
+    padding: 0px;
+    margin: 0px;
+    list-style: none;
+}
+
+#temp span,.defaultNot {
+    -moz-user-select: none; /*火狐*/
+   -webkit-user-select: none;  /*webkit浏览器*/
+   -ms-user-select: none;   /*IE10*/
+   -khtml-user-select: none; /*早期浏览器*/
+   user-select: none;
+}
+.speakMsg .pTalk {
+    width:100%;
+    margin:0;
+}
+#chat {
+    width: 150px;
+    /*min-height:400px;*/
+    position: fixed;
+    top: 50px;
+    z-index:2000;
+    right: 0px;
+    /*left:1338px;*/
+    border-left: 1px solid #bbb;
+    border-bottom: 1px solid #bbb;
+    box-sizing: border-box;
+    box-shadow: 1px 1px 5px #888888 ;
+}
+
+#chat .icon {
+    width: 100%;
+    height: 80px;
+    border-bottom: 1px solid #bbb;
+    font-size:12px;
+}
+#chat #personal_info {
+    background-color:#fff;
+}
+
+#chat .smallSize {
+    width: 100%;
+    height: 25px;
+    line-height: 25px;
+    text-indent: 5px;
+    background-color:#fff;
+    position:relative
+}
+#chat .smallSize .banSmall{
+    position:absolute;
+    right:5px;
+    line-height:25px;
+    transform:rotate(42deg);
+    -ms-transform:rotate(42deg); 	/* IE 9 */
+    -moz-transform:rotate(42deg); 	/* Firefox */
+    -webkit-transform:rotate(42deg); /* Safari 和 Chrome */
+    -o-transform:rotate(42deg); 	/* Opera */
+
+}
+#chat .smallSize .banCheck{
+    position:absolute;
+    left:5px;
+    line-height:25px;
+}
+#chat .smallSize .checkGreen {
+    color:green
+}
+
+#chat #choose {
+    margin-left:10%
+}
+
+#chat .icon img {
+    width: 60px;
+    height: 60px;
+    border-radius: 30px;
+    margin-top: 10px;
+    float: left;
+    margin-left: 5px;
+}
+
+#chat .icon .user {
+    width: 84px;
+    height: 100%;
+    float: left;
+}
+
+#chat .icon .user div {
+    width: 100%;
+    height: 50%;
+    text-indent: 5px;
+}
+
+#chat .icon .user .name {
+    line-height: 55px;
+}
+
+#chat .search {
+    width: 100%;
+    height: 30px;
+    border-bottom: 1px solid #bbb;
+    position: relative;
+}
+#chat .search .searchPerson{
+    width: 100%;
+    z-index: 9999;
+    border-right: 1px solid #bfbfbf;
+    border-bottom: 1px solid #bfbfbf;
+    position: absolute;
+    top:30px;
+    left: 0px;
+    background-color:#ffffff;
+}
+
+#chat .search .searchPerson .selectInput {
+    width:100%;
+    height:30px;
+}
+#chat .search .searchPerson .selectInput input{
+    width:80%;
+    height:20px;
+    border:1px solid #bfbfbf;
+    line-height:20px;
+    margin-top:4px;
+    margin-left:10%;
+    padding:2px;
+}
+#chat .search .searchPerson .tell{
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    background: #ffffff;
+}
+#chat .search .searchPerson ul{
+    min-height: 30px;
+    max-height: 200px;
+    overflow-y:auto ;
+    background: #ffffff;
+}
+#chat .search .searchPerson ul li{
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+}
+#chat .search .searchPerson ul li a{
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+#chat .search .searchPerson ul li a:hover{
+    background: #bfbfbf;
+}
+
+#chat .search .searchPerson ul li img{
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+    margin-left: 8px;
+}
+#chat .search .searchPerson ul li span{
+    margin-left: 9px;
+}
+#chat .pClick ul{
+    background:#ffffff;
+    padding:5px 0px;
+}
+
+#chat .person ul {
+    max-height: 400px;
+    /*overflow-y: auto;*/
+}
+#chat .person .listul {
+    overflow-y:auto;
+    /*overflow:hidden;*/
+    position:relative;
+}
+
+#chat .third .downLoad {
+    position: absolute;
+    right: 5px;
+    line-height: 40px;
+}
+
+#chat .second .trash {
+    position: absolute;
+    right: 5px;
+    line-height: 40px;
+}
+
+#chat .second .quit {
+    position: absolute;
+    right: 5px;
+    top:0px;
+    line-height: 40px;
+}
+#chat .second .delPerson {
+    position: absolute;
+    right: 5px;
+    line-height: 40px;
+    top:0px;
+}
+
+#chat .noPerson {
+    width: 100%;
+    height: 200px;
+    background: #ffffff;
+    padding: 1px;
+    text-align: center;
+    /*line-height: 80px;*/
+    color: #000000;
+}
+
+#chat .chatBottom {
+    width: 100%;
+    height: 40px;
+    background: #f5f5f5;
+    line-height: 40px;
+    cursor: pointer;
+}
+
+.allNumber .contain{
+    float:left;
+    margin-left:5px;
+}
+.allNumber .allSelect{
+    float: right;
+    margin-right: 5px;
+}
+
+#chat .noPerson .addPerson {
+    width: 60px;
+    height: 50px;
+    margin: 20px auto 0px;
+    border: 1px solid #bfbfbf;
+    position: relative;
+}
+#chat.noPerson .addPerson img{
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top:5px;
+    left: 9px;
+}
+
+#chat .search input {
+    width: 90px;
+    height: 100%;
+    line-height: 30px;
+    border: none;
+    text-indent: 3px;
+    float: left;
+}
+
+#chat .search button {
+    width: 29px;
+    height: 100%;
+    border: none;
+    float: left;
+}
+
+.wrapSpeak .addTo {
+    position: absolute;
+    right: 10px;
+    top: 14px;
+    cursor:pointer;
+}
+
+#chat .newAdd {
+    width: 100%;
+    border-bottom: 1px solid #bbb;
+    background:#fff;
+}
+
+#chat .newAdd a {
+    display: block;
+    width: 90%;
+    margin: 0 auto;
+    border-bottom: 1px dotted #bfbfbf;
+    height: 23px;
+    line-height: 23px;
+}
+
+.newAdd a:last-child {
+    border-bottom: none;
+}
+
+.relation {
+    width: 100%;
+}
+
+.relation .person {
+    width: 100%;
+    min-height: 40px;
+    background: #f5f5f5;
+    border-bottom: 1px solid #bbb;
+    line-height: 40px;
+    cursor: pointer;
+}
+#organzieTree li {
+    background:#ffffff;
+} 
+
+/*.relation li:last-child {*/
+/*border: none;*/
+/*}*/
+
+#chat .last {
+    position: absolute;
+    right: 5px;
+}
+
+.relation .green {
+    background: green;
+    color: white;
+}
+
+.relation li ul .third {
+    border: none;
+    background: #ffffff;
+    color: #000000;
+}
+.treeWrap #treeDemo li a.curSelectedNode {
+    background:none;
+    color:green;
+    border:none;
+}
+.person #organzieTree li a.curSelectedNode {
+    background:none;
+    color:green;
+    border:none;
+}
+.treeWrap #treeDemo li a.curSelectedNode:hover{
+    text-decoration:none;
+}
+.treeWrap #treeDemo li a.curSelectedNode:active{
+    text-decoration:none;
+}
+.relation li ul .third .set {
+    width: 100%;
+    height: 100%;
+    color: #000000;
+    display: block;
+    position: relative;
+}
+
+.relation li ul .third a img {
+    width: 40px;
+    border: none;
+    border-radius: 20px;
+    height: 100%;
+}
+
+.relation li ul .third .set:hover {
+    background: #7F7F7F;
+}
+
+#chat .relation li ul .second {
+    border: none;
+    background: #ffffff;
+    margin-bottom:5px;
+    color: #000000;
+}
+
+.relation li ul .second .set {
+    width: 100%;
+    height: 100%;
+    color: #000000;
+    display: block;
+    position: relative;
+
+}
+
+.relation li ul .second a img {
+    width: 40px;
+    border: none;
+    border-radius: 20px;
+    /*height: 100%;*/
+    height:41px;
+}
+
+.relation li ul .second .set:hover {
+    background: #7F7F7F;
+}
+
+.wrapSpeak * {
+    box-sizing: border-box;
+}
+
+.wrapSpeak ul {
+    padding: 0px;
+    margin: 0px;
+    padding-bottom:20px;
+    overflow:hidden;
+}
+
+.wrapSpeak {
+    position: fixed;
+    /*right: 590px;*/
+    right: 0px;
+    bottom: 80px;
+    /*bottom:350px;*/
+    box-sizing: border-box;
+    box-shadow: 1px 1px 5px #888888 ;
+    z-index:6666;
+}
+
+.speakGroup {
+    width: 180px;
+    float: left;
+    height: 400px;
+    /*position:absolute;*/
+    border: 1px solid #bfbfbf;
+    border-right: none;
+    background:#fff;
+}
+
+.speakGroup .groupTop {
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    text-indent: 10px;
+    position: relative;
+    border-bottom: 1px solid #bfbfbf;
+}
+
+.speakGroup .groupList {
+    width: 100%;
+    height: 360px;
+    overflow: auto;
+    padding: 10px 0px;
+}
+
+.imgTalk {
+    width: 36px;
+    height: 36px;
+    /*background: red;*/
+    border-radius: 18px;
+    position:relative;
+}
+.imgTalk img{
+    width:100%;
+    height:100%;
+    border-radius: 18px;
+    position:absolute;
+}
+
+.speakHistory {
+    width: 280px;
+    height: 400px;
+    float: left;
+    /*position: absolute;*/
+    /*left:490px;*/
+    /*top:0px;*/
+    border: 1px solid #bfbfbf;
+    border-left: none;
+}
+
+.speakHistory .historyTop {
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    border-bottom: 1px solid #bfbfbf;
+    text-align: right;
+    position: relative;
+    background:#fff;
+}
+
+.historyTop span:first-child {
+    position: absolute;
+    left: 10px;
+}
+
+.historyTop span:last-child {
+    margin-right: 10px;
+    cursor:pointer;
+}
+
+.historyBody {
+    width: 100%;
+    height: 320px;
+    overflow-y: auto;
+    border-bottom: 1px solid #bfbfbf;
+    background:#fff;
+}
+
+.historyFoot {
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    position:relative;
+    background:#fff;
+}
+
+.historyFoot .searchDiv{
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    position:absolute;
+    background:#E8F3FD;
+    top:-45px;
+    left:0px;
+}
+
+
+.speak ul li {
+    padding: 0px;
+    margin: 0px;
+    list-style: none;
+}
+
+.speak {
+    width: 400px;
+    float: left;
+    /*position: absolute;*/
+    /*left:170px;*/
+    /*top:0px;*/
+    height: 400px;
+    border: 1px solid #dcdcdc;
+    border: 1px solid #bbb;
+}
+
+.speak .top {
+    position: relative;
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    text-align: right;
+    border-bottom: 1px solid #bbb;
+    background:#fff;
+}
+
+.speak .top img{
+    position: absolute;
+    height: 36px;
+    width:36px;
+    left:5px;
+    border-radius:18px;
+    top:2px;
+    text-align: right;
+    border-bottom: 1px solid #bbb;
+}
+.wrapSpeak .left-top table{
+    background-color:#fff;
+    border:1px solid #bfbfbf;
+    border-collapse:separate;
+
+}
+.wrapSpeak .left-top table img{
+    cursor:pointer;
+    
+}
+
+.speak .top .speakName {
+    position: absolute;
+    left: 45px;
+}
+
+.speak .content {
+    width: 100%;
+    /*width:325px;*/
+    height: 288px;
+    border-bottom: 1px solid #bbb;
+    background: #f5f5f5;
+    overflow-y: auto;
+}
+
+.speak .bottom {
+    width: 100%;
+    height: 70px;
+}
+
+.speak .bottom-left {
+    width: 328px;
+    height: 70px;
+    float: left;
+    background:#fff;
+}
+.speak .bottom-left .emotion{
+    cursor:pointer;
+}
+
+.speak .left-top {
+    width: 100%;
+    height: 20px;
+    line-height: 20px;
+}
+.speak .left-top div{
+    float:left;
+    width:20px;
+    height:20px;
+    position:relative;
+}
+.speak .left-bottom {
+    width: 100%;
+    height: 50px;
+}
+
+.speak .left-bottom textarea {
+    width: 100%;
+    height: 100%;
+    resize: none;
+    border: none;
+    outline: none;
+    overflow-y: hidden
+}
+
+.speak .left-bottom #editable {
+    width: 100%;
+    height: 100%;
+    resize: none;
+    border: none;
+    outline: none;
+    overflow-y: hidden
+}
+
+.speak .bottom-right {
+    width: 70px;
+    height: 70px;
+    float: left;
+    border-left: 1px solid #bfbfbf;
+}
+
+.speak .bottom-right button {
+    width: 100%;
+    height: 100%;
+    line-height: 1;
+    text-align: center;
+    border: none;
+}
+
+.hide {
+    display: none;
+}
+
+.show {
+    display: block;
+}
+
+.msg {
+    width: 40px;
+    height: 40px;
+    background: #ffffff;
+    position: fixed;
+    bottom: 490px;
+    right: 0px;
+    border: 1px solid #bfbfbf;
+    border-right: none;
+    line-height: 45px;
+    text-align: center;
+    box-shadow: 1px 1px 5px #888888;
+    cursor:pointer;
+}
+.msg span{
+    color:greenyellow;
+    font-size: 26px;
+}
+
+.content .list li {
+    width: 100%;
+    /*overflow: hidden;*/
+    float: left;
+    margin-top: 10px;
+}
+
+.content .list li .mainTalk {
+
+    max-width: 180px;
+}
+.wrapGroup {
+    width:100%;
+    height:41px;
+}
+.content .list li .mainTalk .speakMsg {
+    width: 100%;
+    word-break: break-all;
+    border-radius: 4px;
+    position:relative;
+}
+
+.content .fileTalk {
+    width:220px;
+    height:120px;
+    background:#ffffff;
+}
+.wrapFile {
+    width:100%;
+    height:100px;
+    border:5px solid #bfbfbf;
+    border-radius:5px;
+}
+ .wrapFile .fileName{
+    width:100%;
+    height:70px;
+    position:relative;
+    border-bottom:1px solid #bfbfbf;
+}
+.wrapFile .fileDown .progress{
+    /*width:130px;*/
+    border-radius:5px;
+    left:10px;
+    height:10px;
+    top:5px;
+    background:#58b557;
+    position:absolute
+}
+.wrapFile .fileName .code{
+    font-size:40px;
+    margin-left:10px;
+    line-height:70px;
+}
+.wrapFile .fileName .fileIntro{
+    margin-left:10px;
+    /*line-height:70px;*/
+    position: absolute;
+    display: block;
+    width: 70%;
+    top: 20px;
+    left: 45px;
+    word-wrap: break-word;
+    word-break: break-all;
+    max-height:40px;
+    overflow:hidden;
+    cursor:default;
+}
+
+.wrapFile .fileName .fileAfter:after{
+    content:attr(data-content);
+    font-weight:bold;
+    position:absolute;
+    bottom:0;
+    right:0;
+}
+
+.wrapFile .fileDown{
+    width:100%;
+    height:30px;
+    /*line-height:27px;*/
+    /*text-align:right;*/
+    position:relative;
+}
+.wrapFile .fileDown a span{
+   font-size:18px;
+}
+.wrapFile .fileDown a {
+   margin-right:5px;
+   font-size:18px;
+   float:right;
+   margin-top:-3px;
+}
+.wrapFile .fileDown .percent{
+   margin-right:10px;
+   float:right;
+   margin-top:2px;
+}
+.leftChat {
+    /*background: white;*/
+    float: left;
+    margin-left: 10px;
+}
+
+.rightChat {
+    /*background: #5fca4a;*/
+    /*border-radius: 3px;*/
+    float: right;
+    margin-right: 10px;
+}
+.colorRight {
+    background:#fff;
+    border:1px solid #bfbfbf;
+    padding: 4px 8px;
+}
+.colorLeft {
+    background:#ffffff;
+    border:1px solid #59B457;
+     padding: 4px 8px;
+}
+.groupList ul {
+    width: 100%;
+    padding: 0px;
+    margin: 0px;
+    overflow: hidden;
+}
+
+.groupList ul li {
+    width: 100%;
+    list-style: none;
+    overflow: hidden;
+    margin-top: 5px;
+    padding-bottom: 2px;
+    padding-left: 5px;
+    cursor:pointer;
+    position:relative
+}
+.groupList ul li:hover {
+    background:#7F7F7F;
+    color:#ffffff;
+}
+
+.groupList ul li .numberLeft {
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    position:absolute;
+    left:0px;
+    top:0px;
+    overflow:hidden;
+}
+.groupList ul li .numberLeft img{
+    width: 40px;
+    height: 40px;
+    border-radius:20px;
+
+}
+.groupList ul li .numberRight {
+    width: 105px;
+    height: 40px;
+    margin-left:45px;
+    padding-right:40px;
+}
+
+.groupList ul li .numberRight .numberName {
+    width: 100%;
+    height: 20px;
+    line-height:20px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    text-indent: 5px;
+}
+.groupList ul li .numberRight .numberStation {
+    width: 100%;
+    height: 20px;
+    line-height:20px;
+    overflow: hidden;
+     white-space: nowrap;
+    text-overflow: ellipsis;
+    text-indent: 5px;
+
+}
+.delGroupMember {
+    position:absolute;
+    right:5px;
+    line-height:40px;
+    top:0px;
+    cursor:pointer
+}
+.adminManage {
+    position:absolute;
+    right:22px;
+    line-height:40px;
+    cursor:pointer;
+    top:0px;
+}
+.noteList *{
+    box-sizing:border-box;
+}
+.noteList {
+    width:450px;
+    height:500px;
+    border:1px solid #bfbfbf;
+    position:fixed;
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index:22;
+    box-shadow: 1px 1px 5px #888888 ;
+
+}
+.noteList .noteHead {
+    width:100%;
+    height:30px;
+    line-height:30px;
+    /*text-indent:10px;*/
+    border-bottom:1px solid #bfbfbf;
+    background: #f5f5f5
+}
+.noteHead .closeNote {
+    float:right;
+    margin-right:10px;
+    line-height:30px;
+    cursor:pointer;
+}
+.noteHead .volume {
+    float:left;
+    margin-left:10px;
+    line-height:30px;
+    cursor:default;
+    margin-right:8px;
+}
+.listNotes {
+    width:100%;
+    height:440px;
+    margin:0;
+    padding:0;
+    overflow-y:auto;
+    background-color:#fff;
+}
+.noteBottom{
+    width:100%;
+    height:30px;
+    line-height:30px;
+    border-top:1px solid #bfbfbf;
+    background-color:#f5f5f5;
+}
+.noteBottom span{ 
+    font-size:20px;
+    line-height:30px;
+    float:right;
+    margin-right:20px;
+    cursor:pointer;
+
+}
+.countAll {
+    margin-left:5px;
+    color:red;
+}
+.noteBottom .pageNum {
+    font-size:12px;
+    margin-right:80px;
+}
+.listNotes li {
+    width:100%;
+    padding:0px 10px;
+    margin-top:5px;
+    cursor:pointer;
+}
+.mianList {
+    padding:0px;
+    margin:0px;
+}
+.mianList li {
+    list-style:none;
+   
+}
+.listNotes li .noteTop {
+    line-height:25px;
+    text-indent:10px;
+    width:100%;
+}
+.listNotes li .notemain {
+    line-height:25px;
+    text-indent:10px;
+    width:100%;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+.listNotes  .timeUp{ 
+    width:85%;
+    border-bottom:1px solid #bfbfbf;
+    height:20px;
+    margin:0 auto;
+}
+.listNotes .timeUp span{ 
+    width:30%;
+    display:block;
+    line-height:20px;
+    margin:0 auto;
+    background:white;
+    text-align:center;
+    position:relative;
+    top:9px;
+    color:#bfbfbf;
+}
+
+.adminColor {
+    color:green;
+}
+.showHistory {
+    cursor:pointer;
+}
+.closeTalk {
+    cursor:pointer;
+}
+.showGroup {
+    cursor:pointer;
+}
+/*.groupList ul li .numberRight .numberPos {
+    width: 100%;
+    height: 20px;
+    color: #dcdcdc;
+    text-indent: 5px;
+}*/
+
+.textRight {
+    text-align: right;
+}
+
+.textLeft {
+    text-align: left;
+}
+
+.nameTop {
+    height: 20px;
+    line-height: 20px;
+    padding: 0px;
+    background: #f5f5f5;
+}
+
+.allNumber * {
+    box-sizing: border-box;
+}
+
+.allNumber {
+    width: 560px;
+    position: fixed;
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    border: 1px solid #bfbfbf;
+    box-sizing: border-box;
+    background: #ffffff;
+    z-index: 10000;
+    box-shadow: 1px 1px 5px #888888 ;
+}
+
+.groupHeight {
+    /*height: 440px;*/
+    height:550px;
+}
+
+.personHeight {
+    /*height: 430px;*/
+    height:540px;
+}
+.groupTime {
+    width:100%;
+    /*height:50px;*/
+    /*border:1px solid #bfbfbf;*/
+
+}
+
+
+.allNumber .numberHead {
+    width: 100%;
+    height: 30px;
+    background: #59B457;
+    color: #ffffff;;
+    line-height: 30px;
+    text-indent: 10px;
+    position: relative;
+}
+
+.groupSearch {
+    width: 100%;
+    height: 30px;
+    border-bottom: 1px solid #bfbfbf;
+    line-height: 30px;
+    text-indent: 10px;
+}
+
+.allNumber .numberHead .closeDlg {
+    position: absolute;
+    line-height: 30px;
+    right: 10px;
+    cursor:pointer;
+}
+
+.allNumber .numberHead {
+    width: 100%;
+    height: 30px;
+    background: #59B457;
+}
+
+.allNumber .numberBody {
+    width: 100%;
+    /*height: 330px;*/
+    
+    /*overflow-y: hidden;*/
+}
+.bodyone {
+    height:480px;
+}
+.bodytwo {
+    height:470px;
+}
+
+.allNumber ul {
+    margin: 0px;
+    padding: 0px;
+}
+
+.allNumber .selectPerson {
+    /*height: 170px;*/
+    /*overflow-y: auto;*/
+}
+
+.allNumber .pTop {
+    border-bottom: 1px solid #bfbfbf;
+    height: 30px;
+    line-height: 30px;
+    text-align: right;
+    padding-right: 10px;
+}
+.allNumber .pTop input{
+    position: relative ;
+    top:2px;
+}
+
+.allNumber .selectPerson ul {
+    width: 100%;
+    overflow-y:auto ;
+}
+.allNumber .selectPerson .uHeight{
+    /*height: 110px;*/
+    height:140px;
+}
+.allNumber .sHeight{
+    /*height: 140px;*/
+    height:170px;
+}
+.allNumber .selectPerson .uuHeight{
+    
+    height:175px;
+}
+.allNumber .ssHeight{
+    height: 205px;
+}
+
+.iconImg {
+    width:12px;
+    height:12px;
+}
+
+.allNumber .selectPerson ul li {
+    width: 100%;
+    line-height: 20px;
+    padding-left: 5px;
+}
+
+.allNumber .selectPerson ul li input[type="checkbox"] {
+    position: relative;
+    top: 2px;
+    margin-right: 10px;
+}
+
+.allNumber .numberFoot {
+    width: 100%;
+    height: 40px;
+}
+
+.numberBody #treeDemo {
+    width: 100%;
+    /*height: 160px;*/
+    height:235px;
+    overflow-y: auto;
+    /*float:left;*/
+    /*height: 330px;*/
+    /*overflow-y:auto;*/
+
+}
+
+.numberBody .treeWrap {
+    width: 50%;
+    float: left;
+    height: 435px;
+    /*overflow-y: auto;*/
+}
+
+.numberBody .numberSelect {
+    width: 50%;
+    float: left;
+    /*height: 330px;*/
+   
+    border-left: 1px solid #bfbfbf;
+    overflow-y: auto;
+    word-break: break-all;
+}
+.selone {
+     height:435px;
+}
+.seltwo {
+     height:440px;
+}
+.numberBody .numberSelect ul li {
+    width: 100%;
+    height: 40px;
+}
+
+.numberBody .numberSelect ul li a {
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    display: block;
+    position: relative;
+}
+
+.numberBody .numberSelect ul li a:hover {
+    background: #E3E3E3;
+}
+
+.numberBody .numberSelect .selectTop {
+    width: 100%;
+    border-bottom: 1px solid #bfbfbf;
+    height: 30px;
+    line-height: 30px;
+    text-indent: 10px;
+}
+
+.numberBody .searchGroup {
+    width: 100%;
+    border-bottom: 1px solid #bfbfbf;
+    /*height: 40px;*/
+    height:45px;
+    line-height: 45px;
+    text-indent: 10px;
+    position:relative;
+} 
+.numberBody .searchGroup .groupName {
+    float:left;
+    margin-top:10px;
+    margin-left:5px;
+}
+.groupIcon {
+    cursor: pointer;
+}
+.groupPre {
+    float:left;
+}
+ .upIcion{
+    width:60px;
+    float:left;
+    height:40px;
+    position:relative;
+}
+.imgShow {
+    width:40px;
+    height:40px;
+    float:left;
+    position:relative;
+    top:2px;
+    margin-left:10px;
+}
+#showImg {
+    width:100%;
+    height:100%;
+    position:absolute;
+    border-radius:50%;
+}
+#fileuploadGroup {
+    width:100%;
+    height:100%;
+    position:absolute;
+    top:0px;
+    left:0px;
+    opacity:0;
+    cursor:pointer;
+}
+#fileuploadImg {
+    width:100%;
+    height:100%;
+    position:absolute;
+    top:0px;
+    left:0px;
+    opacity:0;
+    cursor:pointer;
+}
+#fileuploadFile {
+    width:100%;
+    height:100%;
+    position:absolute;
+    top:0px;
+    left:0px;
+    opacity:0;
+    cursor:pointer;
+}
+.allNumber .numberFoot a {
+    width: 50%;
+    height: 38px;
+    border: none;
+    text-align: center;
+    line-height: 40px;
+    border-top: 1px solid #bfbfbf;
+    float: left;
+    display:block
+}
+
+
+.allNumber .numberFoot .getPerson{
+    border-left:1px solid #bfbfbf;
+}
+.allNumber .numberFoot a:hover{
+    background: #FBAC0F;
+    color: #ffffff;
+}
+
+.groupIcon {
+
+}
+.talkPic {
+    max-width:150px;
+    max-height:150px;
+}
+.dataBottom .historyImg {
+    max-height:150px;
+    max-width:150px;
+}
+
+
+.host {
+    color: deepskyblue;
+}
+
+.guest {
+    color: #58B456;
+}
+
+.historyBody ul {
+    width: 100%;
+}
+
+.historyBody ul li {
+    width: 100%;
+}
+
+.historyBody ul li div {
+    padding-left: 5px;
+    width: 100%;
+    word-break: break-all;
+}
+
+.historyBody ul li div:first-child {
+    line-height: 20px;
+}
+
+.historyBody ul li div:last-child {
+    line-height: 20px;
+
+}
+
+.historyBody .timeDate {
+    width: 100%;
+    line-height: 30px;
+    text-align: center;
+    color: #dcdcdc;
+}
+.historyBody .noMore {
+    width: 100%;
+    line-height: 20px;
+    text-align: center;
+    color: green;
+}
+.iconPicture {
+    margin-left:5px;
+}
+.iconHide {
+    margin-left:5px;
+}
+/*.numberBody .ztree li span.button.ico_open {
+    display: none;
+}
+
+.numberBody .ztree li span.button.ico_close {
+    display: none;
+}
+
+.numberBody .ztree li span.button.ico_docu {
+    display: none;
+}*/
+#temp{
+    outline: none;
+    overflow-y:auto ;
+    word-wrap: break-word;
+    word-break: break-all;
+    width: 345px;
+    line-height: 20px;
+    height:100%
+}
+
+.showBig {
+    /*position:absolute;*/
+    position:fixed;
+    background:#000000;
+    opacity:0.5;
+    filter:alpha(opacity=50); 
+    top:0px;
+    z-index:9999;
+
+}
+.imgWrap img{
+    max-width:500px;
+    max-height:500px;
+    margin:0 auto;
+    opacity:1;
+    vertical-align:middle;
+    text-align:center;
+
+}
+.imgWrap {
+    width:500px;
+    height:500px;
+    /*position:absolute;*/
+    position:fixed;
+    top:50%; 
+    left:50%;
+    margin:-250px 0 0 -250px;
+    z-index:10000;
+}
+
+/*.allNumber .ztree li span.button.chk{
+    width: 0px;
+}*/
+
+#chat #organzieTree {
+    overflow-x:hidden;
+}
+#chat #organzieTree li {
+    /*width:100%;
+    overflow-y:hidden;
+    overflow-x:hidden;*/
+}
+#chat #organzieTree ul {
+    overflow:hidden;
+}
+#chat #organzieTree .level0 {
+    /*padding-left:0px;*/
+}
+#chat #organzieTree .ico_docu {
+    background-size:cover!important;
+    border-radius:8px;
+}
+#chat #organzieTree .ico_close {
+    background-size:cover!important;
+    width:0px;
+
+}
+#chat .ztree li span.button.noline_open {
+    background: url("../../Images/common/arrowSolidB.png") no-repeat center !important;
+}
+
+#chat #organzieTree .ico_open {
+    background-size:cover!important;
+     width:0px;
+
+}
+#chat #organzieTree li ul{
+    padding-left:15px;
+    max-height:10000px;
+}
+
+#chat #organzieTree li a{
+    /*margin-left:-15px;*/
+}
+#chat .ztree li a:hover {
+    text-decoration:none;
+}
+
+#chat #organzieTree li .noline_docu{
+    width:0px;
+}
+
+#chat .posImg {
+    position:absolute;
+    left:0px;
+    top:0px;
+}
+#chat .linkDetail {
+    height:40px;
+    margin-left:43px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    padding-right:20px;
+}
+#chat .linkDetail div{
+    height:20px;
+    width:100%;
+    line-height:20px;
+    overflow: hidden;
+     white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.content .list li .mainTalk .speakMsg .rightArrow {
+    position:absolute;
+    width:20px;
+    height:20px; 
+    top:5px;
+    right:-20px;
+}
+
+.rightArrow * {
+    display:block; 
+    border-width:6px; 
+    position:absolute; 
+    border-style:solid dashed dashed dashed;
+    font-size:0;
+    line-height:0;
+}
+.rightArrow em {
+   border-color:transparent transparent transparent #59B457;
+}
+.rightArrow span {
+    border-color:transparent transparent transparent #fff;
+    top:0px;
+    left:-1px;
+}
+
+
+/*左边的气泡*/
+.content .list li .mainTalk .speakMsg .leftArrow {
+    position:absolute;
+    width:20px;
+    height:20px; 
+    top:5px;
+    left:-12px;
+}
+
+.leftArrow * {
+    display:block; 
+    border-width:6px; 
+    position:absolute; 
+    border-style:solid dashed dashed dashed;
+    font-size:0;
+    line-height:0;
+}
+.leftArrow em {
+   border-color:transparent #bfbfbf transparent transparent;
+}
+.leftArrow span {
+    border-color:transparent #fff transparent transparent;
+    top:0px;
+    right:7px;
+}
+
+.grayFilter {
+   -webkit-filter: grayscale(100%); 
+   -moz-filter: grayscale(100%);
+   -ms-filter: grayscale(100%); 
+   -o-filter: grayscale(100%);  
+   filter: grayscale(100%);
+   filter: gray; 
+
+}
+
+@keyframes twinkling{	/*透明度由0到1*/
+	0%{
+		opacity:0.3;
+        transform:scale(0.8,0.8)				/*透明度为0*/
+	}
+	100%{
+		opacity:1;	
+        transform:scale(1,1)			/*透明度为1*/
+	}
+}
+ 
+.listenNew {
+     animation: twinkling 1s infinite ease-in-out;
+}
+
+
+@media screen and (max-width:960px){
+    .wrapSpeak{
+        width:860px;
+       box-shadow: none;
+    }
+}

@@ -1,0 +1,27 @@
+﻿<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+    <h4 class="modal-title" id="department_modal_label">组织架构</h4>
+</div>
+<div class="input-group" id="department_modal_search">
+    <input id="department_select" type="text" class="form-control" placeholder="选择组织架构" aria-describedby="basic-addon2">
+    <span class="input-group-btn">
+        <a class="btn btn-default" type="a"><span class="glyphicon glyphicon-search"></span></a>
+    </span>
+</div>
+<div class="fifty-fifty clearfix">
+    <div class="chosebox department" style="height:400px">
+        <div class="ztree" id="department_modal_folder"></div>
+    </div>
+    <div class="chosenbox">
+        <div class="chosen-count">
+            已选: <span class="badge badge-success" id="department_modal_chosen_count">0</span>
+        </div>
+        <ul class="chosens" id="department_modal_chosen">
+            <!--<li>证券<a class="close" aria-label="Close"><span aria-hidden="true">&times;</span></a></li>-->
+        </ul>
+    </div>
+</div>
+<div class="modal-footer fifty-fifty">
+    <a id="department_modal_cancel" class="btn btn-transparency user-defined btn-lg" data-dismiss="modal">取消</a>
+    <a class="btn btn-transparency user-defined btn-lg" id="department_modal_submit">确定</a>
+</div>

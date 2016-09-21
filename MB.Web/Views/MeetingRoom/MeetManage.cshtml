@@ -1,0 +1,114 @@
+﻿ 
+<link rel="stylesheet" href="~/Styles/Meet/meeting.css">
+ <div class="row">
+        <div id="manageContainer" class="col-xs-9">
+            <div class="panel panel-default" style="margin-bottom: 0">
+                <div class="panel-heading object">
+                    <div class="panel-title">
+                        <ul class="nav" >
+                            <li class="col-xs-4">会议室管理</li>
+                            <li class="col-xs-2 col-xs-offset-6 addNewRoom"><a href="#" class="newRoom">新增</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div  class="panel-body">
+                    <div class="row" id="manageContent">
+                        <!--我的目标-->
+                        <div class="row" role="tabpanel" id="manageRoom">
+                            <table class="table">
+                               <thead>
+                                    <tr>
+                                        <th class='col-xs-2'>会议室名称</th>
+                                        <th class='col-xs-2'>位置</th>
+                                        <th class='col-xs-2'>座位数</th>
+                                        <th class='col-xs-2'>设备</th>
+                                        <th class='col-xs-2'>备注</th>
+                                        <th class='col-xs-2'></th>
+                                    </tr>
+                               </thead>
+                                <tbody>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="meetingSidebar" class="col-xs-3">
+            <button class="newRoom meetingCommon">新建会议室</button>  
+            @Html.Partial("~/Views/Shared/_UserInfo.cshtml")  
+        </div>
+    </div>
+
+
+<!--弹出层  开始-->
+<div class="modal fade" id="manage_modal"  tabindex="-1" role="dialog" aria-labelledby="manage_modal_label" aria-hidden="true"  data-backdrop="false" data-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+                <h4 class="modal-title" id="manage_modal_label">修改</h4>
+            </div>
+            <div class="modal-body">
+                <input type="hidden" class="roomId"/>
+                <div class="row">
+                    <div class="col-xs-6">
+                        <div class="col-xs-4 manage_room_head">
+                            会议室名称:
+                        </div>
+                        <div class="col-xs-5">
+                            <input type="text"class="form-control roomName setInput" name="roomName" maxlength="50"/>
+                        </div>
+                    </div>
+                    <div class="col-xs-6">
+                        <div class="col-xs-2 manage_room_head">位置:</div>
+                        <div class="col-xs-8">
+                            <input type="text"class="form-control roomPosition setInput" name="roomPosition" maxlength="50"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-6">
+                        <div class="col-xs-4 manage_room_head">
+                            座位数:
+                        </div>
+                        <div class="col-xs-5">
+                            <input type="text"class="form-control roomSeating setInput" name="roomSeating" oninput="this.value=this.value.replace(/\D/g,'')"/>
+                        </div>
+                    </div>
+                    <div class="col-xs-6">
+                        <div class="col-xs-2 manage_room_head">备注:</div>
+                        <div class="col-xs-8">
+                            <input type="text"class="form-control roomComment setInput" name="roomComment" maxlength="200"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <div class="panel-title">
+                            设备
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <div class="row checkEqu">
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="modal-footer fifty-fifty">
+                <a id="department_modal_cancel" class="btn btn-transparency btn-lg" data-dismiss="modal">取消</a>
+                <a class="btn btn-transparency btn-lg" id="manage_modal_submit">确定</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!--弹出层  结束-->
+<script src="~/Scripts/Meet/meetManage.js"></script>

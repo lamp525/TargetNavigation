@@ -1,0 +1,383 @@
+﻿<link rel="stylesheet" href="../../Styles/organization/organizationManage.css"/>
+      
+    <div class="row" style="margin-left: 0px;">
+           <div class="col-xs-9 panel panel-default  nopadding" id="aaa">
+               <div class="panel-heading  headtitle">
+                   <div class="panel-title">
+                       <ul class="nav nav-tabs" role="tablist">
+                           <li role="presentation" class="active"><a href="#orgContent" id="orgTab" aria-controls="orgContent" role="tab" data-toggle="tab">架构</a></li>
+                           <li role="presentation"><a href="#jobContent" id="jobTab" aria-controls="jobContent" role="tab" data-toggle="tab">岗位</a></li>
+                           <li class="nav-right" >
+                               <ul class="list-inline" >
+                                   <li class="searchLi"><input class="invisible" id="search_input" type="text" value=""/><span class="menuSearch"></span></li>
+                                   <li> <span class="menuDel center"></span></li>
+                                   <li> <a href="#" class="menuAdd" data-toggle="modal" data-target="#new_modal"></a></li>
+                               </ul>
+                           </li>
+                       </ul>
+                   </div>
+               </div>
+               <div  class="panel-body"  >
+                   <div id="loadding" class="hidden" style="position: absolute; top: 70px; left: 0; width: 100%; height: 100px;"></div>
+                   <div class="tab-content">
+                       <!--架构-->
+                       <div class="tab-pane active" role="tabpanel" id="orgContent">
+                           <ul class="list-inline orderUl" style="margin-left:0px">
+                               <li><a  href="#" aria-controls="profile" role="tab" data-toggle="modal" data-target="#order_modal"  id="orgOrder">排序</a></li>
+                           </ul>
+
+                           <!--架构表开始-->
+                           <table class="table table-hover orgTable"   role="tabpanel">
+
+                           </table>
+                           <!--架构表结束-->
+                        </div>
+                       <!--岗位-->
+                       <div class="tab-pane" role="tabpanel" id="jobContent">
+                         
+                       </div>
+                   </div>
+               </div>
+         </div>
+
+ 
+
+        <!--组织架构 分类目录 开始-->
+        <div class="col-xs-3" id="menuTree">
+            <div class="sidebar" >
+                <div class="panel panel-default" id="menuTreeHeight">
+                    <div class="panel-body">
+                        <div class="directory-set" style="height:100%;" >
+                            <a href="#" style="cursor:pointer">组织架构</a>
+                            <span style="cursor:pointer" class="arrowDown glyphicon glyphicon-chevron-up"></span>
+                        </div>
+                        <div class="ztree"  id="rightTree" ></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--组织架构 分类目录 结束-->
+
+    </div>
+
+ 
+<!-- 页面内容 结束 -->
+
+
+
+<!-- 弹出层 开始 -->
+
+<!-- 架构排序 开始 -->
+<div class="modal fade" id="order_modal" tabindex="-1" role="dialog" aria-labelledby="order_modal_label" aria-hidden="true" data-backdrop="false" data-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+                <h4 class="modal-title" id="order_modal_label">排序</h4>
+            </div>
+            <div clas="modal-body active" >
+                <div class="row row-orderList" role="tabpanel">
+                    <!-- TODO -->
+                </div>
+            </div>
+            <div class="modal-footer fifty-fifty">
+                <a class="btn btn-transparency btn-lg" data-dismiss="modal">取消</a>
+                <a class="btn btn-transparency btn-lg" id="order_modal_submit">确定</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 架构排序 结束 -->
+
+
+<!--新建组织架构 开始-->
+<div class="modal fade" id="newOrg_modal" tabindex="-1" role="dialog" aria-labelledby="newOrg_modal_label" aria-hidden="true" data-backdrop="false" data-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="glyphicon glyphicon-remove" aria-hidden="false"></span> </button>
+                <h4 class="modal-title" id="newOrg_modal_label">编辑组织架构</h4>
+            </div>
+            <div class="modal-body newOrg">
+
+            </div>
+
+            <div class="modal-footer fifty-fifty">
+                <a class="btn btn-transparency btn-lg" data-dismiss="modal">取消</a>
+                <a class="btn btn-transparency btn-lg" id="newOrg_modal_insert">确定</a>
+            </div>
+
+            <div class="browseTree" >
+            </div>
+
+        </div>
+
+    </div>
+</div>
+<!--新建组织架构 结束-->
+
+
+
+<!--新建岗位 开始-->
+<div class="modal fade" id="newJob_modal" tabindex="-1" role="dialog" aria-labelledby="newJob_modal_label" aria-hidden="true" data-backdrop="false" data-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="glyphicon glyphicon-remove" aria-hidden="false"></span> </button>
+                <h4 class="modal-title" id="newJob_modal_label">编辑岗位</h4>
+            </div>
+            <div class="modal-body newJob">
+
+            </div>
+
+            <div class="modal-footer fifty-fifty">
+                <a class="btn btn-transparency btn-lg" data-dismiss="modal">取消</a>
+                <a class="btn btn-transparency btn-lg" id="newJob_modal_insert">确定</a>
+            </div>
+
+            <div class="browseTree" >
+
+            </div>
+        </div>
+    </div>
+</div>
+<!--新建岗位 结束-->
+
+
+<!--新建 开始-->
+<div class="modal fade" id="new_modal" tabindex="-1" role="dialog" aria-labelledby="newJob_modal_label" aria-hidden="true" data-backdrop="false" data-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="glyphicon glyphicon-remove" aria-hidden="false"></span> </button>
+                <h4 class="modal-title" id="new_modal_label">新建</h4>
+            </div>
+            <div class="modal-body" style="overflow: hidden;">
+                <div class="radio">
+                    <label>
+                        <input checked type="radio" name="newRadio" id="orgNew" value="org">
+                        架构
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input type="radio" name="newRadio" id="jobNew" value="job">
+                        岗位
+                    </label>
+                </div>
+                <hr class="hr" />
+
+                <div  id="newOrgOrJob">
+
+                </div>
+
+            </div>
+            <div class="modal-footer fifty-fifty">
+                <a class="btn btn-transparency btn-lg" data-dismiss="modal">取消</a>
+                <a class="btn btn-transparency btn-lg" id="new_modal_insert">确定</a>
+            </div>
+            <div class="browseTree" >
+            </div>
+        </div>
+    </div>
+</div>
+<!--新建 结束-->
+
+
+<!--人资添加开始-->
+<div class="modal fade" id="HR_modal" tabindex="-1" role="dialog" aria-labelledby="station_modal_label" aria-hidden="true" data-backdrop="false" data-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        </div>
+    </div>
+</div>
+<!--人资添加结束-->
+
+
+
+<!--岗位手册 开始-->
+
+<div class="modal fade" id="hand_modal" tabindex="-1" role="dialog" aria-labelledby="newJob_modal_label" aria-hidden="true" data-backdrop="false" data-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="glyphicon glyphicon-remove" aria-hidden="false"></span> </button>
+                <h4 class="modal-title" id="hand_modal_label">岗位手册</h4>
+            </div>
+            <div class="modal-body" style="overflow:hidden">
+                <ul class="list-inline"><li>岗位名称 :</li><li id="hand_jobName" title="" class="overEllipsis" style="margin-bottom: -10px;" ></li></ul>
+                <ul class="list-inline"><li>所属组织 :</li><li id="hand_orgName" title="" class="overEllipsis" style="margin-bottom: -9px;" ></li></ul>
+                <ul class="list-inline"><li>岗位计划 :</li><li><a class="btn btn-transparency"  id="hand_add">增加</a></li></ul>
+                <hr class="hr" style="margin-bottom:2px" />
+                <div style="height: 320px;overflow-y: auto">
+                <table class="table table-hover" id="handList">
+                </table>
+                </div>
+            </div>
+
+            <div class="modal-footer fifty-fifty">
+                <a class="btn btn-transparency btn-lg" data-dismiss="modal">取消</a>
+                <a class="btn btn-transparency btn-lg" id="hand_sure">确定</a>
+            </div>
+
+            <div id="planModal">
+                <h4>计划模块</h4>
+                <hr class="hr" />
+                <form class="form-horizontal" id="candlers" style="height:457px">
+
+                  <div class="form-group">
+                    <label for="circleDate_Input" class="labelOne control-label">循环周期</label>
+                    <div class="planInputSm">
+                        <div class="dropdown" id="circleDate_Input">
+                            <span class="dropdown-toggle span-drop"  data-toggle="dropdown"  data-delay="50" role="button" aria-expanded="false">
+                              <span term="1" id="circleDateIn"> 日</span>
+                              <span class="upPic"></span>
+                            </span>
+                            <ul class="dropdown-menu" role="menu" style="width: 100%">
+                                <li><a href="#" term="1">日</a></li>
+                                <li class="divider short"></li>
+                                <li><a href="#" term="2">周</a></li>
+                                <li class="divider short"></li>
+                                <li><a href="#" term="3" >月</a></li>
+                                <li class="divider short"></li>
+                                <li><a href="#" term="4">年</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                     <div class="pull-left relative">
+                       <label for="surePerson" class="control-label pull-left" style="margin-left:10px">确认人</label>
+                       <input class="form-control planInputSm" id="surePerson" type="button" style="width: 96px;margin-left: 10px;text-align:left;line-height: 16px;" value="">
+                     </div>
+
+                 </div>
+
+                  <div class="form-group" id="circleTime_down">
+
+                      <label  class="labelOne control-label">循环时间</label>
+                       <!--周下拉框 对应于 周历-->
+                       <div class="planInputSm"  id="weekCandler" >
+                           <div class="dropdown">
+                               <div class="dropdown-toggle relative" data-toggle="dropdown"  data-delay="50" role="button" aria-expanded="false">
+                                   <input type="text" readonly="readonly" class="form-control span-drop" id="weekIn"  placeholder="请选择日期">
+                                   <span class="upPic rightCorn"></span>
+                               </div>
+                               <ul class="dropdown-menu" role="menu" style="width: 100%">
+                                   <li><a href="#" term="1">星期一</a></li>
+                                   <li class="divider short"></li>
+                                   <li><a href="#" term="2">星期二</a></li>
+                                   <li class="divider short"></li>
+                                   <li><a href="#" term="3">星期三</a></li>
+                                   <li class="divider short"></li>
+                                   <li><a href="#" term="4">星期四</a></li>
+                                   <li class="divider short"></li>
+                                   <li><a href="#" term="5">星期五</a></li>
+                                   <li class="divider short"></li>
+                                   <li><a href="#" term="6">星期六</a></li>
+                                   <li class="divider short"></li>
+                                   <li><a href="#" term="7">星期日</a></li>
+                               </ul>
+                           </div>
+                       </div>
+
+                       <!--月份下拉框 对应于年历-->
+                       <div class="planInputSm"  id="monthCandler">
+                           <div class="dropdown">
+                               <div class="input-group dropdown-toggle" data-toggle="dropdown"  data-delay="50" role="button" aria-expanded="false">
+                                   <input class="form-control"readonly="readonly" size="16"  readonly="readonly"  placeholder="请选择月份" id="monthIn" type="text" value="" >
+                                   <span class="input-group-addon">
+                                      <span class="dateCorn"></span>
+                                   </span>
+                               </div>
+                               <ul class="dropdown-menu" role="menu" >
+                                   <li><a href="#" term="1">1</a></li>
+                                   <li><a href="#" term="2">2</a></li>
+                                   <li><a href="#" term="3">3</a></li>
+                                   <li><a href="#" term="4">4</a></li>
+                                   <li><a href="#" term="5">5</a></li>
+                                   <li><a href="#" term="6">6</a></li>
+                                   <li><a href="#" term="7">7</a></li>
+                                   <li><a href="#" term="8">8</a></li>
+                                   <li><a href="#" term="9">9</a></li>
+                                   <li><a href="#" term="10">10</a></li>
+                                   <li><a href="#" term="11">11</a></li>
+                                   <li><a href="#" term="12">12</a></li>
+                               </ul>
+                           </div>
+                       </div>
+                       <span class="pull-left colorGray" id="onehr">一</span>
+
+                       <!--对应于 月历 年历-->
+                       <div class="planInputSm" id="dayCandler"  >
+                           <div class="dropdown relative" id="dayInput"  >
+                               <div class="input-group dropdown-toggle" style="z-index:0" data-toggle="dropdown"  data-delay="50"  aria-expanded="false">
+                                   <input class="form-control" size="16" readonly="readonly"  id="dayIn" placeholder="请选择日期" type="text" value="" >
+                                   <span class="input-group-addon">
+                                      <span class="dateCorn"></span>
+                                   </span>
+                               </div>
+                               <table class="dayDateTable dropdown-menu">
+
+                               </table>
+                           </div>
+                       </div>
+
+                       <!--时间下拉框 对应于日历-->
+                       <div class="planInputSm " id="timeCandler">
+                             <div class="relative">
+                                   <div class="relative" id="timeInput" >
+                                       <input type="text" class="form-control span-drop"  readonly="readonly" id="timeIn" placeholder="请选择时间">
+                                       <span class="upPic rightCorn"></span>
+                                   </div>
+                                   <ul id="dropUl" >
+                                   </ul>
+                             </div>
+                       </div>
+                 </div>
+
+                 <div class="form-group">
+                         <label for="completeTime" class="labelOne control-label">单位完成时间</label>
+                         <div class="planInputSm">
+                            <input class="form-control" type="text" id="completeTime"  oninput="value=value.replace(/[^\d]/g,'')"/>
+                         </div>
+                         <span style="display: inline-block;padding-top: 5px;padding-left: 5px;">分</span>
+                   </div>
+
+
+                  <div class="form-group">
+                     <label for="doMethod" class="labelOne control-label">执行方式</label>
+                     <div class="planInput">
+                        <div class="dropdown" id="doMethod">
+                            <span class="dropdown-toggle span-drop"  data-toggle="dropdown"  data-delay="50" role="button" aria-expanded="false">
+                              <span term="" id="doMethodIn"></span>
+                              <span class="upPic"></span>
+                            </span>
+                             <ul class="dropdown-menu"  role="menu" style="width: 100%">
+                             </ul>
+                         </div>
+                     </div>
+                 </div>
+
+                  <div class="form-group">
+                     <label for="result" class="labelOne control-label">事项输出结果</label>
+                     <div class="planInput">
+                         <textarea class="form-control" id="result" rows="3" maxlength="50"></textarea>
+                     </div>
+                 </div>
+
+                  <a class="btn btn-transparency" id="planCancel" >取消</a>
+                  <a class="btn btn-transparency" id="planAdd">添加</a>
+               </form>
+
+              
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--岗位手册 结束-->
+
+
+<!-- 弹出层 结束 -->
+ 
+<script src="../../Libs/dotdotdot/jquery.dotdotdot.js"></script>
+<script src="../../Scripts/organization/organizationManage.js"></script>

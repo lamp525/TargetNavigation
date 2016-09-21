@@ -1,0 +1,385 @@
+﻿<link href="../../Styles/document/document-user.css" rel="stylesheet"> 
+<!-- 页面内容 开始 -->
+<div class="row">
+    <div class="col-xs-9">
+        <div class="panel panel-default hashandle">
+            <div class="panel-heading">
+                <div class="selectedbar">
+                    <span class="selected-label">已选条件</span>
+                    <span class="operate">
+                        <a class="btn btn-transparency" id="removeFilter">清空</a>
+                    </span>
+                    <span class="selecteds"></span>
+                </div>
+            </div>
+            <div class="panel-body pos-r">
+                <div class="selection">
+                    <span class="select-label">搜索：</span>
+                    <div class="selects">
+                        <div class="group">
+                            <input type="text" placeholder="搜索框文件名" id="filterbox_document_name">
+                            <a class="btn btn-default"><span class="glyphicon glyphicon-search" id="filterbox_document_name-submit"></span></a>
+                        </div>
+                    </div>
+                    <span class="select-label">创建时间：</span>
+                    <div class="selects">
+                        <a href="#" class="option" id="near_week">近一周</a>
+                        <a href="#" class="option" id="near_month">近一月</a>
+                        <input type="text" class="select-time laydate-icon" id="start_time">-<input type="text" class="select-time laydate-icon" id="end_time">
+                        <a class="btn btn-transparency" id="user_defined">确定</a>
+                    </div>
+                    <span class="select-label">创建人：</span>
+                    <div class="selects" id="creaters">
+                        <!--<a href="#" class="option">小刘</a>-->
+
+                        <span class="pos-r">
+                            <input type="text" class="select-name" id="commonUser" placeholder="姓名">
+                        </span>
+                    </div>
+                </div>
+
+                <div class="drawer-handle">
+                    看完了，点我收起来吧
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default own">
+
+            <div class="panel-heading document">
+                <div class="panel-title">
+                    <ul class="nav nav-tabs model" role="tablist">
+                        <!--左侧下拉菜单-->
+                        <li role="presentation" class="active"><a href="#docBank" aria-controls="profile" role="tab" data-toggle="tab" id="docc">文档库</a></li>
+                        <li role="presentation"><a href="#shareBank" aria-controls="profile" role="tab" data-toggle="tab" id="shareC">共享库</a></li>
+                        <!--右侧下拉菜单-->
+                        <li class="nav-right">
+                            <ul>
+                                <li><a class="moreBg" href="#"></a><a class="moreCancel" href="#">取消</a></li>
+                                <li class="sift"><a href="#">筛选</a></li>
+                                <li><a id="newFile_building" data-toggle="modal" data-target="#myModal-newfile" href="#">新建文件夹</a></li>
+                                <li><a id="newDoc_building" data-toggle="modal" data-target="#myModal-newdoc" href="#">新建文档</a></li>
+                                <li class="dropdown" id="MyDoc">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="50" role="button" aria-expanded="false">批量 <span class="caret"></span></a>
+                                    <ul class="dropdown-menu batch-menu " role="menu">
+                                        <li class="nomal"><a href="#">移动</a></li>
+                                        <li class="divider short"></li>
+                                        <li><a href="#">复制</a></li>
+                                        <li class="divider short"></li>
+                                        <li><a href="#">删除</a></li>
+                                        <li class="divider short"></li>
+                                        <li><a href="#">下载</a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown" id="Myshare" style="display: none">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="50" role="button" aria-expanded="false">批量 <span class="caret"></span></a>
+                                    <ul class="dropdown-menu batch-menu " role="menu">
+                                        <li><a href="#">共享</a></li>
+                                        <li class="divider short"></li>
+                                        <li><a href="#">不共享</a></li>
+                                        <li class="divider short"></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown" id="ElseShareP" style="display: none">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="50" role="button" aria-expanded="false">批量 <span class="caret"></span></a>
+                                    <ul class="dropdown-menu batch-menu " role="menu">
+                                        <li class="divider short"></li>
+                                        <li><a href="#">下载</a></li>
+                                        <li class="divider short"></li>
+                                        <li><a href="#">复制</a></li>
+                                    </ul>
+                                </li>
+                                <li class="active" id="mode_card"><a href="#"><span class="glyphicon glyphicon-th-large "></span></a></li>
+                                <li id="mode_list"><a href="#"><span class="glyphicon glyphicon-th-list"></span></a></li>
+                            </ul>
+                        </li>
+
+                    </ul>
+                    <div class="tab-content frontDoc">
+                        <div role="tabpanel" class="tab-pane active" id="docBank">
+                            <ul class="list-inline docclass">
+                                <li class="groupDoc"><span class="groupDocNot"></span>公司文档</li>
+                                <li class="personalDoc active"><span class="personalDocHit"></span>个人文档</li>
+                            </ul>
+                            <span class="labelLast" style="width: 100%;">
+                                <span id="firstdirc_span" style="width: 200%;">
+                                    <span class="dirc_span dirc_active">目录设置</span>
+                                </span>
+                            </span>
+                        </div>
+                        <div role="tabpanel" class="tab-pane" id="shareBank">
+                            <ul class="list-inline shareclass">
+                                <li class="pershare active"><span class="pershareHit"></span>我的共享</li>
+                                <li class="elseshare"><span class="elseshareNot"></span>他人共享</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div>
+                        <ul class="sortbar">
+                            <li><span class="orderby">默认</span><span class="sort-icon"><span class="icon-up active"></span><span class="icon-down"></span></span></li>
+                            <li><span class="orderby">名称</span><span class="sort-icon"><span class="icon-up"></span><span class="icon-down"></span></span></li>
+                            <li><span class="orderby">时间</span><span class="sort-icon"><span class="icon-up"></span><span class="icon-down"></span></span></li>
+                            <li><span class="orderby">类型</span><span class="sort-icon"><span class="icon-up"></span><span class="icon-down"></span></span></li>
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel-body left-height" style="min-height: 626px">
+                <div class="listcommen" style="margin-top: 50px;">
+                    <div class="leftTree-showbtn"></div>
+
+                    <div class="left-tree">
+                        <div class="directory-set" style="cursor: pointer" id="TopTreeNode">
+                            <span>目录设置</span>
+                        </div>
+                        <div class="ztree" id="lefttree">
+                        </div>
+                        <div class="leftTree-hidebtn"></div>
+                    </div>
+                    <!--文档列表开始-->
+                    <div class="row row-docChunk">
+                    </div>
+
+                    <div class="row row-docList">
+                    </div>
+                </div>
+                <!--<文档列表结束>-->
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-3">
+        <div class="sidebar">
+            @Html.Partial("~/Views/Shared/_UserInfo.cshtml")
+            <div class="panel panel-default panel-chart" id="file_statistics">
+                <div class="panel-heading">文档</div>
+                <div class="panel-body pos-r chart-container">
+                    <div class="chart-content" id="file_statistics_chart">
+                    </div>
+                    <div class="chart-center"></div>
+                </div>
+                <div class="panel-footer">
+                    <ul class="list-inline chart-label">
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 页面内容 结束 -->
+
+<!-- 弹出层 开始 -->
+<!-- 个人资料设置 开始 -->
+<div class="modal fade" id="personal_modal" tabindex="-1" role="dialog" aria-labelledby="personal_modal_label" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            @Html.Partial("~/Views/Shared/_EditUserInfo.cshtml")
+        </div>
+    </div>
+</div>
+<!-- 个人资料设置 结束 -->
+<!--复制-->
+<div class="modal fade" id="copy_modal" tabindex="-1" role="dialog" aria-labelledby="copy_modal_label" aria-hidden="true" data-backdrop="false" data-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+                <h4 class="modal-title" id="copy_modal_label">复制</h4>
+            </div>
+            <div class="input-group" id="copy_modal_search">
+                <input type="text" class="form-control" placeholder="选择文件夹" aria-describedby="basic-addon2" id="copy_select">
+                <span class="input-group-btn">
+                    <a class="btn btn-default" type="a"><span class="glyphicon glyphicon-search"></span></a>
+                </span>
+            </div>
+            <div class="docType"><span class="docChoosePer">个人文档</span><span class="docChooseCom">公司文档</span></div>
+            <div class="fifty-fifty chosebox clearfix">
+                <div class="ztree" id="copy_modal_folder"></div>
+                <div class="chosenbox">
+                    <div class="chosen-count">
+                        已选: <span class="badge badge-success" id="copy_modal_chosen_count">0</span>
+                    </div>
+                    <ul class="chosens" id="copy_modal_chosen">
+                    </ul>
+                </div>
+            </div>
+            <div class="modal-footer fifty-fifty">
+                <a class="btn btn-transparency btn-lg" data-dismiss="modal">取消</a>
+                <a class="btn btn-transparency btn-lg" id="copy_modal_submit">确定</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!--移动-->
+<div class="modal fade" id="move_modal" tabindex="-1" role="dialog" aria-labelledby="move_modal_label" aria-hidden="true" data-backdrop="false" data-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        </div>
+    </div>
+</div>
+<!--新建文件夹-->
+<div class="modal fade" id="myModal-newfile" tabindex="-1" role="dialog" aria-labelledby="copy_modal_label" aria-hidden="true" data-backdrop="false" data-keyboard="false">
+    <div class="modal-dialog" style="box-shadow: 0 5px 15px rgba(0,0,0,0.5); background: white;">
+        <!--新建文件夹-->
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+            <h4 class="modal-title" data-toggle="modal" id="newFile_modal_label">新建文件夹</h4>
+        </div>
+        <div class="modal-body newfile">
+            <div class="input-file">
+                <span class="group-laber">文件夹名称</span>
+                <span class="inputBox">
+                    <input type="text" class="form-control " aria-describedby="basic-addon2" maxlength="20" id="input_filename"></span>
+            </div>
+            <div class="input-file">
+                <span class="group-laber" style="line-height: 63px">文件夹描述</span>
+                <textarea class="form-control" aria-describedby="basic-addon2" maxlength="100" id="input_filedes" rows="2"></textarea>
+            </div>
+        </div>
+        <div class="modal-footer fifty-fifty">
+            <a class="btn btn-transparency btn-lg" data-dismiss="modal">取消</a>
+            <a class="btn btn-transparency btn-lg" id="newfile_modal_submit">确定</a>
+        </div>
+    </div>
+</div>
+<!--新建文档-->
+<div class="modal fade" id="myModal-newdoc" tabindex="-1" role="dialog" aria-labelledby="copy_modal_label" aria-hidden="true" data-backdrop="false" data-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!--新建文档-->
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+                <h4 class="modal-title" data-toggle="modal" id="newDoc_modal_label">新建文档</h4>
+            </div>
+            <div class="modal-body newdoc">
+                <div class="uploadBox">
+                    <div class="file_upload">
+                        <div class="fileinput_frame">
+                            <span class="uploadTag">上传附件：</span>
+                            <div class="fileinput-button">
+                                <div class="fileinput-button_l"></div>
+                                <span>上传</span>
+                                <input id="fileupload" type="file" name="files[]" multiple="">
+                                <div class="fileinput-button_r"></div>
+                            </div>
+                            <div class="files">
+                                <ul class="list-inline" style="margin-left: 0; padding-top: -10px;">
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+       @*         <div class="input-doc">
+                    <span class="group-laber">标签</span>
+                    <span class="outborder">
+                        <span class="position">
+                            <span class="glyphicon glyphicon-plus" id="adddoc_label"></span>
+                        </span>
+                    </span>
+                </div>*@
+                <div style="padding: 10px 0; line-height: 28px" id="shareto">
+                    <div style="float: left; width: 14%">共享给:</div>
+                    <div class="row" style="float: left; width: 79%">
+                        <span style="position: relative">
+                            <em class="icon add-min hasborder" id="addplan_partner" style="margin: -3px 0px 0px;"><i class="fa fa-plus"></i></em>
+                        </span>
+                    </div>
+                    <div style="clear: both"></div>
+                </div>
+                  <div class="col-xs-12">
+                    <div class="label-head" style="width:12%;float:left;">
+                        标签:
+                    </div>
+                    <div class="label-main label-list" style="width:85%;float:left;">
+                        <ul class="add-ul label-ul">
+                            <li class="label-list-ul label-add">
+                                 <input type="text" id="new-label" class="new_label" term="" style="display:none;">
+                                 <button class="addLabel" type="button"><i class="fa fa-plus"></i></button>           
+                            </li>
+                        </ul>          
+                  
+           
+            </div>
+        </div>
+            </div>
+            <div class="modal-footer fifty-fifty">
+                <a class="btn btn-transparency btn-lg" data-dismiss="modal">取消</a>
+                <a class="btn btn-transparency btn-lg" id="newDoc_modal_submit">确定</a>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!--共享-->
+<div class="modal fade" id="share_modal" tabindex="-1" role="dialog" aria-labelledby="share_modal_label" aria-hidden="true" data-backdrop="false" data-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+                    <h4 class="modal-title" id="share_modal_label">共享</h4>
+                </div>
+                <div class="input-group" id="User_model_search">
+                    <input type="text" class="form-control" placeholder="选择人员" aria-describedby="basic-addon2" id="user_select">
+                    <span class="input-group-btn">
+                        <a class="btn btn-default" type="a"><span class="glyphicon glyphicon-search"></span></a>
+                    </span>
+                </div>
+                <div class="fifty-fifty chosebox clearfix">
+                    <div class="ztree" id="share_modal_folder"></div>
+                    <div class="chosenbox">
+                        <div class="chosen-count">
+                            已选: <span class="badge badge-success" id="share_modal_chosen_count">0</span>
+                        </div>
+                        <ul class="chosens" id="share_modal_chosen">
+                            <!--<li>证券<a class="close" aria-label="Close"><span aria-hidden="true">&times;</span></a></li>-->
+                        </ul>
+                    </div>
+                    <div class="choseClass">
+                        <div class="adopt">
+                            <ul class="list-inline pull-left">
+                                <li>
+                                    <input type="checkbox" id="person-haschildren"></li>
+                                <li>包含下级</li>
+                            </ul>
+                            <ul class="list-inline pull-right">
+                                <li>
+                                    <input type="checkbox" id="person-selectall"></li>
+                                <li>全部选择</li>
+                            </ul>
+                        </div>
+                        <div class="getadopt person_list" style="height: 170px; overflow: auto">
+                            <!--<ul class="list-inline">
+                            <li><input type="checkbox"></li>
+                            <li>小妞-证券分析</li>
+                        </ul>
+                        <ul class="list-inline">
+                            <li><input type="checkbox"></li>
+                            <li>李艳兰-人力资源</li>
+                        </ul>
+                        <ul class="list-inline">
+                            <li><input type="checkbox"></li>
+                            <li>小妞-证券分析</li>
+                        </ul>
+                        <ul class="list-inline">
+                            <li><input type="checkbox"></li>
+                            <li>李艳兰-人力资源</li>
+                        </ul>-->
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer fifty-fifty">
+                    <a class="btn btn-transparency btn-lg" data-dismiss="modal">取消</a>
+                    <a class="btn btn-transparency btn-lg" id="share_modal_submit">确定</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- 弹出层 结束 -->
+<script src="~/Libs/dotdotdot/jquery.dotdotdot.js"></script>
+    <script src="../../Scripts/document/document-user.js"></script>

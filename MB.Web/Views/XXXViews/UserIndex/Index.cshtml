@@ -1,0 +1,340 @@
+﻿            @*<link href="~/Styles/Search/searchOther.css" rel="stylesheet" />*@
+            <link href="../../../Libs/jQuery-ui/css/jquery-ui.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="../../Styles/Styles/NewIndex/index.css"/>
+
+<!--<div class="row">-->
+    <div class="col-xs-2 side-left">
+        <ul class="side-nav">
+            <li class="old-anchor">
+                <a href="/Company/CompanyIndex">
+                    <i class="fa fa-home"></i>公司首页<i class="fa fa-caret-right"></i>
+                </a>
+            </li>
+            <li class="active" id="sn-personal">
+                <a href="#">
+                    <i class="fa fa-user"></i>个人首页<i class="fa fa-caret-down"></i>
+                </a>
+                <ul class="open-child">
+                    <li class="selected"><a href="javascript:;" class="index-plan index-tabs"><span class="glyphicon glyphicon-list-alt"></span>待办计划</a></li>
+                    <li><a href="javascript:;" class="index-object index-tabs"><span class="glyphicon glyphicon-tasks"></span>待办目标</a></li>
+                    <li><a href="javascript:;" class="index-flot index-tabs"><span class="fa fa-sitemap "></span>待办流程</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div class="side-right col-xs-offset-2">
+        <div class="col-xs-12 main-container" id="index-html">
+            <!--视图跳转加载的html-->
+            <div class="col-xs-9 index-left">
+                <div class="person-main col-xs-12">
+                    <div class="col-xs-6 index-person">
+                        <div class="person-wrap">
+                            <img src="../../Images/common/default.jpg" alt="" class="img-circle flip icon-center imgPerson"/>
+                            <div class="person-top">
+                                <ul class="time-show">
+                                    <li class="li-year"></li>
+                                    <li class="li-weekDay"></li>
+                                </ul>
+                            </div>
+                            <div id="statistics" class="clearfix">
+                                <div class="col-xs-6 person-week">
+                                <strong>本周已工作</strong> <br/>
+                                <span style="color:#CC84CD"></span><i>小时</i>
+                            </div>
+                            <div class="col-xs-6 person-yesterday">
+                                <strong>昨日工时</strong> <br/>
+                                <span style="color:#69CDC1"></span><i>小时</i>
+                                <p class="total-leave person-day"></p>
+                            </div>
+                            <div class="col-xs-6 person-month">
+                                <strong>本月已工作</strong> <br/>
+                                <span style="color:#69CDC1"></span><i>小时</i>
+                            </div>
+                            <div class="col-xs-6 person-average">
+                                <strong>本周平均工时</strong> <br/>
+                                <span style="color:#2F6CA3"></span><i>小时</i>
+                                <p class="total-leave average-week">工时不足</p>
+                            </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <div class="col-xs-6 index-todo">
+                        <div class="todo-wrap" id="wrapTo">
+                            <div class="todo-per">
+                                <ul class="todo-title undo-title">
+                                    <li>未完成事项</li>
+                                    <li><strong class="undo"></strong><span>个</span></li>
+                                </ul>
+                                <ul class="todo-title done-title">
+                                    <li>已完成事项</li>
+                                    <li><strong class="done" style="color:#A9DECC ;"></strong><span>个</span></li>
+                                </ul>
+                                <div class="todo-tab">                                     
+                                    <a href="javascript:;" class="week-tab tabActive tab-a" isMonth=1 name="initTodo">周</a>
+                                    @*<span>|</span>*@
+                                    <a href="javascript:;" class="month-tab tab-a" isMonth=2 name="initTodo">月</a>
+                                </div>
+                                <div class="circlePer box">
+                                    <div class="bg"></div>
+                                    <div id="rount" class="rount"></div>
+                                    <div class="bg2"></div>   
+                                    <div id="rount2" class="rount2"></div>
+                                    <div class="num">
+                                        <strong>计划</strong>
+                                    </div> 
+                                    
+                                    <div class="undo-circle">
+                                        <div class="inside-circle"></div>
+                                    </div>
+                                    <div class="done-circle">
+                                        <div class="inside-circle"></div>
+                                    </div>        
+                                </div>
+                            </div>
+                            <div class="todo-status">
+                                <a href="/Plan/Index/2" class="oldTo col-xs-3">
+                                    <ul>
+                                        <li>待提交</li>
+                                        <li class="c_commit"></li>
+                                    </ul>
+                                </a>
+                                <a  href="/Plan/Index/3" class="oldTo col-xs-3">
+                                    <ul>
+                                        <li>待审核</li>
+                                        <li class="c_status"></li>
+                                    </ul>
+                                </a>
+                                <a  href="/Plan/Index/4" class="oldTo col-xs-3">
+                                    <ul>
+                                        <li>进行中</li>
+                                        <li class="c_audit"></li>
+                                    </ul>
+                                </a>
+                                
+                                <a  href="/Plan/Index/5" class="oldTo col-xs-3">
+                                    <ul>
+                                        <li>待确认</li>
+                                        <li class="c_confirm"></li>
+                                    </ul>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 index-detail">
+                    <div class="detail-top">
+                        <ul class="detail-tabs"><li class="myTarget workActive"><a href="javascript:;">我的计划</a></li><li class="subTarget"><a href="javascript:;">下属计划</a></li></ul>
+                        <p class="underLine"></p>
+
+                    </div>
+                    <div class="pannel-body content-detail" id="project-target">
+                       
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-3 index-right">
+                <div class="motivation">
+                    <a class="more-motivate glyphicon glyphicon-log-in"></a>
+                    <div class="motivate-top">
+                        <span>我的激励</span>
+                        <div class="todo-tab">
+                            <a href="javascript:;" class="week-tab tabActive tab-a" isMonth=1 name="initMotivate">周</a>
+                            <a href="javascript:;" class="month-tab tab-a" isMonth=2 name="initMotivate">月</a>                            
+                        </div>
+                    </div>
+                    <ul class="motivate-num clearfix">
+                        <li class="col-xs-6">
+                            <span class="animate"></span>
+                        </li>
+                        <li class="col-xs-6">
+                            <span  class="animate"></span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="sumtotal">
+                    <div class="sum-top">
+                        <span class="sum-time tab-large" name="initSum">工时统计</span>
+                        <span class="sum-grade"  name="grade">绩效排行</span>
+                        <div class="todo-tab">
+                            <a href="javascript:;" class="month-sum-tab tab-a" isMonth=2>月</a>
+                            <a href="javascript:;" class="week-sum-tab tabActive tab-a" isMonth=1>周</a>
+                        </div>
+                    </div>
+                    <div class="sum-tab person-tab">
+ @*                       <div class="sum-time sum-now">
+                            
+                        </div>*@
+                        <ul class="sum-person" id="grade-target">
+                        </ul>
+                    </div>
+                    <div class="sum-tab chart-tab"  id="chart-pic">
+
+                    </div>
+
+                </div>
+                <div class="myschedule">
+                    <div class="shedule-top">
+                        <span>我的日程</span>
+                        <a href="javascript:;" class="addSchedule">添加</a>
+                    </div>
+                    <div class="shedule-month">
+                        <a href="#"><span class="shedule-year">2015</span>年<span class="shedule-month-day">3</span>月</a>
+                    </div>
+                    <div class="shedule-day">
+                        <div><a href="#" class="fa fa-angle-left move-day"></a></div>
+                        <div class="candleDate"><ul><li>一</li><li class="isCount">11</li></ul></div>
+                        <div class="candleDate"><ul><li>二</li><li class="isCount">12</li></ul></div>
+                        <div class="candleDate"><ul><li>三</li><li class="isCount">13</li></ul></div>
+                        <div class="candleDate"><ul><li>四</li><li class="isCount">14</li></ul></div>
+                        <div class="candleDate"><ul><li>五</li><li class="isCount">15</li></ul></div>
+                        <div class="candleDate"><ul><li>六</li><li class="isCount">16</li></ul></div>
+                        <div class="candleDate"><ul><li>日</li><li class="isCount">17</li></ul></div>
+                        <div><a href="#" class="fa fa-angle-right move-day"></a></div>
+                    </div>
+                    <ul class="shedule-msg" id="shedule-target">
+                    </ul>
+                </div>
+            </div>
+ <div id="bch_check" style="display: none"></div>
+ <input type="hidden" name="name" id="xxc_planId" />
+<input type="hidden" name="name" id="xxc_status" />
+<input type="hidden" name="name" id="xxc_stop" />
+
+
+            <!--视图跳转加载的html-->
+        </div>
+    </div>
+    <!--</div>-->
+
+            
+ 
+<!--模板元素-->
+<script id="shedule-template" type="text/html">
+    {{each list as value i}}
+    <li class="schedule-all" style={{"animation-delay:"+(i*0.1)+'s'}} sid={{value.calendarId}}>
+        <ul class="calendarList"><li class="ellipsis">主题：{{value.comment}}</li>
+            <li class="shedule-position">
+               <p class="ellipsis"><i class="fa fa-clock-o"></i>{{value.sTime}}到{{value.eTime}}</p>       
+               <p class="ellipsis" title={{value.place}}><i class="fa fa-map-marker"></i>{{value.place}}</p>  
+            </li>
+
+        </ul>
+        <i class="delSchedule fa fa-remove"></i>
+    </li>
+    {{/each}}
+</script>
+<script id="grade-template" type="text/html">
+    {{each list as value i}}
+    <li style={{"animation-delay:"+((i)*0.1)+'s'}}>
+        <img src={{value.headImage?value.headImage:'../../Images/index/pic0.png'}} class="img-circle" alt=""/>
+        <ul class="sum-name">
+            <li><span>{{value.workTime}}小时</span></li>
+            <li><small>{{value.userName}}</small></li>
+        </ul>
+        <p class={{i<=2?'imgCircle':''}}>{{i+1}}</p>
+    </li>
+    {{/each}}
+</script>
+<script id="project-template" type="text/html">
+    {{if planCommit.length>0}}
+    <ul class="list-audit">
+        <li class="li-audit">
+            <ul class="list-audit-content clearfix">
+                <li class="x1"><i class="checkIcon fa fa-square-o"></i><input type="checkbox" class="checkAll"/></li>
+                <li class="x2 top-audit">待提交</li>
+            </ul>
+        </li>
+        {{each planCommit as value i}}
+        <li class="li-audit li-check" idx={{value.idx}} indfy="1" plan="planCommit" pid={{value.isLoop?value.loopId:value.planId}} isLoop={{value.isLoop?1:0}} initial={{value.initial?3:4}} style={{"animation-delay:"+((i+1)*0.1)+'s'}}>
+            <ul class="list-audit-content clearfix">
+                <li class="x1 first-li"><i class="checkIcon fa fa-square-o"></i><input class="checkSingle" type="checkbox" name="checkSingle" value={{value.isLoop?value.loopId:value.planId}} /></li>
+                <li class="x2 over" style="width:8%">{{value.endTime}}</li>
+                <li class="x3 over ellipsis f-18" title={{value.eventOutput}} style="width:19%">{{value.eventOutput}}</li>
+                <li class="x2 over">{{value.confirmUserName}}</li>
+                <li class="x4">重要度:{{each value.stars as val k}}{{if value.importance>k}} <i class="fa fa-star star important-color"></i> {{else}} <i class="fa fa-star-o star"></i> {{/if}} {{/each}}</li>
+                <li class="x4">紧急度:{{each value.stars as val k}}{{if value.urgency>k}} <i class="fa fa-star star urgency-color"></i> {{else}} <i class="fa fa-star-o star"></i> {{/if}} {{/each}}</li>
+                <li class="x3 range-li"><input value={{value.progress?value.progress:0}} type="range" disabled="disabled" /><small class="range-percent">{{value.progress?value.progress:0}}%</small></li>
+                <li class="x1 last-li"><i class="fa fa-th-list planDetail" pid={{value.planId}} flag="4"></i></li>
+            </ul>
+        </li>
+        {{/each}}
+    </ul>
+    {{/if}}
+    {{if plamConfirm.length>0}}
+     <ul class="list-audit" id="planlist_checked">
+        <li class="li-audit">
+            <ul class="list-audit-content clearfix">
+                <li class="x1"></li>
+                <li class="x2 top-audit" style="color:#62BA62">进行中</li>
+            </ul>
+        </li>
+        {{each plamConfirm as value i}}
+        <li class="li-audit li-check" idx={{value.idx}} indfy="2" isLoop={{value.isLoop?1:0}}  plan="plamConfirm" pid={{value.isLoop?value.loopId:value.planId}} initial={{value.initial?3:4}} style={{"animation-delay:"+((i+1)*0.1)+'s'}}>
+            <ul class="list-audit-content clearfix">
+                <li class="x1 first-li"><span>{{i+1}}</span></li>
+                <li class="x2 over" style="width:8%">{{value.endTime}}</li>
+                <li class="x3 over ellipsis f-18" title={{value.eventOutput}} style="width:19%">{{value.eventOutput}}</li>
+                <li class="x2 over">{{value.confirmUserName}}</li>
+                <li class="x4">重要度:{{each value.stars as val k}}{{if value.importance>k}} <i class="fa fa-star star important-color"></i> {{else}} <i class="fa fa-star-o star"></i> {{/if}} {{/each}}</li>
+                <li class="x4">紧急度:{{each value.stars as val k}}{{if value.urgency>k}} <i class="fa fa-star star urgency-color"></i> {{else}} <i class="fa fa-star-o star"></i> {{/if}} {{/each}}</li>
+                <li class="x3 range-li"><input value={{value.progress?value.progress:0}} type="range" class="confirm-range change-progress" pid={{value.planId}} /><small class="range-percent confirm-percent">{{value.progress?value.progress:0}}%</small></li>
+                <li class="x1 last-li"><i class="fa fa-th-list planDetail" pid={{value.planId}} flag="2"></i></li>
+            </ul>
+        </li>
+        {{/each}}
+        {{/if}}
+      {{if planAudit.length>0}}
+     <ul class="list-audit">
+        <li class="li-audit">
+            <ul class="list-audit-content clearfix">
+                <li class="x1"><i class="checkIcon fa fa-square-o"></i><input type="checkbox" class="checkAudit"/></li>
+                <li class="x2 top-audit">待审核</li>
+            </ul>
+        </li>
+        {{each planAudit as value i}}
+        <li class="li-audit li-check" idx={{value.idx}} indfy="3" isLoop={{value.isLoop?1:0}} plan="planAudit" pid={{value.isLoop?value.loopId:value.planId}} initial={{value.initial?3:4}} style={{"animation-delay:"+((i+1)*0.1)+'s'}}> 
+            <ul class="list-audit-content clearfix">
+                <li class="x1 first-li"><i class="checkIcon fa fa-square-o"></i><input class="auditSingle" type="checkbox" name="auditSingle" value={{value.isLoop?value.loopId:value.planId}} /></li>
+                <li class="x2 over" style="width:8%">{{value.endTime}}</li>
+                <li class="x3 over ellipsis f-18" title={{value.eventOutput}} style="width:19%">{{value.eventOutput}}</li>
+                <li class="x2 over">{{value.responsibleUserName}}</li>
+                <li class="x4">重要度:{{each value.stars as val k}}{{if value.importance>k}} <i class="fa fa-star star important-color"></i> {{else}} <i class="fa fa-star-o star"></i> {{/if}} {{/each}}</li>
+                <li class="x4">紧急度:{{each value.stars as val k}}{{if value.urgency>k}} <i class="fa fa-star star urgency-color"></i> {{else}} <i class="fa fa-star-o star"></i> {{/if}} {{/each}}</li>
+                <li class="x3 range-li"><input value={{value.progress?value.progress:0}} type="range"  disabled="disabled" /><small class="range-percent">{{value.progress?value.progress:0}}%</small></li>
+                <li class="x1 last-li"><i class="fa fa-th-list planDetail" pid={{value.planId}} flag="1"></i></li>
+            </ul>
+        </li>
+        {{/each}}
+        {{/if}}
+          {{if planSure.length>0}}
+     <ul class="list-audit">
+        <li class="li-audit">
+            <ul class="list-audit-content clearfix">
+                <li class="x1"></li>
+                <li class="x2 top-audit"  style="color:#62BA62">待确认</li>
+            </ul>
+        </li>
+        {{each planSure as value i}}
+        <li class="li-audit li-check" idx={{value.idx}} pid={{value.isLoop?value.loopId:value.planId}} isLoop={{value.isLoop?1:0}} plan="planSure" initial={{value.initial?3:4}} indfy="4" style={{"animation-delay:"+((i+1)*0.1)+'s'}}>
+            <ul class="list-audit-content clearfix">
+                <li class="x1 first-li"><span class="show-number">{{i+1}}</span></li>
+                <li class="x2 over" style="width:8%">{{value.endTime}}</li>
+                {{if value.isAttach}}
+                    <li class="x3 over ellipsis f-18 showFiles" title={{value.eventOutput}} style="width:19%" pid={{value.planId}}><i class="fa fa-paperclip show-download"></i>{{value.eventOutput}}</li>
+                {{/if}}
+                {{if !value.isAttach}}
+                    <li class="x3 over ellipsis f-18" title={{value.eventOutput}} style="width:19%" pid={{value.planId}}>{{value.eventOutput}}</li>
+                {{/if}}
+                <li class="x2 over">{{value.responsibleUserName}}</li>
+                <li class="x4">重要度:{{each value.stars as val k}}{{if value.importance>k}} <i class="fa fa-star star important-color"></i> {{else}} <i class="fa fa-star-o star"></i> {{/if}} {{/each}}</li>
+                <li class="x4">紧急度:{{each value.stars as val k}}{{if value.urgency>k}} <i class="fa fa-star star urgency-color"></i> {{else}} <i class="fa fa-star-o star"></i> {{/if}} {{/each}}</li>
+                <li class="x3 range-li"><input value={{value.progress?value.progress:0}} type="range" class="confirm-range" disabled="disabled" /><small class="range-percent confirm-percent">{{value.progress?value.progress:0}}%</small></li>
+                <li class="x1 last-li"><i class="fa fa-th-list planDetail" pid={{value.planId}} flag="3"></i></li>
+            </ul>
+        </li>
+        {{/each}}
+        {{/if}}
+    </ul>
+</script>

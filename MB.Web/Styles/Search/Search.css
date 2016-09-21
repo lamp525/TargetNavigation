@@ -1,0 +1,593 @@
+﻿#searchContainer .searchEle{
+    padding: 0;
+    border:1px solid #bfbfbf;
+    background-color: #fff;
+    padding: 5px 15px;
+    min-height: 45px;
+    overflow: hidden;
+}
+#searchContainer .searchPanel{
+    border:1px solid #bfbfbf;
+}
+#searchContainer #searchTitle .searchBtn{
+    border:none;
+    background: #58b557;
+    color:#fff;
+    height: 33px;
+    border-radius:3px;
+    margin: 1px 0;
+    line-height: 1;
+    padding:0 6px;
+}
+#searchContainer #searchTitle .searchIcon {
+    position: absolute;
+    top: 11px;
+    right: 20px;
+    font-size: 20px;
+    z-index: 20;
+}
+.planHide {
+    display:none!important;
+}
+.pTitle {
+   max-width:260px;
+}
+.pType {
+    max-width:130px;
+}
+.noWrap {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+#searchContainer #searchTitle .searchBtn span{
+    max-width: 150px;
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.ellipsis{
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+#searchContainer #searchTitle .searchBtn i{
+    margin-left:8px;
+}
+#searchContainer #searchTitle .hideKeywords{
+    display: none;
+}
+#searchContainer #searchTitle .searchKey{
+    width: 100%;
+    height: 33px;
+    border: 1px solid #bfbfbf;
+    margin: 1px 0;
+    border-radius: 2px;
+    margin: 1px 0;
+    padding-right:25px;
+}
+
+#searchContainer .planModule{
+    padding: 10px 7px;
+}
+#searchContainer .planModule .planWrap{
+    width: 100%;
+    padding: 10px 5px 0 5px;
+    height: 180px;
+    border: 1px solid #bfbfbf;
+}
+#searchContainer .planModule .flotWrap{
+   height: 155px;
+}
+#searchContainer .planModule .planWrap .wrapInfo{
+    width: 100%;
+    background-color: #ececec;
+    /*background-color:#f9f9f9;*/
+    height: 145px;
+    position: relative;
+}
+#searchContainer .planModule .planWrap .wrapflot{
+    height: 120px;
+}
+
+#searchContainer .planModule .planWrap .wrapInfo .circlePer{
+    position: absolute;
+    width: 100px;
+    height: inherit;
+    left:0;
+    right: 0;
+}
+.planPer {
+    text-align:center;
+    padding-top:30px;
+}
+input.knob {
+    font-family: "微软雅黑" !important;
+    font-size: 12px !important;
+}
+#searchContainer .planModule .planWrap .wrapInfo .detailInformation{
+    height: inherit;
+    margin-left: 100px;
+    padding-top: 1px;
+}
+#searchContainer .planModule .planWrap .wrapInfo .detailInformation ul{
+    margin: 2px 0 0 0;
+    width: 100%;
+    padding: 0;
+}
+#searchContainer .planModule .planWrap .wrapInfo .detailInformation ul li{
+    list-style: none;
+    width: 100%;
+    height: 20px;
+    line-height: 20px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+#searchContainer .planModule .planWrap .wrapInfo .detailInformation ul li i{
+    font-size: 15px;
+    margin-right: 5px;
+    position: relative;
+    top:1px;
+}
+#searchContainer .planModule .planWrap .wrapInfo .detailInformation ul .hard .fa-star{
+    color: red;
+}
+#searchContainer .planModule .planWrap .wrapInfo .detailInformation ul .impotrtant .fa-star{
+    color: #ffff00;
+}
+#searchContainer .planModule .planWrap .wrapInfo .detailInformation ul .exigence .fa-star{
+    color: green;
+}
+#searchContainer .planModule .bottomHover{
+    position: relative;
+    margin-top: -44px;
+    background: #58b456;
+    width: 100%;
+    height: 44px;
+    display: none;
+    opacity: 0.7;
+}
+#searchContainer .planModule:hover .bottomHover{
+   display:block;
+}
+#searchContainer .planModule .bottomHover ul{
+    width:100%;
+    height: inherit;
+    padding: 0 10px 0 0 ;
+    margin:0;
+    text-align: right;
+    line-height: 44px;
+}
+#searchContainer .planModule .bottomHover ul li{
+    display: inline-block;
+    padding-left:24px;
+    height: 24px;
+    /*background: url(../../Images/plan/planDetail.png) no-repeat;*/
+    line-height: 24px;
+    color:#fff;
+    cursor: pointer;
+    /*margin-right: 4px;*/
+}
+
+
+#searchContainer .planModule .bottomHover ul li.confirmPlan {
+    background: url(../../Images/plan/affirm.png) no-repeat;
+}
+
+#searchContainer .planModule .bottomHover ul li.confirmPlan:hover {
+    color: #136012;
+    background: url(../../Images/plan/affirmHit.png) no-repeat;
+}
+
+#searchContainer .planModule .bottomHover ul li.decPlan{
+    background: url(../../Images/plan/resolve.png) no-repeat;
+}
+#searchContainer .planModule .bottomHover ul li.decPlan:hover{
+    background: url(../../Images/plan/resolveHit.png) no-repeat;
+    color:#000;
+}
+#searchContainer .planModule .bottomHover ul li .restart
+{
+    background: url(../../Images/plan/restart.png) no-repeat;
+}
+#searchContainer .planModule .bottomHover ul li .restart:hover
+{
+     color: #000;
+     background: url(../../Images/plan/restartHit.png) no-repeat;
+ }
+#searchContainer .planModule .bottomHover ul li.audit{
+   background: url(../../Images/plan/checks.png) no-repeat
+}
+#searchContainer .planModule .bottomHover ul li.audit:hover{
+   color: #136012;
+   background: url(../../Images/plan/checksHit.png) no-repeat;
+}
+#searchContainer .planModule .bottomHover ul li.transimitPlan{
+    background: url(../../Images/plan/transmit.png) no-repeat;
+}
+#searchContainer .planModule .bottomHover ul li.transimitPlan:hover{
+    background: url(../../Images/plan/transmitHit.png) no-repeat;
+    color:#000;
+}
+#searchContainer .planModule .bottomHover ul li.revocation{
+    background:url(../../Images/plan/revocation.png) no-repeat;
+}
+#searchContainer .planModule .bottomHover ul li.revocation:hover{
+    background: url(../../Images/plan/transmitHit.png) no-repeat;
+    color:#000;
+}
+#searchContainer .planModule .bottomHover ul li.modification{
+    background: url(../../Images/plan/modification.png) no-repeat;
+}
+#searchContainer .planModule .bottomHover ul li.modification:hover{
+    background: url(../../Images/plan/modificationHit.png) no-repeat;
+    color:#000;
+}
+#searchContainer .planModule .bottomHover ul li.suspend{
+    background: url(../../Images/plan/suspend.png) no-repeat;
+}
+#searchContainer .planModule .bottomHover ul li.suspend:hover{
+    background: url(../../Images/plan/suspendHit.png) no-repeat;
+    color:#000;
+}
+#searchContainer .planModule .bottomHover ul li.submit {
+    background: url(../../Images/plan/submit.png) no-repeat;
+}
+#searchContainer .planModule .bottomHover ul li.submit:hover{
+    background: url(../../Images/plan/submitHit.png) no-repeat;
+    color:#000;
+}
+#searchContainer .planModule .bottomHover ul li.submitTo {
+    background: url(../../Images/plan/submit.png) no-repeat;
+}
+#searchContainer .planModule .bottomHover ul li.submitTo:hover{
+    background: url(../../Images/plan/submitHit.png) no-repeat;
+    color:#000;
+}
+#searchContainer .planModule .bottomHover ul li.planDetail {
+    background:url(../../Images/plan/planDetail.png) no-repeat;
+}
+#searchContainer .planModule .bottomHover ul li.planDetail:hover{
+    background: url(../../Images/plan/planDetailHit.png) no-repeat;
+    color:#000;
+}
+
+
+/*圆*/
+#searchContainer .circle{
+    width: 80px;
+    height: 80px;
+    position: relative;
+    border-radius: 50%;
+    /*background: #0cc;*/
+    margin: 32px auto;
+}
+#searchContainer .planModule .planWrap .wrapInfo .circlePer .circleFlot{
+    margin: 20px auto;
+}
+#searchContainer .circleTarget{
+    margin: 11px auto;
+}
+
+.pie_left, .pie_right {
+    width:82px;
+    height:82px;
+    position: absolute;
+    top: -1px;left: -1px;
+}
+
+.left, .right {
+    width:80px;
+    height:83px;
+    /*background:#00aacc;*/
+    background-color:#f9f9f9;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.pie_right, .right {
+    clip:rect(0,auto,auto,40px);
+}
+.pie_left, .left {
+    clip:rect(0,40px,auto,0);
+}
+.mask {
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    left: 13px;
+    top: 13px;
+    /*background: #ececec;*/
+    background-color:#f9f9f9;
+    position: absolute;
+    text-align: center;
+    line-height: 50px;
+    font-size: 12px;
+    font-weight: bold;
+    color: #00aacc;
+}
+#searchContainer .planModule .planWrap .wrapDate{
+    width: 100%;
+    height: 25px;
+    line-height: 25px;
+}
+#searchContainer .planModule .planWrap .flotDate{
+    height: 20px;
+    line-height: 20px;
+}
+
+#searchContainer .planModule .planWrap .wrapDate span{
+    margin-right: 10px;
+    color:lightgray;
+}
+/*圆结束*/
+
+#searchContainer .STATUS_STOP{
+    background-color:#49dca7
+}
+#searchContainer .STATUS_COMPLETE{  /*已完成*/
+    background-color:#58b557
+}
+#searchContainer .STATUS_CONFIRM{ /*待确认*/
+    background-color:#57acdb
+}
+#searchContainer .STATUS_AUDIT{ /*待审核*/
+    background-color:#fbab11
+}
+#searchContainer .STATUS_LOAD{  /*待提交*/
+    background-color:#be1d9a
+}
+#searchContainer .STATUS_SUBMIT{ /*已审核*/
+    background-color:#64d8ae
+}
+
+#searchContainer .STATUS_UNDONE{ /*0%进度*/
+    background-color:#e3e3e3
+}
+
+.PLAN_COMMIT { /*计划待提交*/
+    background-color:#57acdb;
+}
+
+.PLAN_AUDIT { /*计划待审核*/
+    background-color:#e00e16;
+}
+.PLAN_CHECKED { /*计划已审核*/
+    background-color:#be1d9a;
+}
+
+.PLAN_CONFIRM { /*计划待确认*/
+    background-color:#fbab11;
+}
+
+.PLAN_COMPLETE { /*计划已完成*/
+    background-color:#58b557;
+}
+
+.PLAN_STOP { /*计划已终止*/
+    background-color:#49dca7;
+}
+
+
+
+
+
+#searchContainer #targetList{
+  padding:10px 2px;
+}
+#searchContainer #targetList .targetListAll{
+    height: 124px;
+    border: 1px solid #DDD;
+    width: 100%;
+    margin-bottom: 10px;
+    position: relative;
+}
+#searchContainer #targetList .targetListAll .targetHead{
+    height: 20px;
+    line-height: 20px;
+    width:100%;
+    background-color: #e3e3e3;
+    font-weight: 700;
+    text-indent: 10px;
+    position: absolute;
+    top:0px;
+}
+#searchContainer #targetList .targetListAll .targetBody{
+    position: absolute;
+    top:20px;
+    bottom:0;
+    left:0;
+    width: 100%;
+    background: #f9f9f9;
+}
+#searchContainer #targetList .targetListAll .targetBody .leftTarget{
+    width: 100px;
+    float: left;
+    height:100%;
+}
+#searchContainer #targetList .targetListAll .targetBody .rightTarget{
+    height:100%;
+    margin-left: 100px;
+    position: relative;
+}
+#searchContainer #targetList .targetListAll .targetBody .rightTarget div{
+    height:100%;
+}
+#searchContainer #targetList .targetListAll .targetBody .rightTarget div.power{
+    line-height: 6;
+    text-align: center;
+    font-size: 16px;
+}
+#searchContainer #targetList .targetListAll .targetBody .rightTarget ul{
+    margin: 0;
+    padding: 0;
+}
+#searchContainer #targetList .targetListAll .targetBody .rightTarget .targetInfo ul li{
+    width:100%;
+    line-height: 25px;
+    overflow: hidden;
+    height:25px;
+}
+#searchContainer #targetList .targetListAll .targetBody .rightTarget .lastShowTarget{
+    position: absolute;
+    background: #58b456;
+    width: 100%;
+    height: 44px;
+    display: none;
+    opacity: 0.7;
+    bottom: 0;
+}
+#searchContainer #targetList .targetListAll .targetBody .rightTarget:hover .lastShowTarget{
+   display: block;
+    z-index: 1;
+}
+#searchContainer #targetList .targetListAll .targetBody .rightTarget .lastShowTarget ul{
+    text-align: right;
+    height: inherit;
+    padding: 0 10px 0 0;
+    line-height: 44px;
+}
+#searchContainer #targetList .targetListAll .targetBody .rightTarget .lastShowTarget ul li{
+    display: inline-block;
+    padding-left: 24px;
+    height: 24px;
+    line-height: 24px;
+    color: #fff;
+    cursor: pointer;
+    margin-right: 4px;
+}
+#searchContainer #targetList .targetListAll .targetBody .rightTarget .lastShowTarget .liPower{
+    background: url(../../Images/objective/impower.png) no-repeat 1px;
+}
+#searchContainer #targetList .targetListAll .targetBody .rightTarget .lastShowTarget .liPower:hover{
+    background: url(../../Images/objective/impowerHit.png) no-repeat 1px;
+    color:#000;
+}
+#searchContainer #targetList .targetListAll .targetBody .rightTarget .lastShowTarget .liCommit{
+    background: url(../../Images/plan/submit.png) no-repeat;
+}
+#searchContainer #targetList .targetListAll .targetBody .rightTarget .lastShowTarget .liCommit:hover{
+    background: url(../../Images/plan/submitHit.png) no-repeat;
+    color:#000;
+}
+#searchContainer #targetList .targetListAll .targetBody .rightTarget .lastShowTarget .liDel{
+    background: url(../../Images/objective/deleteWhite.png) no-repeat
+}
+#searchContainer #targetList .targetListAll .targetBody .rightTarget .lastShowTarget .liDel:hover{
+    background:url(../../Images/objective/deleteHit.png) no-repeat;
+    color:#000;
+}
+#searchContainer #targetList .targetListAll .targetBody .rightTarget .lastShowTarget .liOpen{
+    background: url(../../Images/objective/unfold.png) no-repeat 1px;
+}
+#searchContainer #targetList .targetListAll .targetBody .rightTarget .lastShowTarget .liOpen:hover{
+    background: url(../../Images/objective/unfoldHit.png) no-repeat 1px;
+    color:#000;
+}
+#searchContainer #targetList .targetListAll .targetBody .rightTarget .lastShowTarget .liDetail{
+    background: url(../../Images/plan/planDetail.png) no-repeat;
+}
+#searchContainer #targetList .targetListAll .targetBody .rightTarget .lastShowTarget .liDetail:hover{
+    background: url(../../Images/plan/planDetailHit.png) no-repeat;
+    color:#000;
+}
+#searchContainer #targetList .targetListAll .targetBody .rightTarget .lastShowTarget .liCheck {
+    background: url(../../Images/plan/checks.png) no-repeat;
+}
+#searchContainer #targetList .targetListAll .targetBody .rightTarget .lastShowTarget .liCheck:hover{
+    background: url(../../Images/plan/checksHit.png) no-repeat;
+    color:#136012;
+}
+#searchContainer #targetList .targetListAll .targetBody .rightTarget .lastShowTarget .liSure {
+    background: url(../../Images/objective/sure.png) no-repeat;
+}
+#searchContainer #targetList .targetListAll .targetBody .rightTarget .lastShowTarget .liSure:hover{
+    background: url(../../Images/objective/sureHit.png) no-repeat;
+    color:#136012;
+}
+#searchContainer #targetList .targetListAll .targetBody .rightTarget .lastShowTarget .liPower{
+    background: url(../../Images/objective/impower.png) no-repeat 1px;
+}
+#searchContainer #targetList .targetListAll .targetBody .rightTarget .lastShowTarget .liPower:hover{
+    background: url(../../Images/objective/impowerHit.png) no-repeat 1px;
+    color:#136012;
+}
+#searchContainer #targetList .targetListAll .targetBody .rightTarget .lastShowTarget .liModify{
+    background: url(../../Images/plan/modification.png) no-repeat;
+}
+#searchContainer #targetList .targetListAll .targetBody .rightTarget .lastShowTarget .liModify:hover{
+    background: url(../../Images/plan/modificationHit.png) no-repeat;
+    color:#136012;
+}
+#searchContainer #targetList .targetListAll .targetBody .rightTarget .lastShowTarget .liCommit{
+    background: url(../../Images/plan/submit.png) no-repeat;
+}
+#searchContainer #targetList .targetListAll .targetBody .rightTarget .lastShowTarget .liCommit:hover{
+     background: url(../../Images/plan/submitHit.png) no-repeat;
+    color:#136012
+}
+#searchContainer #targetList .targetListAll .targetBody .rightTarget .lastShowTarget .liConfirm{
+    background: url(../../Images/plan/submit.png) no-repeat;
+}
+#searchContainer #targetList .targetListAll .targetBody .rightTarget .lastShowTarget .liConfirm:hover{
+     background: url(../../Images/plan/submitHit.png) no-repeat;
+    color:#136012
+}
+#searchContainer #targetList .targetListAll .targetBody .rightTarget .lastShowTarget .liRevocation{
+    background: url(../../Images/plan/revocation.png) no-repeat;
+}
+#searchContainer #targetList .targetListAll .targetBody .rightTarget .lastShowTarget .liRevocation:hover{
+    background: url(../../Images/plan/revocationHit.png) no-repeat;
+    color:#136012;
+}
+#searchContainer #targetList .targetListAll .targetBody .rightTarget .lastShowTarget .liPowerCancel{
+
+}
+#searchContainer #targetList .targetListAll .targetBody .rightTarget .lastShowTarget .liPowerCancel:hover{
+    color:#136012;
+}
+
+#toWord .clickAll{
+    position:relative;
+    top:2px;
+    margin-right:4px;
+}
+#searchContainer .downLoadWord i{
+    margin-right: 5px;
+    font-size: 14px;
+    position: relative;
+    top: 2px;
+}
+#wordList input[type="checkbox"]{
+    position:relative;
+    top:2px;
+    margin-right:4px;
+}
+.opearteClick a {
+    padding-left:10px;
+    padding-right:10px;
+
+}
+.opearteClick i {
+    font-size:10px;
+    margin-left:12px;
+}
+.opearteClick li {
+    line-height:25px;
+    border-bottom:1px dotted #bfbfbf;
+    text-align:center;
+   cursor:pointer;
+}
+.opearteClick li:last-child{
+    border-bottom:none;
+}
+.opearteClick li:hover{
+    background:green;
+}
+.opearteClick ul {
+    margin-top:5px;
+}

@@ -1,0 +1,608 @@
+/*.container{
+    background-color: #dddddd;
+}*/
+.panel-footer-userdefined{
+    /*padding: 5px 0 5px 0;*/
+    margin-top: -10px;
+}
+
+.btn-width>a{
+    width: 49.5%;
+    height: 35px;
+    background-color: #fff;
+    /*margin-right: 3px;*/
+}
+.btn-width #authy-submit{
+    float: right;
+}
+/*.setting .panel-footer{
+    border-top: hidden;
+}*/
+/* 筛选框 */
+#filterbox{
+    display: none;
+}
+#filterbox_shrink{
+    width: 150px;
+    margin-left: -75px;
+}
+.cell{
+    background-color: #f5f5f5;
+    margin-top: 10px;
+}
+a#filterbox_clear.btn.btn-transparency {
+    border:none;
+}
+a#authy-add.btn.btn-transparency
+{
+    border:none;
+    margin-right: 5px;
+    background-color:#fbaa12;
+    color:#fff;
+    border-style: double;
+    height: 30px;
+    line-height: 12px;
+}
+/*.cell.docu{*/
+    /*margin: 20px 30px;*/
+/*}*/
+
+/* 列表Card模式 */
+.card .cell{
+    position: relative;
+    height: 120px;
+    padding: 10px 10px 30px;
+    border: 1px solid #ddd;
+}
+.card .cell .title{
+    display: block;
+    margin-bottom: 10px;
+    line-height: 30px;
+    font-size: 14px;
+    overflow: hidden;
+    height:60px;
+    text-overflow:ellipsis;
+}
+.card .cell .title:before{
+    display: inline-block;
+    height: 30px;
+    vertical-align: top;
+}
+.docu .title:before{
+    content: url(../../Images/document/document.png);
+}
+.folder .title:before{
+    content: url(../../Images/document/folder.png);
+}
+
+.docu .content{
+   
+    font-size: 12px;
+   
+}
+.dl-horizontal dd {
+    margin-left:0;
+}
+.card .cell .dl-horizontal{
+    margin-bottom: 0;
+    overflow: hidden;
+    -webkit-line-clamp: 2;
+    width:180px;
+}
+
+
+.card .cell .dl-horizontal dt{
+    width: 55px;
+    font-weight: normal;
+    color: #aaa;
+}
+.card .cell .dl-horizontal dt:after{
+    content: ":";
+}
+.card .cell .dl-horizontal dd{
+    margin-left: 65px;
+    color: #aaa;
+}
+.cell.folder .dl-horizontal dd{
+    margin-left: 30px;
+    line-height:1.4em;
+    /* 3 times the line-height to show 3 lines */
+    height:2.8em;
+    position:relative;
+    -webkit-line-clamp: 2;
+}
+
+.card .cell .operate{
+    position: absolute;
+    display: none;
+    bottom: 0;
+    width: 100%;
+    height: 30px;
+    margin-left: -10px;
+}
+.card .cell .operate:before{
+    content: "";
+    display: block;
+    height: 100%;
+    background-color: #58b456;
+    opacity: .8;
+}
+.card .cell .operate .btns{
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.card .cell .operate .btns>a{
+    display: inline-block;
+    height: 30px;
+    margin-right: 6px;
+    line-height: 30px;
+    color: #fff;
+}
+.card .cell .operate .btns>a:hover{
+    color: #136012;
+}
+.add{
+    background-color: #f5f5f5;
+    margin-top: 10px;
+    position: relative;
+    height: 120px;
+    padding: 10px 10px 30px;
+    border: 1px solid #ddd;
+}
+.addPicture{
+    width: 65px;
+    height: 65px;
+    margin-left: 15px;
+    margin-top: 15px;
+    background: url(../../Images/plan/addB.png);
+}
+.wordPosition{
+     width: 80px;
+     position: absolute;
+     float: right;
+     margin: -45px 85px;
+     font-size: 14px;
+}
+
+/*列表形式*/
+.row .row-docList{
+    height:90px;
+}
+.row-docList .cell{
+    margin-top: 10px;
+    position: relative;
+    height: 80px;
+    padding: 10px 10px 30px;
+    border: 1px solid #ddd;
+    background-color: #f5f5f5;
+}
+.row-docList .cell .title{
+    display: block;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    line-height: 30px;
+    font-size: 14px;
+    vertical-align: top;
+    overflow: hidden;
+    text-overflow:ellipsis;
+}
+
+.row-docList .docpng .title:before{
+    margin-right: 5px;
+    content: url(../../Images/document/document.png);
+}
+
+.row-docList .filepng .title:before{
+    margin-right:5px;
+    content: url(../../Images/document/file.png);
+}
+.row-docList .nest span.description{
+    margin-left: 20px;
+    font-size: 14px
+}
+.row-docList .content{
+    position: absolute;
+    right: 6px;
+    top: 3px;
+}
+.row-docList .content .content-label{
+    display: none;
+}
+.row-docList .content>div{
+    float: left;
+    margin-right: 20px;
+}
+.row-docList .cell  .operate{
+    position: absolute;
+    right: 0;
+    top: 35px;
+    display: block !important;
+    margin-left: -10px;
+    width: auto;
+    height: 30px;
+    background:transparent;
+    z-index: 20;
+}
+.row-docList .cell >.operate .btns{
+    margin-left: 25px;
+    margin-right: -20px;
+    height: 30px;
+    width: 250px;
+    line-height: 30px;
+    font-size: 12px;
+    z-index: 20;
+}
+.row-docList .cell >.operate .btns>a{
+    margin-right: 10px;
+    color:#686868;
+}
+.row-docList .cell >.operate .btns>a:hover{   
+    color:#58b456;
+}
+.grayTop{
+    width: 100%;
+    height: 25px;
+    margin-left: -10px;
+    margin-top: -10px;
+    margin-bottom: 30px;
+    position: absolute;
+    background-color:darkgray;
+    filter:alpha(opacity=10);
+    -moz-opacity:0.1;
+    opacity:0.1;
+    z-index: 1;
+}
+.card .grayTop{
+    display: none;
+}
+/*弹出层-复制*/
+.chosenbox{
+    height: 400px;
+}
+.chosenbox .chosen-count{
+    padding: 3px 10px;
+    border-bottom: 1px solid #ccc;
+}
+.chosens{
+    padding-left: 0;
+    list-style: none;
+}
+.chosens li{
+    padding: 5px 10px;
+}
+.chosens li:hover{
+    background-color: #eee;
+}
+#copy_modal_folder{
+    padding: 5px;
+}
+/*权限设置*/
+.getFile>ul.list-inline,.permisSet>ul.list-inline {
+    margin-bottom: 10px;
+    padding-top: 10px;
+}
+.getFile,.permisSet{
+    padding-bottom: 10px;
+    border-bottom: 1px solid #dddddd;
+}
+.permisList{
+    height: 200px;
+    overflow:auto;
+}
+.permisSet input{
+    vertical-align: top;
+}
+.permisSet>ul,.permisList>ul{
+    padding:10px 0 0;
+    height: 33px;
+}
+li.dropdown.addborder{
+    width: 100px;
+    height: 25px;
+    margin-left: 33px;
+    border: 1px solid #dddddd;
+    padding-left: 10px;
+    padding-top: 2px;
+    text-align:center
+}
+li.addPer{
+    float: right;
+}
+.permisList>table{
+    margin-bottom: 0;
+    height: 200px;
+}
+.authy-del:hover,.authy-delOld:hover {
+    cursor: pointer;
+    color: #00B83F;
+}
+li#department-add:hover,li#station-add:hover,li#HR-add:hover {
+    color:#58b456;
+}
+/* 选择框 开始 */
+.col-xs-3 .choose
+{
+    position: relative;
+    top: -20px;
+    right: -382px;
+    z-index: 2;
+    display: none;
+    width: 30px;
+    height: 30px;
+    background: #dadada;
+    cursor: pointer;
+}
+
+.col-xs-3 .choose.chooseHit
+{
+    border-left: 1px solid #bababa;
+    border-bottom: 1px solid #bababa;
+}
+
+.col-xs-3 .choose span
+{
+    position: relative;
+    top: 3px;
+    left: 3px;
+    display: block;
+    width: 24px;
+    height: 24px;
+    background: url(../../Images/plan/choose.png) no-repeat;
+}
+
+.col-xs-3 .choose span.spanHit
+{
+    background: url(../../Images/plan/chooseHit.png) no-repeat;
+}
+
+.col-xs-3 .prohibit
+{
+    position: relative;
+    top: -20px;
+    right: -384px;
+    z-index: 2;
+    width: 28px;
+    height: 28px;
+    background: url(../../Images/plan/prohibit.png) no-repeat;
+}
+
+.documents {
+    min-height:625px;
+}
+
+.documents  .col-xs-3 .choose,
+.documents .col-xs-3 .prohibit
+{
+    position: absolute;
+    right: 0px;
+    top: 0px;
+}
+.row-docList .col-xs-12 .choose,
+.row-docList .col-xs-12 .prohibit
+{
+    position: absolute;
+    right: 0px;
+    top: 0px;
+}
+
+.col-xs-12 .choose
+{
+  position: relative;
+  top: -80px;
+  z-index: 2;
+  right: -11px;
+  display: none;
+  width: 27px;
+  height: 25px;
+  background: #dadada;
+  cursor: pointer;
+  float:right;
+
+}
+
+.col-xs-12 .choose.chooseHit
+{
+    border-left: 1px solid #bababa;
+    border-bottom: 1px solid #bababa;
+}
+
+.col-xs-12 .choose span
+{
+    position: relative;
+    top: 2px;
+    left: 2px;
+    display: block;
+    width: 24px;
+    height: 24px;
+    display:inline-block;
+    background: url(../../Images/plan/choose.png) no-repeat;
+}
+
+.col-xs-12 .choose span.spanHit
+{
+    background: url(../../Images/plan/chooseHit.png) no-repeat;
+}
+
+.col-xs-12 .prohibit
+{
+    position: relative;
+    top: -20px;
+    right: -384px;
+    z-index: 2;
+    width: 28px;
+    height: 28px;
+    background: url(../../Images/plan/prohibit.png) no-repeat;
+}
+
+
+
+.row-docList  .col-xs-12 .choose,
+.row-docList .col-xs-12 .prohibit
+{
+    position: absolute;
+    right: 0px;
+    top: 0px;
+}
+/* 选择框 结束 */
+
+.panel-heading .moreBg,
+.panel-heading .moreCancel
+{
+    display: none;
+    padding: 0;
+    margin-left: 15px;
+
+}
+.panel-heading .moreCancel{
+    margin-right: 20px;
+}
+
+.panel-heading .more:hover,
+.panel-heading .moreCancel:hover
+{
+    color: #58b456;
+}
+
+/*弹出层-新建文件夹*/
+.modal-body.newfile,.modal-body.newdoc{
+    height: 300px;
+}
+.input-file,.input-doc{
+    height: 50px;
+    margin: 3px 0 10px 0;
+    position: relative;
+}
+span.group-laber{
+    height: 33px;
+    width: 13%;
+    line-height: 33px;
+    float: left;
+    margin-right: 5px
+}
+#input_filename.form-control{
+    width: 267px;
+}
+#input_filedes.form-control{
+    width: 267px;
+    height: 66px;
+}
+span.outborder{
+    border: 1px solid #e3e3e3;
+    height: 30px;
+    width: 30px;
+    display: inline-block;
+    cursor: pointer;
+}
+.outborder .position{
+    margin: 3px 3px;
+    vertical-align: middle;
+}
+.position .glyphicon-plus{
+    height: 24px;
+    width: 24px;
+    margin-left: 5px;
+    line-height: 24px;
+}
+input.upload-container{
+    display:none;
+}
+/*弹出层共享*/
+.chosebox{
+    height: 200px;
+}
+.chosenbox .chosen-count{
+    padding: 3px 10px;
+    border-bottom: 1px solid #ccc;
+}
+.chosens{
+    padding-left: 0;
+    list-style: none;
+}
+.chosens li{
+    padding: 5px 10px;
+}
+.chosens li:hover{
+    background-color: #eee;
+}
+#share_modal_folder{
+    padding: 5px;
+}
+.choseClass{
+    height: 200px;
+    margin-top: -200px;
+}
+#share_modal_folder{
+    height: 200px;
+    border-bottom: 1px solid #dddddd;
+}
+.adopt{
+    height: 30px;
+    border-bottom: 1px solid #dddddd;
+}
+.adopt>ul.list-inline{
+    padding: 5px 5px;
+}
+ul.list-inline li input{
+    vertical-align: top;
+}
+.getadopt{
+    padding: 5px;
+}
+
+/*.btn.btn-transparency{*/
+    /*width: 49%;*/
+    /*margin-left: 5px;*/
+    /*float: left;*/
+/*}*/
+
+.tableuser tbody{
+    border-bottom: 1px solid #dddddd ;
+}
+
+.tableuser tr+td{
+    width: 430px;
+}
+.tableuser tr td{
+    padding-left: 8px
+}
+td.status{
+    padding-left: 0;
+}
+input#getFile_name {
+    width:252px;
+    max-width: 252px;
+    background-color:#fff;
+}
+
+textarea#getFile_des{
+      max-width: 252px;
+      vertical-align: middle;
+     border: 1px solid #ccc;
+    background-color: #fff;
+    width: 252px;
+      height: 50px;
+}
+input.clearBg
+{
+    background-color:#fff;
+}
+.dropdown-menu.authy-dropdown
+{
+      max-width: 100px;
+      min-width: 80px;
+}
+/*右侧目录*/
+.right-height {
+    min-height:250px;
+}
+.directory-set{
+    font-size: 14px;
+}
+.arrowDown{
+    left: 200px;
+}
+
+.dirc_span {
+    cursor:pointer;
+}

@@ -1,0 +1,545 @@
+﻿<link rel="stylesheet" href="../../Styles/incentive/incentiveFormula.css">
+
+
+<div class="row">
+    <div id="incentiveContainer" class="col-xs-9">
+        <div class="panel panel-default" style="margin-bottom: 0">
+            <div class="panel-heading">
+                <div class="panel-title">
+                    <a role="tab">激励规则</a>
+                </div>
+            </div>
+
+            <div class="tab-content" id="listTabContent">
+                <!--我的目标-->
+                <div class="sub-nav">
+                    <a class="nav-item green_color" href="#con_planExtension" aria-controls="con_planExtension" role="tab" id="planExtensionTab" data-toggle="tab" aria-expanded="true">计划延期</a>
+                    <a class="nav-item" href="#con_ApprovalTimeout" aria-controls="con_ApprovalTimeout" role="tab" id="ApprovalTimeoutTab" data-toggle="tab" aria-expanded="true">审批超时</a>
+                    <a class="nav-item" href="#con_EffectiveHours" aria-controls="con_EffectiveHours" role="tab" id="EffectiveHoursTab" data-toggle="tab" aria-expanded="true"></i> 有效工时</a>
+                </div>
+                <div class="tab-content">
+                    <div id="con_planExtension" role="tabpanel" class="tab-pane active" style="min-height: 600px">
+                        <div class="row" style="color: #d1d1d1; margin-bottom: 10px;">
+                            <div class="col-xs-1"></div>
+                            <div class="col-xs-2">项目</div>
+                            <div class="col-xs-3">时间</div>
+                            <div class="col-xs-2">方式</div>
+                            <div class="col-xs-2">数量</div>
+                            <div class="col-xs-2"></div>
+                        </div>
+                        <hr />
+                        <div class="row">
+                            <div class="col-xs-1"></div>
+                            <div class="col-xs-2 add-title"><span class="span-control">计划延期</span></div>
+                            <div class="col-xs-3 add-Time">
+                                <input type="text" class="form-control" id="planExtension_delayStartTime">
+                                <span class="span-control">-</span>
+                                <input type="text" class="form-control" id="planExtension_delayEndTime">
+                                <span class="span-control">天</span>
+                            </div>
+                            <div class="col-xs-2 add-method">
+                                <div class="dropdown">
+                                    <span class="dropdown-toggle" data-toggle="dropdown" data-delay="50" aria-expanded="false">
+                                        <span id="planExtension_deductionMode" term="1">金额 </span>
+                                        <span class="upPic"></span>
+                                    </span>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#" term="1">金额</a></li>
+                                        <li><a href="#" term="2">比例</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-xs-2 add-Money">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" id="planExtension_deductionNum">
+                                    <span class="span-control" id="planExtension_NumUnit">元</span>
+                                </div>
+                            </div>
+                            <div class="col-xs-2">
+                                <a class="btn btn-default" id="planExtension_Add">添加</a>
+
+                            </div>
+                        </div>
+                        <div id="planExtension_load">
+                            
+                            <!---------------------  -------->
+
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-10"></div>
+                            <div class="col-xs-2">
+                                <a class=" btn btn-default" id="planExtension-save">确定</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!------------>
+                    <div id="con_ApprovalTimeout" role="tabpanel" class="tab-pane" style="min-height: 600px">
+                        <div class="row" style="color: #d1d1d1; margin-bottom: 10px;">
+                            <div class="col-xs-1"></div>
+                            <div class="col-xs-2">项目</div>
+                            <div class="col-xs-3">时间</div>
+                            <div class="col-xs-2">方式</div>
+                            <div class="col-xs-2">数量</div>
+                            <div class="col-xs-2"></div>
+                        </div>
+                        <hr />
+                        <div class="row">
+                            <div class="col-xs-1"></div>
+                            <div class="col-xs-2 add-title"><span class="span-control">审批超时</span></div>
+                            <div class="col-xs-3 add-Time">
+                                <input type="text" class="form-control" id="AT_delayStartTime">
+                                <span class="span-control">-</span>
+                                <input type="text" class="form-control" id="AT_delayEndTime">
+                                <span class="span-control">天</span>
+                            </div>
+                            <div class="col-xs-2 add-method">
+                                <div class="dropdown">
+                                    <span class="dropdown-toggle" data-toggle="dropdown" data-delay="50" aria-expanded="false">
+                                        <span id="AT_deductionMode" term="1">金额</span>
+                                        <span class="upPic"></span>
+                                    </span>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#" term="1">金额</a></li>
+                                        <li><a href="#" term="2">比例</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-xs-2 add-Money">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" id="AT_deductionNum">
+                                    <span class="span-control" id="AT_NumUnit">元</span>
+                                </div>
+                            </div>
+                            <div class="col-xs-2">
+                                <a class="btn btn-default" id="AT_Add">添加</a>
+
+                            </div>
+                        </div>
+                        <div id="AT_load">
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-10"></div>
+                            <div class="col-xs-2">
+                                <a class=" btn btn-default" id="AT-save">确定</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!------------>
+                    <div id="con_EffectiveHours" role="tabpanel" class="tab-pane pos-r" style="min-height: 600px;">
+                        <div class="row row-left">
+                            <div class="col-xs-4">
+                                <span class="span-control">标准工时 :</span>
+                                <input type="text" class="form-control" id="standardTime" maxlength="1" oninput="value=value.replace(/[^1-8]/g,'')">
+                                <span class="span-control ">小时/天</span>
+                            </div>
+                            <div class="col-xs-8"></div>
+                        </div>
+                        <hr />
+                        <div class="row row-left">
+                            <div class="col-xs-3">
+                                <input type="radio" name="incentiveType" class="incentiveType" term="0" id="incentiveType-1" checked="checked"><span class="span-control">无</span>
+                            </div>
+                            <div class="col-xs-9"></div>
+                        </div>
+                        <div class="row row-left">
+                            <div class="col-xs-3">
+                                <input type="radio" name="incentiveType" class="incentiveType"  term="1"  id="incentiveType-2"><span class="span-control">按比例</span>
+                            </div>
+                            <div class="col-xs-9"></div>
+                        </div>
+                        <hr />
+                        <div class="row" id="EH-maxValue-row">
+                            <div class="col-xs-1"></div>
+                            <div class="col-xs-3">
+                                <div class="dropdown" style="float: right">
+                                    <span class="dropdown-toggle" data-toggle="dropdown" data-delay="50" aria-expanded="false">
+                                        <span term="1" id="maxValueType">金额</span>
+                                        <span class="upPic"></span>
+                                    </span>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#" term="1">金额</a></li>
+                                        <li><a href="#" term="2">比例</a></li>
+                                    </ul>
+                                </div>
+                                <span class="span-control" style="float: right; margin-right: 8px">最高奖励 :</span>
+                            </div>
+
+                            <div class="col-xs-2">
+                                <input type="text" class="form-control" id="maxValue">
+                                <span class="span-control" id="maxValue-Unit">元</span>
+                            </div>
+                            <div class="col-xs-3">
+                                <span class="span-control" style="margin-right: 8px">超出部分每小时 :</span>
+                                <input type="text" class="form-control" id="maxAverage">
+                                <span class="span-control" id="maxAverage-Unit">元</span>
+                            </div>
+                            <div class="col-xs-3"></div>
+
+                        </div>
+
+                        <div class="row" id="EH-minValue-row">
+                            <div class="col-xs-1"></div>
+                            <div class="col-xs-3">
+                                <div class="dropdown" style="float: right">
+                                    <span class="dropdown-toggle" data-toggle="dropdown" data-delay="50" aria-expanded="false">
+                                        <span term="1" id="minValueType">金额</span>
+                                        <span class="upPic"></span>
+                                    </span>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#" term="1">金额</a></li>
+                                        <li><a href="#" term="2">比例</a></li>
+                                    </ul>
+                                </div>
+                                <span class="span-control" style="float: right; margin-right: 8px">最高扣除 :</span>
+                            </div>
+                            <div class="col-xs-2">
+                                <input type="text" class="form-control" id="minValue">
+                                <span class="span-control" id="minValue-Unit">元</span>
+                            </div>
+
+                            <div class="col-xs-3">
+                                <span class="span-control" style="margin-right: 8px">超出部分每小时 :</span>
+                                <input type="text" class="form-control" id="minAverage">
+                                <span class="span-control" id="minAverage-Unit">元</span>
+                            </div>
+                            <div class="col-xs-3"></div>
+                        </div>
+                        <div class="row row-left">
+                            <div class="col-xs-3">
+                                <input type="radio" name="incentiveType" class="incentiveType"  term="2" id="incentiveType-3"><span class="span-control">自定义</span>
+                            </div>
+                            <div class="col-xs-9"></div>
+                        </div>
+
+                        <div class="row " id="EH-Add-row">
+                            <div class="col-xs-1"></div>
+                            <div class="col-xs-2">
+                                <div class="dropdown">
+                                    <span class="dropdown-toggle" data-toggle="dropdown" data-delay="50" aria-expanded="false">
+                                        <span id="EH-customType" term="1">不足</span>
+                                        <span class="upPic"></span>
+                                    </span>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#" term="1">不足</a></li>
+                                        <li><a href="#" term="2">超出</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="col-xs-3">
+                                <span class="span-control">工时:</span>
+                                <input type="text" id="EH-customStartTime" class="form-control" style="width: 65px">
+                                <span class="span-control">-</span>
+                                <input type="text" id="EH-customEndTime" class="form-control" style="width: 65px">
+                            </div>
+
+                            <div class="col-xs-2">
+                                <div class="dropdown">
+                                    <span class="dropdown-toggle" data-toggle="dropdown" data-delay="50" aria-expanded="false">
+                                        <span term="1" id="EH-deductionMode">金额 </span>
+                                        <span class="upPic"></span>
+                                    </span>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#" term="1">金额</a></li>
+                                        <li><a href="#" term="2">比例</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-xs-2">
+                                <input type="text" id="EH-deductionNumLeft" class="form-control">
+                                <input type="text" id="EH-deductionNumRight" class="form-control" style="width: 55px">
+                                <span class="span-control" id="EH-deductionUnit">元</span>
+                            </div>
+                            <div class="col-xs-2">
+                                <a class="btn btn-default" id="EffectiveHours-add" style="width: 65px">添加</a>
+                            </div>
+                        </div>
+                        <div id="EffectiveHours_load" style="min-height: 200px;"></div>
+                        <div class="row">
+                            <div class="col-xs-10"></div>
+                            <div class="col-xs-2">
+                                <a class=" btn btn-default" id="EH-save">确定</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!------------>
+                </div>
+            </div>
+
+        </div>
+    </div>
+  
+    <div class="col-lg-3">
+        <div class="sidebar">
+           <a type="button" class="btn btn-block btn-warning" id="newObjectiveBtn"  data-toggle="modal" data-target="#objectiveNew_modal">新建目标</a>
+           @Html.Partial("~/Views/Shared/_UserInfo.cshtml")          
+        </div>
+    </div>
+
+</div>
+<!-- 页面内容 结束 -->
+<!--------------弹出层  开始---------------------->
+ <!-- 个人资料设置 开始 -->
+  <div class="modal fade" id="personal_modal" tabindex="-1" role="dialog" aria-labelledby="personal_modal_label" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                @Html.Partial("~/Views/Shared/_EditUserInfo.cshtml")
+            </div>
+        </div>
+    </div>
+<!-- 个人资料设置 结束 -->
+<!--------目标新建弹窗 开始--------->
+<div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="objectiveNew_modal" id="objectiveNew_modal" aria-hidden="true" data-backdrop="false" data-keyboard="false">
+<div class="modal-dialog">
+<div class="modal-content modal-left-content">
+<div class="modal-header">
+    <a class="modal-titleClick nav-item" href="#modal_con_objective" aria-controls="modal_con_objective" role="tab" id="ModalObjectiveTab" data-toggle="tab">目标</a>
+    <a class=" nav-item" href="#modal_con_objectiveRule" aria-controls="modal_con_objectiveRule" role="tab" id="ModalObjectiveRuleTab" data-toggle="tab">目标规则 </a>
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+</div>
+<div class="tab-content" >
+<div id="modal_con_objective" role="tabpanel" class="tab-pane active">
+    <!--目标内容-->
+    <div class="modal-body">
+        <div class="row">
+            <h4>目标内容</h4>
+        </div>
+        <hr/>
+        <table  id="table-objective-content" class="table">
+            <tr>
+                <td style="width:10%"> <span class="table-span">目标名称:</span> </td>
+                <td style="width:40%"> <input type="text" id="new-objectiveName" maxlength="50" class="form-control"></td>
+                <td style="width:10%"> <span class="table-span">目标对象:</span></td>
+                <td style="width:40%">
+                    <div class="dropdown"id="new-objectiveType-dropdown">
+                                        <span class="dropdown-toggle" data-toggle="dropdown"  data-delay="50" role="button" aria-expanded="false">
+                                            <span term="" value="" id="new-objectiveType"></span><!--term判断选择的是架构还是人员选择，value用于在选择架构时记录责任部门的架构id，在选择人员时 记录责任人所在架构名------->
+                                            <span class="upPic"></span>
+                                        </span>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="javascript:void(0)" term="1">架构</a></li>
+                            <li class="divider short"></li>
+                            <li><a href="javascript:void(0)" term="2">人员选择</a></li>
+                        </ul>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td style="width:10%"> <span class="table-span">奖励基数:</span></td>
+                <td style="width:40%"> <input id="new-bonus" type="text" class="form-control"></td>
+                <td style="width:10%"> <span class="table-span">权重:</span></td>
+                <td style="width:40%">
+                    <input class="form-control" id="new-weight" maxlength="18">
+                </td>
+            </tr>
+            <tr>
+                <td style="width:10%"><span class="table-span">考核类型:</span></td>
+                <td style="width:40%">
+                    <div class="dropdown"  id="new-checkType-dropdown">
+                                       <span class="dropdown-toggle" data-toggle="dropdown"  data-delay="50" role="button" aria-expanded="false">
+                                          <span term="1" id="new-checkType">金额</span>
+                                           <span class="upPic"></span>
+                                       </span>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="javascript:void(0)" term="1">金额</a></li>
+                            <li class="divider short"></li>
+                            <li><a href="javascript:void(0)" term="2">时间</a></li>
+                            <li class="divider short"></li>
+                            <li><a href="javascript:void(0)" term="3">数字</a></li>
+                        </ul>
+                    </div>
+                </td>
+                <td style="width:10%"><span class="table-span">指标值:</span></td>
+                <td style="width:40%">
+                    <div class="input-group" id="new-objectiveValue-money-group">
+                        <input type="text" maxlength="20" id="new-objectiveValue-money" class="form-control" > <a class="btn btn-default glyphicon glyphicon-yen" type="button"></a>
+                    </div>
+                    <div class="input-group"  style="display:none;"  id="new-objectiveValue-date-group">
+                        <input type="button" maxlength="20" id="new-objectiveValue-date" class="form-control"> <a class="btn btn-default new-date" type="button"></a>
+                    </div>
+                    <input type="text" maxlength="20" id="new-objectiveValue-number"  style="display:none;" oninput="value=value.replace(/[^\d]/g,'')" class="form-control">
+                </td>
+            </tr>
+            <tr>
+                <td style="width:10%"><span class="table-span">理想值:</span></td>
+                <td style="width:40%">
+                    <div class="input-group"  id="new-expectedValue-money-group">
+                        <input type="text" maxlength="20" id="new-expectedValue-money" class="form-control"> <a class="btn btn-default glyphicon glyphicon-yen" type="button"></a>
+                    </div>
+                    <div class="input-group" style="display:none;" id="new-expectedValue-date-group">
+                        <input type="button" maxlength="20" id="new-expectedValue-date"  class="form-control"> <a class="btn btn-default new-date" type="button"></a>
+                    </div>
+                    <input type="text" maxlength="20" style="display:none;" id="new-expectedValue-number" class="form-control"  oninput="value=value.replace(/[^\d]/g,'')">
+                </td>
+                <td style="width:10%"><span class="table-span">备注项目:</span></td>
+                <td style="width:40%"> <input type="text" id="new-description" class="form-control" maxlength="100" ></td>
+            </tr>
+        </table>
+        <hr/>
+        <table id="table-objective-date" class="table">
+            <tr><!-------- style="border-bottom: 1px solid #eee;"---------------->
+                <td style="width:10%">
+                    <span class="table-span">开始时间:</span>
+                </td>
+                <td style="width:23%">
+                    <div class="input-group" >
+                        <input type="button" id="new-startTime" class="form-control">
+                        <a class="btn btn-default new-date" type="button"></a>
+                    </div>
+                </td>
+                <td style="width:10%">
+                    <span class="table-span">截止时间:</span>
+                </td >
+                <td style="width:23%">
+                    <div class="input-group" >
+                        <input type="button" id="new-endTime" class="form-control">
+                        <a class="btn btn-default new-date" type="button"></a>
+                    </div>
+
+                </td>
+                <td style="width:10%">
+                    <span class="table-span">警戒时间:</span>
+                </td>
+                <td style="width:23%">
+                    <div class="input-group" >
+                        <input type="button" id="new-alarmTime" class="form-control">
+                        <a class="btn btn-default new-date" type="button"></a>
+                    </div>
+
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 10%;">
+                    <span class="table-span">责任人:</span>
+                </td>
+                <td  style="width:23%">
+                    <div class="input-group" >
+                        <input type="button" id="new-responsibleUser" term="" class="form-control">
+                        <a class="btn btn-default new-responsibleUser" type="button"></a>
+                    </div>
+                </td>
+                <td style="width: 10%;">
+                    <span class="table-span">确认人:</span>
+                </td>
+                <td  style="width:23%">
+                    <div class="input-group" >
+                        <input type="button" id="new-confirmUser" term="" class="form-control">
+                        <a class="btn btn-default new-confirmUser" type="button"></a>
+                    </div>
+
+                </td>
+
+            </tr>
+        </table>
+    </div>
+
+    <div class="modal-footer thirty-thirty">
+        <a class="btn btn-transparency btn-lg"  data-dismiss="modal" id="newModal-Cancel">取消</a>
+        <a class="btn btn-transparency btn-lg"  id="newModal-Save">保存</a>
+        <a class="btn btn-transparency btn-lg"  id="newModal-Submit">提交</a>
+    </div>
+</div>
+
+<div id="modal_con_objectiveRule" role="tabpanel" class="tab-pane" >
+    <!--目标规则-->
+    <div class="modal-body">
+        
+    </div>
+</div>
+</div>
+</div>
+
+<div class="modal-right-content modal-content" style="display:none">
+    <div class="modal-header">
+        <h4 class="modal-title"id="newModal-rightTitle" ></h4>
+    </div>
+    <div id="node-rightContent">
+
+    </div>
+</div>
+</div>
+</div>
+
+<!--------目标新建弹窗 结束--------->
+    <!--------公式设置弹窗 开始--------->
+<div class="modal fade calculator in" id="formula_modal"  style="z-index:1100" tabindex="-1" role="dialog" aria-labelledby="formula_modal_label" aria-hidden="true"  data-backdrop="false" data-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                </button>
+                <h4 class="modal-title" id="formula_modal_label" >公式设置</h4>
+            </div>
+            <div class="monitor well well-sm">
+                <div class="text-right monitor-inner" id="formula_modal_monitor"></div>
+            </div>
+            <div class="operate clearfix">
+                <a class="btn btn-transparency pull-right" id="formula_modal_backspace">退格</a>
+                <a class="btn btn-transparency pull-right" id="formula_modal_clear">清除全部</a>
+            </div>
+            <hr>
+            <div class="forty-sixty clearfix area-key">
+                <div class="area">
+                    <fieldset class="areabox clearfix"  >
+                        <a class="btn btn-default btn-number" value="实际值">实际值</a>
+                        <a class="btn btn-default btn-number" value="指标值">指标值</a>
+                        <a class="btn btn-default btn-number" value="理想值">理想值</a>
+                        <a class="btn btn-default btn-number" value="开始时间">开始时间</a>
+                        <a class="btn btn-default btn-number" value="结束时间">结束时间</a>
+                        <a class="btn btn-default btn-number" value="警戒时间">警戒时间</a>
+                        <a class="btn btn-default btn-number" value="权重">权重</a>
+                        <a class="btn btn-default btn-number" value="奖励基数">奖励基数</a>
+                        <a class="btn btn-default btn-number" value="数字">数字</a>
+                    </fieldset>
+
+                    <!----<div class="areabox clearfix" id="formula_modal_cols">
+                                        </div>-->
+
+                </div>
+                <div class="area area-number">
+                    <fieldset class="areabox clearfix"  >
+                        <a class="btn btn-default btn-operational" value="(">(</a>
+                        <a class="btn btn-default btn-operational" value=")">)</a>
+                        <a class="btn btn-default btn-operational" value="+">+</a>
+                        <a class="btn btn-default btn-operational" value="-">-</a>
+                        <a class="btn btn-default btn-operational" value="*">*</a>
+                        <a class="btn btn-default btn-number" value="1">1</a>
+                        <a class="btn btn-default btn-number" value="2">2</a>
+                        <a class="btn btn-default btn-number" value="3">3</a>
+                        <a class="btn btn-default btn-operational" value=">">></a>
+                        <a class="btn btn-default btn-operational" value="/">/</a>
+                        <a class="btn btn-default btn-number" value="4">4</a>
+                        <a class="btn btn-default btn-number" value="5">5</a>
+                        <a class="btn btn-default btn-number" value="6">6</a>
+                        <a class="btn btn-default btn-operational" value="≥"> ≥ </a>
+                        <a class="btn btn-default btn-operational" value="且">且</a>
+                        <a class="btn btn-default btn-number " value="7">7</a>
+                        <a class="btn btn-default btn-number " value="8">8</a>
+                        <a class="btn btn-default btn-number " value="9">9</a>
+                        <a class="btn btn-default btn-operational" value="<"> < </a>
+                        <a class="btn btn-default btn-operational"id="formula_modal_time" value="时间"> 时间 </a>
+                        <input type="text"id="formula_modal_time_hidden" value=""></input>
+                        
+                        <a class="btn btn-default btn-long btn-number" value="0">0</a>
+                        <a class="btn btn-default btn-number" value=".">·</a>
+                        <a class="btn btn-default btn-operational" value="≤"> ≤</a>
+                        <a class="btn btn-default btn-operational" value="或">或</a>
+                    </fieldset>
+                </div>
+            </div>
+            <div class="modal-footer fifty-fifty">
+                <a class="btn btn-transparency" data-dismiss="modal">取消</a>
+                <a class="btn btn-transparency" id="formula_modal_submit">确定</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!--------公式设置弹窗 结束--------->
+    <!--弹出层  结束-->
+<!-- 本页调用的JS 开始 -->
+<script src="../../Scripts/common/units.js"></script>
+<script src="../../Scripts/common/init.js"></script>
+<script src="../../Scripts/common/common.js"></script>
+<script src="../../Scripts/incentive/incentiveFormula.js"></script>
+<!-- 本页调用的JS 结束 -->

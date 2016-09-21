@@ -1,0 +1,384 @@
+/* 公司内容 开始 */
+.box
+{
+    float: left;
+    width: 1200px;
+    height: 350px;
+    margin-bottom: 15px;
+    background-color: #f9f9f9;
+    border: 1px solid #bbb;
+}
+.box .title
+{
+    float: left;
+    width: 98.75%;
+    height: 39px;
+    line-height: 39px;
+    padding-left: 1.25%;
+	color:#373737;
+    font-size: 14px;
+    border-bottom: 1px solid #bbb;
+}
+.box .title .refresh
+{
+    float: right;
+    width: 24px;
+    height: 24px;
+	margin:5px 10px 10px 0;
+	background:url(../../Images/index/refresh.png) no-repeat;
+	cursor:pointer;
+}
+.box .title .refresh:hover{
+	background:url(../../Images/index/refresh_hit.png) no-repeat;
+}
+/* banner 开始 */
+.banner
+{
+	float:left;
+	width:785px;
+    height: 310px;
+    overflow: hidden;
+	position:relative;
+}
+.banner .d1
+{
+    width: 100%;
+    height: 310px;
+    display: block;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+}
+.banner .d2
+{
+    width: 100%;
+    height: 30px;
+    clear: both;
+    position: absolute;
+    z-index: 100;
+    left: 0px;
+    top: 280px;
+}
+.banner .d2 ul
+{
+    float: left;
+    position: absolute;
+    left: 50%;
+    top: 0;
+    margin: 0 0 0 -96px;
+    display: inline;
+}
+.banner .d2 li
+{
+    width: 17px;
+    height: 15px;
+    overflow: hidden;
+    cursor: pointer;
+    background:url(../../Images/index/img1.png) no-repeat;
+    float: left;
+    margin: 0 3px;
+    display: inline;
+}
+.banner .d2 li.nuw
+{
+    background: url(../../Images/index/img1_1.png) no-repeat;
+}
+/* banner 结束 */
+
+/* 公司列表 开始 */
+.box .list {
+	float:left;
+	width:100%;
+	height:280px;
+	overflow:hidden;
+}
+.box .list li {
+	float:left;
+	width:92.8%;
+	height:30px;
+	margin-right:2.4%;
+	margin-left:4.8%;
+}
+.box .list li.line {
+	float:left;
+	width:92.8%;
+	height:0px;
+    border-bottom: 1px solid #e3e3e3;
+}
+.box .list li a {
+	float:left;
+	width:78%;
+	height:30px;
+	line-height:30px;
+	color:#686868;
+	overflow:hidden;
+}
+.box .list li a:hover {
+	color:#58b456;
+}
+.box .list li span {
+	float:left;
+	width:20%;
+	height:30px;
+	line-height:30px;
+	text-align:right;
+	margin-left:2%;
+}
+.box .more {
+	float:left;
+	width:100%;
+	height:29px;
+	line-height:29px;
+	text-align:center;
+	border-top:1px solid #bbb;
+	cursor:pointer;
+}
+/* 公司列表 结束 */
+/* 公司新闻 结束 */
+
+
+
+/* 通知、文档中心 开始 */
+.news {
+	float:left;
+	width:415px;
+	height:310px;
+}
+.message ,
+.docuInfor {
+	float:left;
+	height:350px;
+	border:1px solid #bbb;
+}
+.message {
+	width:639px;
+}
+.docuInfor {
+	width:549px;
+	margin-left:10px;
+}
+.message .list li ,
+.docuInfor .list li {
+	width:95.2%;
+	margin-left:2.4%;
+}
+.message .list li.line ,
+.docuInfor .list li.line {
+	width:95.2%;
+}
+.docuInfor .list li {
+	position:relative;
+}
+.docuInfor .list li a:hover {
+	color:#686868;
+}
+.docuInfor .list li .liHover {
+	position:absolute;
+	left:-2.5%;
+	display:none;
+	width:549px;
+	height:30px;
+	cursor:pointer;
+}
+.docuInfor .list li .liHover .bg {
+	position:absolute;
+	width:549px;
+	height:30px;
+	background-color:#000;
+	filter:alpha(opacity=50); /*IE滤镜，透明度50%*/
+	-moz-opacity:0.5; /*Firefox私有，透明度50%*/
+	opacity:0.5;/*其他，透明度50%*/
+}
+.liHover .down {
+	position:relative;
+	display:block;
+	float:right;
+	width:40px;
+	height:30px;
+	line-height:30px;
+	text-align:center;
+	color:#fff;
+}
+.liHover .updown {
+	position:relative;
+	display:block;
+	float:right;
+	width:24px;
+	height:28px;
+	margin-top:2px;
+	background:url(../../Images/index/updown.png) no-repeat;
+}
+/* 通知、文档中心 结束 */
+
+
+
+/* 功效价值 开始 */
+.effect {
+	float:left;
+	width:858px;
+	height:350px;
+	background-color:#f9f9f9;
+	border:1px solid #bbb;
+}
+.effect .title .TOne ,
+.effect .title .TTwo {
+	float:left;
+	width:auto;
+	height:39px;
+	line-height:39px;
+	color:#373737;
+	font-size:14px;
+	cursor:pointer;
+}
+.effect .title .arrowsBBBCom {
+	margin-top:12px;
+	margin-bottom:3px;
+}
+.effect .title .arrowsBBBDiv {
+	left:-45px;
+	padding-top:0px;
+}
+.effect .YMHit {
+	color:#58b456;
+}
+.effect .LMonth {
+	float:left;
+	width:30px;
+	height:34px;
+	line-height:34px;
+	text-align:center;
+	margin-top:123px;
+	color:#fff;
+	background-color:#000;
+	filter:alpha(opacity=50); /*IE滤镜，透明度50%*/
+	-moz-opacity:0.5; /*Firefox私有，透明度50%*/
+	opacity:0.5;/*其他，透明度50%*/
+	cursor:pointer;
+    position: relative;
+    z-index: 9999;
+}
+.effect .LMonth.disabled {
+    background-color: #919191;
+    cursor: default;
+}
+#graph-wrapper .titles {
+	/*float:left;*/
+	width:100%;
+	height:30px;
+	line-height:30px;
+	text-align:center;
+    display: block;
+}
+#graph-wrapper .borders-bottom {
+	position:absolute;
+	top:249px;
+	left:35px;
+	width:760px;
+	height:0;
+	border-bottom:2px solid #b2dab3;
+}
+#graph-wrapper .borders-left {
+	position:absolute;
+	top:30px;
+	left:35px;
+	width:0;
+	height:220px;
+	border-left:2px solid #b2dab3;
+}
+.effect .more {
+	width:93%;
+	padding-left:7%;
+}
+/* 功效价值 结束 */
+
+
+
+/* TOP 开始 */
+.TOP {
+	float:left;
+	width:341px;
+	height:350px;
+	background-color:#f9f9f9;
+	border:1px solid #bbb;
+	border-left-width:0;
+}
+.TOP .title .YM {
+	float: right;
+	width: auto;
+	height: 39px;
+	line-height:39px;
+	margin-right:8px;
+}
+.TOP .title .year ,
+.TOP .title .month {
+	cursor: pointer;
+}
+.TOP .YMHit {
+	color:#58b456;
+}
+.TOP .list {
+	height:310px;
+}
+.TOP .list li {
+	width:95.2%;
+	margin-left:2.4%;
+}
+.TOP .list li.line {
+	width:95.2%;
+}
+.TOP .list li a {
+	width:73%;
+}
+.TOP .list li span {
+	width:25%;
+}
+.TOP .list li .topBox {
+	display:block;
+	float:left;
+	width:17px;
+	height:17px;
+	line-height:17px;
+	text-align:center;
+	margin-top:6px;
+	margin-right:6px;
+	color:#686868;
+	background-color:#fff;
+	border:1px solid #bbb;
+	border-radius:3px;
+}
+
+.more:hover{
+	color:#58b557;
+}
+
+.more a:hover{
+	color:#58b557;
+}
+
+.more a{
+	color:#686868;
+}
+
+
+
+
+/* TOP 结束 */
+
+
+
+
+.label {
+    display: inline;
+    padding: 2px;
+    font-size: 75%;
+    font-weight: bold;
+    line-height: 1;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: .25em;
+}
+.label-danger {
+    background-color: #D9534E;
+}

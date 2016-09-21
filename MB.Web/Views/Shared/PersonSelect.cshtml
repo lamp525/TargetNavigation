@@ -1,0 +1,43 @@
+﻿<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+    <h4 class="modal-title" id="HR_modal_label">人力资源</h4>
+</div>
+<div class="input-group" id="HR_modal_search">
+    <input id="HR_select" type="text" class="form-control" placeholder="选择人员" aria-describedby="basic-addon2">
+    <span class="input-group-btn">
+        <a class="btn btn-default" type="a"><span class="glyphicon glyphicon-search"></span></a>
+    </span>
+</div>
+<div class="fifty-fifty clearfix">
+    <div class="chosebox">
+        <div class="ztree" id="HR_modal_folder"></div>
+    </div>
+    <div class="chosenbox">
+        <div class="chosen-count">
+            已选: <span class="badge badge-success" id="HR_modal_chosen_count">0</span>
+        </div>
+        <ul class="chosens" id="HR_modal_chosen">
+            <!--<li>证券<a class="close" aria-label="Close"><span aria-hidden="true">&times;</span></a></li>-->
+        </ul>
+    </div>
+    <div class="choseClass">
+        <div class="adopt">
+            <ul class="list-inline pull-left">
+                <li>
+                    <input id="HR-haschildren" type="checkbox"></li>
+                <li>包含下级</li>
+            </ul>
+            <ul class="list-inline pull-right">
+                <li>
+                    <input type="checkbox" id="person-selectall"></li>
+                <li>全部选择</li>
+            </ul>
+        </div>
+        <div class="getadopt person_list" style="height:170px;overflow:auto">
+        </div>
+    </div>
+</div>
+<div class="modal-footer fifty-fifty">
+    <a class="btn btn-transparency btn-lg" data-dismiss="modal" id="HR_cancel">取消</a>
+    <a class="btn btn-transparency btn-lg" id="HR_modal_submit">确定</a>
+</div>

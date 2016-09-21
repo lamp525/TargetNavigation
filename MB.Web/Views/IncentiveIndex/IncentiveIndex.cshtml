@@ -1,0 +1,405 @@
+﻿@*@{
+    ViewBag.Title = "IncentiveIndex";
+}*@
+
+    <!-- 本页所需的样式 开始 -->
+    <link rel="stylesheet" href="/Styles/IncentiveIndex/IncentiveIndex.css">
+<link href="~/Styles/objective/objectiveHome.css" rel="stylesheet" />
+    <!-- 本页所需的样式 结束 -->
+
+<!-- 页面内容 开始 -->
+
+     <div class="row">
+        <div id="motivationContainer" class="col-xs-9">
+            <div class="panel panel-default" style="margin-bottom: 0">
+                <div class="panel-heading">
+                    <div class="panel-title">
+                        <ul class="nav nav-pills" >
+                            <li role="presentation" class="active">
+                                <a  href="#myMotivation" aria-controls="myMotivation" role="tab" id="myMotivationTab" data-toggle="tab" >我的奖励</a>
+                            </li>
+                            <li role="presentation">
+                                <a  href="#subMotivation" aria-controls="subMotivation"  id="subMotivationTab" role="tab" data-toggle="tab" >下属奖励</a>
+                            </li>
+                            <li class="pull-right">
+                               <span class="addPic"></span> 
+                               <div id="subPersonList"> <div class="ztree" id="personZtree""></div></div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div  class="panel-body" style="overflow: hidden;">
+
+                    <div class="tab-content" >
+                        <!--我的奖励 -->
+                        <div class="tab-pane active" role="tabpanel"  id="myMotivation">
+                            <div class="row">
+                                 <div  class="col-xs-9 motivationDetail">
+                                     <div class="money_stamp textOver"></div>
+                                     <ul class="list-group">
+                                         <li class="list-group-item"><h4 class="titleHead detailTitleHead" ></h4><h4>功效价值</h4></li>
+                                         <li class="list-group-item">
+                                             <span class="col-xs-5 yearAvgHour" style="padding: 0px"></span>
+                                             <span>奖励：<span class="rewardValue"></span></span>
+                                             <h4 style="margin-top:22px"> 执行力</h4>
+                                         </li>
+                                         <li class="list-group-item">
+                                             <table class="table motivationTable myMotivationTable">
+
+                                             </table>
+                                         </li>
+                                     </ul>
+                                     <div style="height:400px;border:1px solid #ccc;padding:10px;overflow-x: auto; position: relative">
+                                         <a  href="javaScript:void(0)" class="glyphicon glyphicon-menu-left picSwitchover" term="1"></a>
+                                         <div class="chartArea" style="height:100%" ></div>
+                                     </div>
+                                 </div>
+                                 <div  class="col-xs-3 motivationTime">
+
+                                 </div>
+                            </div>
+                        </div>
+
+                       <!-- 下属奖励-->
+                        <div class="tab-pane" role="tabpanel" id="subMotivation">
+                             <div  id="subMoneyTable">
+                                  <ul class="list-group">
+                                     <li class="list-group-item personList">
+                                         <ul class="list-inline">
+                                            <li>人员</li>
+                                            <li>总额</li>
+                                            <li>应得奖励</li>
+                                         </ul>
+                                     </li>
+                                     <li class="list-group-item personList">
+                                         <ul class="list-inline">
+                                            <li>发发的发生东方大厦</li>
+                                             <li>发发的发生东方大厦</li>
+                                             <li>发发的发生东方大厦</li>
+                                         </ul>
+                                         <div class="row rewardView">
+                                             <div  class="col-xs-9 motivationDetail">
+                                                 <div class="money_stamp textOver">￥5000</div>
+                                                 <ul class="list-group">
+                                                     <li class="list-group-item"><h4 class="titleHead detailTitleHead" ></h4><h4>功效价值</h4></li>
+                                                     <li class="list-group-item">
+                                                         <span class="col-xs-5" style="padding: 0px">年平均有效工时：<span class="yearAvgHour"></span></span>
+                                                         <span>奖励：<span class="rewardValue"></span></span>
+                                                         <h4 style="margin-top:22px"> 执行力</h4>
+                                                     </li>
+                                                     <li class="list-group-item">
+                                                         <table class="table motivationTable" >
+
+                                                         </table>
+                                                     </li>
+                                                 </ul>
+                                                 <div style="height:400px;border:1px solid #ccc;padding:10px;overflow-x: auto; position: relative">
+                                                     <a  href="javaScript:void(0)" class="glyphicon glyphicon-menu-left picSwitchover"></a>
+                                                     <div class="chartArea" style="height:100%" ></div>
+                                                 </div>
+                                             </div>
+                                             <div class="motivationTime col-xs-3" >
+
+                                             </div>
+                                         </div>
+                                     </li>
+                                     <li class="list-group-item personList">
+                                         <ul class="list-inline">
+                                            <li>人员</li>
+                                            <li>总额</li>
+                                            <li>应得奖励</li>
+                                         </ul>
+                                     </li>
+                                  </ul>
+                             </div>
+                        </div>
+
+                   </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="sidebarContainer" class="col-xs-3">
+            <div class="sidebar">
+                <a type="button" class="btn btn-block btn-warning" id="newObjectiveBtn" data-model="model" data-target="#objectiveNew_modal">新建目标</a>
+             
+                  @Html.Partial("~/Views/Shared/_UserInfo.cshtml")     
+                
+             </div>
+        </div>
+    </div>
+
+
+<!-- 页面内容 结束 -->
+<!--------------弹出层  开始---------------------->
+ <!-- 个人资料设置 开始 -->
+  <div class="modal fade" id="personal_modal" tabindex="-1" role="dialog" aria-labelledby="personal_modal_label" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                @Html.Partial("~/Views/Shared/_EditUserInfo.cshtml")
+            </div>
+        </div>
+    </div>
+<!-- 个人资料设置 结束 -->
+
+
+<!--------目标新建弹窗 开始--------->
+<div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="objectiveNew_modal" id="objectiveNew_modal" aria-hidden="true" data-backdrop="false" data-keyboard="false">
+<div class="modal-dialog">
+<div class="modal-content modal-left-content">
+<div class="modal-header">
+    <a class="modal-titleClick nav-item" href="#modal_con_objective" aria-controls="modal_con_objective" role="tab" id="ModalObjectiveTab" data-toggle="tab">目标</a>
+    <a class=" nav-item" href="#modal_con_objectiveRule" aria-controls="modal_con_objectiveRule" role="tab" id="ModalObjectiveRuleTab" data-toggle="tab">目标规则 </a>
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+</div>
+<div class="tab-content" >
+<div id="modal_con_objective" role="tabpanel" class="tab-pane active">
+    <!--目标内容-->
+    <div class="modal-body">
+        <div class="row">
+            <h4>目标内容</h4>
+        </div>
+        <hr/>
+        <table  id="table-objective-content" class="table">
+            <tr>
+                <td style="width:10%"> <span class="table-span">目标名称:</span> </td>
+                <td style="width:40%"> <input type="text" id="new-objectiveName" maxlength="50" class="form-control"></td>
+                <td style="width:10%"> <span class="table-span">目标对象:</span></td>
+                <td style="width:40%">
+                    <div class="dropdown"id="new-objectiveType-dropdown">
+                                        <span class="dropdown-toggle" data-toggle="dropdown"  data-delay="50" role="button" aria-expanded="false">
+                                            <span term="" value="" id="new-objectiveType"></span><!--term判断选择的是架构还是人员选择，value用于在选择架构时记录责任部门的架构id，在选择人员时 记录责任人所在架构名------->
+                                            <span class="upPic"></span>
+                                        </span>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="javascript:void(0)" term="1">架构</a></li>
+                            <li class="divider short"></li>
+                            <li><a href="javascript:void(0)" term="2">人员选择</a></li>
+                        </ul>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td style="width:10%"> <span class="table-span">奖励基数:</span></td>
+                <td style="width:40%"> <input id="new-bonus" type="text" class="form-control"></td>
+                <td style="width:10%"> <span class="table-span">权重:</span></td>
+                <td style="width:40%">
+                    <input class="form-control" id="new-weight" maxlength="18">
+                </td>
+            </tr>
+            <tr>
+                <td style="width:10%"><span class="table-span">考核类型:</span></td>
+                <td style="width:40%">
+                    <div class="dropdown"  id="new-checkType-dropdown">
+                                       <span class="dropdown-toggle" data-toggle="dropdown"  data-delay="50" role="button" aria-expanded="false">
+                                          <span term="1" id="new-checkType">金额</span>
+                                           <span class="upPic"></span>
+                                       </span>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="javascript:void(0)" term="1">金额</a></li>
+                            <li class="divider short"></li>
+                            <li><a href="javascript:void(0)" term="2">时间</a></li>
+                            <li class="divider short"></li>
+                            <li><a href="javascript:void(0)" term="3">数字</a></li>
+                        </ul>
+                    </div>
+                </td>
+                <td style="width:10%"><span class="table-span">指标值:</span></td>
+                <td style="width:40%">
+                    <div class="input-group" id="new-objectiveValue-money-group">
+                        <input type="text" maxlength="20" id="new-objectiveValue-money" class="form-control" > <a class="btn btn-default glyphicon glyphicon-yen" type="button"></a>
+                    </div>
+                    <div class="input-group"  style="display:none;"  id="new-objectiveValue-date-group">
+                        <input type="button" maxlength="20" id="new-objectiveValue-date" class="form-control"> <a class="btn btn-default new-date" type="button"></a>
+                    </div>
+                    <input type="text" maxlength="20" id="new-objectiveValue-number"  style="display:none;" oninput="value=value.replace(/[^\d]/g,'')" class="form-control">
+                </td>
+            </tr>
+            <tr>
+                <td style="width:10%"><span class="table-span">理想值:</span></td>
+                <td style="width:40%">
+                    <div class="input-group"  id="new-expectedValue-money-group">
+                        <input type="text" maxlength="20" id="new-expectedValue-money" class="form-control"> <a class="btn btn-default glyphicon glyphicon-yen" type="button"></a>
+                    </div>
+                    <div class="input-group" style="display:none;" id="new-expectedValue-date-group">
+                        <input type="button" maxlength="20" id="new-expectedValue-date"  class="form-control"> <a class="btn btn-default new-date" type="button"></a>
+                    </div>
+                    <input type="text" maxlength="20" style="display:none;" id="new-expectedValue-number" class="form-control"  oninput="value=value.replace(/[^\d]/g,'')">
+                </td>
+                <td style="width:10%"><span class="table-span">备注项目:</span></td>
+                <td style="width:40%"> <input type="text" id="new-description" class="form-control" maxlength="100" ></td>
+            </tr>
+        </table>
+        <hr/>
+        <table id="table-objective-date" class="table">
+            <tr><!-------- style="border-bottom: 1px solid #eee;"---------------->
+                <td style="width:10%">
+                    <span class="table-span">开始时间:</span>
+                </td>
+                <td style="width:23%">
+                    <div class="input-group" >
+                        <input type="button" id="new-startTime" class="form-control">
+                        <a class="btn btn-default new-date" type="button"></a>
+                    </div>
+                </td>
+                <td style="width:10%">
+                    <span class="table-span">截止时间:</span>
+                </td >
+                <td style="width:23%">
+                    <div class="input-group" >
+                        <input type="button" id="new-endTime" class="form-control">
+                        <a class="btn btn-default new-date" type="button"></a>
+                    </div>
+
+                </td>
+                <td style="width:10%">
+                    <span class="table-span">警戒时间:</span>
+                </td>
+                <td style="width:23%">
+                    <div class="input-group" >
+                        <input type="button" id="new-alarmTime" class="form-control">
+                        <a class="btn btn-default new-date" type="button"></a>
+                    </div>
+
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 10%;">
+                    <span class="table-span">责任人:</span>
+                </td>
+                <td  style="width:23%">
+                    <div class="input-group" >
+                        <input type="button" id="new-responsibleUser" term="" class="form-control">
+                        <a class="btn btn-default new-responsibleUser" type="button"></a>
+                    </div>
+                </td>
+                <td style="width: 10%;">
+                    <span class="table-span">确认人:</span>
+                </td>
+                <td  style="width:23%">
+                    <div class="input-group" >
+                        <input type="button" id="new-confirmUser" term="" class="form-control">
+                        <a class="btn btn-default new-confirmUser" type="button"></a>
+                    </div>
+
+                </td>
+
+            </tr>
+        </table>
+    </div>
+
+    <div class="modal-footer thirty-thirty">
+        <a class="btn btn-transparency btn-lg"  data-dismiss="modal" id="newModal-Cancel">取消</a>
+        <a class="btn btn-transparency btn-lg"  id="newModal-Save">保存</a>
+        <a class="btn btn-transparency btn-lg"  id="newModal-Submit">提交</a>
+    </div>
+</div>
+
+<div id="modal_con_objectiveRule" role="tabpanel" class="tab-pane" >
+    <!--目标规则-->
+    <div class="modal-body">
+        
+    </div>
+</div>
+</div>
+</div>
+
+<div class="modal-right-content modal-content" style="display:none">
+    <div class="modal-header">
+        <h4 class="modal-title"id="newModal-rightTitle" ></h4>
+    </div>
+    <div id="node-rightContent">
+
+    </div>
+</div>
+</div>
+</div>
+
+<!--------目标新建弹窗 结束--------->
+    <!--------公式设置弹窗 开始--------->
+<div class="modal fade calculator in" id="formula_modal"  style="z-index:1100" tabindex="-1" role="dialog" aria-labelledby="formula_modal_label" aria-hidden="true"  data-backdrop="false" data-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                </button>
+                <h4 class="modal-title" id="formula_modal_label" >公式设置</h4>
+            </div>
+            <div class="monitor well well-sm">
+                <div class="text-right monitor-inner" id="formula_modal_monitor"></div>
+            </div>
+            <div class="operate clearfix">
+                <a class="btn btn-transparency pull-right" id="formula_modal_backspace">退格</a>
+                <a class="btn btn-transparency pull-right" id="formula_modal_clear">清除全部</a>
+            </div>
+            <hr>
+            <div class="forty-sixty clearfix area-key">
+                <div class="area">
+                    <fieldset class="areabox clearfix"  >
+                        <a class="btn btn-default btn-number" value="实际值">实际值</a>
+                        <a class="btn btn-default btn-number" value="指标值">指标值</a>
+                        <a class="btn btn-default btn-number" value="理想值">理想值</a>
+                        <a class="btn btn-default btn-number" value="开始时间">开始时间</a>
+                        <a class="btn btn-default btn-number" value="结束时间">结束时间</a>
+                        <a class="btn btn-default btn-number" value="警戒时间">警戒时间</a>
+                        <a class="btn btn-default btn-number" value="权重">权重</a>
+                        <a class="btn btn-default btn-number" value="奖励基数">奖励基数</a>
+                        <a class="btn btn-default btn-number" value="数字">数字</a>
+                    </fieldset>
+
+                    <!----<div class="areabox clearfix" id="formula_modal_cols">
+                                        </div>-->
+
+                </div>
+                <div class="area area-number">
+                    <fieldset class="areabox clearfix"  >
+                        <a class="btn btn-default btn-operational" value="(">(</a>
+                        <a class="btn btn-default btn-operational" value=")">)</a>
+                        <a class="btn btn-default btn-operational" value="+">+</a>
+                        <a class="btn btn-default btn-operational" value="-">-</a>
+                        <a class="btn btn-default btn-operational" value="*">*</a>
+                        <a class="btn btn-default btn-number" value="1">1</a>
+                        <a class="btn btn-default btn-number" value="2">2</a>
+                        <a class="btn btn-default btn-number" value="3">3</a>
+                        <a class="btn btn-default btn-operational" value=">">></a>
+                        <a class="btn btn-default btn-operational" value="/">/</a>
+                        <a class="btn btn-default btn-number" value="4">4</a>
+                        <a class="btn btn-default btn-number" value="5">5</a>
+                        <a class="btn btn-default btn-number" value="6">6</a>
+                        <a class="btn btn-default btn-operational" value="≥"> ≥ </a>
+                        <a class="btn btn-default btn-operational" value="且">且</a>
+                        <a class="btn btn-default btn-number " value="7">7</a>
+                        <a class="btn btn-default btn-number " value="8">8</a>
+                        <a class="btn btn-default btn-number " value="9">9</a>
+                        <a class="btn btn-default btn-operational" value="<"> < </a>
+                        <a class="btn btn-default btn-operational"id="formula_modal_time" value="时间"> 时间 </a>
+                        <input type="text"id="formula_modal_time_hidden" value=""></input>
+                        
+                        <a class="btn btn-default btn-long btn-number" value="0">0</a>
+                        <a class="btn btn-default btn-number" value=".">·</a>
+                        <a class="btn btn-default btn-operational" value="≤"> ≤</a>
+                        <a class="btn btn-default btn-operational" value="或">或</a>
+                    </fieldset>
+                </div>
+            </div>
+            <div class="modal-footer fifty-fifty">
+                <a class="btn btn-transparency" data-dismiss="modal">取消</a>
+                <a class="btn btn-transparency" id="formula_modal_submit">确定</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!--------公式设置弹窗 结束--------->
+    <!--弹出层  结束-->
+
+
+
+<!-- 本页调用的JS 开始 -->
+
+<script src="~/Scripts/IncentiveIndex/IncentiveIndex.js"></script>
+
+<!-- 本页调用的JS 结束 -->
+
+
+    

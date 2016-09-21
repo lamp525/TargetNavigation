@@ -1,0 +1,619 @@
+/* 右侧侧菜单 开始 */
+
+#search_input::-ms-clear{ padding-right:15px;}
+a:hover{
+  color: #58b456;
+}
+
+.ztreeOrg ,#ztreeJob {
+   height:100%;
+  overflow-y:auto;
+}
+li.searchLi{
+    position: relative;
+    width:210px;
+    height:100%;
+    top: -5px;
+}
+#search_input{
+    width: 210px;
+    height: 100%;
+    border-color:#57b557;
+}
+.nav-right ul li{
+    padding: 0px;
+}
+.menuSearch {
+    background:url(../../Images/common/search.png)no-repeat;
+    height: 24px;
+    width: 24px;
+    display: inline-block;
+    position: absolute;
+    right: 0;
+    cursor: pointer;
+}
+.menuSearch:hover{
+    background:url(../../Images/common/searchHit.png)no-repeat;
+}
+.menuClick{
+    background:url(../../Images/common/searchHit.png)no-repeat;
+}
+
+.menuDel,.handDel{
+    background:url(../../Images/organization/delete.png)no-repeat;
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    cursor: pointer;
+    margin-top: 3px;
+}
+.menuDel:hover{
+   background:url(../../Images/organization/delete_hit.png)no-repeat;
+}
+.handDel:hover {
+   background:url(../../Images/organization/delete_hit.png)no-repeat;
+}
+
+
+
+.menuAdd{
+    background: url(../../Images/common/add.png) no-repeat;
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    cursor: pointer;
+    margin-top: 3px;
+}
+.menuAdd:hover{
+    background: url(../../Images/common/addHit.png) no-repeat;
+}
+
+.headtitle {                /*消除panel-heading 下的一些默认样式*/
+    margin-bottom: 0px;
+    border-color: #FFF;
+    height: 34px;
+    padding-top: 0px;
+}
+/* 右侧菜单 结束 */
+
+/*架构列表样式开始*/
+.noOrgView ,.noJobView{
+    text-align: center;
+    padding-top:200px;
+}
+
+.add_big{
+    background:url(../../Images/organization/add_big.png)no-repeat;
+    width: 63px;
+    height: 63px;
+    display: inline-block;
+    cursor: pointer;
+    vertical-align:middle;
+}
+.add_big:hover{
+    background:url(../../Images/organization/add_bigHit.png)no-repeat;
+}
+#orgContent,#jobContent{
+    height: auto;
+    min-height: 600px;
+}
+
+#orgContent table,#jobContent table {
+     margin-bottom:0px;
+}
+
+#menuTreeHeight{
+     height: auto;
+     min-height: 656px;
+}
+    
+
+.orderUl li{
+    height: 23px;
+}
+
+#orgContent table td span{
+   
+    max-height: 20px;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+    overflow:hidden;
+    width: auto;
+    display:inline-block;
+    max-width: 170px;
+}
+
+#jobContent table td span {
+    max-height: 20px;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+    overflow:hidden;
+    width: 100%;
+    display:inline-block;
+}
+
+
+
+/*架构样式结束*/
+
+
+/*排序样式开始*/
+.row-orderList{
+    padding:10px 0px;
+}
+.orderListOne{
+    line-height: 30px;
+    padding:0px 20px;
+    margin: 5px;
+}
+.orderOrgName {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: inline-block;
+    max-width: 285px;
+    margin-bottom: -10px;
+    white-space: nowrap;
+}
+
+.orderListOne:hover{
+    background: #e3e3e3;
+}
+.orderListOne:hover .col-xs-8{
+    color: #58b557;
+}
+.orderMethod {
+  width:146px;
+}
+.orderMethod a{
+    display:inline-block;
+    margin-left:8px;
+}
+/*.orderListOne .orderMethod{
+    display: none;
+}
+.orderListOne:hover .orderMethod{
+    display:inline;
+}*/
+span.orderNum{
+    margin-right: 8px;
+}
+
+a.up{
+    background:url(../../Images/organization/orderUp.png)no-repeat;
+    width: 20px;
+    height: 23px;
+    display: inline-block;
+    cursor: pointer;
+    vertical-align:middle;
+}
+a.downs{
+    background:url(../../Images/organization/orderDown.png)no-repeat;
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    cursor: pointer;
+    vertical-align:middle;
+}
+/*排序样式结束*/
+
+
+
+
+/*新建框架的样式开始*/
+.input-Org>ul{
+    margin: 10px 0px;
+}
+
+.upPic{
+    background:url(../../Images/organization/up.png)no-repeat;
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    margin-top:3px;
+    float:right;
+}
+
+.upPicHit{
+    background:url(../../Images/organization/up_Hit.png)no-repeat;
+}
+
+.newOrg_cell{                 /* 新建组织输入框及选择框的样式*/
+    display: inline-block;
+    line-height: 30px;
+    width:280px;
+    height: 30px;
+    border: 1px solid #bbbbbb;
+}
+
+.newOrg_cell .dropdown-toggle{
+    width:100%;
+    display: inline-block;
+}
+
+.newOrg_cell > ul {
+    width: 100%;
+    padding: 0px;
+}
+
+input.newOrg_cell{
+    margin-left: -5px;
+}
+
+/*.browseOrgTree{*/
+   /*float:left;*/
+/*}*/
+/*新建框架的样式结束*/
+
+
+/*新建岗位样式集 开始*/
+
+.form-group label{
+    font-weight: normal;
+}
+
+.flowPic{
+   background: url(../../Images/organization/browseNew.png)no-repeat -1px -1px;
+   width: 20px;
+   height: 22px;
+   display: inline-block;
+   float: right;
+    /*position: absolute;
+    top: 3px;
+    right: 6px;*/
+}
+.flowPic_hit{
+    background:url(../../Images/organization/browseNew_hit.png)no-repeat -1px -1px;
+}
+.border_hit {
+  border-color: #58b456;
+}
+.border_rHit {
+  border-right-color:#58b456;
+}
+
+
+
+.form-group input[type="text"],.form-group input[type="button"]{
+    height: 28px;
+}
+
+/*新建岗位样式集 结束*/
+.modal-content{
+    height: 550px;
+}
+.modal-body{
+    height:470px;
+}
+.row-orderList{
+    height: 470px;
+    overflow-y: auto;
+    width: 562px;
+}
+
+#newOrgOrJob{
+    padding: 10px 0px;
+}
+.browseTree,#planModal{
+    background-color: #f9f9f9;
+    overflow: hidden;
+    position: absolute;
+    top:0px;
+    width: 390px;
+    display: none;
+    height: 551px;
+    padding-left:15px;
+    border: 1px solid #999;
+    border: 1px solid rgba(0, 0, 0, .2);
+    outline: 0;
+    -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, .5);
+    box-shadow: 0 3px 9px rgba(0, 0, 0, .5);
+    z-index:-1;
+}
+
+#planModal {
+  width:410px;
+}
+#planModal label{
+    text-align: left;
+}
+
+
+/*目录样式开始*/
+
+.directory-set .arrowDown{
+    float: right;
+}
+
+
+
+/*目录样式结束*/
+
+
+/*岗位管理人员样式*/
+
+
+
+.chosebox {
+   height: 200px;
+}
+.fifty-fifty>* {
+    float: left;
+    display: block;
+    width: 50%;
+    height: 100%;
+    box-sizing: border-box;
+    border-right: 1px solid #ccc;
+    overflow: auto;
+}
+.chosenbox {
+height: 400px;
+}
+
+.choseClass {
+height: 200px;
+margin-top: -200px;
+}
+
+.adopt {
+height: 30px;
+border-bottom: 1px solid #dddddd;
+}
+.getadopt {
+padding: 5px;
+}
+
+.adopt>ul.list-inline {
+padding: 5px 5px;
+}
+
+.chosenbox .chosen-count {
+padding: 3px 10px;
+border-bottom: 1px solid #ccc;
+}
+
+#HR_modal ul.list-inline li input {
+vertical-align: top;
+}
+.chosebox {
+height: 200px;
+}
+#HR_modal .chosens {
+padding-left: 0;
+list-style: none;
+}
+
+#HR_modal .chosens li {
+padding: 5px 10px;
+}
+#HR_modal .modal-content { 
+   height: 513px;
+}
+
+
+
+/*岗位手册的样式集*/
+#hand_modal .modal-body li{
+    padding: 5px 10px;
+}
+#hand_add{
+    width: 60px;
+     background-color:#f7ac1b;
+     color:white;
+}
+
+
+#handList td{
+    border: 0px;
+    height: 24px;
+    line-height: 24px;
+    padding-bottom: 0px;
+    padding-top: 0px;  
+}
+
+.tdEllipsis {
+    width:221px;
+    max-width:221px;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+    overflow:hidden;
+}
+
+.span-drop {
+    background-color: #ffffff;
+    border: 1px solid #bbbbbb;
+    width: 100%;
+    text-align: left;
+    height: 30px;
+    line-height: 28px;
+    padding-left: 10px;
+    display: inline-block;
+}
+
+.dateCorn{
+    background:url(../../Images/organization/date.png)no-repeat;
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+}
+.dateCorn_hit{
+     background: url(../../Images/organization/date_hit.png)no-repeat 1px 2px;
+}
+.input-group-addon{
+    padding: 0px;
+    background-color: white;
+}
+
+
+.dayDateTable{
+    position: absolute;
+    top:30px;
+    left: 0px;
+    border: 1px solid #bbbbbb;
+    z-index: 10;
+    background-color: #ffffff;
+
+}
+.dayDateTable td{
+    text-align: center;
+    padding:0px 3px;
+    cursor: pointer;
+}
+
+.dayDateTable td:hover{
+    color: green;
+}
+#candlers .col-sm-4 ,#candlers .col-sm-8{
+   padding-left: 0px;
+}
+#onehr{
+   display: block;
+   width: 8px;
+   overflow: hidden;
+   text-align: center;
+   margin: 4px 2px;
+}
+
+.optionCell-select {
+    top:30px;
+    display: block;
+    margin-left: 10px;
+}
+.optionCell-select input{
+  width:100%;
+}
+
+
+
+
+/*通用样式集*/
+.nopadding{
+    padding: 0px;
+}
+.colorGray{
+    color:#c4c4c4;
+}
+.hr{
+    margin: 10px -15px;
+    width: 600px;
+    border-top: 1px solid #bbbbbb;
+}
+
+.rightCorn{
+    position: absolute;
+    top: 0px;
+    right: 0px;
+}
+.relative{
+    position: relative;
+}
+#dropUl {
+    width: 100%;
+    height: 300px;
+    overflow-y: scroll;
+    list-style: none;
+    z-index: 10;
+    position: absolute;
+    top: 30px;
+    left:0px;
+    margin: 0px;
+    padding: 0px;
+    background-color: #fafafa;
+    border: 1px solid #bbbbbb;   
+    display: none;
+}
+
+.dropUlChild{
+    list-style: none;
+    z-index: 10;
+    padding: 0px;
+    margin: 0px;
+    background-color: #ffffff;
+    margin-left: -10px;
+    border-top: 1px solid #bbbbbb;
+    border-bottom: 1px solid #bbbbbb;
+}
+#dropUl li, .dropUlChild li{
+    text-align: left;
+    padding-left: 10px;
+}
+
+.labelOne {
+  width:80px;
+  margin-left:10px;
+  float:left;
+}
+.planInput {
+  width:292px;
+  float:left;
+}
+.planInputSm {
+   width:140px;
+   float:left;
+}
+
+#jobListUl {
+    height: 300px;
+    padding: 0px 10px;
+    overflow: auto;
+    list-style: none;
+}
+#jobListUl li {
+   margin-bottom: -8px;
+}
+
+#jobListUl li label{
+    margin-left:15px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+#jobListUl li span {
+    font-weight: normal;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    display: inline-block;
+    max-width: 250px;
+}
+
+.overEllipsis {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    display: inline-block;
+    max-width: 300px;
+}
+
+#planCancel,#planAdd{
+    width: 60px;
+    background-color: #f7ac1b;
+    color:white;
+    float:right;
+    margin-right:20px;
+    margin-top: 20px;
+}
+
+.form-control[readonly]{
+ background-color: #fff;  
+ box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+ transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s; 
+ border: 1px solid #ccc;
+}
+
+.ztree {
+ overflow: hidden;
+}
+.ztree li span{
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    display: inline-block;
+    max-width: 226px;
+}
+
+
+/*设置下拉框的最小宽度*/
+.dropdown-menu{
+    min-width: 100%;
+}
+
+/*通用样式集结束*/

@@ -1,0 +1,304 @@
+
+#motivationContainer .nav-pills a{
+    background-color:transparent;
+}
+#motivationContainer .panel-heading{
+    border-bottom-width: 2px;
+}
+
+#motivationContainer .nav-pills li.active a{
+    color:#58b456 ;
+}
+#motivationContainer .nav-pills li a{
+
+}
+#myMotivation,#subMotivation{
+    min-height: 598px;
+}
+
+.motivationTime .circleBig{
+    height: 14px;
+    width: 14px;
+    border-radius: 7px;
+    background-color: #bbbbbb;
+    margin-bottom: -2px;
+    cursor:pointer;
+}
+.motivationTime .circleBig:hover, .motivationTime .circleSmall:hover{
+    background-color: #56b456;
+}
+
+.motivationTime .circleSmall{
+    height: 10px;
+    width: 10px;
+    border-radius: 5px;
+    background-color: #bbbbbb;
+    margin: 0px 2px;
+    cursor:pointer;
+}
+
+.motivationTime  .verticalHr{
+    height: 30px;
+    width: 0px;
+    border-top: 0px;
+    border-left: 2px solid #bbbbbb;
+    margin: -3px 0px -3px 6px;
+}
+.motivationTime .monthChild{
+    margin: -4px 0px -5px;
+    display: none;
+}
+.motivationTime .monthChild .verticalHr{
+    margin: -6px 0px -6px 6px;
+    height: 32px;
+}
+.changeMoneySpan{
+    display: inline-block;
+    margin-left:20px;
+    display: inline-block;
+    margin-left: 20px;
+    max-width: 67px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    vertical-align: bottom;
+}
+.orangeColor{
+    color:#f9ab11 !important;
+    border-color:#f9ab11 !important;
+}
+.warnColor{
+    color:#d40200 !important;
+    border-color:#d40200 !important;
+}
+.greenColor{
+    color:#58b456 !important;
+}
+
+.circleChose{
+    background-color: #56b456 !important;
+}
+.timeValueChose {
+    color:#56b456;
+}
+.motivationTime .yearMonthSpan{
+    display: inline-block;
+    width: 33px;
+    margin-left: 5px;
+}
+.monthChild .yearMonthSpan{
+    padding-left: 3px;
+}
+.motivationDetail{
+    position: relative;
+    width: 691px;
+    float: left;
+}
+.motivationTime{
+    width: 165px;
+    float: left;
+    margin-left: 28px;
+    max-height: 680px;
+    overflow-y: auto;
+}
+
+.list-group li{
+    padding-top:8px;
+    padding-bottom: 8px;
+}
+.titleHead{
+    font-weight: bold;
+    width: 100%;
+    text-align: center;
+}
+
+.list-group h4{
+    margin-bottom:0px;
+}
+
+.list-group li table td{
+    border:0px;
+    padding: 0px;
+}
+
+.motivationTable tr>:nth-child(1){
+    width: 130px;
+}
+.motivationTable tr>:nth-child(2){
+      width:180px;
+}
+.motivationTable tr>:nth-child(3){
+  
+    width: 100px;
+}
+.motivationTable tr>:nth-child(4){
+    width: 150px;
+}
+.textOver{
+    /*display: inline-block;*/
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.money_stamp{
+    position: absolute;
+    top: 16px;
+    right: 28px;
+    border: 1px solid #d40200;
+    color: #d40200;
+    line-height: 28px;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    transform: rotate(-30deg);
+    -ms-transform: rotate(-30deg);
+    -moz-transform: rotate(-30deg);
+    -webkit-transform: rotate(-30deg);
+    -o-transform: rotate(-30deg);
+    z-index: 10;
+    text-align: center;
+    width: auto;
+    padding: 0px 6px;
+    max-width: 70px;
+    min-width:40px;
+    height:28px;
+}
+
+.picSwitchover{
+    position: absolute;
+    top: 23px;
+    left: 28px;
+    display: inline-block;
+    cursor: pointer;
+    z-index: 10;
+}
+.picSwitchover:hover{
+    color:#58b456;
+}
+#subMoneyTable{
+    width: 103%;
+    margin-left: -11px;
+    margin-top: -11px;
+}
+
+.trClick {
+    border-bottom: 2px solid #ddd;
+    border-top: 2px solid #ddd;
+    background-color: #F5F5F5;
+}
+.addPic{
+    background: url(../../Images/common/add.png) no-repeat;
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    cursor: pointer;
+    margin-top: 3px;
+    display: none;
+}
+.addPic:hover{
+    background: url(../../Images/common/addHit.png) no-repeat;
+}
+
+
+/*人力资源*/
+.chosebox {
+    height: 200px;
+}
+.chosenbox {
+    height: 400px;
+}
+.chosenbox .chosen-count {
+    padding: 3px 10px;
+    border-bottom: 1px solid #ccc;
+}
+.chosens {
+    padding-left: 0;
+    list-style: none;
+}
+.chosens li {
+    padding: 5px 10px;
+}
+.choseClass{
+    height: 200px;
+    margin-top: -200px;
+    overflow-y: hidden;
+}
+.adopt {
+    height: 30px;
+    border-bottom: 1px solid #dddddd;
+}
+.adopt>ul.list-inline {
+    padding: 5px 5px;
+}
+.getadopt {
+    padding: 5px;
+    overflow-y: auto;
+    height: 172px;
+}
+ul.list-inline li input {
+    vertical-align: top;
+}
+
+/*人员选择*/
+#subPersonList{
+    position: absolute;
+    top: 27px;
+    right: -10px;
+    width: 240px;
+    background: white;
+    overflow: auto;
+    height: 320px;
+    box-shadow: 0px 0px 1px rgba(0,0,0,0.3);
+    padding-top: 10px;
+    font-size: 12px;
+    display:none;
+    padding-bottom:20px;
+    z-index:11;
+}
+.ztree li span.button.ico_close, .ztree li span.button.ico_docu{
+     background: url(../../Images/plan/responsibleUser.png) no-repeat -2px -3px;
+     width:20px !important;
+     height:20px !important;
+}
+.ztree li span.button.ico_open {
+     background: url(../../Images/document/mineHit.png) no-repeat;
+     width:20px !important;
+     height:20px !important;
+}
+
+
+/*样式更改*/
+.list-group li.personList {
+  padding:0px;
+}
+.personList:hover {
+   background-color: #F5F5F5;
+}
+.personList>ul>li {
+ width: 200px;
+ padding-left: 20px;
+}
+
+.rewardView{
+    border-top: 2px solid #DDD;
+    padding: 20px 10px;
+    display:none;
+}
+.rewardView .list-group-item {
+    background-color:transparent;
+}
+.liDel span{
+    background: url(../../Images/flow/delete.png) no-repeat;
+    width: 24px;
+    height: 23px;
+    display: inline-block;
+    vertical-align: middle;
+}
+.liDel span:hover{
+  background: url(../../Images/flow/delete_hit.png) no-repeat;
+}
+.personList>ul>li.liDel {
+    text-align: right;
+    width: 280px;
+    padding-top:0px;
+
+}

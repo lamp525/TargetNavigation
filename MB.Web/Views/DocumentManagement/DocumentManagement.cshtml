@@ -1,0 +1,317 @@
+﻿@*@{
+    Layout = "~/Views/Shared/_TopView.cshtml";
+}*@
+
+@*@section Remark_CSS {
+    <link href="~/Styles/document/document-manage.css" rel="stylesheet" />
+}*@
+
+<link href="~/Styles/document/document-manage.css" rel="stylesheet" />
+<!-- 页面内容 开始 -->
+
+<div class="row">
+    <div class="col-xs-9">
+        <div class="panel panel-default hashandle" id="filterbox">
+            <div class="panel-heading">
+                <div class="selectedbar">
+                    <span class="selected-label">已选条件</span>
+                    <span class="operate">
+                        <a class="btn btn-transparency" id="filterbox_clear">清空</a>
+                    </span>
+                    <span class="selecteds">
+                        <!--<span class="selected">互联网 <span class="glyphicon glyphicon-remove"></span></span>-->
+                    </span>
+                </div>
+            </div>
+            <div class="panel-body pos-r">
+                <dl class="selection">
+                    <dt class="select-label">搜索</dt>
+                    <dd class="selects">
+                        <div class="group">
+                            <input type="text" placeholder="文件名" id="filterbox_document_name">
+                            <a class="btn btn-default"><span class="glyphicon glyphicon-search" id="filterbox_document_name_submit"></span></a>
+                        </div>
+                    </dd>
+                    <dt class="select-label">创建时间</dt>
+                    <dd class="selects">
+                        <a href="#" class="option" id="filterbox_week">近一周</a>
+                        <a href="#" class="option" id="filterbox_month">近一月</a>
+                        <input type="text" class="select-time laydate-icon" id="filterbox_starttime" placeholder="开始时间">
+                        -
+                                <input type="text" class="select-time laydate-icon" id="filterbox_endtime" placeholder="结束时间">
+                        <a class="btn btn-transparency" id="filterbox_time_submit">确定</a>
+                    </dd>
+                    <dt class="select-label">创建人</dt>
+                    <dd class="selects" id="filterbox_staff">
+                        <!--<a href="#" class="option">员工1</a>-->
+                        <span class="pos-r">
+                            <input type="text" class="select-name" id="filterbox_select_staff" placeholder="姓名">
+                        </span>
+                    </dd>
+
+
+                </dl>
+                <div class="drawer-handle" id="filterbox_shrink">
+                    看完了，点我收起来吧
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <ul class="nav nav-pills">
+                    <li role="presentation" class="active"><a id="resource-a" href="#resource_manage" aria-controls="resource_manage" role="tab" data-toggle="tab">资源管理</a></li>
+                    <li role="presentation"><a id="authority-a" href="#permission_setting" aria-controls="permission_setting" role="tab" data-toggle="tab">权限设置</a></li>
+                    <li class="nav-right">
+                        <ul>
+                            <li><a class="moreBg" href="#"></a><a class="moreCancel" href="#">取消</a></li>
+                            <li><a id="newFile_building" data-toggle="modal" data-target="#myModal-newfile" href="#">新建文件夹</a></li>
+                            <li id="gofilter"><a href="#">筛选</a></li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="50" role="button" aria-expanded="false">批量 <span class="caret"></span></a>
+                                <ul class="dropdown-menu batch-menu" role="menu">
+                                    <li><a href="#">移动</a></li>
+                                    <li class="divider short"></li>
+                                    <li><a href="#">复制</a></li>
+                                    <li class="divider short"></li>
+                                    <li><a href="#">删除</a></li>
+                                    <li class="divider short"></li>
+                                    <li><a href="#">下载</a></li>
+                                </ul>
+                            </li>
+                            <li class="active" id="mode_card"><a href="#"><span class="glyphicon glyphicon-th-large"></span></a></li>
+                            <li id="mode_list"><a href="#"><span class="glyphicon glyphicon-th-list"></span></a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="panel-body left-height" style="min-height:250px">
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane active" id="resource_manage">
+                        <ul class="sortbar">
+                            <li><span class="orderby">默认</span><span class="sort-icon"><span class="icon-up active"></span><span class="icon-down"></span></span></li>
+                            <li><span class="orderby">名称</span><span class="sort-icon"><span class="icon-up"></span><span class="icon-down"></span></span></li>
+                            <li><span class="orderby">时间</span><span class="sort-icon"><span class="icon-up"></span><span class="icon-down"></span></span></li>
+                            <li><span class="orderby">类型</span><span class="sort-icon"><span class="icon-up"></span><span class="icon-down"></span></span></li>
+                        </ul>
+                        <span class="labelLast"><span term="null" class='dirc_span dic_first dirc_active'>目录设置</span></span>
+                        <hr>
+                        <div class="row documents card">
+                            <div class="row row-docList">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div role="tabpanel" class="tab-pane" id="permission_setting">
+                        <div class="getFile">
+                            <ul class="list-inline">
+                                <li>文件夹名称</li>
+                                <li>
+                                    <input id="getFile_name" maxlength="20"></li>
+                            </ul>
+                            <ul class="list-inline">
+                                <li>文件夹描述</li>
+                                <li>
+                                    <textarea id="getFile_des"></textarea></li>
+                            </ul>
+                        </div>
+                        <div class="permisSet">
+                            <ul><strong>权限设置</strong></ul>
+                            <ul class="list-inline" style="height: auto;">
+                                <li>
+                                    <input type="radio" class="clearBg"></li>
+                                <li>申请部门</li>
+                                <li class="glyphicon glyphicon-plus" id="department-add" data-toggle="modal" data-target="#department_modal" style="cursor: pointer"></li>
+                                <li style="width: 80%; vertical-align: top">
+                                    <ul class="list-inline department-ul "></ul>
+                                </li>
+                            </ul>
+                            <ul class="list-inline" style="height: auto;">
+                                <li>
+                                    <input type="radio" class="clearBg"></li>
+                                <li>申请人岗位</li>
+                                <li class="glyphicon glyphicon-plus" id="station-add" data-toggle="modal" data-target="#station_modal" style="cursor: pointer"></li>
+                                <li style="width: 80%; vertical-align: top">
+                                    <ul class="list-inline station-ul"></ul>
+                                </li>
+                            </ul>
+                            <ul class="list-inline" style="height: auto;">
+                                <li>
+                                    <input type="radio"class="clearBg"></li>
+                                <li>人力资源</li>
+                                <li class="glyphicon glyphicon-plus" id="HR-add" data-toggle="modal" data-target="#HR_modal" style="cursor: pointer"></li>
+                                <li style="width: 80%; vertical-align: top">
+                                    <ul class="list-inline person-ul"></ul>
+                                </li>
+                            </ul>
+                            <ul class="list-inline">
+                                <li>权限设置</li>
+                                <li class="dropdown addborder">
+                                    <span id="power-span" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="50" role="button" aria-expanded="false"><span term="4" style="margin-right: 6px;">完全控制</span><span class="caret"></span></span>
+                                    <ul class="dropdown-menu authy-dropdown" role="menu">
+                                        <li><a href="#" term="1">禁止访问</a></li>
+                                        <li class="divider short"></li>
+                                        <li><a href="#" term="2">仅下载</a></li>
+                                        <li class="divider short"></li>
+                                        <li><a href="#" term="3">上传及下载</a></li>
+                                        <li class="divider short"></li>
+                                        <li><a href="#" term="4">完全控制</a></li>
+                                    </ul>
+                                </li>
+
+                            </ul>
+                            <ul class="list-inline" style="padding-top: 18px;">
+                                <li>权限优先等级</li>
+                                <li>人力资源>岗位>组织架构</li>
+                                <li class="addPer"><a id="authy-add" class="btn btn-transparency">添加</a></li>
+                            </ul>
+                        </div>
+
+                        <ul class="list-inline" style="height: 26px; margin-top: 10px">
+                            <li style="width: 500px; margin-left: 8px;"><strong>权限列表</strong></li>
+                            <li style="width: 250px"><strong>状态</strong></li>
+                            <li style="margin-left: -18px"><strong>操作</strong></li>
+                        </ul>
+                        <div class="permisList">
+                            <table class="table tableuser">
+                                <thead>
+                                </thead>
+                                <tbody style="height: 175px; overflow: auto; display: block;">
+
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        <div class="panel-footer-userdefined setting btn-width" id="sure_auth" style="display: none">
+            <a class="btn btn-transparency btn-width" id="authy-cancel">取消</a>
+            <a class="btn btn-transparency btn-width" id="authy-submit">确定</a>
+        </div>
+
+    </div>
+    <div class="col-xs-3">
+        <div class="sidebar">
+            <div class="panel panel-default">
+                <div class="panel-body right-height">
+                    <div class="directory-set" style="cursor: pointer">
+                        <span style="color:#58b456">目录设置</span>
+                    </div>
+                    <div class="ztree" id="catalogue"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 弹出层 开始 -->
+<!--复制开始-->
+<div class="modal fade" id="copy_modal" tabindex="-1" role="dialog" aria-labelledby="copy_modal_label" aria-hidden="true" data-backdrop="false" data-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+                <h4 class="modal-title" id="copy_modal_label">复制</h4>
+            </div>
+            <div class="input-group" id="copy_modal_search">
+                <input id="copy_select" type="text" class="form-control" placeholder="选择文件夹" aria-describedby="basic-addon2">
+                <span class="input-group-btn">
+                    <a class="btn btn-default" type="a"><span class="glyphicon glyphicon-search"></span></a>
+                </span>
+            </div>
+            <div class="fifty-fifty chosebox clearfix" style="height: 400px">
+                <div class="ztree" id="copy_modal_folder"></div>
+                <div class="chosenbox department">
+                    <div class="chosen-count">
+                        已选: <span class="badge badge-success" id="copy_modal_chosen_count">0</span>
+                    </div>
+                    <ul class="chosens" id="copy_modal_chosen">
+                        <!--<li>证券<a class="close" aria-label="Close"><span aria-hidden="true">&times;</span></a></li>-->
+                    </ul>
+                </div>
+            </div>
+            <div class="modal-footer fifty-fifty">
+                <a id="copy_modal_cancel" class="btn btn-transparency btn-lg user-defined" data-dismiss="modal">取消</a>
+                <a class="btn btn-transparency btn-lg user-defined" id="copy_modal_submit">确定</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 复制结束 -->
+
+<!--部门添加开始-->
+<div class="modal fade" id="department_modal" tabindex="-1" role="dialog" aria-labelledby="department_modal_label" aria-hidden="true" data-backdrop="false" data-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        </div>
+    </div>
+</div>
+<!-- 部门添加结束 -->
+
+<!--岗位添加开始-->
+<div class="modal fade" id="station_modal" tabindex="-1" role="dialog" aria-labelledby="station_modal_label" aria-hidden="true" data-backdrop="false" data-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        </div>
+    </div>
+</div>
+<!--岗位添加结束-->
+<!--人资添加开始-->
+<div class="modal fade" id="HR_modal" tabindex="-1" role="dialog" aria-labelledby="station_modal_label" aria-hidden="true" data-backdrop="false" data-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        </div>
+    </div>
+</div>
+<!--人资添加结束-->
+<!--移动-->
+<div class="modal fade" id="move_modal" tabindex="-1" role="dialog" aria-labelledby="move_modal_label" aria-hidden="true" data-backdrop="false" data-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        </div>
+    </div>
+</div>
+<!--新建文件夹-->
+<div class="modal fade" id="myModal-newfile" tabindex="-1" role="dialog" aria-labelledby="copy_modal_label" aria-hidden="true" data-backdrop="false" data-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        </div>
+    </div>
+</div>
+<!--日志-->
+<div class="modal fade" id="myModal-log" tabindex="-1" role="dialog" aria-labelledby="copy_modal_label" aria-hidden="true" data-backdrop="false" data-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        </div>
+    </div>
+</div>
+
+<!--共享-->
+<div class="modal fade" id="share_modal" tabindex="-1" role="dialog" aria-labelledby="share_modal_label" aria-hidden="true" data-backdrop="false" data-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        </div>
+    </div>
+</div>
+<!-- 弹出层 结束 -->
+<!-- 页面内容 结束 -->
+
+@*@section Remark_JS {
+    <script src="~/Libs/layer/layer.js"></script>
+    <script src="~/Scripts/common/units.js"></script>
+    <script src="~/Scripts/common-bootstrap/common.js"></script>
+    <script src="~/Scripts/document/document-manage.js"></script>
+    <script src="~/Libs/dotdotdot/jquery.dotdotdot.js"></script>
+    <script src="~/Libs/dotdotdot/jquery.dotdotdot.min.js"></script>
+}*@
+    
+
+
+<script src="~/Libs/dotdotdot/jquery.dotdotdot.js"></script>
+<script src="~/Scripts/component/searchPopup.js"></script>
+<script src="~/Scripts/component/selection.js"></script>
+<script src="~/Scripts/document/document-manage.js"></script>
+

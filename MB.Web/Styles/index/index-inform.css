@@ -1,0 +1,125 @@
+.inform {
+	float:left;
+	width:1200px;
+	margin-top:65px;
+	border:1px solid #bbb;
+}
+/* 通知公告 开始 */
+.inform .title {
+	float:left;
+	width:97%;
+	height:39px;
+	line-height:39px;
+	padding:0 1.5%;
+	font-size:14px;
+	border-bottom:1px solid #bbb;
+}
+.title .search {
+	float:right;
+	margin-top:5px;
+}
+.title .search input {
+	float:left;
+	width:268px;/* 当边框自设的时候，实际宽度为+2=270；当边框默认，实际宽度为+4=270 */
+	height:26px;/* 当边框自设的时候，实际高度为+4=30；当边框默认，实际宽度为+6=30 */
+	padding:0 10px;
+	color:#e7e7e7;
+	border:1px solid #bbb;
+}
+.title .search span {
+	float:left;
+	width:24px;
+	height:24px;
+	margin-top:2px;
+	background:url(../../Images/common/search.png) no-repeat;
+	cursor:pointer;
+}
+/* 通知公告 结束 */
+
+
+
+/* 考勤公告 开始 */
+.inform .smaTitle {
+	float:left;
+	width:97%;
+	height:29px;
+	margin:10px 1% 0;
+	padding:0 0.5%;
+	border-bottom:2px solid #bbb;
+}
+.smaTitle li {
+	float:left;
+	line-height:29px;
+	margin-right:20px;
+	cursor:pointer;
+}
+.smaTitle li.liHit {
+	color:#58b456;
+	font-size:14px;
+}
+/* 考勤公告 结束 */
+
+
+
+/* 列表 开始 */
+.inform .informList {
+	float:left;
+	width:100%;
+	margin:-40px 0 8px;
+}
+.informList ul {
+	float:left;
+	width:48%;
+	height:270px;
+	margin:40px 1% 0;
+	overflow:hidden;
+}
+.informList ul li {
+	float:left;
+	width:98%;
+	padding:0 1%;
+	height:29px;
+}
+.informList ul li.line {
+	float:left;
+	width:99%;
+	height:0px;
+    border-bottom: 1px solid #e3e3e3;
+}
+.informList ul li a {
+	float:left;
+	width:78%;
+	height:30px;
+	line-height:30px;
+	color:#686868;
+	overflow:hidden;
+}
+.informList ul li a:hover {
+	color:#58b456;
+}
+.informList ul li span {
+	float:left;
+	width:20%;
+	height:30px;
+	line-height:30px;
+	text-align:right;
+	margin-left:2%;
+}
+/* 列表 结束 */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

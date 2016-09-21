@@ -1,0 +1,770 @@
+﻿@{
+    ViewBag.Title = "RosterEdit";
+
+
+    var RuserId = Convert.ToInt32(ViewBag.RuserId);
+    
+    var type =Convert.ToInt32(ViewBag.type);
+}
+
+<!-- 本页所需的样式 开始 -->
+    <link href="~/Styles/Roster/RosterEdit.css" rel="stylesheet">
+    <!-- 本页所需的样式 结束 -->
+
+
+<!-- 页面内容 开始 -->
+
+<!---<div class="container"></div>---->
+<div class="row">
+    <div class="col-xs-9">
+        <div class="panel panel-default" style="margin-bottom: 0">
+            <div class="panel-heading">
+                <ul class="nav nav-pills">
+                    <li ><a href="#">个人信息</a></li>
+                    <li><a href="#" id="password_Changed" style="color:blue;"></a></li>
+                      <li style="float:right;"><a href="#" class="menuAdd"></a></li>
+                </ul>
+            </div>
+            <div id="information-content" class="tab-content">
+            <div id="con_informationShow" role="tabpanel" class="tab-pane " style="min-height: 600px">
+            <div class="heading">
+                <a href="#">职位信息</a>
+                <a href="#" class="pull-right" id="passwordChange_show">修改密码</a>
+            </div>
+            <div >
+                <table style="width:100%" class="table table-hover">
+                    <tr>
+                        <td style="width:14%" class="name">姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名 :</td>
+                        <td style="width:32%" ><span   class="span-control" id="show_userName"></span></td>
+                        <td style="width:14%"  class="name">工&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;号 :</td>
+                        <td style="width:20%"><span   class="span-control" id="show_userNumber"></span></td>
+                        <td style="width:20%"> </td>
+                    </tr>
+                    <tr >
+                        <td style="width:14%" class="name">部门/事业部 :</td>
+                        <td style="width:32%">
+                            <span  class="span-control show_org" term="1"></span>
+                        </td>
+                        <td style="width:14%"  class="name">职&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;位 :</td>
+                        <td style="width:20%" class="text-overflow">
+                            <span  class="span-control show_postChoose"></span>
+                        </td>
+                        <td style="width:20%"> </td>
+                    </tr>
+                    <tr id="show_orgAndPost">
+                        <td style="width:14%" class="name">工作地点 :</td>
+                        <td style="width:32%">
+                            <span  class="span-control text-overflow" id="show_workPlace"></span>
+                        </td>
+                          <td style="width:14%"  class="name">用户类型 :</td>
+                        <td style="width:20%">
+                            <span   class="span-control" id="show_userType"> </span>
+                        </td>
+                        <td style="width:20%">  </td>
+                    </tr>
+                    <tr>
+                        <td style="width:14%" class="name">入职日期 :</td>
+                        <td style="width:32%">
+                            <span   class="span-control" id="show_entryTime"> </span>
+                        </td>
+                        <td style="width:14%"  class="name">在职状态 :</td>
+                        <td style="width:20%">
+                            <span   class="span-control" id="show_workStatus"> </span>
+                        </td>
+                        <td style="width:20%">  </td>
+                    </tr>
+                    <tr>
+                        <td style="width:14%" class="name">合&nbsp;同&nbsp;期 :</td>
+                        <td style="width:32%">
+                            <span class="span-control" id="show_term"></span>
+                        </td>
+                        <td style="width:14%"  class="name">试&nbsp;用&nbsp;期 :</td>
+                        <td style="width:20%">
+                            <span  class="span-control" id="show_probationaryPeriod" ></span>
+                        </td>
+                        <td style="width:20%">  </td>
+                    </tr>
+                    <tr>
+                        <td style="width:14%" class="name">转正到期日 :</td>
+                        <td style="width:32%">
+                            <span  class="span-control" id="show_positiveDate" ></span>
+                        </td>
+                        <td style="width:14%"  class="name">合同到期日 :</td>
+                        <td style="width:20%">
+                            <span  class="span-control" id="show_expiredDate"></span>
+                        </td>
+                        <td style="width:20%">  </td>
+                    </tr>
+                    <tr>
+                        <td style="width:14%" class="name">离职时间 :</td>
+                        <td style="width:32%">
+                            <span  class="span-control" id="show_quitTime"></span>
+                        </td>
+                        <td style="width:14%"  class="name">首次参加工作时间 :</td>
+                        <td style="width:20%">
+                            <span  class="span-control" id="show_firstWork"></span>
+                        </td>
+                        <td style="width:20%">  </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="heading">
+                <a href="#">基本信息</a>
+            </div>
+            <div id="information">
+                <table style="width:100%" class="table table-hover">
+                    <tbody>
+                    <tr>
+                         <td style="width:14%" class="name">工资 :</td>
+                        <td style="width:32%">
+                            <span  class="span-control" id="show_salary"></span>
+                        </td>
+                        <td style="width:14%"  class="name">性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别 :</td>
+                        <td style="width:20%">
+                            <span   class="span-control" id="show_sex"></span>
+                        </td>
+                        <td style="width:20%">  </td>
+                    </tr>
+                    <tr>
+                        <td style="width:14%" class="name">民族 :</td>
+                        <td style="width:32%">
+                            <span class="span-control" id="show_nation"></span>
+                        </td>
+                        <td style="width:14%"  class="name">政治面貌 :</td>
+                        <td style="width:20%">
+                            <span  class="span-control" id="show_political"></span>
+                        </td>
+                        <td style="width:20%">  </td>
+                    </tr>
+                    <tr>
+                        <td style="width:14%" class="name">籍贯 :</td>
+                        <td style="width:32%">
+                            <span  class="span-control text-overflow" id="show_nativePlace"></span>
+
+                        </td>
+                        <td style="width:14%"  class="name">婚姻状况 :</td>
+                        <td style="width:20%">
+                            <span  class="span-control" id="show_marriage"></span>
+                        </td>
+                        <td style="width:20%">  </td>
+                    </tr>
+                    <tr>
+                        <td style="width:14%" class="name">住址 :</td>
+                        <td style="width:66%"colspan="4">
+                            <span  class="span-control text-overflow" id="show_address"></span>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <hr/>
+                <!----------->
+                <table style="width:100%" class="table table-hover">
+                    <tbody>
+                    <tr>
+                        <td style="width:13%" class="name">学&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;历 :</td>
+                        <td style="width:32%">
+                            <span  class="span-control" id="show_education"></span>
+                        </td>
+                        <td style="width:14%"  class="name">毕业院校 :</td>
+                        <td style="width:20%">
+                            <span  class="span-control text-overflow" id="show_school"></span>
+                        </td>
+                        <td style="width:20%">  </td>
+                    </tr>
+                    <tr>
+                        <td style="width:13%" class="name">资格证书 :</td>
+                        <td style="width:32%">
+                            <span  class="span-control text-overflow" id="show_qualification"></span>
+                        </td>
+                        <td style="width:14%"  class="name">专&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;业 :</td>
+                        <td style="width:20%">
+                            <span  class="span-control text-overflow" id="show_professional"></span>
+                        </td>
+                        <td style="width:20%">  </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <hr/>
+                <!----------->
+                <table style="width:100%" class="table table-hover">
+                    <tbody>
+                    <tr>
+                        <td style="width:13%" class="name">身&nbsp;份&nbsp;证 :</td>
+                        <td style="width:32%">
+                            <span  class="span-control" id="show_identityCard"></span>
+                        </td>
+                        <td style="width:14%"  class="name">出生日期 :</td>
+                        <td style="width:20%">
+                            <span  class="span-control" id="show_birthday"></span>
+                        </td>
+                        <td style="width:20%">  </td>
+                    </tr>
+                    <tr>
+                        <td style="width:13%" class="name">户口性质 :</td>
+                        <td style="width:32%">
+                            <span  class="span-control" id="show_nature"></span>
+                        </td>
+                        <td style="width:14%"  class="name">户口所在地 :</td>
+                        <td style="width:20%">
+                            <span  class="span-control" id="show_ProvinceCitydistrict"></span>
+
+                        </td>
+                        <td style="width:20%">  </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <!----------->
+                <hr/>
+                <table style="width:100%" class="table table-hover">
+                    <tbody>
+                    <tr>
+                        <td style="width:13%" class="name">手&nbsp;机&nbsp;号1 :</td>
+                        <td style="width:32%">
+                            <span  class="span-control" id="show_mobile1"></span>
+                        </td>
+                        <td style="width:14%"  class="name">手&nbsp;机&nbsp;号2 :</td>
+                        <td style="width:20%">
+                            <span  class="span-control" id="show_mobile2"></span>
+                        </td>
+                        <td style="width:20%">  </td>
+                    </tr>
+                    <tr>
+                        <td style="width:13%" class="name">短&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;号 :</td>
+                        <td style="width:32%">
+                            <span  class="span-control" id="show_cornet"></span>
+
+                        </td>
+                        <td style="width:14%"  class="name">紧急联络号 :</td>
+                        <td style="width:20%">
+                            <span  class="span-control" id="show_emergencyNumber"></span>
+                        </td>
+                        <td style="width:20%">  </td>
+                    </tr>
+                    <tr>
+                        <td style="width:13%" class="name">邮&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;箱 :</td>
+                        <td style="width:32%">
+                            <span  class="span-control" id="show_email"></span>
+                        </td>
+                        <td style="width:14%"  class="name">QQ :</td>
+                        <td style="width:20%">
+                            <span  class="span-control" id="show_qq"></span>
+
+                        </td>
+                        <td style="width:20%">  </td>
+                    </tr>
+                    <tr>
+                        <td style="width:13%" class="name">银行卡号 :</td>
+                        <td style="width:32%">
+                            <span  class="span-control" id="show_bankCard"></span>
+
+                        </td>
+                        <td style="width:14%"  class="name">银行名称 :</td>
+                        <td style="width:20%">
+                            <span  class="span-control" id="show_bankName"></span>
+                        </td>
+                        <td style="width:20%">  </td>
+                    </tr>
+                    <tr>
+                      
+                        <td style="width:14%"  class="name">备&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;注 :</td>
+                        <td style="width:66%" colspan="4">
+                            <span  class="span-control text-overflow" id="show_comment" style="width:584px;"></span>
+                        </td>
+                        <td style="width:20%">  </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            </div>
+            <div id="con_informationEdit" role="tabpanel" class="tab-pane active" style="min-height: 600px">
+            <div class="heading">
+                <a href="#">职位信息</a>
+                 <a href="#" class="pull-right" id="passwordChange">修改密码</a>
+                
+            </div>
+            <div >
+                <table style="width:100%" class="table table-hover">
+                    <tr>
+                        <td style="width:14%" class="name sign-requ">姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名 :</td>
+                        <td style="width:32%"><input type="text" class="form-control"  id="userName" maxlength="20"></td>
+                        <td style="width:14%"  class="name sign-requ">工&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;号:</td>
+                        <td style="width:20%"><input type="text" class="form-control"  id="userNumber" maxlength="20"></td>
+                        <td style="width:20%">
+                        </td>
+                    </tr>
+                    <tr >
+                        <td style="width:14%" class="name sign-requ">部门/事业部 :</td>
+                        <td style="width:32%">
+                            <div class="input-group">
+                                <input type="text" class="form-control org_input" term="1" style="cursor:pointer;">
+                                <span class="input-group-addon org"></span>
+                            </div>
+                        </td>
+                        <td style="width:14%"  class="name sign-requ">职&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;位 :</td>
+                        <td style="width:20%">
+                            <div class="input-group">
+                                <input type="text" class="form-control postChoose_input" term="1" style="cursor:pointer;">
+                                <span class="input-group-addon postChoose"></span>
+                            </div>
+
+                        </td>
+                        <td style="width:20%">
+                            <a class="add" style="cursor:pointer;"></a>
+                        </td>
+                    </tr>
+                    <tr id="orgAndPost">
+                        <td style="width:14%" class="name">工作地点 :</td>
+                        <td style="width:32%"><input type="text" class="form-control" id="workPlace" maxlength="20"></td>
+                         <td style="width:14%"  class="name sign-requ">用户类型 :</td>
+                        <td style="width:20%">
+                            <div class="dropdown" >
+                                    <span class="dropdown-toggle" data-toggle="dropdown"  data-delay="50" role="button" aria-expanded="false">
+                                      <span term="" id="userType"></span>
+                                      <span class="upPic"></span>
+                                    </span>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="#" term="0">实习</a></li>
+                                    <li class="divider short"></li>
+                                    <li><a href="#" term="1">试用</a></li>
+                                   <li class="divider short"></li>
+                                    <li><a href="#" term="2">正式</a></li>
+                                </ul>
+                            </div>
+                        </td>
+                          <td style="width:20%">  </td>
+                    </tr>
+                    <tr>
+                        <td style="width:14%" class="name">入职日期 :</td>
+                        <td style="width:32%">
+                            <div class="input-group">
+                                <input type="text" class="form-control" id="entryTime">
+                                <span class="input-group-addon date"></span>
+                            </div>
+                        </td>
+                        <td style="width:14%"  class="name sign-requ">在职状态 :</td>
+                        <td style="width:20%">
+                            <div class="dropdown" >
+                                    <span class="dropdown-toggle" data-toggle="dropdown"  data-delay="50" role="button" aria-expanded="false">
+                                      <span term="" id="workStatus"></span>
+                                      <span class="upPic"></span>
+                                    </span>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="#" term="0">离职</a></li>
+                                    <li class="divider short"></li>
+                                    <li><a href="#" term="1">在职</a></li>
+                                    <li class="divider short"></li>
+                                    <li><a href="#" term="2">退休</a></li>
+                                   
+                                </ul>
+                            </div>
+                        </td>
+                        <td style="width:20%">  </td>
+                    </tr>
+                    <tr>
+                        <td style="width:14%" class="name">合&nbsp;同&nbsp;期 :</td>
+                        <td style="width:32%">
+                            <input type="text" class="form-control" id="term"  oninput="value=value.replace(/[^\d]/g,'')" style="width: 155px;display: inline-block;">&nbsp;&nbsp;年
+                        </td>
+                        <td style="width:14%"  class="name">试&nbsp;用&nbsp;期&nbsp; :</td>
+                        <td style="width:20%">
+                            <input type="text" class="form-control" id="probationaryPeriod"  oninput="value=value.replace(/[^\d]/g,'')" style="width: 155px;display: inline-block;">&nbsp;&nbsp;月
+
+                        </td>
+                        <td style="width:20%">  </td>
+                    </tr>
+                    <tr>
+                        <td style="width:14%" class="name">转正到期日 :</td>
+                        <td style="width:32%">
+                            <div class="input-group">
+                                <input type="text" class="form-control" id="positiveDate">
+                                <span class="input-group-addon date"></span>
+                            </div>
+                        </td>
+                        <td style="width:14%"  class="name">合同到期日 :</td>
+                        <td style="width:20%">
+                            <div class="input-group">
+                                <input type="text" class="form-control" id="expiredDate">
+                                <span class="input-group-addon date"></span>
+                            </div>
+                        </td>
+                        <td style="width:20%">  </td>
+                    </tr>
+                    <tr>
+                        <td style="width:14%" class="name">离 职&nbsp;时&nbsp;间 :</td>
+                        <td style="width:32%">
+                            <div class="input-group">
+                                <input type="text" class="form-control" id="quitTime">
+                                <span class="input-group-addon date"></span>
+                            </div>
+                        </td>
+                        <td style="width:14%"  class="name">首次参加工作时间 :</td>
+                        <td style="width:20%">
+                            <div class="input-group">
+                                <input type="text" class="form-control" id="firstWork">
+                                <span class="input-group-addon date"></span>
+                            </div>
+                        </td>
+                        <td style="width:20%">  </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="heading">
+                <a href="#">基本信息</a>
+            </div>
+            <div >
+            <table style="width:100%" class="table table-hover">
+                <tbody>
+                <tr>
+                     <td style="width:14%" class="name">工资 :</td>
+                    <td style="width:32%">
+                        <input type="text" class="form-control" id="salary" >
+                    </td>
+                    <td style="width:14%"  class="name">性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别 :</td>
+                    <td style="width:20%">
+                        <div class="dropdown">
+                                    <span class="dropdown-toggle" data-toggle="dropdown"  data-delay="50" role="button" aria-expanded="false">
+                                      <span term="0" id="sex">女</span>
+                                      <span class="upPic"></span>
+                                    </span>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="#" term="0">女</a></li>
+                                <li class="divider short"></li>
+                                <li><a href="#" term="1">男</a></li>
+                            </ul>
+                        </div>
+                    </td>
+                    <td style="width:20%">  </td>
+                </tr>
+                <tr>
+                    <td style="width:14%" class="name">民族 :</td>
+                    <td style="width:32%">
+                        <input type="text" class="form-control" id="nation" maxlength="50">
+                    </td>
+                    <td style="width:14%"  class="name">政治面貌 :</td>
+                    <td style="width:20%">
+                        <input type="text" class="form-control" id="political" maxlength="10">
+                    </td>
+                    <td style="width:20%">  </td>
+                </tr>
+                <tr>
+                    <td style="width:14%" class="name">籍贯 :</td>
+                    <td style="width:32%">
+                        <input type="text" class="form-control" id="nativePlace" maxlength="20">
+                    </td>
+                    <td style="width:14%"  class="name">婚姻状况 :</td>
+                    <td style="width:20%">
+                        <div class="dropdown">
+                                    <span class="dropdown-toggle" data-toggle="dropdown"  data-delay="50" role="button" aria-expanded="false">
+                                      <span term="0" id="marriage">未婚</span>
+                                      <span class="upPic"></span>
+                                    </span>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="#" term="0">未婚</a></li>
+                                <li class="divider short"></li>
+                                <li><a href="#" term="1">已婚</a></li>
+                            </ul>
+                        </div>
+                    </td>
+                    <td style="width:20%">  </td>
+                </tr>
+                <tr>
+                    <td style="width:14%" class="name">住址 :</td>
+                    <td style="width:66%"colspan="4"><input type="text" class="form-control" style="width:584px" id="address" maxlength="100"></td>
+                </tr>
+
+
+                </tbody>
+            </table>
+            <hr/>
+            <!----------->
+            <table style="width:100%" class="table table-hover">
+                <tbody>
+                <tr>
+                    <td style="width:13%" class="name">学&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;历:</td>
+                    <td style="width:32%">
+                        <div class="dropdown">
+                                       <span class="dropdown-toggle" data-toggle="dropdown"  data-delay="50" role="button" aria-expanded="false">
+                                            <span term="" id="education"></span>
+                                            <span class="upPic"></span>
+                                        </span>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="#" term="0">高中</a></li>
+                                <li class="divider short"></li>
+                                <li><a href="#" term="1">大专</a></li>
+                                <li class="divider short"></li>
+                                <li><a href="#" term="2">本科</a></li>
+                                <li class="divider short"></li>
+                                <li><a href="#" term="3">硕士</a></li>
+                                <li class="divider short"></li>
+                                <li><a href="#" term="4">博士</a></li>
+                            </ul>
+                        </div>
+                    </td>
+                    <td style="width:14%"  class="name">毕业院校 :</td>
+                    <td style="width:20%">
+                        <input type="text" class="form-control" id="school" maxlength="50">
+                    </td>
+                    <td style="width:20%">  </td>
+                </tr>
+                <tr>
+                    <td style="width:13%" class="name">资格证书 :</td>
+                    <td style="width:32%">
+                        <input type="text" class="form-control" id="qualification" maxlength="50">
+                    </td>
+                    <td style="width:14%"  class="name">专&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;业 :</td>
+                    <td style="width:20%">
+                        <input type="text" class="form-control" id="professional" maxlength="50">
+                    </td>
+                    <td style="width:20%">  </td>
+                </tr>
+                </tbody>
+            </table>
+            <hr/>
+            <!----------->
+            <table style="width:100%" class="table table-hover">
+                <tbody>
+                <tr>
+                    <td style="width:13%" class="name">身&nbsp;份&nbsp;证&nbsp; :</td>
+                    <td style="width:32%">
+                        <input type="text" class="form-control" id="identityCard" maxlength="18">
+                    </td>
+                    <td style="width:14%"  class="name">出&nbsp;生&nbsp;日&nbsp;期 :</td>
+                    <td style="width:20%">
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="birthday">
+                            @*<span class="input-group-addon date"></span>*@
+                        </div>
+
+                    </td>
+                    <td style="width:20%">  </td>
+                </tr>
+                <tr>
+                    <td style="width:13%" class="name">户口性质 :</td>
+                    <td style="width:32%">
+                        <input type="text" class="form-control" id="nature" maxlength="10">
+                    </td>
+                    <td style="width:14%"  class="name">户口所在地 :</td>
+                    <td style="width:20%">
+                        <input type="button" class="form-control" id="ProvinceCitydistrict" style="text-align: left;">
+                    </td>
+                    <td style="width:20%">  </td>
+                </tr>
+                </tbody>
+            </table>
+            <!----------->
+            <hr/>
+            <table style="width:100%" class="table table-hover">
+                <tbody>
+                <tr>
+                    <td style="width:13%" class="name">手&nbsp;机&nbsp;号1 :</td>
+                    <td style="width:34%">
+                        <input type="text" class="form-control" id="mobile1" maxlength="11"  oninput="value=value.replace(/[^\d]/g,'')">
+                    </td>
+                    <td style="width:13%"  class="name">手&nbsp;机&nbsp;号2&nbsp;&nbsp; :</td>
+                    <td style="width:20%">
+                        <input type="text" class="form-control" id="mobile2" maxlength="11"  oninput="value=value.replace(/[^\d]/g,'')">
+                    </td>
+                    <td style="width:20%">  </td>
+                </tr>
+                <tr>
+                    <td style="width:13%" class="name">短&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;号 :</td>
+                    <td style="width:32%">
+                        <input type="text" class="form-control" id="cornet" maxlength="20"  oninput="value=value.replace(/[^\d]/g,'')">
+                    </td>
+                    <td style="width:14%"  class="name">紧急联络号 :</td>
+                    <td style="width:20%">
+                        <input type="text" class="form-control" id="emergencyNumber" maxlength="20"  oninput="value=value.replace(/[^\d]/g,'')">
+                    </td>
+                    <td style="width:20%">  </td>
+                </tr>
+                <tr>
+                    <td style="width:13%" class="name">邮&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;箱 :</td>
+                    <td style="width:32%">
+                        <input type="text" class="form-control" id="email" maxlength="50">
+                    </td>
+                    <td style="width:14%"  class="name">QQ :</td>
+                    <td style="width:20%">
+                        <input type="text" class="form-control" id="qq"  oninput="value=value.replace(/[^\d]/g,'')" maxlength="20">
+                    </td>
+                    <td style="width:20%">  </td>
+                </tr>
+                <tr>
+                    <td style="width:13%" class="name">银行卡号 :</td>
+                    <td style="width:32%">
+                        <input type="text" class="form-control" id="bankCard"  oninput="value=value.replace(/[^\d]/g,'')" maxlength="20">
+                    </td>
+                    <td style="width:14%"  class="name">银&nbsp;行&nbsp;名&nbsp;称 :</td>
+                    <td style="width:20%">
+                        <input type="button" class="form-control" id="bankName">
+                    </td>
+                    <td style="width:20%">  </td>
+                </tr>
+
+                <tr>
+                  
+                    <td style="width:14%"  class="name">备&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;注 :</td>
+                    <td style="width:66%" colspan="4">
+                        <input type="text" class="form-control" id="comment" maxlength="250" style="width:584px;">
+                    </td>
+                    <td style="width:20%">  </td>
+                </tr>
+                </tbody>
+            </table>
+            </div>
+            <div class="row CancelOrSave">
+                <a class="btn btn-default" id="information_Cancle">取消</a>
+                <a class="btn btn-default" id="information_sure">确定</a>
+            </div>
+            </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="col-xs-3">
+        <div class="sidebar">
+            @Html.Partial("~/Views/Shared/_UserInfo.cshtml")
+            <a type="button" class="btn btn-block btn-warning" id="EditCancelBtn">取消编辑</a>
+            <a type="button" class="btn btn-block btn-warning" id="EditBtn" style="display: none;">编辑资料</a>
+            <div class="panel panel-default" id="person_info">
+                <div class="panel-heading">
+                    <div class="input-group" id="personInfo_search">
+                        <input type="text" class="form-control" placeholder="人员清单" aria-describedby="basic-addon2" id="personInfo_select">
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-search" aria-hidden="true" id="personInfo_select_click" style="cursor:pointer;"></span></span>
+                    </div>
+                </div>
+                <div class="panel-body pos-r" style="height: 420px; overflow-y: auto;">
+                     <table class="table table-hover" style="width:100%">
+                         <tbody id="personInfo_table">
+                         <tr>
+                          @*  <td style="width:25%">  </td> <td style="width:25%">姓名</td> <td style="width:25%">职位</td> <td style="width:25%">电话</td>*@
+                         </tr>
+                         </tbody>
+                     </table>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 弹出层 开始 -->
+<!--部门添加开始-->
+<div class="modal fade" id="department_modal" tabindex="-1" role="dialog" aria-labelledby="department_modal_label" aria-hidden="true" data-backdrop="false" data-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+                <h4 class="modal-title" id="department_modal_label">组织架构</h4>
+            </div>
+            <div class="input-group" id="department_modal_search">
+                <input id="department_select" type="text" class="form-control" placeholder="选择组织架构" aria-describedby="basic-addon2">
+                <span class="input-group-btn">
+                     <a class="btn btn-default" type="a"><span class="glyphicon glyphicon-search"></span></a>
+                </span>
+            </div>
+            <div class="fifty-fifty clearfix">
+                <div class="chosebox department" style="height:400px">
+                    <div class="ztree" id="department_modal_folder"></div>
+                </div>
+                <div class="chosenbox">
+                    <div class="chosen-count">
+                        已选: <span class="badge badge-success" id="department_modal_chosen_count">0</span>
+                    </div>
+                    <ul class="chosens" id="department_modal_chosen">
+                        <!--<li>证券<a class="close" aria-label="Close"><span aria-hidden="true">&times;</span></a></li>-->
+                    </ul>
+                </div>
+            </div>
+            <div class="modal-footer fifty-fifty">
+                <a id="department_modal_cancel" class="btn btn-transparency user-defined btn-lg" data-dismiss="modal">取消</a>
+                <a class="btn btn-transparency user-defined btn-lg" id="department_modal_submit">确定</a>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- 部门添加结束 -->
+<!--岗位添加开始-->
+<div class="modal fade" id="station_modal" tabindex="-1" role="dialog" aria-labelledby="station_modal_label" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+                <h4 class="modal-title" id="share_modal_label">岗位</h4>
+            </div>
+            <div class="input-group" id="station_modal_search">
+                <input id="station_select" type="text" class="form-control" placeholder="选择岗位" aria-describedby="basic-addon2">
+                <span class="input-group-btn">
+                   <a class="btn btn-default" type="a"><span class="glyphicon glyphicon-search"></span></a>
+               </span>
+            </div>
+            <div class="fifty-fifty clearfix">
+                <div class="chosebox">
+                    <div class="ztree" id="station_modal_folder"></div>
+                </div>
+                <div class="chosenbox">
+                    <div class="chosen-count">
+                        已选: <span class="badge badge-success" id="station_modal_chosen_count">0</span>
+                    </div>
+                    <ul class="chosens" id="station_modal_chosen">
+                        <!--<li>证券<a class="close" aria-label="Close"><span aria-hidden="true">&times;</span></a></li>-->
+                    </ul>
+                </div>
+                <div class="choseClass">
+                    <div class="adopt">
+                        <ul class="list-inline pull-left">
+                            <li>
+                                @*<input id="station-haschildren" type="checkbox">*@</li>
+                            @*<li>包含下级</li>*@
+                        </ul>
+                        <ul class="list-inline pull-right">
+                            <li>
+                                <input id="station-selectall" type="checkbox"></li>
+                            <li>全部选择</li>
+                        </ul>
+                    </div>
+                    <div class="getadopt station_list" style="height:170px;overflow:auto">
+                        <!--<ul class="list-inline">-->
+                        <!--<li><input type="checkbox"></li>-->
+                        <!--<li>小妞-证券分析</li>-->
+                        <!--</ul>-->
+                        <!--<ul class="list-inline">-->
+                        <!--<li><input type="checkbox"></li>-->
+                        <!--<li>李艳兰-人力资源</li>-->
+                        <!--</ul>-->
+                        <!--<ul class="list-inline">-->
+                        <!--<li><input type="checkbox"></li>-->
+                        <!--<li>小妞-证券分析</li>-->
+                        <!--</ul>-->
+                        <!--<ul class="list-inline">-->
+                        <!--<li><input type="checkbox"></li>-->
+                        <!--<li>李艳兰-人力资源</li>-->
+                        <!--</ul>-->
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer fifty-fifty">
+                <a id="station_cancel" class="btn btn-transparency btn-lg" data-dismiss="modal">取消</a>
+                <a class="btn btn-transparency btn-lg" id="station_modal_submit">确定</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!--岗位添加结束-->
+<!--弹出层  结束-->
+
+<!-- 页面内容 结束 -->
+
+<script type="text/javascript">
+    var RuserId = parseInt(@RuserId);
+
+    var type = parseInt(@type);
+</script>
+<!-- 本页调用的JS 开始 -->
+<script src="../../Scripts/common/units.js"></script>
+<script src="../../Scripts/common/init.js"></script>
+<script src="../../Scripts/common/common.js"></script>
+<script src="~/Scripts/Roster/RosterEdit.js"></script>
+
+<!-- 本页调用的JS 结束 -->

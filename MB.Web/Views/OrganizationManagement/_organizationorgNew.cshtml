@@ -1,0 +1,53 @@
+﻿<form class="form-horizontal">
+    <div class="form-group">
+        <label for="orgType" class="col-sm-2 control-label">组织类型</label>
+        <div class="col-sm-8">
+            <div class="dropdown newOrg_cell"  id="orgType" style="width:100%;padding-left: 12px">
+                <span  class="dropdown-toggle span-orgType" data-toggle="dropdown" data-hover="dropdown" data-delay="50" role="button" aria-expanded="false">
+                    <span term="1">集团</span>
+                    <span class="upPic"></span>
+                </span> 
+                <ul class="dropdown-menu orgType-dropdown" role="menu" >  
+                    <li><a href="#" term="1">集团</a></li>
+                    <li class="divider short"></li>
+                    <li><a href="#" term="2">公司/产业</a></li>
+                    <li class="divider short"></li>
+                    <li><a href="#" term="3">部门</a></li>
+                    <li class="divider short"></li>
+                    <li><a href="#" term="4">科室</a></li>
+                    <li class="divider short"></li>
+                    <li><a href="#" term="9">其他</a></li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="input_orgName" class="col-sm-2 control-label">组织名称</label>
+        <div class="col-sm-8">
+            <input type="text" class="form-control" id="input_orgName" maxlength="50" >
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="parentOrg" class="col-sm-2 control-label">上级组织</label>
+        <div class="col-sm-8">
+            <div class="dropdown newOrg_cell" id="parentOrg" style="width:100%;padding-left: 12px">
+               <span id="span-superiorJob" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="50" role="button" aria-expanded="false">
+                 <span term="1" id="orgParentName" class="overEllipsis">无</span>
+                 <span class="upPic"></span>
+              </span>
+                <ul class="dropdown-menu orgType-dropdown" role="menu"  style="width:100%">
+                    <li><a href="#" term="1" class="noOrgParent" >无</a></li>
+                    <li class="divider short"></li>
+                    <li><a href="#" term="2" class="browse" data-toggle='modal' data-target='#browseOrgTree'>浏览组织架构</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="input_orgDes" class="col-sm-2 control-label">组织描述</label>
+        <div class="col-sm-8">
+            <textarea class="form-control" id="input_orgDes" rows="3"  maxlength="100"></textarea>
+        </div>
+    </div>
+</form>

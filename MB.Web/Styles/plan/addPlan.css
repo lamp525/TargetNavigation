@@ -1,0 +1,127 @@
+﻿/* 新建计划 开始 */
+
+.icon {
+    font-size: 0;
+    vertical-align: middle;
+}
+.add-min {
+    display: inline-block;
+    height: 24px;
+    width: 24px;
+    background: url('../../Images/common/add.png') no-repeat;
+    cursor:pointer;
+}
+
+.emptyInput {
+    border: none;
+    cursor: pointer;
+}
+.popUp .canCon {
+    /*width: 560px;*/
+    height: 40px;
+    margin-top: 40px;
+    background-color: #ececec;
+}
+
+/*.xubox_layer{
+    width:560px!important;
+}
+ .xubox_page {
+    width:560px!important;
+}*/
+.hasborder {
+    border: 1px solid #e3e3e3;
+}
+
+#layer_addplan .mainContent .rowDiv {
+    padding: 5px 0;
+    position: relative;
+}
+
+#layer_addplan .mainContent .optionCell {
+    display: inline-block;
+    width: 31%;
+    padding: 10px 0;
+    display: inline-block;
+}
+
+    #layer_addplan .mainContent .optionCell em {
+        margin-right: 3px;
+    }
+
+    #layer_addplan .mainContent .optionCell input,
+    #layer_addplan .mainContent .optionCell select {
+        width: 130px;
+    }
+
+    #layer_addplan .mainContent .optionCell select {
+        cursor: pointer;
+    }
+
+        #layer_addplan .mainContent .optionCell select option {
+            padding: 0;
+        }
+
+
+.line {
+    border: none;
+    border-bottom: solid #e3e3e3 1px;
+}
+
+.leaf-info > span {
+    display: inline-block;
+}
+
+.select-trigger {
+    cursor: pointer;
+}
+
+    .select-trigger:hover {
+        background-color: #99CCFF;
+        color: #fff;
+    }
+
+.select-options {
+    overflow-y: auto;
+    border: 1px solid #e3e3e3;
+    background-color: #fff;
+}
+
+    .select-options > div {
+        padding-left: 5px;
+    }
+
+    .select-options > li {
+        line-height: 20px;
+        padding-left: 5px;
+        cursor: pointer;
+    }
+
+        .select-options > li:hover {
+            background-color: #e0e0e0;
+        }
+
+        .rowDiv .tag{
+    position: relative;
+    padding: 5px 20px 5px 10px;
+    border: 1px solid #fff;
+    display: inline-block;
+    max-width: 100px;
+    height: 16px;
+    line-height: 16px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    vertical-align: top;
+    box-sizing: content-box;
+}
+.rowDiv .tag:hover{
+    border-color: #58b456;
+    color:#58b456;
+}
+.rowDiv .tag .close{
+    position: absolute;
+    top:5px;
+    right: 6px;
+    cursor: pointer;
+}
+/* 新建计划 结束 */

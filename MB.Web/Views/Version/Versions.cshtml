@@ -1,0 +1,37 @@
+﻿    <link href="../../Styles/Styles/versions/versions.css" rel="stylesheet"/>
+    <div class="col-xs-2 side-left">
+        <ul class="side-nav">
+            <li class="active" id="sn-personal">
+                <a href="#">
+                    <i class="fa fa-info-circle"></i>系统通知<i class="fa fa-caret-down"></i>
+                </a>
+                <ul class="open-child">
+                    <li class="selected"><a href="#">版本更新</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div class="side-right col-xs-offset-2" style="position: relative">
+        <div style="padding-left:30px">
+            历史记录
+        </div>
+        <hr style="border-color: #aaa;">
+        <div class="versionsContainer">
+            <div id="versions_info" class="versionList">
+                
+            </div>
+        </div>
+    </div>
+<script id="template_version" type="text/html">
+{{each}}
+<div class="version">
+    <div class="versionName">{{$value.number}}</div>
+    <div class="versionTime">{{$value.updateTime}}</div>
+    <ul class="changeList">
+        {{each $value.contents}}
+        <li class="change">{{$value}}</li>
+        {{/each}}
+    </ul>
+</div>
+{{/each}}
+</script>

@@ -1,0 +1,452 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{6ECA3284-3B89-4D98-B3BA-30EB27D73B05}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MB.DAL</RootNamespace>
+    <AssemblyName>MB.DAL</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="fGetParentOrgByOrgId_Result.cs">
+      <DependentUpon>TargetNavigationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="fGetParentOrgByStationId_Result.cs">
+      <DependentUpon>TargetNavigationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="fGetParentStationByStationId_Result.cs">
+      <DependentUpon>TargetNavigationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="fGetSubOrgByOrgId_Result.cs">
+      <DependentUpon>TargetNavigationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="fGetSubStationByStationId_Result.cs">
+      <DependentUpon>TargetNavigationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NewDocumentModel.cs">
+      <DependentUpon>TargetNavigationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TargetNavigationDB.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TargetNavigationDB.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TargetNavigationDB.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TargetNavigationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TargetNavigationDB.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TargetNavigationDB.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="tblAuth.cs">
+      <DependentUpon>TargetNavigationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblAuthResult.cs">
+      <DependentUpon>TargetNavigationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblBank.cs">
+      <DependentUpon>TargetNavigationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblBankCard.cs">
+      <DependentUpon>TargetNavigationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblBatchResult.cs">
+      <DependentUpon>TargetNavigationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblCalendar.cs">
+      <DependentUpon>TargetNavigationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblCalendarUser.cs">
+      <DependentUpon>TargetNavigationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblCity.cs">
+      <DependentUpon>TargetNavigationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblClient.cs">
+      <DependentUpon>TargetNavigationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblCompanyDocument.cs">
+      <DependentUpon>TargetNavigationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblCompanyDocumentLog.cs">
+      <DependentUpon>TargetNavigationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblControlItem.cs">
+      <DependentUpon>TargetNavigationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblDelayRule.cs">
+      <DependentUpon>TargetNavigationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblDetailFormula.cs">
+      <DependentUpon>TargetNavigationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblDistrict.cs">
+      <DependentUpon>TargetNavigationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblDocumentShared.cs">
+      <DependentUpon>TargetNavigationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblEntrustResult.cs">
+      <DependentUpon>TargetNavigationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblEquipment.cs">
+      <DependentUpon>TargetNavigationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblExecutionMode.cs">
+      <DependentUpon>TargetNavigationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblFlowEntrust.cs">
+      <DependentUpon>TargetNavigationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblFlowNode.cs">
+      <DependentUpon>TargetNavigationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblFolderAuth.cs">
+      <DependentUpon>TargetNavigationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblFormContent.cs">
+      <DependentUpon>TargetNavigationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblFormDetail.cs">
+      <DependentUpon>TargetNavigationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblFormDuplicate.cs">
+      <DependentUpon>TargetNavigationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblFormFlow.cs">
+      <DependentUpon>TargetNavigationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblHoliday.cs">
+      <DependentUpon>TargetNavigationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblImage.cs">
+      <DependentUpon>TargetNavigationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblImContacts.cs">
+      <DependentUpon>TargetNavigationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblImGroups.cs">
+      <DependentUpon>TargetNavigationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblImGroupUser.cs">
+      <DependentUpon>TargetNavigationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblImLogin.cs">
+      <DependentUpon>TargetNavigationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblImMessages.cs">
+      <DependentUpon>TargetNavigationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblIndexDocument.cs">
+      <DependentUpon>TargetNavigationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblIndexImage.cs">
+      <DependentUpon>TargetNavigationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblIndexModule.cs">
+      <DependentUpon>TargetNavigationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblIndexNews.cs">
+      <DependentUpon>TargetNavigationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblIndexNotice.cs">
+      <DependentUpon>TargetNavigationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblIndexStatistics.cs">
+      <DependentUpon>TargetNavigationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblLinkCondition.cs">
+      <DependentUpon>TargetNavigationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblLinkFormula.cs">
+      <DependentUpon>TargetNavigationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblLinkResult.cs">
+      <DependentUpon>TargetNavigationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblLogin.cs">
+      <DependentUpon>TargetNavigationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblLoopPlan.cs">
+      <DependentUpon>TargetNavigationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblLoopplanAttachment.cs">
+      <DependentUpon>TargetNavigationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblLoopPlanCooperation.cs">
+      <DependentUpon>TargetNavigationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblLoopplanOperate.cs">
+      <DependentUpon>TargetNavigationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblLoopplanSubmit.cs">
+      <DependentUpon>TargetNavigationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblMeetingAttachment.cs">
+      <DependentUpon>TargetNavigationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblMeetingMember.cs">
+      <DependentUpon>TargetNavigationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblMeetingRoom.cs">
+      <DependentUpon>TargetNavigationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblMeetingRoomAppointment.cs">
+      <DependentUpon>TargetNavigationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblMeetingRoomEquipment.cs">
+      <DependentUpon>TargetNavigationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblMonthPlanCompleteStatistics.cs">
+      <DependentUpon>TargetNavigationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblMonthTargetCompleteStatistics.cs">
+      <DependentUpon>TargetNavigationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblNews.cs">
+      <DependentUpon>TargetNavigationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblNewsDirectory.cs">
+      <DependentUpon>TargetNavigationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblNodeField.cs">
+      <DependentUpon>TargetNavigationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblNodeLink.cs">
+      <DependentUpon>TargetNavigationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblNodeOperate.cs">
+      <DependentUpon>TargetNavigationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblNoticeDirectory.cs">
+      <DependentUpon>TargetNavigationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblObjective.cs">
+      <DependentUpon>TargetNavigationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblObjectiveChange.cs">
+      <DependentUpon>TargetNavigationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblObjectiveDocument.cs">
+      <DependentUpon>TargetNavigationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblObjectiveFormula.cs">
+      <DependentUpon>TargetNavigationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblObjectiveOperate.cs">
+      <DependentUpon>TargetNavigationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblOperateResult.cs">
+      <DependentUpon>TargetNavigationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblOrganization.cs">
+      <DependentUpon>TargetNavigationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblOrgDayWorkTime.cs">
+      <DependentUpon>TargetNavigationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblOrgMonthWorkTime.cs">
+      <DependentUpon>TargetNavigationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblPerDayWorkTime.cs">
+      <DependentUpon>TargetNavigationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblPerMonthWorkTime.cs">
+      <DependentUpon>TargetNavigationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblPersonalSetting.cs">
+      <DependentUpon>TargetNavigationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblPlan.cs">
+      <DependentUpon>TargetNavigationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblPlanAttachment.cs">
+      <DependentUpon>TargetNavigationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblPlanCompleteStatistics.cs">
+      <DependentUpon>TargetNavigationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblPlanCooperation.cs">
+      <DependentUpon>TargetNavigationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblPlanFront.cs">
+      <DependentUpon>TargetNavigationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblPlanObjective.cs">
+      <DependentUpon>TargetNavigationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblPlanOperate.cs">
+      <DependentUpon>TargetNavigationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblPlanStatistics.cs">
+      <DependentUpon>TargetNavigationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblPlanStatisticsOrg.cs">
+      <DependentUpon>TargetNavigationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblPlanSuggestion.cs">
+      <DependentUpon>TargetNavigationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblPrimary.cs">
+      <DependentUpon>TargetNavigationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblProject.cs">
+      <DependentUpon>TargetNavigationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblProvince.cs">
+      <DependentUpon>TargetNavigationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblRewardPunish.cs">
+      <DependentUpon>TargetNavigationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblStation.cs">
+      <DependentUpon>TargetNavigationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblSuggestionAttachment.cs">
+      <DependentUpon>TargetNavigationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblTemplate.cs">
+      <DependentUpon>TargetNavigationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblTemplateCategory.cs">
+      <DependentUpon>TargetNavigationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblTemplateControl.cs">
+      <DependentUpon>TargetNavigationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblUser.cs">
+      <DependentUpon>TargetNavigationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblUserContacts.cs">
+      <DependentUpon>TargetNavigationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblUserDocument.cs">
+      <DependentUpon>TargetNavigationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblUserForm.cs">
+      <DependentUpon>TargetNavigationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblUserProject.cs">
+      <DependentUpon>TargetNavigationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblUserStation.cs">
+      <DependentUpon>TargetNavigationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblValueIncentive.cs">
+      <DependentUpon>TargetNavigationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblValueIncentiveCustom.cs">
+      <DependentUpon>TargetNavigationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblVersion.cs">
+      <DependentUpon>TargetNavigationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblWeekPlanCompleteStatistics.cs">
+      <DependentUpon>TargetNavigationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblWeekTargetCompleteStatistics.cs">
+      <DependentUpon>TargetNavigationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblYearPlanCompleteStatistics.cs">
+      <DependentUpon>TargetNavigationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblYearTargetCompleteStatistics.cs">
+      <DependentUpon>TargetNavigationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vLoopPlanList.cs">
+      <DependentUpon>TargetNavigationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vOrgPersonMonthWorkTime.cs">
+      <DependentUpon>TargetNavigationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vOrgPersonWeekWorkTime.cs">
+      <DependentUpon>TargetNavigationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vPlanList.cs">
+      <DependentUpon>TargetNavigationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="worktime.cs">
+      <DependentUpon>TargetNavigationDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="worktimeindex.cs">
+      <DependentUpon>TargetNavigationDB.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
+    <None Include="packages.config" />
+    <EntityDeploy Include="TargetNavigationDB.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>TargetNavigationDB.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="TargetNavigationDB.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>TargetNavigationDB.edmx</DependentUpon>
+      <LastGenOutput>TargetNavigationDB.Context.cs</LastGenOutput>
+    </None>
+    <None Include="TargetNavigationDB.edmx.diagram">
+      <DependentUpon>TargetNavigationDB.edmx</DependentUpon>
+    </None>
+    <None Include="TargetNavigationDB.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>TargetNavigationDB.edmx</DependentUpon>
+      <LastGenOutput>TargetNavigationDB.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

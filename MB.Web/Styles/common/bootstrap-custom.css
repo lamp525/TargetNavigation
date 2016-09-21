@@ -1,0 +1,224 @@
+html, body {
+    -ms-overflow-style: scrollbar;
+}
+body{
+    padding-top: 70px;
+}
+/* Navbar */
+.navbar{
+    border: none;
+}
+.modal-open .navbar{
+    padding-right: 17px;
+}
+.nav-container{
+    background-color: #fff;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.175);
+}
+
+.navbar-brand img {
+    margin-top: -14px;
+}
+.navbar-nav>li{
+    min-width: 100px;
+    text-align: center;
+}
+.navbar-nav>li>a{
+    font-size: 14px;
+}
+.navbar-nav>li>.dropdown-menu{
+    width: 100%;
+    min-width: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-top: 10px;
+}
+.navbar-nav .dropdown-menu>li>a{
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.navbar-default .navbar-link:hover,
+.navbar-default .navbar-link:focus,
+.navbar-default .navbar-link:active {
+    color: #58b456;
+}
+.navbar-right{
+    margin-right: 0;
+}
+
+/* Nav */
+.nav .nav-right{
+    float: right;
+ }
+.nav-right>ul{
+    padding-left: 0;
+    list-style: none;
+}
+.nav-right>ul>li{
+    display: inline-block;
+}
+.nav-right>ul>li>a{
+    display: block;
+    padding: 5px;
+}
+.nav-right>ul>li.active>a{
+    color: #58b456;
+}
+.nav .dropdown-menu{
+    min-width: 0;
+    padding: 0;
+}
+
+/* Button */
+.btn-transparency {
+    background-color: transparent;
+    border-color: #ccc;
+}
+.btn-transparency:hover,
+.btn-transparency:focus,
+.btn-transparency.active,
+.open > .dropdown-toggle.btn-transparency {
+    color: #fff;
+    background-color: #fbac0f;
+    border-color: #d38e04;
+    background-image: none;
+}
+.btn-transparency.disabled,
+.btn-transparency[disabled],
+fieldset[disabled] .btn-transparency,
+.btn-transparency.disabled:hover,
+.btn-transparency[disabled]:hover,
+fieldset[disabled] .btn-transparency:hover,
+.btn-transparency.disabled:focus,
+.btn-transparency[disabled]:focus,
+fieldset[disabled] .btn-transparency:focus,
+.btn-transparency.disabled.focus,
+.btn-transparency[disabled].focus,
+fieldset[disabled] .btn-transparency.focus,
+.btn-transparency.disabled:active,
+.btn-transparency[disabled]:active,
+fieldset[disabled] .btn-transparency:active,
+.btn-transparency.disabled.active,
+.btn-transparency[disabled].active,
+fieldset[disabled] .btn-transparency.active {
+    background-color: #e0e0e0;
+    border-color: #ccc;
+}
+.btn-transparency .badge {
+    color: inherit;
+    background-color: inherit;
+}
+
+/* Modal */
+.modal-header{
+    padding-left: 15px;
+    background-color: #58b456;
+}
+.modal-header button.close{
+    padding: 2px 5px;
+    margin-top: 0;
+    color: #fff;
+    opacity: 1;
+    text-shadow: none;
+    font-size: inherit;
+    line-height: inherit;
+}
+.modal-header button.close:hover{
+    color: #136012;
+}
+@media (min-width: 1200px){
+    .modal-content-fixedH{
+        height: 600px;
+        overflow: auto;
+    }
+}
+@media (min-width: 1650px){
+    .modal-content-fixedH{
+        height: 800px;
+        overflow: auto;
+    }
+}
+
+.modal-title{
+    color: #fff;
+}
+.modal-footer{
+    padding: 5px;
+    background-color: #ececec;
+}
+
+/* Panel */
+.panel-heading,
+.panel-footer{
+    padding: 4px 10px;
+}
+
+.panel-heading .nav>li>a{
+    padding: 5px 10px;
+}
+
+/* Badge */
+.badge-primary{
+    background-color: #337ab7;
+}
+.badge-success{
+    background-color: #58b456;
+}
+.badge-info{
+    background-color: #5bc0de;
+}
+.badge-warning{
+    background-color: #fbac0f;
+}
+.badge-danger{
+    background-color: #d9534f;
+}
+
+/* Dropdowns */
+.dropdown-menu .divider.short{
+    margin: 0 5%;
+}
+
+/* ul、ol */
+ul,
+ol,
+dl {
+    margin-bottom: 0;
+}
+.dl-horizontal dt{
+    text-align: left;
+}
+
+/* List group */
+.list-group.condensed .list-group-item{
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+a.list-group-item:hover,
+a.list-group-item:focus,
+a.list-group-item:active{
+    color: #58b456;
+}
+.list-group.bottom-line{
+    margin-bottom: 0;
+}
+.list-group.bottom-line .list-group-item{
+    margin-bottom: 0;
+    border: none;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Input-group */
+.input-group-sm>.input-group-addon{
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
+.form-control[type='file']{
+    padding: 4px\0;
+}
+
+/* Hr */
+hr{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}

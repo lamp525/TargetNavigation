@@ -1,0 +1,32 @@
+﻿       <div class=" radio row" style="margin-bottom: 30px;">
+            <label class="label-conrtol"><input type="radio" name="formula" class="formula   new_Formular" term="0">不使用</label>
+        </div>
+        <div class="radio row">
+            <label class="label-conrtol col-xs-2" style="margin-top: 10px;"><input type="radio" name="formula" class="formula new_Formular" term="1">默认公式</label>
+
+            <div id="default-formula" class ="col-xs-8">
+                <div id="default-formula-up">实际值-指标值</div>
+                <div  id="default-formula-down">理想值-指标值</div>
+                <div  id="default-formula-right"> *100%</div>
+            </div>
+        </div>
+        <hr/>
+        <div class="radio row" style="height: 60px;padding-left: 104px;">
+            <div id="maxValue-div" class="col-xs-6">最大奖励=奖励系数*<input type="text"class="form-control" id="maxValue" maxlength="10"></div>
+            <div id="minValue-div" class="col-xs-6">最大惩罚=奖励系数*<input type="text"class="form-control" id="minValue" maxlength="10"></div>
+        </div>
+        <div class="radio row">
+            <label class="label-conrtol"><input type="radio" name="formula" class="formula new_Formular" term="2">自定义公式</label>
+            <a class="btn btn-default" role="button" id ="objectiveRule-setFormula">设置公式</a>
+        </div>
+        <hr/>
+        <div id="formula-set-content">
+            <table class="table table-hover">
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="row">
+            <a class="btn btn-default" role="button" id="objectiveRule-Sure">保存</a>
+</div>

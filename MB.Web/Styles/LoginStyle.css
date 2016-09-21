@@ -1,0 +1,222 @@
+@charset "utf-8";
+body {
+    background:url(../images/loginImages/back.png) no-repeat;
+}
+
+.allthing 
+{
+    }
+.login 
+{
+	width: 387px;
+	height: 408px;
+	margin:0 auto;
+	padding-top:188px;
+	background: url(../images/loginImages/login.png) no-repeat;
+	position:relative;
+	z-index:2;
+}
+.loginContain 
+{
+    width:335px;
+    height:auto;
+    margin:0 auto;
+    }
+.logo 
+{
+    width:335px;
+    height:79px;
+    background:url(../images/loginImages/logo.png) no-repeat;
+}
+.wrongMessage 
+{
+    width:335px;
+    height:47px;
+    margin-top:7px;
+    position:relative;
+    }
+.wrongMessageDiv 
+{
+    float:left;
+    width:327px;
+    height:47px;
+    background:url(../images/loginImages/wrongMid.png) repeat-X;
+    }
+.wrongMessage img ,
+.wrongMessage span , 
+.buts img
+{
+    display:block;
+    float:left;
+    }
+.wrongMessage span 
+{
+    width:256px;
+    height:20px;
+    line-height:20px;
+    font-size:16px;
+    color:#839473;
+    }
+.wrongClose 
+{
+    cursor:pointer;
+    }
+/* 输入框 */
+.inputs {
+	width: 335px;
+	height: 132px;
+	margin-top: 8px;
+	font-size:18px;
+	color:#fff;
+}
+.inputs ul 
+{
+    width:335px;
+    height:132px;
+    }
+.inputs ul li 
+{
+    width:335px;
+    height:32px;
+    }
+.inputs ul li span ,
+.inputs ul li em  
+{
+    display:block;
+    float:left;
+    height:6px;
+    margin-top:25px;
+    border-right:1px solid #b5dd93;
+    border-bottom:1px solid #b5dd93;
+    }
+.inputs ul li span 
+{
+    width:43px;
+    border-left:1px solid #b5dd93;
+    }
+.inputs ul li em 
+{
+    width:289px;
+    }
+.inputs ul li span img 
+{
+    display:block;
+    margin:-28px auto 0;
+    }
+.inputs ul li em input
+{
+    display:block;
+	width: 250px;
+	height: 28px;
+    margin:-28px auto 0;
+    font-size:18px;
+    color:#fff;
+    color:#000 !important;
+    background:rgba(255, 255, 255, 0) none repeat scroll 0 0 !important;/*实现FF背景透明，文字不透明*/
+    filter:Alpha(opacity=0); 
+    background:#fff;
+    border:0;
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#ffffff,endColorstr=#ffffff);    
+    /*background-color:transparent; 
+    border: 1 groove #008000;*/
+	/*box-shadow: 0 1px 3px #ccc inset;
+	border-radius: 5px;
+	background: #f1f1f1;
+	border: 2px solid #ccc;*/
+    }
+/*.inputs input:focus {
+	background-color: #fff;
+    border-color: #e8c291;
+    outline: none;
+}*/
+.inputs ul li i 
+{
+    display:block;
+    float:left;
+    width:90px;
+    height:32px;
+    margin-left:16px; 
+    }
+.refresh 
+{
+    cursor:pointer;
+    }
+::-webkit-input-placeholder { /* WebKit browsers */
+    color:#dbdbdb;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color:#dbdbdb;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color:#dbdbdb;
+}
+:-ms-input-placeholder { /* Internet Explorer 10+ */
+    color:#dbdbdb;
+}
+
+
+/* 按钮 */
+.buts 
+{
+	width: 335px;
+	height: 47px;
+	margin-top: 22px;
+}
+.buts a 
+{
+    display:block;
+	float: left;
+    width:327px;
+	height: 47px;
+	line-height:47px;
+	background:url(../images/loginImages/buttonMid.png) repeat-X;
+	font-size: 18px;
+	color:#698418;
+	text-align: center;
+}
+
+
+.experience 
+{
+    width:335px;
+    height:20px;
+    margin-top:14px;
+    }
+.experience a
+{
+    float:right;
+    width:100px;
+    height:20px;
+    line-height:20px;
+    font-size:16px;
+    color:#fff;
+    cursor:pointer;
+    }
+.experience a:hover
+{
+    color:#c3e45f;
+    }
+
+
+    
+.theme 
+{
+    width:25px;
+    height:27px;
+    background:url(../images/loginImages/theme.png) no-repeat;
+    position:absolute;
+    top:0px;
+    right:0px;
+    z-index:1;
+    }
+.bottom 
+{
+    width:100%;
+    height:146px;
+    background-color:Blue;
+    background:url(../images/loginImages/bottom.png) no-repeat 50% 0px;
+    position:absolute;
+    bottom:0px;
+    left:0px;
+    z-index:1;
+    }

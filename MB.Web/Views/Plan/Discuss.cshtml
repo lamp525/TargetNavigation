@@ -1,0 +1,60 @@
+﻿@using MB.Model
+@{
+    Layout = null;
+    var height = Convert.ToInt32(ViewBag.Height);
+    var discussList = ViewBag.DiscussList as List<DiscussModel>;
+    var userId = Convert.ToInt32(ViewBag.UserId); 
+}
+<script src="~/Scripts/plan/Discuss.js"></script>
+<div term="@userId" id="xxc_userDiscuss" class="commentBox" style="position: absolute; width: 360px; display: none; top: 0px; left: 560px; height:100%; padding: 0 20px;overflow-y:auto;overflow-x:hidden">
+    <span class="checkHeader">评论</span>
+    <div class="commentUpDiv replyDiv" style="display: block">
+
+        <img class="portraitComment" src="@ViewBag.UserImg" width="32" height="32" />
+        <textarea maxlength="100"></textarea>
+        <div class="replyHandle">
+            <span style="margin-left: 10px;" id="xxc_suggestion">评论</span>
+            <span style="display:none">附件</span>
+        </div>
+    </div>
+    <ul class="commentList">
+        @if (discussList.Count() > 0)
+        {
+            foreach (var item in discussList)
+            {
+            <li class="commentDiv" term="@item.suggestionId">
+                <img class="portraitComment" src="@item.img" width="32" height="32" />
+                <div class="discuss">
+                    @if (item.replyUserName == "")
+                    {
+                        <span term="@item.createUser" style="color: #58b456">@(item.createUserName)：</span>
+                    }
+                    else
+                    {
+                        <span term="@item.createUser" style="color: #58b456">@(item.createUserName)</span><span>回复</span><span style="color: #58b456">@(item.replyUserName)：</span>
+                    }
+                    <span class="discussCon">@item.suggestion</span>
+                </div>
+                <div class="botComent">
+                    <span class="time">@(item.createTime.ToString("yyyy-MM-dd HH:mm"))</span>
+                    <span class="reply">回复</span>
+                    @if (@item.createUser==userId)
+                    {
+                        <span class="delete">删除</span>
+                    }
+                </div>
+                <div class="replyDiv">
+                    <img class="portraitComment" src="@ViewBag.UserImg" width="32" height="32" />
+                    <textarea maxlength="100">回复@(item.createUserName)：</textarea>
+                    <div class="replyHandle">
+                        <span class="xxc_discuss" style="margin-left: 10px;">评论</span>
+                        <span style="display:none">附件</span>
+                    </div>
+                </div>
+            </li>
+            }
+
+        }
+    </ul>
+</div>
+<input type="hidden" id="discussheight" value="@height" />

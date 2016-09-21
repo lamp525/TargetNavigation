@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Roles>
+  <Controller name="Login">
+    <Action name="Login"></Action>
+    <Action name="UserLogin"></Action>
+  </Controller>
+  <Controller name="DocumentManagement">
+    <Action name="DocumentManagement">Admin</Action>
+    <Action name="GetLogList">Admin</Action>
+    <Action name="GetCompanyDocumentList">Admin</Action>
+    <Action name="GetAuthorityList">Admin</Action>
+    <Action name="SetAuthority">Admin</Action>
+    <Action name="GetOrgInfoById">Admin</Action>
+    <Action name="GetStationInfoById">Admin</Action>
+    <Action name="GetLastFiveCreateUser">Admin</Action>
+    <Action name="DeleteFlagDocument">Admin</Action>
+    <Action name="GetCompanyDocumenLogList">Admin</Action>
+    <Action name="Download">Admin</Action>
+    <Action name="MultiDownload">Admin</Action>
+  </Controller>
+</Roles>

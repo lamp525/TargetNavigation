@@ -1,0 +1,845 @@
+/*内容*/
+/*左边 发布、分类、添加新闻通知 开始*/
+ /*.main{*/
+    /*float: left;*/
+    /*width: 860px;*/
+    /*height:719px;*/
+    /*background-color: #ffffff;*/
+/*}*/
+/*发布管理*/
+ .title{
+     margin-bottom: 0px;
+     border-color:#ffffff;
+     height:34px;
+     padding-top:0px;
+   
+}
+.titleUl{
+    border-bottom: none;
+}
+/*.nav-tabs li{*/
+    /*float:left;*/
+    /*width: auto;*/
+    /*height: 34px;*/
+    /*line-height: 34px;*/
+    /*margin-left:10px;*/
+    /*font-size: 14px;*/
+    /*cursor: pointer;*/
+    /*margin-right:10px;}*/
+.NewsM{
+    width:860px;
+}
+.add{
+    background: url(../../Images/common/add.png) no-repeat;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    float:right;
+}
+.add:hover{
+    background: url(../../Images/common/addHit.png) no-repeat;
+}
+.addHit{
+    background: url(../../Images/common/addHit.png) no-repeat;
+}
+.nav-right>ul>li{
+    display: inline-block;
+}
+.nav-right>ul{
+    margin-bottom: 5px;
+}
+.Micon{
+    float: left;
+    margin: 0px 10px 10px 2px;
+}
+.Micon>ul>.newsicon{
+    width: 20px;
+    height: 19px;
+    margin: 5px;
+}
+.Micon span{
+    height: 19px;
+    margin-right: 5px;
+    display: inline-block;
+    vertical-align: top;
+}
+.News span,.Notice span{
+    width:20px;
+    margin-bottom: 10px;
+}
+.News a {
+    color:#6AB674;
+}
+.Newsdir span,.Noticedir span{
+    width:20px;
+    margin-bottom: 10px;
+}
+.Newsdir a {
+    color:#6AB674;
+}
+.newsicon{
+    background:url("../../Images/newsmanagement/newsicon.png") no-repeat ;
+}
+.newsicon:hover{
+    background:url("../../Images/newsmanagement/newsiconHit.png") no-repeat ;
+}
+.newsiconHit{
+    background:url("../../Images/newsmanagement/newsiconHit.png") no-repeat ;
+}
+.noticeicon{
+    background:url("../../Images/newsmanagement/noticeicon.png") no-repeat ;
+}
+.noticeicon:hover{
+    background:url("../../Images/newsmanagement/noticeiconHit.png") no-repeat ;
+}
+.noticeiconHit{
+    background:url("../../Images/newsmanagement/noticeiconHit.png") no-repeat ;
+}
+.newsclass li{
+    width:100px;
+}
+.dirclass li{
+    width:100px;
+    text-align: -webkit-center;
+}
+.sOne a{
+    margin-right: 20px;
+}
+.pager span{
+    width: 28px;
+    height: 30px;
+    display: inline-block;
+    vertical-align: top;
+}
+.pages{
+    float:right;
+    margin-top:10px;
+    width:400px;
+}
+.current{
+    width:50px;
+    height:28px;
+    margin:0px 5px 0px 5px;
+    text-align:center;
+}
+.prevP{
+    background: url("../../Images/newsmanagement/pgup.png") no-repeat;
+    margin-left:5px;
+}
+.prevPHit {
+     background: url("../../Images/newsmanagement/pgup_hit.png") no-repeat;
+    margin-left:5px;
+}
+.nextP{
+    background: url("../../Images/newsmanagement/pgdn.png") no-repeat;
+    margin-left:-10px;
+}
+.nextPHit{
+    background: url("../../Images/newsmanagement/pgdn_hit.png") no-repeat;
+    margin-left:-10px;
+}
+.newslist tr:first-child{
+    color:#c3c3c3;
+    border-bottom: 2px solid rgb(231, 226, 226);
+}
+.newslist tr{
+    border-bottom: 1px solid rgb(231, 226, 226);
+}
+.line-close {
+    background:url("../../Images/newsmanagement/line-close.png") no-repeat;
+    display:inline-block;
+    width:15px;
+    height:15px;
+}
+.line-down {
+     display:inline-block;
+    width:15px;
+    height:15px;
+    background:url("../../Images/newsmanagement/line-down.png") no-repeat;
+}
+/*发布管理 结束*/
+/*类别管理*/
+.del{
+    background: url("../../Images/newsmanagement/del.png");
+    display: inline-block;
+    width: 24px;
+    height:24px;
+    cursor: pointer;
+}
+.adddir{
+    background: url(../../Images/common/add.png) no-repeat;
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+}
+.adddir:hover{
+    background: url(../../Images/common/addHit.png) no-repeat;
+}
+.column{
+    width:100%;
+}
+.column tr:first-child{
+    color:#c3c3c3;
+    border-bottom: 2px solid rgb(231, 226, 226);
+}
+.dir_width{
+    width: 860px;
+}
+.edit:before{
+content:"修改";
+    width:20px;
+    float:right;
+}
+.ztree .button.edit{
+    background-image: none;
+    float:right;
+    line-height: 19px;
+    margin-left:19px;
+}
+#model_catalogue .level0 {
+  width:15px;
+}
+#model_catalogue>.level0 li a{
+    width:auto;
+}
+li.level1 li a{
+    width:743px;
+}
+li.level2 li a {
+    width:745px;
+}
+.level0{
+    width:777px;
+}
+li.level1 a {
+    width:760px;
+}
+.ztree{
+    width:100%;
+}
+#catalogues>li{
+    border-bottom: 1px solid rgb(231, 226, 226);
+    width:100%;
+    padding:5px 0px;
+}
+.remove:before{
+    content:"删除";
+}
+.ztree .button.remove{
+    background-image: none;
+    float:right;
+    line-height: 19px;
+    padding-right:20px;
+}
+.ztree .button{
+    margin-right:10px;
+}
+/*添加新闻*/
+#addnews{
+    width:870px;
+    float:left;
+}
+.cover{
+   width:870px;
+    margin-bottom: 10px;
+}
+.cover [type="text"]{
+    width:820px;
+    height:45px;
+}
+.cover [type="button"]{
+    height:45px;
+}
+#txtContent{
+    overflow: scroll;
+    width: 870px;
+    height: 200px;
+    margin-left:-5px;
+}
+li.dropdown.typeN{
+    border: 1px solid #dddddd;
+    height: 30px;
+    padding: 4px 0px 4px 10px;
+    margin-left:5px;
+    width:100px;
+    position:relative;
+}
+.btnno{
+    height:30px;
+      width: 100%;
+  text-align: center;
+  float:right;
+  cursor:pointer;
+}
+.keyword{
+    float:right;
+    margin:3px 8px 0px 0px;
+}
+.keyword [type="text"]{
+    width:300px;
+}
+.typekey{
+    margin-top: 5px;
+
+}
+.discrip{
+width:840px;
+}
+.panel-footer-userdefined{
+    background-color: #f5f5f5;
+}
+.btn-width{
+    width: 100%;
+    height: 32px;
+    background-color:rgba(249, 245, 245, 0) ;
+}
+.btn-transparency{
+    background-color:white;
+    border-color: #ccc;
+}
+.setting li{
+    float:right;
+}
+.setting li:first-child{
+    float: left;
+}
+.newdir{
+    height:300px;
+}
+.input-file, .input-doc {
+    height: 40px;
+    margin: 3px 0px 10px 0px;
+    position: relative;
+}
+span.group-laber {
+    height: 33px;
+    width: 13%;
+    line-height: 33px;
+    float: left;
+    margin-right: 5px;
+}
+#input_filename.form-control {
+    width: 60%;
+}
+#input_filedes.form-control {
+    width: 60%;
+    height: 50px;
+}
+.clickTop{
+    width:35px;
+    color:#ffffff;
+    background-color: #ff0000;
+    text-align:center;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    float:right;
+}
+.gray {
+     width:35px;
+    color:#ffffff;
+    background-color: #ccc;
+    text-align:center;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    float:right;
+}
+/* this CSS is not part of the widget, it is here just as an example of the demo page styling.... Don't copy this one, roll your own. One
+ * of the key things about the widget is that it allows you to do your own styling!
+ */
+#pictureBtn {
+width:35px;
+height:30px;
+}
+#editor {
+    min-height:300px;
+    height: 380px;
+    width:840px;
+    background-color: white;
+    border-collapse: separate;
+    border: 1px solid rgb(204, 204, 204);
+    padding: 4px;
+    box-sizing: content-box;
+    -webkit-box-shadow: rgba(0, 0, 0, 0.0745098) 0px 1px 1px 0px inset;
+    box-shadow: rgba(0, 0, 0, 0.0745098) 0px 1px 1px 0px inset;
+    border-top-right-radius: 3px; border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px; border-top-left-radius: 3px;
+    overflow: scroll;
+    outline: none;
+}
+#voiceBtn {
+    width: 20px;
+    color: transparent;
+    background-color: transparent;
+    transform: scale(2.0, 2.0);
+    -webkit-transform: scale(2.0, 2.0);
+    -moz-transform: scale(2.0, 2.0);
+    border: transparent;
+    cursor: pointer;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+}
+
+div[data-role="editor-toolbar"] {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.dropdown-menu a {
+    cursor: pointer;
+}
+.addborder{
+    border: 1px solid #dddddd;
+    width: 80px;
+    height: 33px;
+    padding-left: 10px;
+    padding-top: 5px;
+    text-align: center;
+}
+.authy-dropdown{
+    min-width: 0px;
+}
+.nenodir {
+      position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1000;
+  display: none;
+  float: left;
+  padding: 5px 0;
+  margin: 2px 0 0;
+  list-style: none;
+  font-size: 12px;
+  text-align: left;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border: 1px solid rgba(0,0,0,0.15);
+  border-radius: 0;
+  -webkit-box-shadow: 0 6px 12px rgba(0,0,0,0.175);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.175);
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+}
+.nenodir li {
+    width:100%;
+}
+.nenodir li a{
+    width:100%;
+}
+#ztree_dir ul{
+    width:100%;
+}
+/*添加新闻 结束*/
+/*右边 新闻、通知分类 开始*/
+.col-xs-3 .mine{
+    float: left;
+    width: 330px;
+    height:719px;
+    border:1px solid #bbb;
+}
+.col-xs-3 .mine span{
+    display: inline-block;
+    width:15px;
+    height: 15px;
+}
+/*.arrowDown{*/
+    /*background:url("../../Images/Common/arrowSolidB.png");*/
+
+/*}*/
+/*.arrowDown:active{*/
+    /*background:url("../../Images/common/arrowSolidBHit.png");*/
+/*}*/
+.directory-set{
+    font-size: 14px;
+}
+/*预览*/
+.newDetail {
+    	margin:30px auto;
+		width: 800px;
+        height:100%;
+		min-height:750px;
+		padding: 10px 10px;
+}
+.newDetail .newArea {
+    width: 100%;
+	height: auto;
+}
+.newDetail .newArea .newTitleArea{
+		text-align: center;
+		width: 100%;
+		height:90px;
+	}
+.newDetail .newArea .newTitleArea span{
+	font-size: 12px;
+	display: inline-block;
+
+}
+.newDetail .newArea .newTitleArea span.newTitle{
+	font-size: 17px;
+	display: block;
+	margin-bottom: 20px;
+}
+.newDetail .newArea .newTitleArea span.newDate{
+	margin-right: 10px;
+}
+.newDetail .newArea .newTitleArea span.newAuthor{
+	margin-right: 106px;
+}
+.newDetailDisplay{
+	width: 100%;
+	height:450px;
+	margin-bottom: 30px;
+    text-align:left;
+}
+.newTitleArea ul {
+    list-style:none;
+    width:100%;
+}
+.newTitleArea ul li {
+    float:left;
+    width:100%;
+    margin-bottom:20px;
+}
+/*图片模态框样式*/
+#modal-titlephoto .modalbody{
+    height: auto;
+    border-top: 1px solid #ddd;
+}
+.choosephoto{
+    color: #ffffff;
+    background-color: #f7ac1b;
+    width: 100px;
+    height: 35px;
+}
+#modal-titlephoto .col-xs-3{
+    width: 17%;
+    height: 72px;
+    margin-right: 3px;
+    margin-bottom: 10px;
+    margin-bottom: 10px;
+}
+#modal-titlephoto .photochoose{
+margin-top: 40px;
+height:550px;
+overflow:auto;
+}
+/*-图片及hover效果设置*/
+#modal-titlephoto img{
+    width: 100%;
+    height: 100%;
+}
+#modal-titlephoto ul, li {
+    margin: 0px;
+    padding: 0px;
+    list-style-type: none;
+}
+#modal-titlephoto .operate {
+    display: none;
+    position: relative;
+    top: -40px;
+    right: 0;
+    z-index: 1;
+    float: left;
+    width: 100%;
+    height: 40px;
+}
+
+#modal-titlephoto .operate .operateDiv {
+    position: absolute;
+    top: 0px;
+    right: 0;
+    float: left;
+    width: 100%;
+    height: 40px;
+}
+#modal-titlephoto .operateDiv .operateBg {
+    position:absolute;
+    float:left;
+    width: 100%;
+    height:40px;
+    background: #606060;
+    filter:alpha(opacity=80); /*IE滤镜，透明度50%*/
+    -moz-opacity:0.8; /*Firefox私有，透明度50%*/
+    opacity:0.5;/*其他，透明度50%*/
+}
+#modal-titlephoto .operateDiv .operateText {
+    position: absolute;
+    float: left;
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    color: #fff;
+}
+#modal-titlephoto .operateDiv .operateText ul {
+    width: 96%;
+    height: 40px;
+    margin: 0 2%;
+    overflow: hidden;
+}
+#modal-titlephoto .operateDiv .operateText ul li {
+    float: right;
+    height: 24px;
+    line-height: 24px;
+    margin: 8px 3px;
+    padding-left: 24px;
+    cursor: pointer;
+}
+#modal-titlephoto .operateText .checks {
+    background:url("") no-repeat;
+}
+#modal-titlephoto .operateText .delete {
+    padding-left:30px;
+    background:url(../../Images/plan/deleteWhite.png) no-repeat;
+}
+#modal-titlephoto .operateText .delete:hover {
+    color:#136012;
+    background:url(../../Images/plan/delete.png) no-repeat;
+}
+#modal-titlephoto .operateText .checks {
+    padding-left:30px;
+    background:url(../../Images/common/preview.png) no-repeat;
+}
+#modal-titlephoto .operateText .checks:hover {
+    color:#136012;
+    background:url(../../Images/common/preview_hit.png) no-repeat;
+}
+/*上传图片*/
+.fileinput-button {
+    position: absolute;
+    top: 45px;
+    left: 25px;
+    overflow: hidden;
+    width: 70px;
+    height: 32px;
+    text-align: center;
+    line-height: 32px;
+    padding: 0;
+    margin: 0;
+    float: right;
+    right: 350px;
+}
+.fileinput-button .fileinput-button_l,
+.fileinput-button .fileinput-button_r{
+    position: absolute;
+    width: 4px;
+    height: 32px;
+    top:0;
+}
+.fileinput-button .fileinput-button_r{
+     right:0;
+
+ }
+.fileinput-button input {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    height: 30px;
+    opacity: 0;
+    direction: ltr;
+    cursor: pointer;
+}
+.files{
+    padding:1px 0;
+
+    width: 100%;
+    max-height:80px;
+    height:auto;
+    overflow:auto;
+}
+.files li{
+    width:100%;
+    height:40px;
+    vertical-align: bottom;
+    margin:2px 0;
+    position: relative;
+}
+.files li.uploaded{
+    height:25px;
+}
+.files li .file{
+    display: block;
+    position: absolute;
+    bottom: 5px;
+    left:3px;
+    margin-top: -20px;
+}
+.file span{
+    display: none;
+    cursor: pointer;
+}
+.files .up_progress{
+    position: absolute;
+    top:2px;
+    height:10px;
+    border:1px solid #ccc;
+    border-radius: 5px;
+    background: #58b557;
+}
+/*选择框 开始*/
+.col-xs-3 .choose
+{
+    position:absolute;
+    top: 0px;
+    right: 5px;
+    z-index: 2;
+    display: none;
+    width: 30px;
+    height: 30px;
+    background: #dadada;
+    cursor: pointer;
+}
+
+.col-xs-3 .choose.chooseHit
+{
+    border-left: 1px solid #bababa;
+    border-bottom: 1px solid #bababa;
+}
+
+.col-xs-3 .choose span
+{
+    position: relative;
+    top: 3px;
+    left: 3px;
+    display: block;
+    width: 24px;
+    height: 24px;
+    background: url(../../Images/plan/choose.png) no-repeat;
+}
+
+.col-xs-3 .choose span.spanHit
+{
+    background: url(../../Images/plan/chooseHit.png) no-repeat;
+}
+
+.col-xs-3 .prohibit
+{
+    position: relative;
+    top: -20px;
+    right: -384px;
+    z-index: 2;
+    width: 28px;
+    height: 28px;
+    background: url(../../Images/plan/prohibit.png) no-repeat;
+}
+
+.documents {
+    min-height:625px;
+}
+
+.documents  .col-xs-3 .choose,
+.documents .col-xs-3 .prohibit
+{
+    position: absolute;
+    right: 0px;
+    top: 0px;
+}
+.row-docList .col-xs-12 .choose,
+.row-docList .col-xs-12 .prohibit
+{
+    position: absolute;
+    right: 0px;
+    top: 0px;
+}
+
+.col-xs-12 .choose
+{
+    position: relative;
+    top: -80px;
+    z-index: 2;
+    right: -11px;
+    display: none;
+    width: 27px;
+    height: 25px;
+    background: #dadada;
+    cursor: pointer;
+    float:right;
+
+}
+
+.col-xs-12 .choose.chooseHit
+{
+    border-left: 1px solid #bababa;
+    border-bottom: 1px solid #bababa;
+}
+
+.col-xs-12 .choose span
+{
+    position: relative;
+    top: 2px;
+    left: 2px;
+    display: block;
+    width: 24px;
+    height: 24px;
+    display:inline-block;
+    background: url(../../Images/plan/choose.png) no-repeat;
+}
+
+.col-xs-12 .choose span.spanHit
+{
+    background: url(../../Images/plan/chooseHit.png) no-repeat;
+}
+
+.col-xs-12 .prohibit
+{
+    position: relative;
+    top: -20px;
+    right: -384px;
+    z-index: 2;
+    width: 28px;
+    height: 28px;
+    background: url(../../Images/plan/prohibit.png) no-repeat;
+}
+
+
+
+.row-docList  .col-xs-12 .choose,
+.row-docList .col-xs-12 .prohibit
+{
+    position: absolute;
+    right: 0px;
+    top: 0px;
+}
+/* 选择框 结束 */
+
+
+.dirUl{
+  position:absolute;
+  left:68px;
+  border:1px solid #ccc;
+  border-top:0px;
+  top:33px;
+  padding-left:0px;
+  width: 317px;
+  margin-left: 6px;
+  display: block;
+  overflow: auto;
+  height: 200px;
+
+}
+.closepic {
+    position:absolute;
+    background:url(../../Images/common/closeW.png) no-repeat;
+    display:block;
+    width:24px;
+    height:24px;
+    cursor:pointer;
+}
+#photoviewModal ul {
+    list-style:none;
+}
+#photoviewModal ul li {
+    float:left;
+    }
+.closeview {
+     position:absolute;
+     right:-24px;
+     top:0px;
+    background:url(../../Images/common/closeW.png) no-repeat;
+    display:block;
+    width:24px;
+    height:24px;
+    cursor:pointer;
+}

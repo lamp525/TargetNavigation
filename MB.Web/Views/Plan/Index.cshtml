@@ -1,0 +1,656 @@
+﻿@using MB.Model
+@{
+    //ViewBag.Title = "Index";
+    //Layout = "~/Views/ModelView/ModelView.cshtml";
+    var personList = ViewBag.PersonList as List<UserInfo>;
+    var userthis = ViewBag.UserInfo as UserInfo;
+    var operate = Convert.ToInt32(ViewBag.OperateId);
+}
+<!-- 饼图百分比 -->
+
+<link href="~/Libs/jqplot/css/jquery.jqplot.min.css" rel="stylesheet" />
+
+<link href="../../Styles/common/common-before-bs.css" rel="stylesheet" />
+<link href="../../Styles/plan/plan.css" rel="stylesheet" />
+
+@*<script type="text/javascript">
+    $(document).ready(function () {
+        fnNav(0);
+    });
+
+
+
+</script>*@
+<!-- 内容 开始 -->
+<!-- 左边 开始 -->
+<div class="container-before-bootstrap clearfix">
+    <div class="conL">
+        <!-- 筛选框 开始 -->
+        <div class="filterBox">
+            <div class="selected">
+                <span class="condition">已选条件：</span>
+                <div class="conditionDiv">
+                    <ul>
+                    </ul>
+                </div>
+                @*<span id="xxc_confirm" class="handle confirm" style="float: right;">确定</span>*@
+                <span class="handle empty" style="float: right;">清空</span>
+            </div>
+            <div class="specific">
+                <!-- 快捷 开始 -->
+                <ul class="shortcut">
+                    <li style="cursor: auto;">快捷：</li>
+                    <li><span class="SCShortcut" term="1" style="margin-left: 4px;">今日未完成</span></li>
+                    <li><span class="SCShortcut" term="2">超时计划</span></li>
+                </ul>
+                <!-- 快捷 结束 -->
+                <!-- 状态 开始 -->
+                <ul class="state">
+                    <li style="cursor: auto;">状态：</li>
+                    <li><span term="0" term2="15" stop="0" style="margin-left: 4px;">待提交</span></li>
+                    <li><span term="10" term2="25" stop="10">待审核</span></li>
+                    <li><span term="20" term2="40" stop="0">已审核</span></li>
+                    <li><span term="30" stop="0">待确认</span></li>
+                    <li><span term="90" stop="0">已完成</span></li>
+                    <li><span stop="90">已中止</span></li>
+                </ul>
+                <!-- 状态 结束 -->
+                <!-- 时间 开始 -->
+                <ul class="time">
+                    <li>时间：</li>
+                    <li><span class="timeHover" term="1" style="margin-left: 4px;">近一周</span></li>
+                    <li><span class="timeHover" term="2">近一月</span></li>
+                    <li style="margin-left: 10px;">
+                        <span>开始日：</span>
+                        <span class="laydate-icon" id="start" style=""></span>
+                        <span style="margin: 0 5px; font-size: 16px;">-</span>
+                        <span style="margin-left: 0;">结束日：</span>
+                        <span class="laydate-icon" id="end" style=""></span>
+                        <span class="handle" term="0">确定</span>
+                    </li>
+                </ul>
+                <!-- 时间 结束 -->
+                <!-- 人员 开始 -->
+                <ul class="personnel">
+                    <li>人员：</li>
+                    @if (personList.Count() > 0)
+                    {
+                        foreach (var user in personList)
+                        {
+                            if (personList.IndexOf(user) == 0)
+                            {
+                        <li><span term="@user.id" style="margin-left: 4px;">@user.name</span></li>
+                            }
+                            else
+                            {
+                        <li><span term="@user.id">@user.name</span></li>
+                            }
+
+                        }
+                    }
+                    <li>
+                        <span style="position: relative" class="select_person">
+                            <input id="select_confirmUser" class="emptyInput" readonly placeholder="选择人员" style="height:22px;" />
+                        </span>
+                    </li>
+                </ul>
+                <!-- 人员 结束 -->
+                <!-- 部门分类 开始 -->
+                <ul class="sectProMain">
+                    <li>部门分类：</li>
+                    <li class="noInput" style="margin-left: 4px;">
+                        <div class="sectPro">
+                        </div>
+                    </li>
+                    <li style="float: right;">
+                        <span class="SPMArrowsBB"></span>
+                    </li>
+                </ul>
+                <!-- 部门分类 结束 -->
+                <!-- 项目分类 开始 -->
+                <ul class="sectProMain">
+                    <li>项目分类：</li>
+                    <li class="noInput" style="margin-left: 4px;">
+                        <div class="sectPro">
+                        </div>
+                    </li>
+                    <li style="float: right;">
+                        <span class="SPMArrowsBB"></span>
+                    </li>
+                </ul>
+                <!-- 项目分类 结束 -->
+                <!-- 更多选项 开始 -->
+                <ul class="moreOpt">
+                    <li>
+                        <div>
+                            <span>更多选项（部门，项目）</span>
+                            <span class="arrowsBBBCom"></span>
+                        </div>
+                        <div style="display: none; width: 150px; margin-left: 5px;">
+                            <span>看完了，点我收起来吧</span>
+                            <span class="arrowsBBTCom"></span>
+                        </div>
+                    </li>
+                </ul>
+                <!-- 更多选项 结束 -->
+            </div>
+        </div>
+        <!-- 筛选框 结束 -->
+
+        <!-- 左边内容 开始 -->
+        <div class="conLMain">
+            <!-- 我的计划+下属计划 开始 -->
+            <div class="mySubPlan">
+                <ul>
+                    <li><span class="mySubPlanHit" term="0">我的计划</span></li>
+                    <li><span class="mySubPlanNot" term="1">下属计划</span></li>
+                </ul>
+            </div>
+            <!-- 我的计划+下属计划 结束 -->
+            <!-- 归类到计划 开始 -->
+            <div class="popUp" id="sortPlan" style="display: none;">
+                <div class="title">
+                    归类
+                </div>
+                <span class="closeWCom" style="z-index: 999"></span>
+                <div class="selected" style="overflow-y: auto;">
+                    <span class="condition">已选计划：</span>
+                    <div class="conditionDiv">
+                        <ul>
+                        </ul>
+                    </div>
+                </div>
+                <div class="sortTo">
+                    <span class="titles">归类到</span>
+                    <div class="sortToDiv">
+                        <input id="STInput" type="text" placeholder="事项输出结果" />
+                        <span class="search"></span>
+                        <span class="arrowsBBB"></span>
+                        <div class="arrowsBBBDiv">
+                            <ul>
+                            </ul>
+                        </div>
+                        <div class="childPlanDiv">
+                            <span class="CPHead">结果显示：</span>
+                            <ul class="output">
+                            </ul>
+                            <ul class="dutyPer">
+                            </ul>
+                            <ul class="finTime">
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="canCon">
+                    <span style="width: 279px; border-right: 1px solid #bbb;">取消</span>
+                    <span>确定</span>
+                </div>
+            </div>
+            <!-- 归类到计划 结束 -->
+
+            <!-- 条条 开始 -->
+            <div class="head">
+                <div id="xxc_order" class="headL">
+                    <span class="spanHit xxc_changeorder" term="8" direct="1" onclick="GetListAfterOrder(this)" style="margin-left: 12px;">默认
+                    </span>
+
+                    <span class="xxc_changeorder" term="2" direct="0">重要度
+                    <div class="arrows">
+                        <span class="arrowSolidTCom"></span>
+                        <span class="arrowSolidBCom"></span>
+                    </div>
+                    </span>
+                    <span class="xxc_changeorder" term="3" direct="0">紧急度
+                    <div class="arrows">
+                        <span class="arrowSolidTCom"></span>
+                        <span class="arrowSolidBCom"></span>
+                    </div>
+                    </span>
+                    <span class="xxc_changeorder" term="6" direct="0">时间
+                    <div class="arrows">
+                        <span class="arrowSolidTCom"></span>
+                        <span class="arrowSolidBCom"></span>
+                    </div>
+                    </span>
+                    <span class="cusSort">自定义排序</span>
+                    <span class="moreBg" term="1"></span>
+                    <span class="moreCancel">取消</span>
+                </div>
+                <div class="headR">
+                    <span class="screen">筛选</span>
+                    <div class="more">
+                        更多
+                <span class="arrowsBBB"></span>
+                        <div class="arrowsBBBDiv">
+                            <ul>
+                                <li><a href="#">全部导出</a></li>
+                                <li class="line"></li>
+                                <li><a href="#">导出</a></li>
+                                <li class="line"></li>
+                                <li><a href="#">归类</a></li>
+                                <li class="line"></li>
+                                <li id="xxc_submit"><a href="#">提交</a></li>
+                                <li class="line"></li>
+                                <li id="xxc_examine" style="display: none"><a href="#">审批</a></li>
+                                <li class="line"></li>
+                                <li id="xxc_del"><a href="#">删除</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <span class="showMode chunk hit" style="margin-left: 5px"></span>
+                    <span class="showMode list"></span>
+                </div>
+            </div>
+            <!-- 条条 结束 -->
+
+            <!-- 中间计划 开始 -->
+            <!-- 中间计划 开始 -->
+            <div id="xxc_planList" class="planList">
+            </div>
+            <!-- 中间计划 结束 -->
+            <!-- 中间计划 结束 -->
+        </div>
+        <!-- 左边内容 结束 -->
+
+
+        <!-- 刷新，全部显示 开始 -->
+        <div class="bottom">
+
+            <div class="botNone" style="position: relative;">
+                <span id="pagemessage"></span>
+                <div style="position: absolute; right: 0; top: 0;">当前<span id="num_currentPage"></span>条 共<span id="num_pageCount"></span>条</div>
+            </div>
+            <div class="refresh"></div>
+        </div>
+        <!-- 刷新，全部显示 结束 -->
+    </div>
+    <!-- 左边 结束 -->
+
+
+
+    <!-- 右边 开始 -->
+    <div class="conR">
+        <div class="addPlan">新建计划</div>
+       @Html.Partial("~/Views/Shared/_UserInfo.cshtml")
+
+        <div class="process">
+            <span class="title">计划进程</span>
+
+            <div class="chart">
+                <div id="chart3"></div>
+                <div class="planNum">计划<span style="color: #58b456"></span>项</div>
+                <div class="month">
+                    <span style="width: 23px" class="arrowsBBLCom"></span>
+                    <span class="text"></span>
+                    <span style="width: 23px; display: none" class="arrowsBBRCom"></span>
+                </div>
+            </div>
+
+            <div class="sign">
+            </div>
+            <a href="#" class="topCom"></a>
+        </div>
+    </div>
+
+    <!-- 右边 结束 -->
+    <!-- 内容 结束 -->
+
+
+
+
+
+    <!-- 弹窗 开始 -->
+    <!-- 排序 开始 -->
+    <div class="popUp sort" style="display: none;">
+        <div class="title">
+            排序
+            
+        </div>
+        <span class="closeWCom"></span>
+        <div class="sortCon">
+            <span class="tit">添加按以下方式排序的级别</span>
+            <div class="sortTab">
+                <table border="0" cellpadding="0" cellspacing="0">
+                    <tr class="sortTabHeader">
+                        <td width="80"></td>
+                        <td>| 标题</td>
+                        <td>| 次序</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="sortBot">
+                <span>+</span>
+                <span style="width: 29px; border-left: 0;">-</span>
+            </div>
+        </div>
+        <div class="canCon">
+            <span style="width: 279px; border-right: 1px solid #bbb;">取消</span>
+            <span id="xxc_sortsure">确定</span>
+        </div>
+    </div>
+    <!-- 排序 结束 -->
+
+   
+  
+    <!-- 转办计划 开始 -->
+    <div class="popUp layer_Transmitplan" style="display: none">
+        <div class="title">
+            <a hrefto="#con_decplan">转办计划</a>
+        </div>
+        <span class="closeWCom" style="z-index: 999"></span>
+        <div class="mainContent" style="">
+            <div class="transmitplan_selectP">
+                <ul class="selectUl">
+                    <li class="selectUser selectUser_marginL" style="width: 50%">
+                        <span class="optionCell" style="margin-left: 75px">
+                            <em class="icon transmitplan_icon" style="background: url('../../Images/plan/responsibleUser.png') no-repeat"></em>
+                            <span style="position: relative">
+                                <input class="emptyInput" readonly id="transmitplan_responsibleUser" placeholder="选择责任人" />
+                            </span>
+                        </span>
+                    </li>
+                    <li class="selectUser">
+                        <span class="optionCell" style="margin-left: 75px">
+                            <em class="icon transmitplan_icon" style="background: url('../../Images/plan/confirmUser.png') no-repeat"></em>
+                            <span style="position: relative">
+                                <input class="emptyInput" readonly id="transmitplan_confirmUser" placeholder="请选择确认人" />
+                            </span>
+                        </span>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+        <div class="canCon">
+            <span id="addplan_cancel" style="width: 50%; border-right: 1px solid #bbb;">取消</span>
+            <span id="xxc_makesure" style="width: 49.8%;">确定</span>
+        </div>
+    </div>
+    <!-- 转办计划 结束 -->
+
+    <!-- 审核 开始 -->
+    <!-- 审核 结束 -->
+
+    <!-- 提交确认 开始 -->
+    <!-- 提交确认 结束 -->
+
+    <!-- 确认 开始 -->
+    <!-- 确认 结束 -->
+
+    <!-- 分解计划 开始 -->
+    <div class="layer_decplan" style="display: none; position: relative">
+        <div class="popUp">
+            <div class="title">
+                <a hrefto="#con_decplan">分解计划</a>
+            </div>
+            <span class="closeWCom" style="z-index: 999"></span>
+            <div class="mainContent" style="min-height: 500px;">
+
+                <div class="runMode">
+                    <ul class="runModeUl">
+                        <li class="runModeUlLi runModeUlLi_marginl fenjie_import">
+                            <span style="float: left;">重要度：</span>
+                            <div class="stars starsR">
+                                <ul class="decplanImportant">
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="runModeUlLi runModeUlLi_marginl fenjie_urg">
+                            <span style="float: left;">紧急度：</span>
+                            <div class="stars starsY">
+                                <ul class="decplanEmergency">
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="runModeUlLi fenjie_dif">
+                            <span style="float: left;">难易度：</span>
+                            <div class="stars starsG">
+                                <ul class="decplanDifficulty">
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="addDecplan">
+                    <span class="decp">分解计划</span>
+                    <span class="addA"></span>
+                    <span class="addB">保存</span>
+                </div>
+                <div class="cla_decplan">
+                    <div class="rowDiv">
+                        <div>
+                            <span>部门分类</span>
+                            <span style="margin-left: 20px; color: #000"
+                                id="decplan_department_v"></span>
+                            <em class="arrowsBBBCom" style="float: right"
+                                id="decplan_department_icon"></em>
+                        </div>
+                        <div id="decplan_department" class="ztree" style="max-height: 100px; overflow: auto; display: none">
+                        </div>
+                    </div>
+                    <hr class="decplan_line" />
+                    <div class="rowDiv">
+                        <div>
+                            <span>项目分类</span>
+                            <span style="margin-left: 20px; color: #000"
+                                id="decplan_project_v"></span>
+                            <em class="arrowsBBBCom" style="float: right"
+                                id="decplan_project_icon"></em>
+                        </div>
+                        <div id="decplan_project" class="ztree" style="max-height: 100px; overflow: auto; display: none">
+                        </div>
+                    </div>
+                    <hr style="border: none; border-bottom: solid #e3e3e3 1px" />
+                    <div class="rowDiv">
+                        <div>
+                            <select id="decplan_runmode" class="xxc_runmode" style="width: 150px; height: 30px; line-height: 30px; border: 1px solid #e0e0e0">
+                                <option value="" disabled selected style="display: none;">执行方式</option>
+                            </select>
+                            <input id="fenjie_eventoutput" type="text" placeholder="事项输出结果" style="height: 28px; width: 350px; line-height: 28px; margin-left: 10px; padding: 0; border: 1px solid #e0e0e0" />
+                        </div>
+                    </div>
+                    <div class="rowDiv">
+                        <div class="decplan_selectP">
+                            <span class="optionCell">
+                                <em class="icon decplan_icon" style="background: url('../../Images/plan/responsibleUser.png') no-repeat"></em>
+                                <span style="position: relative">
+                                    <input class="emptyInput" readonly id="decplan_responsibleUser" placeholder="请选择责任人" />
+                                </span>
+                            </span>
+                            <span class="optionCell"><em class="icon" style="padding: 12px; background: url('../../Images/plan/confirmUser.png') no-repeat"></em>
+                                <span style="position: relative">
+                                    <input class="emptyInput" readonly id="decplan_confirmUser" placeholder="选择确认人" />
+                                </span>
+                            </span>
+                            <span class="optionCell" id="decplan_endtime"><em
+                                class="icon decplan_icon" style="background: url('../../Images/plan/completeDate.png') no-repeat"></em>
+                                <input class="emptyInput" id="decplan_endtime_v" placeholder="选择完成日期" /></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="decplanDone">
+                    <ul class="decplanList">
+                    </ul>
+
+                </div>
+            </div>
+            <div class="canCon">
+                <span id="fenjie_cancel" style="width: 50%; border-right: 1px solid #bbb;">取消</span>
+                <span id="fenjie_sure" style="width: 49.8%;">确定</span>
+            </div>
+        </div>
+    </div>
+    <!-- 分解计划 结束 -->
+
+    <!--计划详情  开始-->
+    <div id="layer_details" class="checksPopUp confirmPopUp affirmPopUp" style="display: none; position: relative">
+        <div class="popUp">
+            <div class="title">
+                <div class="drapdiv" style="position: absolute; left: 0px; height: 30px; width: 100%; z-index: 998"></div>
+                <a href="#" style="z-index: 999; position: relative">计划详情</a>
+            </div>
+            <span class="closeWCom" style="z-index: 999"></span>
+            <div class="content">
+                <div class="mainContent" style="min-height: 600px; position: relative;">
+                    <div class="planDetailMask" style="width: 100%; height: 60%; position: absolute; top: 0; left: 0; z-index: 999999; display: none;"></div>
+                    <div class="rowDiv">
+                        <div>
+                            <span>部门分类</span>
+                            <span style="margin-left: 20px; color: #000" id="details_department_v"></span>
+                            <em class="arrowsBBBCom" style="float: right" id="detail_department_icon"></em>
+                        </div>
+
+                        <div id="details_department" class="ztree" style="display: none; overflow-y: auto; max-height: 150px"></div>
+                        <!-- <div class="ztree" style="display: none"></div> -->
+                    </div>
+                    <hr class="line" />
+                    <div class="rowDiv">
+                        <div>
+                            <span>项目分类</span>
+                            <span style="margin-left: 20px; color: #000" id="details_project_v"></span>
+                            <em class="arrowsBBBCom" style="float: right" id="detail_project_icon"></em>
+                        </div>
+                        <div id="details_project" class="ztree" style="display: none; overflow-y: auto; max-height: 150px"></div>
+                        <!-- <div class="ztree" style="display: none"></div> -->
+                    </div>
+                    <hr style="border: none; border-bottom: solid #e3e3e3 1px" />
+                    <div class="rowDiv">
+                        <div style="position:relative">
+                            <select id="detail_runmode" class="xxc_runmode" style="width: 150px; height: 30px; line-height: 30px; border: 1px solid #e0e0e0">
+                                <option value="" disabled selected style="display: none;">执行方式</option>
+                            </select>
+                            <input id="detail_eventoutput" type="text" placeholder="事项输出结果" style="height: 28px; width: 300px; line-height: 28px; margin-left: 10px; padding: 0; border: 1px solid #e0e0e0" />
+                            <div id="detailAccessory" style="position: absolute; right: 10px; top: 10px; z-index: 99999999">
+                                <em class="accessory" title="附件"></em>
+                                <div class="accessoryDiv" style="position: absolute; display: none">
+                                    <span class="labelDivBg" style="width: 100%; height: 100%;"></span>
+                                    <ul>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <span class="optionCell"><em class="icon" style="padding: 12px; background: url('../../Images/plan/recyclePlanAsh.png') no-repeat"></em>
+                                <select id="detail_looptype" style="border: none; color: #a0a0a0">
+                                    <option value="" disabled selected style="display: none">选择循环类型</option>
+                                    <option value="0">无循环</option>
+                                    <option value="1">日循环</option>
+                                    <option value="2">周循环</option>
+                                    <option value="3">月循环</option>
+                                    <option value="4">年循环</option>
+                                </select>
+                            </span>
+                            <span class="optionCell" id="xxx_startime"><em class="icon" style="padding: 12px; background: url('../../Images/plan/recycleDate.png') no-repeat"></em>
+                                <input id="detail_startime" class="emptyInput" placeholder="循环时间" /></span>
+                            <span class="optionCell"><em class="icon" style="padding: 12px; background: url('../../Images/plan/endDate.png') no-repeat"></em>
+                                <input id="detail_endtime" class="emptyInput" placeholder="完成时间" /></span>
+                        </div>
+                        <div>
+                            <span class="optionCell"><em class="icon" style="padding: 12px; background: url('../../Images/plan/responsibleUser.png') no-repeat"></em>
+                                <span style="position: relative">
+                                    <input id="detail_responsibleUser" class="emptyInput" readonly placeholder="选择责任人" />
+                                </span>
+                            </span>
+                            <span class="optionCell"><em class="icon" style="padding: 12px; background: url('../../Images/plan/confirmUser.png') no-repeat"></em>
+                                <span style="position: relative">
+                                    <input id="detail_confirmUser" class="emptyInput" readonly placeholder="选择确认人" />
+                                </span>
+                            </span>
+                            <span class="optionCell" id="xxx_initial"><em class="icon" style="padding: 12px; background: url('../../Images/plan/temporaryPlanAsh.png') no-repeat"></em>
+                                <!--<input class="emptyInput" id="" placeholder="是否临时计划"/>-->
+                                <select id="detail_initial" style="border: none; color: #a0a0a0">
+                                    <option value="" disabled selected style="display: none">是否临时计划</option>
+                                    <option value="0">是</option>
+                                    <option value="1">否</option>
+                                </select>
+                            </span>
+                        </div>
+                    </div>
+                    <hr class="line" />
+                    <div style="display: none">
+                        <div class="rowDiv">
+                            单位完成工时：
+                        <input type="text" style="width: 35px; height: 20px" />
+                            分钟
+                        </div>
+                        <hr class="line" />
+                    </div>
+
+                    <div class="rowDiv">
+                        <div id="detail_partner_div" style="padding: 10px 0; line-height: 28px">
+                            <div style="float: left; width: 20%">协作人</div>
+                            <div style="float: left; width: 79%">
+                                <span class="detail_partner_span" style="position: relative">
+                                    <em id="detail_partner" class="icon add-min hasborder" style="margin: -3px 5px 0px;"></em>
+                                </span>
+                            </div>
+                            <div style="clear: both"></div>
+                        </div>
+                        <div id="detail_front_div" style="padding: 10px 0; line-height: 28px;">
+                            <div style="float: left; width: 20%">前提计划</div>
+                            <div style="float: left; width: 79%">
+                                <span class="detail_front_span" style="position: relative">
+                                    <em id="detail_premise" class="icon add-min hasborder" style="margin: -3px 5px 0px;"></em>
+                                </span>
+                            </div>
+                            <div style="clear: both"></div>
+                        </div>
+                        <div id="detail_label_div" style="padding: 10px 0; line-height: 28px;">
+                            <div style="float: left; width: 20%">标签</div>
+                            <div style="float: left; width: 79%;">
+                                <span class="detail_label_span" style="position: relative;">
+                                    <em id="detail_label" class="icon add-min hasborder" style="margin: -3px 5px 0px;"></em>
+                                </span>
+                            </div>
+                            <div style="clear: both"></div>
+                        </div>
+
+                    </div>
+                    <div class="bound" style="font-size: 14px">
+                        操作日志
+                    </div>
+                    <div class="rowDiv listView" style="height: 200px; overflow-y: auto;">
+                        <!--<ul>-->
+                        <!--<li>-->
+                        <!--<span style="display: inline-block;width: 78%">xxxxxxxxx</span>-->
+                        <!--<span style="display: inline-block;width: 20%">21783612873</span>-->
+                        <!--</li>-->
+                        <!--</ul>-->
+                    </div>
+                </div>
+            </div>
+            <div id="detail_canCon" class="canCon">
+                <span id="detail_span1" class="xxc_operatebtn">取消</span>
+                <span id="detail_span2" class="xxc_operatebtn">评论</span>
+                <span id="detail_span3" class="xxc_operatebtn">确定</span>
+            </div>
+            <div id="detail_operateinfo" style="display: block">
+            </div>
+        </div>
+    </div>
+    <!--计划详情  结束-->
+    <div id="bch_check" style="display: none"></div>
+    <!-- 弹窗 结束 -->
+
+    <input type="hidden" id="xxc_operateId" value="@operate"/>
+
+    
+    @Html.Partial("~/Views/BuildNewPlan/_buildNewPlan.cshtml")
+</div>
+<script src="~/Scripts/plan/plan.js"></script>
+

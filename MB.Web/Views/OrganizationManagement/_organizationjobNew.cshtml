@@ -1,0 +1,49 @@
+﻿<form class="form-horizontal">
+    <div class="form-group">
+        <label for="jobName" class="col-sm-2 control-label">岗位名称</label>
+        <div class="col-sm-4">
+            <input type="text" class="form-control" id="jobName" maxlength="100" >
+        </div>
+        <div class=" col-sm-6">
+            <label class="checkbox-inline">
+                <input type="checkbox" class="approval" value="1">流程审批人
+            </label>
+            <label class="checkbox-inline hidden" >
+                <input type="checkbox" class="skipApproval" value="2">岗位人员空缺越级报告
+            </label>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="orgParentId" class="col-sm-2 control-label">所属组织</label>
+        <div class="col-sm-8 ">
+            <div class="input-group" style="position: relative">
+              <input type="button" class="form-control overEllipsis" id="orgParentId" style="text-align: left;max-width: 327px;border-left-width: 2px;" value="董事办">
+              <span class="input-group-addon">
+                <span class="flowPic browse"></span>
+              </span>
+            </div>
+         </div>
+    </div>
+    <div class="form-group">
+        <label for="parentJob" class="col-sm-2 control-label">上级岗位</label>
+        <div class="col-sm-8">
+            <div class="dropdown newOrg_cell" id="parentJob" style="width:100%;padding-left: 12px">
+               <span id="span-superiorJob" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="50" role="button" aria-expanded="false">
+                 <span term="1" class="treeNames overEllipsis">无</span>
+                 <span class="upPic"></span>
+              </span> 
+                <ul class="dropdown-menu orgType-dropdown" role="menu"  style="width:100%">
+                    <li><a href="#" term="1" class="noJobParent">无</a></li>
+                    <li class="divider short"></li>
+                    <li><a href="#" term="2" class="browseJob" data-toggle='modal' data-target='#browseOrgTree'>浏览上级岗位</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="jobDes" class="col-sm-2 control-label">岗位描述</label>
+        <div class="col-sm-8">
+            <textarea class="form-control" id="jobDes" rows="3" maxlength="250"></textarea>
+        </div>
+    </div>
+</form>

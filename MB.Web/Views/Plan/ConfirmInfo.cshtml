@@ -1,0 +1,66 @@
+﻿@{
+    Layout = null;
+    var height = Convert.ToInt32(ViewBag.Height);
+}
+<script src="~/Scripts/plan/Confirm.js"></script>
+<div class="evaluateBox" id="confirmBox" style="position: absolute; width: 370px; display: none; top: 0px; left: 560px; height: 100%; padding: 0 20px;">
+    @*<div class="calendar_batch" style="display: none">
+        <span class="checkHeader">所选计划</span>
+        <span class="closeWHit"></span>
+        <div class="plan_selected">
+            <div class="check_name"><span>徐晓催</span><span class="check_eventoutput">《发到手机费的事》</span></div>
+            <div class="check_name"><span>徐晓催</span><span class="check_eventoutput">《发到手机费的事》</span></div>
+            <div class="check_name"><span>徐晓催</span><span class="check_eventoutput">《发到手机费的事》</span></div>
+        </div>
+    </div>*@
+    <div style="height: 30px; line-height: 30px; border-bottom: solid 1px #e3e3e3; font-size: 16px">
+        系数评定
+    </div>
+    <div class="evaluateArea" style="height: 100px; border-bottom: 1px solid #bbb;">
+        <div class="com numOfCom">
+            <span>完成数量</span>
+            <div class="processBar">
+                <div id="num_slider"></div>
+            </div>
+            <input type="text" class="degInput numDegree" value="1.0" />
+        </div>
+        <div class="com quaOfCom">
+            <span>完成质量</span>
+            <div class="processBar">
+                <div id="qua_slider"></div>
+            </div>
+            <input type="text" class="degInput quaDegree" value="1.0" />
+        </div>
+        <div class="com timeOfCom">
+            <span>完成时间</span>
+            <div class="processBar">
+                <div id="time_slider"></div>
+            </div>
+            <input type="text" class="degInput timeDegree" value="1.0" />
+        </div>
+
+    </div>
+    <div class="finishTime">
+        <div class="realfinishTime">
+            <span>实际完成时间：</span>
+            <span class="number realEachTime">10</span> 分钟 x
+                        <span class="number realNum">1</span> 件 = <span class="number realAllTime">10</span> 分钟
+        </div>
+        <div class="evaluateTime">
+            <span>评定完成时间：</span>
+            <span class="number evaluateTimeV" style="color: #58b557">10</span> 分钟
+        </div>
+    </div>
+    <div class="auditOpinion">
+        <span>审核意见</span>
+        <input id="xxc_confirmMsg" type="text" />
+    </div>
+    <div class="confirmOperate">
+        <span style="margin-left: 10px;" id="xxc_confirmpass">通过</span>
+        <span id="xxc_confirmnopass">不通过</span>
+    </div>
+</div>
+<!--存取webconfig中的量质时的最大值-->
+<input type="hidden" id="completeQuantity" value="@ViewBag.CompleteQuantity"/>
+<input type="hidden" id="completeQuality" value="@ViewBag.CompleteQuality"/>
+<input type="hidden" id="completeTime" value="@ViewBag.CompleteTime"/>

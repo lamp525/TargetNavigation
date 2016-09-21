@@ -1,0 +1,318 @@
+@charset "utf-8";
+body {
+	font-family: "微软雅黑";
+	font-size: 12px;
+	margin: 0px;
+	padding: 0px;
+}
+ul , li {
+	margin: 0px;
+	padding: 0px;
+	list-style-type: none;
+}
+em , i {
+	font-style: normal;
+}
+b {
+	font-weight: normal;
+}
+a {
+	text-decoration: none;
+}
+img {
+	border:0 null;
+}
+input , 
+select ,
+textarea
+{
+	font-family: "微软雅黑";
+    }
+
+/* 头部 */
+.allthing {
+	width: 100%;
+	height: 100%;
+}
+.plan 
+{
+	display: block;
+	float:left;
+	width:97%;
+	height: 30px;
+	line-height: 30px;
+	margin:6px 15px 0;
+	padding-left: 17px;
+	font-size: 16px;
+	font-weight: normal;
+	color:White;
+	background-color: #85ad36;
+}
+.plan a{ color:White;}
+
+/* 表格 */
+.tab {
+	border: solid #E3E3E3;
+	border-width: 1px 1px 0px 0px;
+	width: 98%;
+	float: left;
+	height: 66px;
+	margin-top: 10px;
+	margin-left: 14px;
+}
+
+.tr0 {
+	background-color: #AECACA;
+}
+.tab td {
+	width: auto;
+	padding : 5px;
+	color: #000;
+	border: solid #E3E3E3;
+	border-width: 0px 0px 1px 1px;
+	text-align: center;
+	line-height: 33px;
+	font-size: 13px;
+}
+.tr0 td {
+	font-size: 14px;
+	white-space: nowrap;
+}
+.tab td a , 
+.lbPage {
+	color: #666;
+}
+.tab td a:hover , 
+.lbPage: hover {
+	color: #0DD087;
+}
+.tr1 {
+	background-color: #F0F0F0;
+}
+.tr2 {
+	background-color: #FFF;
+}
+
+
+/* 通用类 */
+/* 通用类--删除画面 */
+.deleteCommon {
+	float:left;
+	width:360px;
+	margin-top:200px;
+	margin-left:500px;
+	margin-right:200px;
+	margin-bottom:200px;
+	background-color:#fff;
+	box-shadow: 0 0 12px rgba(170,170,170,0.7);
+	position:relative;
+	z-index:12;
+}
+.topDel {
+	width:346px;
+	height:38px;
+	line-height:38px;
+	padding-left:14px;
+	font-size:16px;
+	color:#fff;
+	background-color:#86ad36;
+}
+.topDel img {
+	float:right;
+	margin-top:15px;
+	margin-right:14px;
+	cursor:pointer;
+}
+.conDel {
+	width:360px;
+	height:162px;
+}
+.conDel span {
+	display:block;
+	width:346px;
+	height:82px;
+	margin-top:20px;
+	margin-left:14px;
+	font-size:14px;
+	color:#686868;
+}
+.footerDel {
+	float:left;
+	width:360px;
+	height:60px;
+}
+.footerDel span {
+	display:block;
+	float:right;
+	width:105px;
+	height:47px;
+	line-height:47px;
+	text-align:center;
+	margin-top:0px;
+	font-size:16px;
+	color:#595959;
+	cursor:pointer;
+}
+/* 通用类--只读框 */
+.readOnlyCommon {
+	background-color: #E0E0E0;
+}
+/* 通用类--按钮 */
+.buttonCommon {
+	font-family: "微软雅黑";
+	width: 50px;
+	height: 25px;
+	line-height: 20px;
+	cursor: pointer;
+	color: #333;
+	text-align: center;
+	background-color: #EBEBEB;
+	border: 1px solid #999;
+	border-radius: 5px;
+}
+input.buttonCommon:hover {
+    border-color: #e8c291;
+}
+/* 通用类--查看编辑 */
+.ViewEditCommon {
+	font-size: 13px;
+	color: #4B4B4B;
+}
+/* 通用类--错误信息 */
+.wrongCommon {
+	width: auto;
+	margin-left: 154px;
+	height: auto;
+	/*background-color: #FFDFE8;*/
+	margin-top: 25px;
+	margin-right: 154px;
+}
+.wrongCommon span {
+	line-height: 30px;
+	text-align: center;
+	width: auto;
+	display: block;
+	color: #C00;
+	font-weight: bold;
+	font-size: 15px;
+}
+/* 通用类--小箭头 */
+/* 通用类--点击加载更多——开始 */
+.loadMoreCommon 
+{
+    display:none;
+    width:300px;
+    height:38px;
+    line-height:38px;
+    text-align:center;
+    margin:0px auto;
+    font-size:16px;
+    color:#335401;
+    background-color:#c2e55e;
+    cursor:pointer;
+    }
+/* 通用类--点击加载更多——开始 */
+/* 通用类--回到顶部——开始 */
+.topBot {
+ 	position:absolute;
+	right:10px;
+	bottom:10px;
+	height:30px;
+}
+.clickTopCommon 
+{
+    float:right;
+    width:30px;
+    height:30px;
+    background:url(../images/Common/clickTop.png) no-repeat;
+    cursor:pointer;
+    }
+.clickTopCommon:hover
+{
+    background-image:url(../images/Common/clickTopHit.png);
+    }
+/* 通用类--回到顶部——结束 */
+/* 通用类——鼠标右键——结束 */
+.mouseRightCommon {
+	float:left;
+	width:auto;
+	max-width:174px;
+	min-width:145px;
+	height:auto;
+	background-color:#f9f9f9;
+	border:1px solid #e3e3e3;
+	box-shadow: 0 0 12px rgba(170,170,170,1);
+}
+.mouseRightCommon li {
+	float:left;
+	width:94%;
+	min-width:135px;
+	height:25px;
+	line-height:25px;
+	font-size:14px;
+	color:#686868;
+	padding:0 3%;
+	/*background-color:#f9f9f9;*/
+	cursor:pointer;
+}
+.mouseRightCommon li:hover {
+	color:#686868;
+	background-color:#86ad36;
+}
+.mouseRightCommon li span {
+	display:block;
+	float:left;
+	width:220px;
+	min-width:125px;
+	height:25px;
+	line-height:25px;
+	padding:0 3%;
+	overflow:hidden;
+}
+.mouseRightCommon li span a{
+	color:#686868;
+	font-size:14px;
+}
+.mouseRightCommon li span.borderBottom {
+	border-bottom:1px solid #e3e3e3;
+}
+.mouseRightCommon li .arrowsRight {
+	display:block;
+	float:right;
+	width:10px;
+	height:10px;
+	margin-top:-17px;
+	background:url(../images/ElseImages/arrowsRig.png) no-repeat;
+}
+.mouseRightCommon li ul {
+	position:relative;
+	top:-200px;
+	left:164px;
+	display:none;
+	float:left;
+	width:auto;
+	max-width:182px;
+	min-width:145px;
+	height:auto;
+	background-color:#f9f9f9;
+	border:1px solid #e3e3e3;
+	box-shadow: 0 0 12px rgba(170,170,170,1);
+}
+.mouseRightCommon li ul li {
+}
+.mouseRightCommon li ul li input {
+	float:left;
+	margin-top:7px;
+}
+.mouseRightCommon li ul li span.mouseHaveInput {
+}
+/* 通用类——鼠标右键——结束 */
+
+
+
+
+
+
+
+
+

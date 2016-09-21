@@ -1,0 +1,415 @@
+﻿
+@{
+    //ViewBag.Title = "NewsManagement";
+    //Layout = "~/Views/Shared/_TopView.cshtml";
+    var Author = ViewBag.author;
+    var num = ViewBag.num;
+    
+}
+   <link rel="stylesheet" href="~/Styles/newsmanagement/newsmanagement.css"/>
+
+ <!--内容开始-->
+    <div class="row over-hide">
+        <!--新闻列表 开始-->
+        <div class="col-xs-9" style="padding-bottom: 80px;">
+            <div class="panel panel-default" id="management">
+                <div class="panel-heading title">
+                    <div class="panel-title">
+                    <ul class="nav nav-tabs titleUl" role="tablist">
+                        <li role="presentation" class="active"><a href="#newsBank" role="tab" data-toggle="tab" id="NewsMang">发布管理</a></li>
+                        <li role="presentation" id="dirmanagement"><a href="#discripBank" role="tab" data-toggle="tab">类别管理</a></li>
+                        <li role="presentation"><a class="newname" href="#addnews" role="tab" data-toggle="tab">添加新闻</a></li>
+                        <li class="nav-right batch" style="display:block;">
+                        <ul>
+                            <li class="dropdown" style="top:-5px">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="50" role="button" aria-expanded="false">批量 <span class="caret"></span></a>
+                                <ul class="dropdown-menu batch-menu" role="menu">
+                                    <li><a href="#">批量删除</a></li>
+                                    <li class="divider short"></li>
+                                    <li><a href="#">批量发布</a></li>
+                                    <li class="divider short"></li>
+                                    <li><a href="#">取消发布</a></li>
+                                    <li class="divider short"></li>
+                                    <li><a href="#">批量置顶</a></li>
+                                    <li class="divider short"></li>
+                                    <li><a href="#">取消置顶</a></li>
+                                </ul>
+                            </li>
+                            <li class="active" id="addcom">
+                                <a href="#addnews" role="tab" data-toggle="tab">
+                                    <span class="add"></span>
+                                </a>
+                            </li>
+                        </ul>
+                        </li>
+                        <li class="nav-right" style="display:none;">
+                            <ul class="list-inline">
+                                <li style="width:24px;padding:0px;">
+                                    <a href="#">
+                                        <span class="del"></span>
+                                    </a>
+                            </li>
+                                <li style="width:34px;padding:0px;">
+                                    <a id="newFile_building"   data-toggle="model"  data-target="#myModal-newdir" >
+                                        <span class="adddir"> </span>
+                                    </a>
+                                </li>
+                            </ul>
+
+
+                        </li>
+                    </ul>
+
+                </div>
+
+            </div>
+                <div class="panel-body">
+                    <div class="tab-content Micon">
+                        <!--发布管理-->
+                        <div class="tab-pane NewsM active" role="tabpanel" id="newsBank">
+                            <ul class="list-inline newsclass">
+                                <li class="News"><a href="#News"> <span class="newsicon newsiconHit" title="新闻"></span>新闻类</a> </li>
+                                <li class="Notice"><a href="#Notice"> <span class="noticeicon" title="通知"></span>通知类</a></li>
+                            </ul>
+                            <!--新闻列表开始-->
+                            <div class="listcommen">
+
+
+                            </div>
+                            <!--新闻列表结束-->
+                            <div class="pager pages" style="width:400px;">
+                                <span></span>
+                              <font size="1" color="#686868"> 共有<label id="pagecount">0</label>条</font>
+                               <font size="1" color="#686868"> 每页<label id="num">@num</label>条</font>
+
+                              <font size="2" color="#686868">  第<input type="text" class="current" value="1">页</font>
+                                <a href="#"><span class="prev prevP"></span></a>
+                                <a href="#"><span class="next nextP"></span></a>
+                                <span></span>
+                            </div>
+                        </div>
+                        <!--类别管理-->
+                        <div class="tab-pane" role="tabpanel" id="discripBank">
+                            <ul class="list-inline dirclass">
+                                <li class="Newsdir"><a href="#Newsdir"> <span class="newsicon" title="新闻"></span>新闻类</a> </li>
+                                <li class="Noticedir"><a href="#Noticedir"> <span class="noticeicon" title="通知"></span>通知类</a></li>
+                            </ul>
+                            <div class="dir_width">
+                           <table class="table-condensed column">
+                           <tr><td><input type="checkbox" class="ckTwo" style="margin-left:20px;"><span style="margin-left:10px;">栏目名称</span><span style="float:right;padding-right:45px;">操作选项</span></td></tr>
+                           <tr><td>
+                               <ul class="list-unstyled ztree dirztree" id="catalogues" style="display: block">
+                               </ul>
+                            </td></tr>
+                               <tr><td><span style="color:#6AB674">注意:点击栏目名称下的同级分类能上下拖拽移动</span></td></tr>
+                            </table>
+
+                        </div>
+                        </div>
+
+                       
+                      
+                        <!--添加新闻-->
+                        <div class="tab-pane" role="tabpanel" id="addnews">
+                            <div class="input-group cover">
+                                <input type="text" class="form-control enterTitle" maxlength="100"  placeholder="输入标题">
+                                  <span class="input-group-btn">
+                                    <button id="titleimg" class="btn btn-default" type="button">封面</button>
+                                  </span>
+                            </div><!-- /input-group -->
+                            <div class="newsCont">
+
+                                <!--<textarea id="txtContent"></textarea>-->
+                                <table class="table table-bordered" style="margin-bottom: 0px;">
+                                    <tr><td>
+                                        <!--文本编辑-->
+                                        <div class="btn-toolbar" data-role="editor-toolbar" data-target="#editor">
+                                            <div class="btn-group">
+                                                <a class="btn dropdown-toggle" data-toggle="dropdown" data-placement="top" title="字体"><i class="fa fa-font"></i><b class="caret"></b></a>
+                                                    <ul class="dropdown-menu">
+                                                        <li><a data-edit="fontName Serif" style="font-family:'Serif'">Serif</a></li>
+                                                        <li><a data-edit="fontName Sans" style="font-family:'Sans'">Sans</a></li>
+                                                        <li><a data-edit="fontName Arial" style="font-family:'Arial'">Arial</a></li>
+                                                        <li><a data-edit="fontName Arial Black" style="font-family:'Arial Black'">Arial Black</a></li>
+                                                        <li><a data-edit="fontName Courier" style="font-family:'Courier'">Courier</a></li>
+                                                        <li><a data-edit="fontName Courier New" style="font-family:'Courier New'">Courier New</a></li>
+                                                        <li><a data-edit="fontName Comic Sans MS" style="font-family:'Comic Sans MS'">Comic Sans MS</a></li>
+                                                        <li><a data-edit="fontName Helvetica" style="font-family:'Helvetica'">Helvetica</a></li>
+                                                        <li><a data-edit="fontName Impact" style="font-family:'Impact'">Impact</a></li>
+                                                        <li><a data-edit="fontName Lucida Grande" style="font-family:'Lucida Grande'">Lucida Grande</a></li>
+                                                        <li><a data-edit="fontName Lucida Sans" style="font-family:'Lucida Sans'">Lucida Sans</a></li>
+                                                        <li><a data-edit="fontName Tahoma" style="font-family:'Tahoma'">Tahoma</a></li>
+                                                        <li><a data-edit="fontName Times" style="font-family:'Times'">Times</a></li>
+                                                        <li><a data-edit="fontName Times New Roman" style="font-family:'Times New Roman'">Times New Roman</a></li>
+                                                        <li><a data-edit="fontName Verdana" style="font-family:'Verdana'">Verdana</a></li>
+
+                                                    </ul>
+                                             
+                                            </div>
+                                            <div class="btn-group">
+                                                <a class="btn dropdown-toggle" data-toggle="dropdown" title="字号"><i class="fa fa-text-height"></i>&nbsp;<b class="caret"></b></a>
+                                                <ul class="dropdown-menu">
+                                                    <li><a data-edit="fontSize 5"><font size="5">Huge</font></a></li>
+                                                    <li><a data-edit="fontSize 3"><font size="3">Normal</font></a></li>
+                                                    <li><a data-edit="fontSize 1"><font size="1">Small</font></a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="btn-group">
+                                                <a class="btn" data-edit="bold" title="加粗"><i class="fa fa-bold"></i></a>
+                                                <a class="btn" data-edit="italic" title="斜体"><i class="fa fa-italic"></i></a>
+                                                <a class="btn" data-edit="strikethrough" title="删除线"><i class="fa fa-strikethrough"></i></a>
+                                                <a class="btn" data-edit="underline" title="下划线"><i class="fa fa-underline"></i></a>
+                                            </div>
+                                            <div class="btn-group">
+                                                <a class="btn" data-edit="insertunorderedlist" title="无序列表"><i class="fa fa-list-ul"></i></a>
+                                                <a class="btn" data-edit="insertorderedlist" title="有序列表"><i class="fa fa-list-ol"></i></a>
+                                                <a class="btn" data-edit="outdent" title="减少缩进"><i class="fa fa-outdent"></i></a>
+                                                <a class="btn" data-edit="indent" title="首行缩进"><i class="fa fa-indent"></i></a>
+                                            </div>
+                                            <div class="btn-group">
+                                                <a class="btn" data-edit="justifyleft" title="居左对齐"><i class="fa fa-align-left"></i></a>
+                                                <a class="btn" data-edit="justifycenter" title="居中对齐"><i class="fa fa-align-center"></i></a>
+                                                <a class="btn" data-edit="justifyright" title="居右对齐"><i class="fa fa-align-right"></i></a>
+                                                <a class="btn" data-edit="justifyfull" title="两端对齐"><i class="fa fa-align-justify"></i></a>
+                                            </div>
+                                            <div class="btn-group">
+                                                <a class="btn dropdown-toggle" data-toggle="dropdown" title="超链接"><i class="fa fa-link"></i></a>
+                                                <div class="dropdown-menu input-append">
+                                                    <input class="span2" placeholder="URL http://" type="text" data-edit="createLink" value="http://"/>
+                                                    <button class="btn" type="button">Add</button>
+                                                </div>
+                                                <a class="btn" data-edit="unlink" title="取消链接"><i class="fa fa-cut"></i></a>
+
+                                            </div>
+
+                                            <div class="btn-group">
+                                                <a class="btn" title="图片" id="pictureBtn"><i class="fa fa-picture-o"></i></a>
+                                                <input type="file" data-role="magic-overlay" data-target="#pictureBtn" data-edit="insertImage" style="width:100%;height:100%;" />
+                                            </div>
+                                            <div class="btn-group">
+                                                <a class="btn" data-edit="undo" title="撤销"><i class="fa fa-undo"></i></a>
+                                                <a class="btn" data-edit="redo" title="重做"><i class="fa fa-repeat"></i></a>
+                                            </div>
+                                            <input type="text" data-edit="inserttext" id="voiceBtn" x-webkit-speech="">
+                                        </div>
+
+                                        <div id="editor"><br/><br/></div>
+                                        <!--文本编辑 结束-->
+                                    </td></tr>
+                                <tr><td>
+                                <ul class="list-inline typekey">
+                                        <li>   
+                                         <span style="margin-top:-10px;">类型</span>
+                                        </li>
+                                       <li class="dropdown typeN">
+
+
+                                           <span class="dropdown-toggle btnno" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" style="">
+                                            <span id="bitneno">   </span>
+                                               <span class="caret" style="margin-top: 10px;float:right;"></span>
+                                           </span>
+                                           <ul class="dropdown-menu neno" aria-labelledby="dropdownMenu1" style="min-width:100%;">
+                                               <li term="0"><a href="#">新闻</a></li>
+                                                 <li term="1"><a href="#">通知</a></li>
+                                           </ul>
+
+                                       </li>
+                                    <li class="dropdown typeN">
+                                        <span class="dropdown-toggle btnno dirlist" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" style="float:right;cursor:pointer;">
+                                            <span id="dirname"></span>
+                                            <span class="caret" style="margin-top: 10px;float:right;"></span>
+                                        </span>
+                                        <ul class="dropdown-menu nenodir" aria-labelledby="dropdownMenu2">
+                                            <li>
+                                                <ul class="ztree" id="ztree_dir" style="margin-left: -40px;">
+
+                                                </ul>
+                                            </li>
+                                      
+                                        </ul>
+                                    </li>
+                                    <li style="vertical-align: super;"><input type="checkbox" id="setTop" style="margin-right:5px;"/><b>置顶</b></li>
+                                    <li class="keyword">
+                                       <span>中文关键词&nbsp;</span>
+                                       <input id="kword" type="text" maxlength="100">
+                                </li>
+                                </ul>
+                                    </td></tr>
+                                    <tr><td>
+                                        <div class="input-group discrip">
+                                            <input id="disc" type="text" class="form-control" placeholder="中文描述" maxlength="100" aria-describedby="basic-addon1">
+                                        </div>
+                                       </td></tr>
+
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+        </div>
+            <div class="panel-footer-userdefined  btn-width" style="margin-top: 10px; display: none;">
+                <ul class="list-inline setting">
+                    <li>  <a class="btn btn-transparency btn-width" id="authy-cancel" >取消</a></li>
+                    <li>
+
+                        <!--<select class="btn btn-default btn-warning dropdown-toggle">-->
+                            <!--<option>发布</option>-->
+                            <!--<option>保存</option>-->
+                        <!--</select>-->
+
+                    </li>
+                    <li class="dropdown btn-warning addborder">
+                        <span id="power-span" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="50" role="button" aria-expanded="false" style="padding: 5px 10px 8px 20px;" ><span term="4">发布</span><span class="caret"></span></span>
+                        <ul class="dropdown-menu authy-dropdown" role="menu">
+                            <li style="width:100%"><a href="#" class="publish">发布</a></li>
+                            <li class="divider short"></li>
+                            <li style="width:100%"><a href="#" term="2" class="save">保存</a></li>
+
+
+                        </ul>
+                    </li>
+                    <li> <a class="btn btn-transparency btn-width" id="auty-preview" >预览</a></li>
+                </ul>
+
+
+
+            </div>
+
+    </div>
+        <!--新闻列表 结束-->
+
+        <!--右侧新闻/通知 分类 开始-->
+        <div class="col-xs-3">
+            <div class="sidebar">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div class="directory-set dset1" style="cursor: pointer;">                
+                          
+                            <span class="arrowDown line-close" style="margin-bottom:-4px;"></span>  <span>新闻管理</span>
+                          </div> 
+                        <div class="ztree ds1ztree" id="newcatalogue" style="display: none;margin-bottom: 20px;">
+                        
+                        </div>
+                       <div class="directory-set dset2" style="cursor: pointer;">                
+                          
+                            <span class="arrowDown line-close" style="margin-bottom:-4px;"></span>  <span>通知管理</span>
+                          </div>
+                        <div class="ztree ds2ztree" id="noticecatalogue" style="display: none;">
+                         
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!--右侧新闻/通知 分类 结束-->
+
+    </div>
+    <!--内容结束-->
+
+<!--弹出框 开始-->
+<!--新建分类-->
+<div class="modal fade" id="myModal-newdir" tabindex="-1" role="dialog" aria-labelledby="copy_modal_label" aria-hidden="true">
+    <div class="modal-dialog sdirname">
+        <div class="modal-content editDirId">
+
+        </div>
+    </div>
+</div>
+<!--新闻预览-->
+    <div class="modal fade" id="Modal-preview" tabindex="-1" role="dialog" aria-labelledby="copy_modal_label" aria-hidden="true">
+    <div class="modal-dialog" style="margin:0px auto 0px auto;width:850px;">
+        <div class="modal-content">
+           
+                 <div class="modal-boby">
+                <div class="newDetail">
+            <div class="newArea">
+                <div class="newTitleArea">
+                    <ul class="list-group">
+                        <li> <span class="newTitle">实际发挥示范哈的说法</span></li>
+                        <li>   <span class="newDate">@DateTime.Now.ToShortDateString()</span>
+                    <span class="newAuthor">作者：@Author</span>
+                    <span class="numLook"></span>
+
+                        </li>
+                    
+                        <li>
+                              <div class="newDetailDisplay" style="overflow:auto;"> sajgfhagsdhfghsdvchsdghfgsdagfj</div>
+                        </li>
+                          <li>
+                              <span class="newtype" style="float:left;margin-right:100px;"> </span>
+                 <span class="chkey" style=""> </span>
+                        </li>
+                        <li>
+  <span class="chdiscr" style="float:left;"></span>
+                        </li>
+                    </ul>
+                   
+                </div>             
+                       
+                  
+               
+            </div> 
+        
+    </div>
+            </div>
+             
+               <span class="closeview"></span>
+
+           
+           
+        </div>
+    </div>
+</div>
+<!--标题图片-->
+<div class="modal fade" id="modal-titlephoto" tabindex="-1" role="dialog" aria-labelledby="copy_modal_label" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+                <h4 class="modal-title" data-toggle="modal" id="newFile_modal_label">图库</h4>
+            </div>
+            <div class="modal-boby">
+            <div class="modal-row modal-phonto modalbody">
+                   <div class="file_upload">
+                <div class="fileinput-button btn-warning">
+                    <div class="fileinput-button_l"></div>
+                    <span>上传图片</span>
+                    <input id="fileupload" type="file" name="files[]" multiple="">
+                    <div class="fileinput-button_r"></div>
+                    </div>
+                    <div class="files">
+                        <ul class="list-inline" style="margin-left: 0; padding-top: -10px;">
+                        </ul>
+                    </div>
+                </div>
+                <span class="pull-right">
+                    <span >建议尺寸：800*300</span>
+                </span>
+
+                <div class="set-group photochoose">
+
+                </div>
+            </div>
+             </div>
+            <div class="modal-footer fifty-fifty">
+                <a class="btn btn-transparency btn-lg" id="clear-submit">清除全部</a>
+                <a class="btn btn-transparency btn-lg" id="img_submit">确定</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!--图片预览-->
+<div class="modal fade" id="photoviewModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="display: none;">
+    <img class="view" src=""/>
+</div>
+<!--图片部分 结束-->
+<!--弹出框 结束-->
+
+
+<script src="~/Libs/bootstrap-wysiwyg/bootstrap-wysiwyg.js"> </script>
+<script src="~/Libs/bootstrap-wysiwyg/jquery.hotkeys.js"></script>
+<script src="~/Libs/google-code-prettify/prettify.js"></script>
+<script src="~/Scripts/newsmanagement/drag.js"></script>
+<script src="~/Scripts/newsmanagement/newsmanagement.js"></script>

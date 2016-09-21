@@ -1,0 +1,223 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{99F97592-E4E2-45C9-8344-75BDF0089EA4}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MB.Model</RootNamespace>
+    <AssemblyName>MB.Model</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AddFormContentModel.cs" />
+    <Compile Include="AddMeetingModel.cs" />
+    <Compile Include="AddNewFileModel.cs" />
+    <Compile Include="AddNewObjectiveModel.cs" />
+    <Compile Include="AddstationManualModel.cs" />
+    <Compile Include="AddUserInfo.cs" />
+    <Compile Include="AjaxUploadFileResult.cs" />
+    <Compile Include="AuthModel.cs" />
+    <Compile Include="AuthorityModel.cs" />
+    <Compile Include="AuthResult.cs" />
+    <Compile Include="BankCardModel.cs" />
+    <Compile Include="BankModel.cs" />
+    <Compile Include="Calendar.cs" />
+    <Compile Include="CalendarPlanModel.cs" />
+    <Compile Include="CheckPlanModel.cs" />
+    <Compile Include="ChildPlanInfo.cs" />
+    <Compile Include="CityManagement.cs" />
+    <Compile Include="CityModel.cs" />
+    <Compile Include="CompleteStatisticsModel.cs" />
+    <Compile Include="ConditionModel.cs" />
+    <Compile Include="ContrastModel.cs" />
+    <Compile Include="ControlItemModel.cs" />
+    <Compile Include="ConversationModel.cs" />
+    <Compile Include="CopyModel.cs" />
+    <Compile Include="DelayRuleAddModel.cs" />
+    <Compile Include="DelayRuleModel.cs" />
+    <Compile Include="DepartmentModel.cs" />
+    <Compile Include="DetailFormulaModel.cs" />
+    <Compile Include="DiscussModel.cs" />
+    <Compile Include="DocConditionModel.cs" />
+    <Compile Include="DocDeleteModel.cs" />
+    <Compile Include="DocIdListModel.cs" />
+    <Compile Include="DocumentInfo.cs" />
+    <Compile Include="DocumentLogModel.cs" />
+    <Compile Include="DocumentModel.cs" />
+    <Compile Include="DocumentShared.cs" />
+    <Compile Include="DocumentStatisticsModel.cs" />
+    <Compile Include="ExecutionMode.cs" />
+    <Compile Include="ExecutionModel.cs" />
+    <Compile Include="FileDirectoryModel.cs" />
+    <Compile Include="FlowBatchCheckModel.cs" />
+    <Compile Include="FlowEntrustModel.cs" />
+    <Compile Include="FlowProcessModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FormConditionModel.cs" />
+    <Compile Include="FormDetailModel.cs" />
+    <Compile Include="FormDuplicateTimeModel.cs" />
+    <Compile Include="FormFlowChartModel.cs" />
+    <Compile Include="FormFlowModel.cs" />
+    <Compile Include="FormModel.cs" />
+    <Compile Include="FormSimpleModel.cs" />
+    <Compile Include="GanttChartModel.cs" />
+    <Compile Include="HistoryMessageModel.cs" />
+    <Compile Include="HolidayModel.cs" />
+    <Compile Include="ImageInfoModel.cs" />
+    <Compile Include="ImageManageModel.cs" />
+    <Compile Include="ImageModel.cs" />
+    <Compile Include="ImContactModel.cs" />
+    <Compile Include="ImGroupModel.cs" />
+    <Compile Include="ImMessageModel.cs" />
+    <Compile Include="IncentiveDataModel.cs" />
+    <Compile Include="IncentiveInfoModel.cs" />
+    <Compile Include="IndexModuleModel.cs" />
+    <Compile Include="IndexTargetModel.cs" />
+    <Compile Include="loginUserModel.cs" />
+    <Compile Include="LoopPlanSubmit.cs" />
+    <Compile Include="MeetingInfo.cs" />
+    <Compile Include="MeetingModel.cs" />
+    <Compile Include="MeetingRoomModel.cs" />
+    <Compile Include="MyAppointmentCondition.cs" />
+    <Compile Include="NewsDirectoryModel.cs" />
+    <Compile Include="NewsDirModel.cs" />
+    <Compile Include="NewsinfoModel.cs" />
+    <Compile Include="NodeFieldModel.cs" />
+    <Compile Include="NodeModel.cs" />
+    <Compile Include="FrontPlan.cs" />
+    <Compile Include="IndexImageInfo.cs" />
+    <Compile Include="JsonModelIndex.cs" />
+    <Compile Include="LinkConditionModel.cs" />
+    <Compile Include="LinkFormulaModel.cs" />
+    <Compile Include="LinkResultModel.cs" />
+    <Compile Include="LoopPlanInfo.cs" />
+    <Compile Include="LoopplanOperate.cs" />
+    <Compile Include="MoveModel.cs" />
+    <Compile Include="NewPlan.cs" />
+    <Compile Include="NewsDirectoryInfo.cs" />
+    <Compile Include="NewsInfo.cs" />
+    <Compile Include="NodeLinkModel.cs" />
+    <Compile Include="NodeOperateModel.cs" />
+    <Compile Include="NoticeDirectoryInfo.cs" />
+    <Compile Include="ObjectiveConditionModel.cs" />
+    <Compile Include="ObjectiveEditFormula.cs" />
+    <Compile Include="ObjectiveHasChildModel.cs" />
+    <Compile Include="ObjectiveIndexModel.cs" />
+    <Compile Include="ObjectiveModel.cs" />
+    <Compile Include="OrgAndUserModel.cs" />
+    <Compile Include="OrganizationInfo.cs" />
+    <Compile Include="OrgModel.cs" />
+    <Compile Include="OrgSimpleModel.cs" />
+    <Compile Include="PersonalSetting.cs" />
+    <Compile Include="PerWorkTimeModel.cs" />
+    <Compile Include="PlanAttachment.cs" />
+    <Compile Include="PlanCheckInfo.cs" />
+    <Compile Include="PlanCheckModel.cs" />
+    <Compile Include="PlanCooperation.cs" />
+    <Compile Include="PlanFront.cs" />
+    <Compile Include="PlanFrontInfo.cs" />
+    <Compile Include="PlanIdList.cs" />
+    <Compile Include="PlanInfo.cs" />
+    <Compile Include="PlanModel.cs" />
+    <Compile Include="PlanOperateInfo.cs" />
+    <Compile Include="PlanOperateModel.cs" />
+    <Compile Include="PlanOperateTimeModel.cs" />
+    <Compile Include="PlanSearchResultModel.cs" />
+    <Compile Include="PlanSimpleModel.cs" />
+    <Compile Include="PlanStatisticsModel.cs" />
+    <Compile Include="PlanStatusCount.cs" />
+    <Compile Include="PlanSubmitModel.cs" />
+    <Compile Include="PlanViewModel.cs" />
+    <Compile Include="Primary.cs" />
+    <Compile Include="Project.cs" />
+    <Compile Include="ProjectInfo.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ProvinceModel.cs" />
+    <Compile Include="RewardPunishModel.cs" />
+    <Compile Include="SaveHolidayModel.cs" />
+    <Compile Include="SearchInfoModel.cs" />
+    <Compile Include="SharedModel.cs" />
+    <Compile Include="StationAddUserModel.cs" />
+    <Compile Include="StationInfo.cs" />
+    <Compile Include="StationModel.cs" />
+    <Compile Include="SystemUploadPath.cs" />
+    <Compile Include="TemplateCategoryModel.cs" />
+    <Compile Include="TemplateCategoryOlderModel.cs" />
+    <Compile Include="TemplateControlModel.cs" />
+    <Compile Include="TemplateCopyModel.cs" />
+    <Compile Include="TemplateFlowChartModel.cs" />
+    <Compile Include="TemplateManageModel.cs" />
+    <Compile Include="TemplateModel.cs" />
+    <Compile Include="TemplateMoveModel.cs" />
+    <Compile Include="TemplateSimpleModel.cs" />
+    <Compile Include="UnderReward.cs" />
+    <Compile Include="UploadFileModel.cs" />
+    <Compile Include="UploadImageModel.cs" />
+    <Compile Include="UserDocument.cs" />
+    <Compile Include="UserFormMode.cs" />
+    <Compile Include="UserIndexModel.cs" />
+    <Compile Include="UserIndexModels\UserIndexIncentiveInfoModel.cs" />
+    <Compile Include="UserIndexModels\UserIndexPlanInfoModel.cs" />
+    <Compile Include="UserIndexModels\UserIndexWorkTimeModel.cs" />
+    <Compile Include="UserIndexModels\UserOrgWorkTimeModel.cs" />
+    <Compile Include="UserInfo.cs" />
+    <Compile Include="RosterModel.cs" />
+    <Compile Include="UserPlanCountInfo.cs" />
+    <Compile Include="UserStationInfo.cs" />
+    <Compile Include="ValueDelayRuleModel.cs" />
+    <Compile Include="ValueIncentiveCustomModel.cs" />
+    <Compile Include="ValueIncentiveModel.cs" />
+    <Compile Include="Worktime.cs" />
+    <Compile Include="WorkTimeIndex.cs" />
+    <Compile Include="WorkTimeModel.cs" />
+    <Compile Include="ValueIncentiveinfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MB.DAL\MB.DAL.csproj">
+      <Project>{6eca3284-3b89-4d98-b3ba-30eb27d73b05}</Project>
+      <Name>MB.DAL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ObjectiveModel\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

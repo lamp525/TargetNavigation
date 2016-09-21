@@ -1,0 +1,166 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5E320338-5758-4E3B-86E8-68A2638C8306}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MB.BLL</RootNamespace>
+    <AssemblyName>MB.BLL</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AuthManagementBLL.cs" />
+    <Compile Include="BankBLL.cs" />
+    <Compile Include="BankCardBLL.cs" />
+    <Compile Include="CityManagementBLL.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CompanyBLL.cs" />
+    <Compile Include="DelayRuleBLL.cs" />
+    <Compile Include="DocumentManagementBLL.cs" />
+    <Compile Include="ExecutionModeBLL.cs" />
+    <Compile Include="FlowChartBLL.cs" />
+    <Compile Include="FlowCommonBLL.cs" />
+    <Compile Include="FlowEditBLL.cs" />
+    <Compile Include="FlowEntrustBLL.cs" />
+    <Compile Include="FlowIndexBLL.cs" />
+    <Compile Include="FlowTestBLL.cs" />
+    <Compile Include="HolidayBLL.cs" />
+    <Compile Include="ImageBLL.cs" />
+    <Compile Include="IMMessageBLL.cs" />
+    <Compile Include="IncentiveIndexBLL.cs" />
+    <Compile Include="Incentivecontrast.cs" />
+    <Compile Include="IndexManagementBLL.cs" />
+    <Compile Include="Interface\IAuthManagementBLL.cs" />
+    <Compile Include="Interface\IBankBLL.cs" />
+    <Compile Include="Interface\IBankCardBLL.cs" />
+    <Compile Include="Interface\ICityManagementBLL.cs" />
+    <Compile Include="Interface\ICompanyBLL.cs" />
+    <Compile Include="Interface\IDelayRuleBLL.cs" />
+    <Compile Include="Interface\IDocumentManagementBLL.cs" />
+    <Compile Include="Interface\IExecutionModeBLL.cs" />
+    <Compile Include="Interface\IFlowChartBLL.cs" />
+    <Compile Include="Interface\IFlowCommonBLL.cs" />
+    <Compile Include="Interface\IFlowEditBLL.cs" />
+    <Compile Include="Interface\IFlowEntrustBLL.cs" />
+    <Compile Include="Interface\IFlowIndexBLL.cs" />
+    <Compile Include="Interface\IFlowTestBLL.cs" />
+    <Compile Include="Interface\IHolidayBLL.cs" />
+    <Compile Include="Interface\IImageBLL.cs" />
+    <Compile Include="Interface\IIMMessageBLL.cs" />
+    <Compile Include="Interface\IIncentivecontrast.cs" />
+    <Compile Include="Interface\IIncentiveIndexBLL.cs" />
+    <Compile Include="Interface\IIndexManagementBLL.cs" />
+    <Compile Include="Interface\IMeetingRoomBLL.cs" />
+    <Compile Include="Interface\INewsBLL.cs" />
+    <Compile Include="Interface\INewsManagementBLL.cs" />
+    <Compile Include="Interface\INodeEditBLL.cs" />
+    <Compile Include="Interface\IObjectiveIndexBLL.cs" />
+    <Compile Include="Interface\IOrganizationManagementBLL.cs" />
+    <Compile Include="Interface\IPlanBLL.cs" />
+    <Compile Include="Interface\IPlanStatisticsBLL.cs" />
+    <Compile Include="Interface\IProvinceBLL.cs" />
+    <Compile Include="Interface\IRosterBLL.cs" />
+    <Compile Include="Interface\ISharedBLL.cs" />
+    <Compile Include="Interface\ITabManagementBLL.cs" />
+    <Compile Include="Interface\ITagSearchBLL.cs" />
+    <Compile Include="Interface\ITemplateBLL.cs" />
+    <Compile Include="Interface\ITemplateCategoryBLL.cs" />
+    <Compile Include="Interface\ITemplateEditBLL.cs" />
+    <Compile Include="Interface\IUserBLL.cs" />
+    <Compile Include="Interface\IUserDocumentBLL.cs" />
+    <Compile Include="MeetingRoomBLL.cs" />
+    <Compile Include="NewsBLL.cs" />
+    <Compile Include="NewsManagementBLL.cs" />
+    <Compile Include="NodeEditBLL.cs" />
+    <Compile Include="ObjectiveIndexBLL.cs" />
+    <Compile Include="OrganizationManagementBLL.cs" />
+    <Compile Include="PlanBLL.cs" />
+    <Compile Include="PlanStatisticsBLL.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ProvinceBLL.cs" />
+    <Compile Include="RosterBLL.cs" />
+    <Compile Include="SharedBLL.cs" />
+    <Compile Include="TagManagementBLL.cs" />
+    <Compile Include="TagSearchBLL.cs" />
+    <Compile Include="TemplateBLL.cs" />
+    <Compile Include="TemplateCategoryBLL.cs" />
+    <Compile Include="TemplateEditBLL.cs" />
+    <Compile Include="UserBLL.cs" />
+    <Compile Include="UserDocumentBLL.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MB.Common\MB.Common.csproj">
+      <Project>{e13ab5a6-642c-4df9-8416-5faf4d2b0fa9}</Project>
+      <Name>MB.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MB.DAL\MB.DAL.csproj">
+      <Project>{6eca3284-3b89-4d98-b3ba-30eb27d73b05}</Project>
+      <Name>MB.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MB.Model\MB.Model.csproj">
+      <Project>{99f97592-e4e2-45c9-8344-75bdf0089ea4}</Project>
+      <Name>MB.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MB.New.Common\MB.New.Common.csproj">
+      <Project>{0fac51d6-a678-439b-b9fe-a4225fb7eb68}</Project>
+      <Name>MB.New.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

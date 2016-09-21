@@ -1,0 +1,506 @@
+.sub-nav {
+    padding: 5px 10px;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 15px;
+}
+.sub-nav  .nav-item{
+    margin-left:20px;
+}
+.span-control{
+    display: inline-block;
+    padding-top: 6px;
+}
+.sub-nav  .nav-item:first-child{
+    margin-left:0px;
+}
+
+.add-Time input{
+    width: 40%;
+    float: left;
+ }
+.add-Time span{
+    float: left;
+    padding-left: 3px;
+    padding-right: 3px;
+}
+.add-Money span{
+    padding-left: 3px;
+}
+.add-method .dropdown{
+    width:85px;
+}
+.dropdown .upPic{
+      background: url(../../Images/incentive/up.png) no-repeat;
+}
+.add-Money  .input-group input{
+    width:85px;
+}
+#listTabContent .dropdown-toggle{
+    border:1px solid #ccc;
+    width: 100%;
+    height: 33px;
+    display: inline-block;
+    padding: 6px 12px;
+    font-size: 12px;
+}
+#listTabContent .dropdown ul{
+    width:100%;
+    min-width: 0px;
+}
+.tab-content .operate{
+    display: none;
+    position: absolute;
+    filter:alpha(opacity=80); /*IE滤镜，透明度50%*/
+    -moz-opacity:0.8; /*Firefox私有，透明度50%*/
+    opacity:0.8;/*其他，透明度50%*/
+    width: 98.7%;
+    background-color: #7F7F7F;
+    height: 33px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+.operate-delete{
+    color: #fff;
+    float: right;
+    padding-top: 5px;
+    padding-right: 15px;
+    cursor:pointer;
+}
+/*添加 确定 按钮*/
+#planExtension_Add,#planExtension-save,#AT-save,#AT_Add,#EH-save,#EffectiveHours-add{
+    width: 65px;
+    margin-left: 25px;
+}
+
+#planExtension_Add:hover,#planExtension-save:hover,#AT_Add:hover,#AT-save:hover,#EffectiveHours-add:hover,#EH-save:hover{
+    color: #fff;
+    background-color: #fbac0f;
+    border-color: #d38e04;
+}
+#con_EffectiveHours input[type="text"],#con_EffectiveHours .dropdown{
+    width:85px;
+    display: inline-block;
+}
+#con_EffectiveHours .row{
+    margin-bottom: 10px;
+}
+
+#EH-deductionNumLeft{
+    width: 25px!important;
+    padding-left: 6px;
+    padding-right: 6px;
+}
+.disabledColor{
+    color: #d1d1d1;
+}
+#con_EffectiveHours .form-control[disabled]{
+    cursor:default;
+    background-color: rgb(255, 255, 255);;
+}
+.sub-nav .green_color{
+    color: #58b456;
+}
+#con_EffectiveHours .incentiveType{
+    margin-right:10px;
+}
+#con_EffectiveHours .row-left{
+    margin-left:15px;
+}
+
+#AT_load,#planExtension_load{
+   min-height: 200px;
+   margin-top: 10px;
+}
+/*--------------------新建目标新  css 开始------------------------*/
+ 
+#objectiveNew_modal .modal-footer.thirty-thirty {
+    padding: 0;
+    margin: 0;
+}
+#objectiveNew_modal input[type='button'] {
+  text-align: left;
+}
+#objectiveNew_modal .thirty-thirty {
+    display: block;
+}
+#objectiveNew_modal .modal-footer.thirty-thirty>.btn {
+    margin: 0;
+    border-top: none;
+    border-bottom: none;
+    border-left: none;
+}
+#objectiveNew_modal .thirty-thirty>* {
+    float: left;
+    display: block;
+    width: 33.333333%;
+    height: 100%;
+    /* box-sizing: border-box; */
+    border-right: 1px solid #ccc;
+    overflow: auto;
+}
+#objectiveNew_modal .modal-header .nav-item{
+    font-size: 15px;
+    color:#aae3a7;
+}
+#objectiveNew_modal .modal-titleClick{
+    color: #fff  !important;
+}
+#objectiveNew_modal .dropdown-toggle{
+    border: 1px solid #ccc;
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+    padding: 6px 12px;
+    font-size: 12px;
+    line-height: 1.6;
+}
+#objectiveNew_modal .row{
+    margin-bottom:10px;
+}
+#objectiveNew_modal .dropdown{
+    height:33px;
+}
+#objectiveNew_modal .dropdown-menu{
+    width:100%;
+    min-width: 0px;
+}
+#objectiveNew_modal .upPic{
+    background:url(../../Images/objective/up.png)no-repeat;
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    margin-top:-3px;
+    margin-right:-10px;
+    float:right;
+}
+#objectiveNew_modal .upPic_hit{
+    background:url(../../Images/objective/up.png)no-repeat;
+}
+/*目标内容 开始*/
+#modal_con_objective .modal-body{
+    margin-bottom: 150px;
+}
+#modal_con_objective table{
+    width:100%;
+}
+#modal_con_objective table td{
+    border-top:none;
+}
+#modal_con_objective table  .table-span{
+    display: inline-block;
+    margin-top: 6px;
+}
+#table-objective-content  input,#table-objective-content  .dropdown{
+    width:75%;
+}
+
+#objectiveNew_modal .new-date{
+    background:url(../../Images/objective/date.png) 0 no-repeat;
+    width: 30px;
+    height: 33px;
+    border-left:0;
+    background-position: center;
+}
+#objectiveNew_modal .new-responsibleUser{
+    background:url(../../Images/objective/response.png) 0 no-repeat;
+    width: 30px;
+    height: 33px;
+    border-left:0;
+    background-position: center;
+}
+#objectiveNew_modal .new-confirmUser{
+    background:url(../../Images/objective/confirmUser.png) 0 no-repeat;
+    width: 30px;
+    height: 33px;
+    border-left:0;
+    background-position: center;
+}
+#objectiveRule-setFormula:hover,#objectiveRule-Sure:hover{
+    color: #fff;
+    background-color: #fbac0f;
+    border-color: #d38e04;
+    background-image: none;
+}
+
+#new-objectiveValue-money-group a,#new-expectedValue-money-group a{
+    width: 30px;
+    height: 33px;
+    padding-left: 8px;
+    margin-top: -1px;
+    border-left:0;
+}
+
+#objectiveNew_modal  .modal-content{
+    width:738px;
+}
+#table-objective-content .input-group {
+    width:85%;
+}
+
+/*目标内容时间部分css样式设置*/
+#table-objective-date input{
+    width: 100px;
+}
+/*目标内容 结束*/
+/*目标规则 开始*/
+#objectiveRule-setFormula{
+    float:right;
+}
+#objectiveRule-Sure{
+    float:right;
+}
+#objectiveNew_modal .label-conrtol{
+    font-weight:normal;
+}
+#objectiveNew_modal .formula{
+    margin-right: 7px !important;
+}
+#default-formula{
+    height: 38px;
+    width: 140px;  
+}
+#default-formula-up{
+    float: left;
+    border-bottom: 1px solid;
+}
+#default-formula-down{
+    float: left;
+}
+#default-formula-right{
+    margin-top: 10px;
+    height: 38px;
+}
+
+/*公式列表中的输入框*/
+#modal_con_objectiveRule .table > tbody > tr > td
+{
+    border-top:0;
+}
+#formula-set-content{
+    height:300px;
+    overflow-y:auto;
+    overflow-x:hidden;
+}
+#formula-set-content input{
+    width:65%;
+}
+#formula-set-content .input-group  span,#formula-set-content .input-group  a{
+    margin-top: 5px;
+    display: inline-block;
+    float: left;
+}
+
+#formula-set-content .formula-content{
+    width: 236px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    display: inline-block;
+    line-height:33px;
+}
+#formula-set-content  .new-formula-delete{
+    margin-right: 2px;
+}
+#maxValue,#minValue{
+    width: 45%;
+    display: inline;
+}
+
+
+#modal_con_objectiveRule .form-control[disabled] {
+  cursor: default;
+  background-color: rgb(255, 255, 255);
+}
+#modal_con_objectiveRule .disabledColor {
+  color: #d1d1d1;
+}
+/*目标规则 结束*/
+
+/*计算器 开始*/
+#formula_modal .forty-sixty {
+    display: block;
+}
+#formula_modal .forty-sixty>* {
+    float: left;
+    display: block;
+    height: 100%;
+    /* box-sizing: border-box; */
+    border-right: 1px solid #ccc;
+    overflow: auto;
+}
+#formula_modal .area:nth-child(1){
+    width:39%
+}
+#formula_modal .area:nth-child(2){
+    width:61%
+}
+.calculator .monitor {
+    position: relative;
+    height: 100px;
+    margin: 10px 20px;
+}
+.calculator .monitor-inner {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    left: 10px;
+    max-height: 80px;
+    font-size: 23px;
+    line-height: 40px;
+    word-break: break-all;
+    overflow: auto;
+}
+.calculator .operate {
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-bottom: 10px;
+}
+.calculator .operate .btn {
+    padding: 5px 18px;
+    margin-left: 10px;
+}
+.calculator hr {
+    margin-bottom: 20px;
+}
+.calculator .area-key {
+    margin-bottom: 20px;
+}
+#formula_modal .area-key .area {
+    height:350px;
+    padding-left: 20px;
+    padding-right: 10px;
+    overflow: visible;
+}
+#formula_modal .area .areabox {
+<!--  margin-top: -10px;-->
+margin-bottom: -10px;
+}
+#formula_modal .area-number {
+    border-right: none;
+}
+#formula_modal .area .btn.btn-operational {
+    background-color: #d7d7d7;
+}
+#formula_modal .area .btn.btn-long {
+    width: 114px;
+}
+#formula_modal .area-number .btn {
+    font-size: 14px;
+}
+#formula_modal .area .btn {
+    float: left;
+    width: 52px;
+    height: 52px;
+    padding: 0;
+    margin-right: 10px;
+    margin-bottom: 20px;
+    line-height: 52px;
+    background-color: #f9f9f9;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+#formula_modal .btn-height{
+    height:87px!important;
+}
+#formula_modal .btn-marginSet{
+    margin-top: -35px;
+}
+#formula_modal_time_hidden{
+   position: absolute;
+  top: 476px;
+  right: 20px;
+  opacity: 0;
+  width: 52px;
+  height: 9px;
+
+}
+/*计算器 结束*/
+/*右侧树 开始*/
+#objectiveNew_modal .modal-right-content .modal-header{
+    background-color: #f9f9f9;
+}
+#objectiveNew_modal .modal-right-content .modal-header .modal-title{
+    color: #333;
+}
+
+#objectiveNew_modal .modal-right-content{
+    width: 300px !important;
+    position: absolute;
+    height: 100%;
+    top: 0;
+}
+#node-rightContent{
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+#newModal-ChooseList{
+    height: 275px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+ #newModal-ChooseList li{
+     margin-bottom:-5px;
+    }
+#newModal-ChooseList span{
+    width:70%;
+    overflow:hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    margin-left:5px;
+}
+#newModal-ChooseList li input{
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0;
+}
+#modal_con_objective .disabled{
+    background-color: #eee;
+    cursor: default;
+}
+
+#objectiveNew_modal .modal-right-content
+{
+    left:731px;
+}
+#objectiveNew_modal .ztree li a
+{
+    width: 200px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+#new-objectiveType-dropdown .dropdown-toggle
+{
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: 198px;
+}
+/*右侧树 结束*/
+
+
+#formula-set-content .dropdown-toggle {
+    height: 33px;
+}
+
+.progress .bar {
+    width: 100%;
+    background-color: #58b456;
+    height: 100%;
+}
+#chooseContent {
+  height:100%;
+  margin-left: -7px;
+}
+
+#orgChooseZtree li a ,#personZtree li a{
+     max-width: 260px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+.TabActiveColor{
+  color:#58b456;
+}

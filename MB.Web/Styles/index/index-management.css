@@ -1,0 +1,728 @@
+
+.ztree li a span {
+  width: 120px;
+  text-overflow: ellipsis;
+  display: inline-block;
+  overflow: hidden;
+}
+.defaultLine{
+    background-color: #e6e6e6;
+  border-color: #adadad;
+}
+
+/*自定义下拉框 开始*/
+.newOrg_cell {
+  display: inline-block;
+  line-height: 30px;
+  width: 280px;
+  height: 30px;
+  border: 1px solid #bbbbbb;
+}
+.newOrg_cell .dropdown-toggle {
+  width: 100%;
+  display: inline-block;
+}
+.upPic {
+  background: url(../../Images/organization/up.png)no-repeat;
+  width: 24px;
+  height: 24px;
+  display: inline-block;
+  margin-top: 3px;
+  float: right;
+}
+.newOrg_cell > ul {
+  width: 100%;
+  padding: 0px;
+}
+.newOrg_cell  ul li a {
+  padding-left: 10px;
+}
+.dropdown-span{
+    margin-left: 10px;
+}
+/*自定义下拉框 结束*/
+/*自定义css开始*/
+body {
+  overflow-y: visible;
+}
+.cccs{
+  position: relative;
+  width: 10px;
+  margin-top: 150px;
+  float:left;
+  margin-right: -10px;
+  padding-left:2px;
+}
+.all{
+    width:1212px;
+}
+.box:first-child{
+    margin-top:0px;
+}
+.dropdown-right{
+      float: right;
+      margin-right:10px;
+}
+/**/
+
+.add{
+     font-size:20px;
+}
+.firstnewmodule .add{
+    margin:100px 400px;
+    height:200px;   
+}
+.module .add,.newmodual .add{
+    padding-top: 140px;   
+    margin:0 auto;
+}
+ 
+
+.firstnewmodule .addPicture{
+      display: inline;
+    width: 120px;
+}
+.addPicture {
+    display: block;
+    clear: both;
+     margin: 0 auto;
+    border-style:none;
+    background: url(../../Images/plan/addB.png) no-repeat 0;
+    height: 70px;
+    width: 170px;
+    padding-left:60px;
+
+}
+.dropdown-menu{
+    min-width:0px;
+}
+ 
+.box{
+    width:auto;
+}
+ 
+.box:nth-last-child(1){
+    margin-bottom:100px;
+}
+.banner, .news{
+    height:348px;
+    background-color: #f9f9f9;
+}
+.arrowsBBBDiv li:hover {
+    background-color: #58b456;
+}
+.newmodual{
+    float: left;
+    height: 350px;
+    border: 1px solid #bbb;
+    width: 549px;
+    margin-left: 10px;
+     background-color: #f9f9f9;
+}
+.docuInfor {
+    float: left;
+    height: 350px;
+    border: 1px solid #bbb;
+    width: 549px;
+    margin-left: 10px;
+     background-color: #f9f9f9;
+}
+.messageIndex {
+    float: left;
+    height: 350px;
+    border: 1px solid #bbb;
+    width: 549px;
+     background-color: #f9f9f9;
+}
+#photo_modal{
+    z-index:1500 ;
+}
+.banner
+{
+    float:left;
+    width:785px; 
+    position:relative;
+}
+ 
+.list{
+    padding-top: 8px;
+    overflow: auto;
+}
+/**超长变成.TOP.. word-wrap: break-word;
+    width: 250px;
+    display: inline-block;*/
+ .list li span {
+  max-width: 90%;
+  display: inline-block;
+  height: 20px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+/**  overflow: hidden;text-overflow: ellipsis;*/
+/*自定义css结束*/
+/* 公司内容 开始 */
+.box
+{
+    float: left;
+    height: 350px;
+    margin-top: 15px;   
+    border: 1px solid #bbb;
+}
+.box .title
+{
+    float: left;
+    width: 98.75%;
+    height: 39px;
+    line-height: 39px;
+    padding-left: 1.25%;
+    color:#373737;
+    font-size: 14px;
+    border-bottom: 1px solid #bbb;
+}
+ 
+
+/* 公司列表 开始 */
+.box .list {
+    float:left;
+    width:100%;
+    height:280px;
+}
+.box .list li {
+    float:left;
+    width:92.8%;
+    height:30px;
+}
+ 
+/* 公司列表 结束 */
+/* 公司新闻 结束 */
+
+
+
+/* 通知、文档中心 开始 */
+.news {
+    float:left;
+    width:415px;
+
+}
+
+.messageIndex {
+    width:639px;
+}
+
+.list li{
+    width:95.2%;
+    margin-left:2.4%;
+}
+.messageIndex .list li.line ,
+.docuInfor .list li.line {
+    width:95.2%;
+}
+.docuInfor .list li {
+    position:relative;
+}
+.docuInfor .list li a:hover {
+    color:#686868;
+}
+.docuInfor .list li .liHover {
+    position:absolute;
+    left:-2.5%;
+    display:none;
+    width:549px;
+    height:30px;
+    /*cursor:pointer;*/
+}
+.docuInfor .list li .liHover .bg {
+    position:absolute;
+    width:549px;
+    height:30px;
+    background-color:#000;
+    filter:alpha(opacity=50); /*IE滤镜，透明度50%*/
+    -moz-opacity:0.5; /*Firefox私有，透明度50%*/
+    opacity:0.5;/*其他，透明度50%*/
+}
+.docuInfor .list li .liHover a{
+    float: right;
+}
+.liHover .down {
+    position:relative;
+    display:block;
+    float:right;
+    width:30px;
+    height:30px;
+    line-height:30px;
+    text-align:center;
+    color:#fff;
+}
+.liHover .updown {
+    position:relative;
+    display:block;
+    float:right;
+    width:24px;
+    height:28px;
+    margin-top:2px;
+    background:url(../../Images/index/updown.png) no-repeat;
+}
+/* 通知、文档中心 结束 */
+
+
+
+/* 工效价值 开始 */
+.effect {
+    float:left;
+    width:858px;
+    height:350px;
+    background-color:#f9f9f9;
+    border:1px solid #bbb;
+}
+.effect .title .TOne ,
+.effect .title .TTwo {
+    float:left;
+    width:auto;
+    height:39px;
+    line-height:39px;
+    color:#58b557;
+    font-size:14px;
+    cursor:pointer;
+}
+ 
+#graph-wrapper .titles {
+    /*float:left;*/
+    width:100%;
+    height:30px;
+    line-height:30px;
+    text-align:center;
+    display: block;
+}
+#graph-wrapper .borders-bottom {
+    position:absolute;
+    top:249px;
+    left:35px;
+    width:760px;
+    height:0;
+    border-bottom:2px solid #b2dab3;
+}
+#graph-wrapper .borders-left {
+    position:absolute;
+    top:30px;
+    left:35px;
+    width:0;
+    height:220px;
+    border-left:2px solid #b2dab3;
+}
+ 
+/* 工效价值 结束 */
+
+
+
+/* TOP 开始 */
+.TOP {
+    float:left;
+    width:343px;
+    height:350px;
+    background-color:#f9f9f9;
+    border:1px solid #bbb;
+    border-left-width:0;
+}
+ 
+.TOP .list {
+    height:310px;
+}
+.TOP .list li {
+    width:95.2%;
+    margin-left:2.4%;
+}
+.TOP .list li.line {
+    width:95.2%;
+}
+
+ 
+
+
+
+
+
+/* TOP 结束 */
+
+
+
+
+.label {
+    display: inline;
+    padding: 2px;
+    font-size: 75%;
+    font-weight: bold;
+    line-height: 1;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: .25em;
+}
+.label-danger {
+    background-color: #D9534E;
+}
+
+
+/* 弹出框css 开始 ***/
+#Setup_modal .modalRadio{
+    height:auto;
+    margin-bottom: 10px;
+}
+#Setup_modal .modalRadio .row {
+  
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+#Setup_modal .modalbody{
+    height:auto;
+    margin-bottom:100px;
+    border-top:1px solid #ddd;
+}
+.set>select{
+    
+     border:1px solid #ccc;
+   
+}
+/* 子选择器，在FF等非
+  outline:none;IE浏览器中识别 */  
+#Setup_modal .modaltitle{
+    height:auto;
+    margin-bottom: 30px;
+    border-top:1px solid #ddd;
+}
+/*   ***/
+#Setup_modal .modaltitle .set-group .set-label , #Setup_modal .modalbody  .set-group .set-label {
+    width: 70px;
+}
+#Setup_modal .modaltitle .set-group .set-label{
+    margin-top: 6px;
+
+}
+#Setup_modal .modaltitle .set-group .set ,#Setup_modal .modalbody  .set-group .set{
+    margin-left: 70px;
+}
+#Setup_modal input.displayTitle {
+    margin-left: 25px;
+}
+#Setup_modal .modal-phonto{
+    margin-bottom:250px;
+}
+#Setup_modal .modal-phonto button{
+    color:#ffffff;
+    background-color: #f7ac1b;
+    width: 100px;
+    height: 35px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+
+}
+#Setup_modal .modal-phonto .set-group{
+    margin-top:30px;
+}
+#Setup_modal .modal-phonto .pull-right {
+    margin-top: 10px;
+}
+
+#Setup_modal .modal-size button{
+    color:#ffffff;
+    background-color: #f7ac1b;
+    border: 1px solid #ddd;
+    width: 50px;
+ 
+}
+#Setup_modal .efficiencyValue .setbutton{
+    color:#ffffff;
+    background-color: #f7ac1b;
+    
+}
+
+
+
+#Setup_modal .modalRadio label,#Setup_modal .modal-size label{
+    font-weight: normal;
+}
+
+#Setup_modal input.short {
+    width: 350px;
+    height: 30px;
+    display: inline;
+}
+#Setup_modal .set-group .set {
+    line-height: 30px;
+}
+
+#Setup_modal .radiochecked{
+    background-color: #bbedf7 ;
+}
+
+/*-#Setup_modal .modal-size .size-label{
+    padding-top: 20px;
+}上传图片 color: #888;
+    background: #fafafa; height: 20px;*/
+.upload {
+    color: #ffffff;
+    background-color: #f7ac1b;
+    width: 100px;
+    height: 35px;
+    padding-top: 5px;
+    text-align: center;
+    font-size: 14px;
+    line-height: 20px;
+    position: relative;
+    cursor: pointer;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    overflow: hidden;
+    display: inline-block;
+    *display: inline;
+    *zoom: 1
+
+}
+
+.upload  input {
+    position: absolute;
+    font-size: 100px;
+    right: 0;
+    top: 0;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    cursor: pointer
+}
+/*
+.upload:hover {
+    color: #444;
+    background: #eee;
+    border-color: #ccc;
+    text-decoration: none
+}*/
+/*-图片及hover效果设置*/
+
+/*-图片及hover效果设置*/
+#photo_modal .modal-phonto .set-group {
+    margin-top: 30px;
+    overflow-y: auto;
+    height: 400px;
+}
+#photo_modal  .modal-phonto .pull-right {
+    margin-top: 10px;
+}
+#photo_modal .modal-phonto .uploadphoto {
+    color: #ffffff;
+    background-color: #f7ac1b;
+    width: 100px;
+    height: 35px;
+}
+#photo_modal .modal-phonto {
+    width:auto;
+    height: 500px;
+  
+}
+#Setup_modal .col-xs-3,#photo_modal .col-xs-3{
+    width: 20%;
+    height: 72px;
+    margin-bottom: 10px;
+}
+
+#Setup_modal img,#photo_modal img{
+    width: 100%;
+    height: 100%;
+}
+ 
+
+#photo_modal ul,#photo_modal ul li {
+    margin: 0px;
+    padding: 0px;
+    list-style-type: none;
+}
+#Setup_modal .operate,#photo_modal .operate {
+    display: none;
+    position: relative;
+    top: -40px;
+    right: 0;
+    z-index: 1;
+    float: left;
+    width: 100%;
+    height: 40px;
+}
+
+#Setup_modal .operate .operateDiv,#photo_modal .operate .operateDiv {
+    position: absolute;
+    top: 0px;
+    right: 0;
+    float: left;
+    width: 100%;
+    height: 40px;
+}
+#Setup_modal .operateDiv .operateBg,#photo_modal .operateDiv .operateBg {
+    position:absolute;
+    float:left;
+    width: 100%;
+    height:40px;
+    background: #606060;
+    filter:alpha(opacity=80); /*IE滤镜，透明度50%*/
+    -moz-opacity:0.8; /*Firefox私有，透明度50%*/
+    opacity:0.5;/*其他，透明度50%*/
+}
+#Setup_modal .operateDiv .operateText,#photo_modal .operateDiv .operateText  {
+    position: absolute;
+    float: left;
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    color: #fff;
+}
+#Setup_modal .operateDiv .operateText ul,#photo_modal .operateDiv .operateText ul {
+    width: 96%;
+    height: 40px;
+    margin: 0 2%;
+    overflow: hidden;
+}
+#Setup_modal .operateDiv .operateText ul li{
+    list-style:none;
+    float: right;
+    height: 24px;
+    line-height: 24px;
+    padding-left: 24px;
+    cursor: pointer;
+    margin-top: 8px;
+}
+#photo_modal .operateDiv .operateText ul li {
+    list-style:none;
+    float: right;
+    height: 24px;
+    line-height: 24px;
+    margin: 8px 3px;
+    padding-left: 24px;
+    cursor: pointer;
+}
+#Setup_modal .operateText .delete,#photo_modal .operateText .delete {
+    padding-left:30px;
+    background:url(../../Images/plan/deleteWhite.png) no-repeat;
+}
+#Setup_modal .operateText .delete:hover {
+    color:#136012;
+    background:url(../../Images/plan/delete.png) no-repeat;
+}
+#photo_modal .operateText .delete:hover {
+    color:#136012;
+    background:url(../../Images/plan/delete.png) no-repeat;
+}
+
+#Setup_modal .operateText .checks,#photo_modal .operateText .checks {
+    background:url(../../Images/common/preview.png) no-repeat;
+}
+ 
+#Setup_modal .operateText .checks:hover {
+    color:#136012;
+    background:url(../../Images/common/preview_hit.png) no-repeat;
+}
+#photo_modal .operateText .checks:hover {
+    color:#136012;
+    background:url(../../Images/common/preview.png) no-repeat;
+}
+
+/*-图片选择效果设置*/
+.col-xs-3 .choose
+{
+    position:absolute;
+    top: 0px;
+    right: 5px;
+    z-index: 2;
+    display: none;
+    width: 30px;
+    height: 30px;
+    background: #dadada;
+    cursor: pointer;
+}
+
+.col-xs-3 .choose.chooseHit
+{
+    border-left: 1px solid #bababa;
+    border-bottom: 1px solid #bababa;
+}
+
+.col-xs-3 .choose span
+{
+    position: relative;
+    top: 3px;
+    left: 3px;
+    display: block;
+    width: 24px;
+    height: 24px;
+    background: url(../../Images/plan/choose.png) no-repeat;
+}
+
+.col-xs-3 .choose span.spanHit
+{
+    background: url(../../Images/plan/chooseHit.png) no-repeat;
+}
+
+.col-xs-3 .prohibit
+{
+    position: relative;
+    top: -20px;
+    right: -384px;
+    z-index: 2;
+    width: 28px;
+    height: 28px;
+    background: url(../../Images/plan/prohibit.png) no-repeat;
+}
+
+/*-图片选择设置*/
+/*-功效价值类效果设置*/
+
+#Setup_modal .radio, .checkbox {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+#Setup_modal  .efficiencyValue input[type="checkbox"]{
+    margin-top: 8px;
+}
+#Setup_modal .defalutsize{
+    font-weight: normal;
+}
+
+/*-s设置    弹出框css*/
+
+
+#Setup_modal .content{
+    display:none;
+    position: absolute;
+    left: 558px;
+    width: auto;
+    min-width:300px;
+    top: 0;
+    height: 100%;
+    /* margin-top: -1450px; */
+    background-color:#f9f9f9;
+}
+#Setup_modal .content-header{
+    background-color:#f9f9f9;
+
+}
+#Setup_modal .content-header h4 {
+    color: black;
+}
+#Setup_modal .content .modal-row
+{
+    overflow-y: scroll;
+  height: 90%;
+  overflow: auto;
+}
+
+
+/*图片预览css开始*/
+#photoviewModal{
+    z-index: 2000;
+}
+ 
+#photoviewModal img{
+  clear: both;
+  display: block;
+  margin: auto;
+}
+/*图片预览css结束*/
+/* 弹出框css 结束 margin-top: 100px;
+    margin-left: 200px; ***/

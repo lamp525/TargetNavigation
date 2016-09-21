@@ -1,0 +1,195 @@
+﻿@{
+    var execution = Convert.ToBoolean(Session["execution"]);
+    var admin = Convert.ToBoolean(Session["admin"]);
+}
+
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <meta name="renderer" content="webkit">
+    <title></title>
+    <!-- bootstrap.css -->
+    <link href="../../Libs/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js : 为低于IE9的浏览器提供html5标签和媒体查询的支持  -->
+    <!-- 警告: Respond.js 不能在通过 file:// 协议获取的页面中正常工作-->
+    <!--[if lt IE 9]>-->
+        <script src="../../Libs/html5shiv/html5shiv.min.js"></script>
+        <script src="../../Libs/respond/respond.min.js"></script>
+        <!--[[endif]-->
+
+    <!-- 对bootstrap的样式的修改 -->
+    <link href="~/Styles/common-bootstrap/bootstrap-custom.css" rel="stylesheet" />
+
+
+    <!-- 引入的组件的样式 开始 -->
+    <link rel="stylesheet" href="../../Libs/messenger/css/messenger.css" />
+    <link rel="stylesheet" href="../../Libs/messenger/css/messenger-theme-flat.css" />
+    <link rel="stylesheet" href="../../Libs/zTree/css/ncStyle/zTreeStyle.css" />
+    <link rel="stylesheet" href="../../Libs/messenger/css/messenger-theme-block.css"  />
+    <link rel="stylesheet" href="../../Libs/laydate/need/laydate.css">
+    <link href="../../Libs/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <!-- 引入的组件的样式 结束 -->
+
+
+    <!-- 可通用样式 -->
+    <link href="~/Styles/common-bootstrap/common.css" rel="stylesheet" />
+
+    <!-- 本页所需的样式 开始 -->
+    @RenderSection("Remark_CSS", true)
+    <!-- 本页所需的样式 结束 -->
+</head>
+<body>
+    <div class="container">
+        <!-- 头部 开始 -->
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <div class="nav-container">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="#">
+                            <img alt="能诚" src="../../Images/index/logo.png">
+                        </a>
+                    </div>
+
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse">
+                        @*<p class="navbar-text">hello! <a href="#" class="navbar-link">金挺</a></p>
+                    <button type="button" class="btn btn-default btn-xs navbar-btn" title="注销" data-toggle="tooltip" data-placement="bottom">
+                        <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>
+                    </button>*@
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-hover="dropdown" data-delay="50" role="button" aria-expanded="false">首页 <span class="caret"></span></a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="@Url.Action("CompanyIndex", "Company")">公司首页</a></li>
+                                    <li class="divider short"></li>
+                                    <li><a href="@Url.Action("UserIndex", "User")">个人首页</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">目标</a></li>
+                            <li><a href="#" class="dropdown-toggle" data-hover="dropdown" data-delay="50" role="button" aria-expanded="false">激励</a>
+                                
+                                 <ul>
+                                     <li><a href="@Url.Action("IncentiveIndex","IncentiveIndex")">激励</a></li>
+                                 </ul>
+    
+                            </li>
+                            <li class="dropdown">
+                                <a href="/Plan/Index/1" class="dropdown-toggle" data-hover="dropdown" data-delay="50" role="button" aria-expanded="false">计划 <span class="caret"></span></a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="/Plan/Index/2">待提交</a></li>
+                                    <li class="divider short"></li>
+                                    <li><a href="/Plan/Index/3">待审核</a></li>
+                                    <li class="divider short"></li>
+                                    <li><a href="/Plan/Index/4">已审核</a></li>
+                                    <li class="divider short"></li>
+                                    <li><a href="/Plan/Index/5">待确认</a></li>
+                                    <li class="divider short"></li>
+                                    <li><a href="/Plan/Index/6">已完成</a></li>
+                                    <li class="divider short"></li>
+                                    <li><a href="/Plan/Index/7">已中止</a></li>
+                                    <li class="divider short"></li>
+                                    @if (execution)
+                                    {
+                                        <li><a href="/Plan/Index/10">计划管控</a></li>
+                                        <li class="line"></li> 
+                                    }
+                                    <li><a href="/PlanStatistics/Index">计划统计</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown"><a href="#" class="dropdown-toggle" data-hover="dropdown" data-delay="50" role="button" aria-expanded="false">执行 <span class="caret"></span></a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="/UserDocument/UserDocument">我的文档</a></li>
+                                    <li class="divider short"></li>
+                                    <li><a href="/FlowIndex/FlowIndex/0">流程首页</a></li>
+                                    @if (admin)
+                                    {
+                                        <li class="divider short"></li>
+                                        <li><a href="/FlowIndex/FlowIndex/1">流程管控</a></li>
+                                    }
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-hover="dropdown" data-delay="50" role="button" aria-expanded="false">基础 
+                                    @if (admin)
+                                    {
+                                        <span class="caret"></span>
+                                    }
+                                </a>
+
+                                @if (admin)
+                                {
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li><a href="/DocumentManagement/DocumentManagement">文档管理</a></li>
+                                        <li class="divider short"></li>
+                                        <li><a href="/TemplateCategory/TemplateCategory">流程管理</a></li>
+                                        <li class="divider short"></li>
+                                        <li><a href="/NewsManagement/NewsManagement">新闻/通知管理</a></li>
+                                        <li class="divider short"></li>
+                                        <li><a href="/OrganizationManagement/OrganizationManagement">组织架构管理</a></li>
+                                        <li class="divider short"></li>
+                                        <li><a href="/IndexManagement/IndexManagement">首页管理</a></li>
+                                    </ul> 
+                                }
+
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <!-- 头部 结束 -->
+
+        <!-- 页面内容 开始 -->
+        @RenderBody()
+        <!-- 页面内容 结束 -->
+    </div>
+    <!-- jQuery -->
+    <script src="~/Libs/jQuery/jquery-1.11.2.min.js"></script>
+
+    <!-- bootstrap.js -->
+    <script src="~/Libs/bootstrap/js/bootstrap.min.js"></script>
+
+
+    <!-- 引入的组件的JS 开始 -->
+
+    <script src="../../Libs/underscore/underscore.js"></script>
+    <script src="../../Libs/messenger/js/messenger.js"></script>
+    <script src="../../Libs/bootstrap-hover-dropdown/bootstrap-hover-dropdown.js"></script>
+    <script src="../../Libs/zTree/js/jquery.ztree.all-3.5.min.js"></script>
+    <script src="../../Libs/layer/layer.js"></script>
+    <script src="../../Libs/layer/extend/layer.ext.dev.js" type="text/javascript"></script>
+    <script src="../../Libs/laydate/laydate.js"></script>
+    <script src="../../Libs/pin/jquery.pin.js"></script>
+
+
+    <script src="../../Libs/jqFileUpload/js/vendor/jquery.ui.widget.js" type="text/javascript"></script>
+    <script src="../../Libs/jqFileUpload/js/jquery.iframe-transport.js" type="text/javascript"></script>
+    <script src="../../Libs/jqFileUpload/js/jquery.fileupload.js" type="text/javascript"></script>
+    <script src="../../Libs/raphael/raphael.js"></script>
+    <script src="~/Scripts/component/rating.js"></script>
+
+    <script src="~/Scripts/component/searchPopup.js"></script>
+    <script src="~/Scripts/component/selection.js"></script>
+    <!-- 引入的组件的JS 结束 -->
+
+    <script src="../../Scripts/common/units.js"></script>
+    <script src="../../Scripts/common-bootstrap/common.js"></script>
+
+    <!-- 本页调用的JS 开始 -->
+    @RenderSection("Remark_JS", false)
+    <!-- 本页调用的JS 结束 -->
+</body>
+</html>

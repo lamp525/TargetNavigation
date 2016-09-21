@@ -1,0 +1,228 @@
+﻿@using System.Configuration;
+@{
+    var pageNum = ConfigurationManager.AppSettings["pageNum"].ToString();
+    var userPage = ConfigurationManager.AppSettings["userPage"].ToString();
+
+        //设置量质时的最大值
+    var completeQuantity = ConfigurationManager.AppSettings["maxQuantity"].ToString();
+
+    var completeQuality = ConfigurationManager.AppSettings["maxQuality"].ToString();
+    var completeTime = ConfigurationManager.AppSettings["maxTime"].ToString();
+
+        //设置错误信息文件
+    var MessagePath = ConfigurationManager.AppSettings["MessagePath"].ToString();
+
+        //密码错误次数验证码
+    var InputErrorValidate = ConfigurationManager.AppSettings["InputErrorValidate"].ToString();
+
+        //上传文件路径
+    var NewsUpLoadPath = ConfigurationManager.AppSettings["NewsUpLoadPath"].ToString();
+
+    var DocumentUpLoadPath = ConfigurationManager.AppSettings["DocumentUpLoadPath"].ToString();
+    var PlanUpLoadPath = ConfigurationManager.AppSettings["PlanUpLoadPath"].ToString();
+    var MineUpLoadPath = ConfigurationManager.AppSettings["MineUpLoadPath"].ToString();
+    var HeadImageUpLoadPath = ConfigurationManager.AppSettings["HeadImageUpLoadPath"].ToString();
+    var IMUploadPath = ConfigurationManager.AppSettings["IMUploadPath"].ToString();
+    var ObjectiveUploadPath = ConfigurationManager.AppSettings["ObjectiveUploadPath"].ToString();
+    var FlowIndexUploadPath = ConfigurationManager.AppSettings["FlowIndexUploadPath"].ToString();
+    var MeetingUpLoadPath = ConfigurationManager.AppSettings["MeetingUpLoadPath"].ToString();
+    var ConvertFilePath = ConfigurationManager.AppSettings["ConvertFilePath"].ToString();
+
+        //IM通讯服务
+    var IMHost = ConfigurationManager.AppSettings["IMHost"].ToString();
+
+        //模板路径
+    var PlanTemplate = ConfigurationManager.AppSettings["PlanTemplate"].ToString();
+    }
+
+<!-- 本页所需的样式 开始 -->
+<link rel="stylesheet" href="../../Styles/SystemSetting/systemSetting.css"/>
+<!-- 本页所需的样式 结束 -->
+
+<!-- 页面内容 开始 -->
+
+<div class="row">
+    <div id="dateContainer" class="col-xs-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <div class="panel-title">
+                    后台管理
+                </div>
+            </div>
+            <div class="panel-body pos-r">
+                <table class="table table-hover" id="systemSetting">
+                    <thead>
+                    <tr>
+                        <th>系统项目</th>
+                        <th>配置内容</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr class="set-item" id="DocumentUpLoadPath">
+                        <td style="width:35%;">文档上传路径</td>
+                        <td style="width:50%;text-overflow:initial;">
+                            <span class="set-display text-overflow" title="@DocumentUpLoadPath">@DocumentUpLoadPath</span>
+                            <input type="text" class="set-text" id="DocumentUpLoadPath2" value="@DocumentUpLoadPath"/>
+                        </td>
+                        <td style="width:15%;"><a href="#" class="set-change">修改</a></td>
+                    </tr>
+                    <tr class="set-item" id="PlanUpLoadPath">
+                        <td>计划附件路径</td>
+                        <td>
+                            <span class="set-display text-overflow" title="@PlanUpLoadPath">@PlanUpLoadPath</span>
+                            <input type="text" class="set-text" id="PlanUpLoadPath2" value="@PlanUpLoadPath"/>
+                        </td>
+                        <td><a href="#" class="set-change">修改</a></td>
+                    </tr>
+                    <tr class="set-item" id="MeetingUpLoadPath">
+                        <td>会议资料路径</td>
+                        <td>
+                            <span class="set-display text-overflow" title="@MeetingUpLoadPath">@MeetingUpLoadPath</span>
+                            <input type="text" class="set-text" id="MeetingUpLoadPath2" value="@MeetingUpLoadPath"/>
+                        </td>
+                        <td><a href="#" class="set-change">修改</a> </td>
+                    </tr>
+                    <tr class="set-item" id="FlowIndexUploadPath">
+                        <td>流程附件路径</td>
+                        <td>
+                            <span class="set-display text-overflow" title="@FlowIndexUploadPath">@FlowIndexUploadPath</span>
+                            <input type="text" class="set-text" id="FlowIndexUploadPath2" value="@FlowIndexUploadPath"/>
+                        </td>
+                        <td><a href="#" class="set-change">修改</a></td>
+                    </tr>
+                    <tr class="set-item" id="InputErrorValidate">
+                        <td>登录验证密码输错次数</td>
+                        <td>
+                              <span class="set-display text-overflow" title="@InputErrorValidate">@InputErrorValidate</span>
+                            <input type="text" class="set-text" id="InputErrorValidate2" value="@InputErrorValidate"/>
+                        </td>
+                        <td><a href="#" class="set-change">修改</a></td>
+                    </tr>
+                    <tr class="set-item" id="completeQuantity">
+                        <td>设置完成数量</td>
+                        <td>
+                              <span class="set-display text-overflow" title="@completeQuantity">@completeQuantity</span>
+                            <input type="text" class="set-text" id="completeQuantity2" value="@completeQuantity"/>
+                        </td>
+                        <td><a href="#" class="set-change">修改</a></td>
+                    </tr>
+                    <tr class="set-item" id="completeQuality">
+                        <td>设置完成质量</td>
+                        <td>
+                              <span class="set-display text-overflow" title="@completeQuality">@completeQuality</span>
+                            <input type="text" class="set-text" id="completeQuality2" value="@completeQuality"/>
+                        </td>
+                        <td><a href="#" class="set-change">修改</a></td>
+                    </tr>
+                     <tr class="set-item" id="completeTime">
+                        <td>设置完成时间</td>
+                        <td>
+                              <span class="set-display text-overflow" title="@completeTime">@completeTime</span>
+                            <input type="text" class="set-text" id="completeTime2" value="@completeTime"/>
+                        </td>
+                        <td><a href="#" class="set-change">修改</a></td>
+                    </tr>
+
+                    <tr class="set-item" id="pageNum">
+                             <td>新闻通知分页数</td>
+                        <td>
+                            <span class="set-display text-overflow" title="@pageNum">@pageNum</span>
+                            <input type="text" class="set-text" id="pageNum2" value="@pageNum"/>
+                        </td>
+                        <td><a href="#" class="set-change">修改</a></td>
+                     </tr>
+                     <tr class="set-item" id="userPage">
+                             <td>用户列表分页数</td>
+                        <td>
+                            <span class="set-display text-overflow" title="@userPage">@userPage</span>
+                            <input type="text" class="set-text" id="userPage2" value="@userPage"/>
+                        </td>
+                        <td><a href="#" class="set-change">修改</a></td>
+                     </tr>
+                     <tr class="set-item" id="MessagePath">
+                             <td>设置错误信息文件路径</td>
+                        <td>
+                            <span class="set-display text-overflow" title="@MessagePath">@MessagePath</span>
+                            <input type="text" class="set-text" id="MessagePath2" value="@MessagePath"/>
+                        </td>
+                        <td><a href="#" class="set-change">修改</a></td>
+                     </tr>
+                     <tr class="set-item" id="NewsUpLoadPath">
+                             <td>新闻图片上传路径</td>
+                        <td>
+                            <span class="set-display text-overflow" title="@NewsUpLoadPath">@NewsUpLoadPath</span>
+                            <input type="text" class="set-text" id="NewsUpLoadPath2" value="@NewsUpLoadPath"/>
+                        </td>
+                        <td><a href="#" class="set-change">修改</a></td>
+                     </tr>
+                    <tr class="set-item" id="MineUpLoadPath">
+                             <td>服务器上传文档路径</td>
+                        <td>
+                            <span class="set-display text-overflow" title="@MineUpLoadPath">@MineUpLoadPath</span>
+                            <input type="text" class="set-text" id="MineUpLoadPath2" value="@MineUpLoadPath"/>
+                        </td>
+                        <td><a href="#" class="set-change">修改</a></td>
+                     </tr>
+                    <tr class="set-item" id="HeadImageUpLoadPath">
+                             <td>上传头像图片路径</td>
+                        <td>
+                            <span class="set-display text-overflow" title="@HeadImageUpLoadPath">@HeadImageUpLoadPath</span>
+                            <input type="text" class="set-text" id="HeadImageUpLoadPath2" value="@HeadImageUpLoadPath"/>
+                        </td>
+                        <td><a href="#" class="set-change">修改</a></td>
+                     </tr>
+                    <tr class="set-item" id="IMUploadPath">
+                             <td>通讯上传文件路径</td>
+                        <td>
+                            <span class="set-display text-overflow" title="@IMUploadPath">@IMUploadPath</span>
+                            <input type="text" class="set-text" id="IMUploadPath2" value="@IMUploadPath"/>
+                        </td>
+                        <td><a href="#" class="set-change">修改</a></td>
+                     </tr>
+                    <tr class="set-item" id="ObjectiveUploadPath">
+                             <td>目标上传附件路径</td>
+                        <td>
+                            <span class="set-display text-overflow" title="@ObjectiveUploadPath">@ObjectiveUploadPath</span>
+                            <input type="text" class="set-text" id="ObjectiveUploadPath2" value="@ObjectiveUploadPath"/>
+                        </td>
+                        <td><a href="#" class="set-change">修改</a></td>
+                     </tr>
+                      <tr class="set-item" id="ConvertFilePath">
+                             <td>预览文件路径</td>
+                        <td>
+                            <span class="set-display text-overflow" title="@ConvertFilePath">@ConvertFilePath</span>
+                            <input type="text" class="set-text" id="ConvertFilePath2" value="@ConvertFilePath"/>
+                        </td>
+                        <td><a href="#" class="set-change">修改</a></td>
+                     </tr>
+                     <tr class="set-item" id="IMHost">
+                             <td>IM通讯服务</td>
+                        <td>
+                            <span class="set-display text-overflow" title="@IMHost">@IMHost</span>
+                            <input type="text" class="set-text" id="IMHost2" value="@IMHost"/>
+                        </td>
+                        <td><a href="#" class="set-change">修改</a></td>
+                     </tr>
+                    <tr class="set-item" id="PlanTemplate ">
+                             <td>模板路径</td>
+                        <td>
+                            <span class="set-display text-overflow" title="@PlanTemplate">@PlanTemplate</span>
+                            <input type="text" class="set-text" id="PlanTemplate2" value="@PlanTemplate"/>
+                        </td>
+                        <td><a href="#" class="set-change">修改</a></td>
+                     </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 弹出层 开始 -->
+
+<!-- 弹出层 结束 -->
+
+<!-- 页面内容 结束 -->
+<script src="../../Scripts/SystemSetting/systemSettingManage.js"></script>
+<!-- 本页调用的JS 结束 -->

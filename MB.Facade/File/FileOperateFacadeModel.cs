@@ -1,0 +1,40 @@
+﻿namespace MB.Facade.File
+{
+    public class PageFileInfoModel
+    {
+        /// <summary>
+        /// 计划、循环计划、目标、流程或会议室ID
+        /// </summary>
+        public int? targetId { get; set; }
+
+        /// <summary>
+        /// 文件ID
+        /// </summary>
+        public int? fileId { get; set; }
+
+        /// <summary>
+        /// 文件路径
+        /// </summary>
+        public string filePath { get; set; }
+
+        /// <summary>
+        /// 表示名
+        /// </summary>
+        public string displayName { get; set; }
+
+        /// <summary>
+        /// 存储名
+        /// </summary>
+        public string saveName { get; set; }
+
+        /// <summary>
+        /// 后缀名
+        /// </summary>
+        public string extension { get; set; }
+
+        /// <summary>
+        /// 预览标志
+        /// </summary>
+        public bool? isPreviewable { get; set; }
+    }
+}

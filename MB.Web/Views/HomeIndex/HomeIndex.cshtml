@@ -1,0 +1,442 @@
+﻿@{
+    var execution = Convert.ToBoolean(Session["execution"]);
+    var admin = Convert.ToBoolean(Session["admin"]);
+}
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="cache-control" content="no-cache">
+
+    <title>能诚集团-目标导航系统</title>
+
+    <!-- HTML5 shim and Respond.js : 为低于IE9的浏览器提供html5标签和媒体查询的支持  -->
+    <!-- 警告: Respond.js 不能在通过 file:// 协议获取的页面中正常工作-->
+    <!--[if lt IE 9]>
+    <script src="../../Libs/html5shiv/html5shiv.min.js"></script>
+    <script src="../../Libs/respond/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- bootstrap.css -->
+    <link href="../../Libs/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+    <!-- 对bootstrap的样式的修改 -->
+    <link href="../../Styles/common/bootstrap-custom.css" rel="stylesheet"/>
+    
+
+    <!-- 引入的组件的样式 开始 -->
+    <link href="../../Libs/messenger/css/messenger.css" rel="stylesheet"/>
+    <link href="../../Libs/messenger/css/messenger-theme-block.css" rel="stylesheet"/>
+    <link href="../../Libs/jQuery-ui/css/jquery-ui.css" rel="stylesheet" />
+    <link href="../../Libs/font-awesome-4.4.0/css/font-awesome.min.css" rel="stylesheet"/>
+    <link href="../../Libs/bootstrap-select/css/bootstrap-select.css" rel="stylesheet"/>
+    <link href="../../Libs/jcorp/css/jquery.Jcrop.css" rel="stylesheet"/>
+    <link href="../../Libs/laydate/need/laydate.css" rel="stylesheet"/>
+    <link href="../../Libs/layer/skin/layer.css" rel="stylesheet"/>
+    <link href="../../Libs/zTree/css/ncStyle/zTreeStyle.css" rel="stylesheet"/>
+    <link href="../../Libs/autocompleter/jquery.autocompleter.css" rel="stylesheet"/>
+    <!-- 引入的组件的样式 结束 -->
+    <!-- 可通用样式 -->
+    <link href="../../Styles/common/common.css" rel="stylesheet"/>
+    <!-- 本页所需的样式 开始 -->
+	<link href="../../Styles/chat/chat.css" rel="stylesheet" />
+    <!-- 本页所需的样式 结束 -->
+
+</head>
+<body>
+
+<!-- 页面内容 开始 -->
+<div class="container">
+    <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <div class="nav-container">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="#">
+                            <img alt="能诚" src="../../Images/index/logo.png">
+                        </a>
+                    </div>
+
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse">
+                        @*<p class="navbar-text">hello! <a href="#" class="navbar-link">金挺</a></p>
+                    <button type="button" class="btn btn-default btn-xs navbar-btn" title="注销" data-toggle="tooltip" data-placement="bottom">
+                        <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>
+                    </button>*@
+                        <ul class="nav navbar-nav navbar-right" id="mainNav">
+                            <li class="dropdown">
+                                <a href="/Company/CompanyIndex" class="dropdown-toggle" data-hover="dropdown" data-delay="50" role="button" aria-expanded="false">首页 <span class="caret"></span></a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="/Company/CompanyIndex")">公司首页</a></li>
+                                    <li class="divider short"></li>
+ 
+                                    <li def><a href="/User/UserIndex">个人首页</a></li>
+                                    <li class="divider short"></li>
+                                      <li><a class="toNew" href="/XXXViews/HomePageNavigation/HomePageNavigation">新个人首页</a></li> 
+                                </ul>
+                            </li>
+                            <li class="dropdown"><a href="#" class="dropdown-toggle" data-hover="dropdown" data-delay="50" role="button" aria-expanded="false">目标<span class="caret"></span></a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="/ObjectiveIndex/ObjectiveIndex">目标首页</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown"><a href="#" class="dropdown-toggle" data-hover="dropdown" data-delay="50" role="button" aria-expanded="false">激励<span class="caret"></span></a>
+                                 <ul class="dropdown-menu" role="menu">
+                                    <li><a href="/IncentiveIndex/IncentiveIndex">激励</a></li>
+                                    <li class="divider short"></li>
+                                    <li><a href="/DelayRule/DelayRule">激励公式设置</a></li>
+                                    <li class="divider short"></li>
+                                    <li><a href="/IncentiveContarst/IncentiveContarst">激励对比</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="/Plan/Index/1" class="dropdown-toggle" data-hover="dropdown" data-delay="50" role="button" aria-expanded="false">计划 <span class="caret"></span></a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="/Plan/Index/2">待提交</a></li>
+                                    <li class="divider short"></li>
+                                    <li><a href="/Plan/Index/3">待审核</a></li>
+                                    <li class="divider short"></li>
+                                    <li><a href="/Plan/Index/4">已审核</a></li>
+                                    <li class="divider short"></li>
+                                    <li><a href="/Plan/Index/5">待确认</a></li>
+                                    <li class="divider short"></li>
+                                    <li><a href="/Plan/Index/6">已完成</a></li>
+                                    <li class="divider short"></li>
+                                    <li><a href="/Plan/Index/7">已中止</a></li>
+                                    <li class="divider short"></li>
+                                    @if (execution)
+                                    {
+                                        <li><a href="/Plan/Index/10">计划管控</a></li>
+                                    <li class="divider short"></li>
+                                    }
+                                    <li><a href="/PlanStatistics/Index">计划统计</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown"><a href="#" class="dropdown-toggle" data-hover="dropdown" data-delay="50" role="button" aria-expanded="false">执行 <span class="caret"></span></a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="/UserDocument/UserDocument">我的文档</a></li>
+                                    <li class="divider short"></li>
+                                    <li><a href="/MeetingRoom/MyAppoint">我的会议</a></li>
+                                     <li class="divider short"></li>
+                                        <li><a href="/MeetingRoom/MeetingRoom">会议室首页</a></li>
+                                    <li class="divider short"></li>
+                                    <li><a href="/CalendarProcess/CalendarProcess">计划日程化</a></li>
+                                    <li class="divider short"></li>
+                                    
+                                  
+
+                                    <li><a href="/FlowIndex/FlowIndex/3">流程首页</a></li>
+                                 
+                                    @if (admin)
+                                    {
+                                        <li class="divider short"></li>
+                                        <li><a href="/FlowIndex/FlowIndex/1">流程管控</a></li>
+                                    }
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-hover="dropdown" data-delay="50" role="button" aria-expanded="false">基础 
+                                    @if (admin)
+                                    {
+                                        <span class="caret"></span>
+                                    }
+                                </a>
+
+                                @if (admin)
+                                {
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li><a href="/DocumentManagement/DocumentManagement">文档管理</a></li>
+                                        <li class="divider short"></li>
+                                        <li><a href="/TemplateCategory/TemplateCategory">流程管理</a></li>
+                                        <li class="divider short"></li>
+                                        <li><a href="/NewsManagement/NewsManagement">新闻/通知管理</a></li>
+                                        <li class="divider short"></li>
+                                        <li><a href="/OrganizationManagement/OrganizationManagement">组织架构管理</a></li>
+                                        <li class="divider short"></li>
+                                        <li><a href="/IndexManagement/IndexManagement">首页管理</a></li>
+                                         <li class="divider short"></li>
+                                        <li><a href="/Roster/RosterEdit">花名册编辑</a></li>
+                                         <li class="divider short"></li>
+                                        <li><a href="/Roster/RosterIndex">花名册首页</a></li>
+                                        <li class="divider short"></li>
+                                        <li><a href="/MeetingRoom/MeetManage">会议室管理</a></li>
+                                        <li class="divider short"></li>
+                                         <li><a href="/SystemSetting/SystemSetting">系统管理</a></li>
+                                    <li class="divider short"></li>
+                                           <li><a href="/bankInfoManage/bankInfoManage">银行管理</a></li>
+                                    <li class="divider short"></li>
+                                           <li><a href="/ExecutionMode/ExecutionMode">执行方式管理</a></li>
+                                    <li class="divider short"></li>
+                                         <li><a href="/AuthManagement/AuthManagement">权限管理</a></li>
+                                    <li class="divider short"></li>
+                                           <li><a href="/Holiday/Holiday">节假日管理</a></li>
+                                    <li class="divider short"></li>
+                                    </ul> 
+                                }
+
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+    <div id="mainContentContainer">
+    </div>
+    <!--chat开始-->
+
+    <div id="chat" onselectstart="return false">
+    <div class="smallSize">
+        <span class="fa fa-ban banSmall" style="cursor:pointer;"></span>
+        <span class="fa fa-check banCheck" style="cursor:pointer;"></span>
+    </div>
+    <div class="icon" id="personal_info">
+        <img class="img-thumbnail img-circle x64 personal_info_portrait" src="" alt=""/>
+        <div class="user" style="padding-left:5px">
+            <div class="name"><span class="personal_info_name"></span><span class="personal_info_id" style="display:none"></span></div>
+            <div class="position"><small class="personal_info_job"></small></div>
+        </div>
+    </div>
+    <div class="search">
+        <input type="text" placeholder="搜索" id="searchInput" />
+        <button>
+            <span class="glyphicon glyphicon-search"></span>
+        </button>
+        <button style="border-left:1px solid #bfbfbf;border-right:1px solid #bfbfbf;position: absolute;right: 0px;" class="showAdd">
+            <span class="fa fa-angle-down" style="font-size: 16px;"></span>
+        </button>
+        <div class="searchPerson hide">
+            <div class="tell">
+                选择联系人
+            </div>
+       @*     <div class="selectInput">
+                <input type="text" name="name" value="" id="choose" />
+            </div>*@
+            <ul> 
+            </ul>
+        </div>
+    </div>
+    <div class="newAdd hide">
+        <a href="javascript:;" class="addNum">添加联系人员</a>
+        <a href="javascript:;" class="addNum">新建群组</a>
+        @*<a href="javascript:;" class="addNum">新建临时群组</a>*@
+    </div>
+    <ul class="relation">
+        <li class="person pClick" idenfiy="person">
+            @*<span class="fa fa-user" style="margin-left: 5px;"></span>*@
+            <img class="iconPicture" src="/Images/chat/me.png" />
+            <img class="iconHide hide" src="/Images/chat/meHit.png" />
+            <span style="margin-left: 5px;">常用联系人</span>
+            <span class="last"></span>
+        </li>
+        <li class="person pClick" idenfiy="group">
+            @*<span class="fa fa-users" style="margin-left: 5px;"></span>*@
+            <img class="iconPicture" src="/Images/chat/group.png" />
+            <img class="iconHide hide" src="/Images/chat/groupHit.png" />
+            <span style="margin-left: 5px;">群组</span>
+            <span class="last"></span>
+        </li>
+        <li class="person single"  idenfiy="temp">
+            <div class="wrapGroup">
+                @*<span class="fa fa-user-times" style="margin-left: 5px;"></span>*@
+               <img class="iconPicture" src="/Images/chat/org.png" />
+                <img class="iconHide hide" src="/Images/chat/orgHit.png" />
+                <span style="margin-left: 5px;">组织架构</span>
+                <span class="last"></span>
+             </div</li>
+        <li class="person pClick"  idenfiy="none">
+            @*<span class="fa fa-clock-o" style="margin-left: 5px;"></span>*@
+            <img class="iconPicture" src="/Images/chat/last.png" />
+            <img class="iconHide hide" src="/Images/chat/lastHit.png" />
+            <span style="margin-left: 5px;">最近会话</span>
+            <img src="/Images/chat/new.gif" style="margin-left: 5px;" alt="" class="hide newGif" />
+            <span class="last"></span>
+        </li>
+     @*   <li class="person pClick"  idenfiy="none">
+            <span class="fa fa-folder-open" style="margin-left: 5px;"></span>
+            <span style="margin-left: 5px;">文档管理</span>
+            <span class="last">12</span>
+        </li>*@
+        <!--<li class="person">-->
+            <!--<span class="fa fa-list-ul" style="margin-left: 5px;"></span>-->
+        <!--</li>-->
+    </ul>
+    <div class="chatBottom">
+        <span class="fa fa-volume-up systemNote" style="margin-left: 5px;"></span><span class="countAll"></span>
+    </div>
+</div>
+<div class="wrapSpeak hide module" id="drag">
+    <div class="speakGroup hide">
+        <div class="groupTop">
+            群组成员:
+            <span class="fa fa-plus addTo"></span>
+        </div>
+        <div class="groupList">
+            <ul>
+
+            </ul>
+        </div>
+    </div>
+    <div class="speak">
+        <div class="top">
+            <img src="#" alt="" />
+            <span class="speakName"></span>
+            <span class="showHistory fa fa-commenting" style="margin-right: 4px;"></span>
+            <span class="showGroup fa fa-user" style="margin-right: 4px;"></span>
+            <span class="closeTalk glyphicon glyphicon-remove" style="margin-right: 10px;"></span>
+        </div>
+        <div class="content contentTo">
+            <ul class="list">
+            </ul>
+        </div>
+        <div class="bottom">
+            <div class="bottom-left">
+                <div class="left-top">
+                    <div style="margin-left: 4px;"><a href="#" class="emotion"><span class="fa fa-smile-o"></span></a></div>    
+                    <div style="margin-left: 4px;"><span class="sendImg fa fa-file-picture-o"></span> <input id="fileuploadImg" type="file" name="files[]" multiple/></div>
+                    <div style="margin-left: 4px;"><span class="sendFile fa fa-link"></span><input id="fileuploadFile" type="file" name="files[]" multiple/></div>
+                </div>
+                <div class="left-bottom">
+                    <div contenteditable="true" id="temp" class="div"></div>
+                </div>
+            </div>
+            <div class="bottom-right">
+                <button class="say">
+                    发送
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="speakHistory hide">
+        <div class="historyTop">
+            <span>历史消息</span><span class="closeHistory glyphicon glyphicon-remove"></span>
+        </div>
+        <div class="historyBody" id="domMouse">
+            <div class="noMore">
+
+            </div>  
+            <div class="timeDate">
+
+            </div>
+            <ul>
+
+            </ul>
+        </div>
+        <div class="historyFoot">
+            <input style="margin-left: 7px;" type="text" class="select-time laydate-icon" id="historyDate" />
+            @*<span style="margin-left: 5px;" class="glyphicon glyphicon-trash"></span><span style="cursor:pointer">删除</span>*@
+            <span style="margin-left: 5px;" class="glyphicon glyphicon-search"></span><span pan style="cursor:pointer" class="searchOpen">搜索</span>
+            <div class="searchDiv hide"> 
+                <span style="margin-left:5px;">内容:</span>
+                <input  style="margin-left:5px;" type="text" name="name" value="" />
+                <span  style="margin-left:15px;" class="glyphicon glyphicon-search"></span>
+                <a href="javascript:;"  style="margin-left:2px;">确定</a>
+            </div>
+
+    </div>
+</div>
+</div>
+
+
+<div class="msg hide">
+    <span class="fa fa fa-commenting"></span>
+</div>
+<div style="display:none">
+    <span id="userId">@Session["userId"].ToString()</span>
+    <span id="filePath">@System.Configuration.ConfigurationManager.AppSettings["IMUploadPath"].ToString()</span>
+    <span id="headImagePath">@System.Configuration.ConfigurationManager.AppSettings["HeadImageUpLoadPath"].ToString()</span>
+    <span id="imHost">@System.Configuration.ConfigurationManager.AppSettings["IMHost"].ToString()</span>
+</div>
+
+    <!--chat结束-->
+
+
+
+</div>
+<!-- 页面内容 结束 -->
+<!-- 引入的组件的JS 开始 -->
+<script src="../../Libs/jQuery/jquery-1.11.2.js"></script>
+<script src="../../Libs/bootstrap/js/bootstrap.min.js"></script>
+<script src="../../Libs/excanvas/excanvas.js" type="text/javascript"></script>
+<script src="../../Libs/jQuery-ui/jquery-ui.js"></script>
+<script src="../../Libs/jqFileUpload/js/vendor/jquery.ui.widget.js" type="text/javascript"></script>
+<script src="../../Libs/underscore/underscore.js"></script>
+<script src="../../Libs/messenger/js/messenger.js"></script>
+<script src="../../Libs/layer/layer.js"></script>
+<script src="../../Libs/bootstrap-hover-dropdown/bootstrap-hover-dropdown.js"></script>
+<script src="../../Libs/bootstrap-select/js/bootstrap-select.js"></script>
+<script src="../../Libs/laytpl/laytpl.js" type="text/javascript"></script>
+<script src="../../Libs/jqFileUpload/js/jquery.iframe-transport.js" type="text/javascript"></script>
+<script src="../../Libs/jqFileUpload/js/jquery.fileupload.js" type="text/javascript"></script>
+<script src="../../Libs/layer/extend/layer.ext.dev.js" type="text/javascript"></script>
+<script src="../../Libs/laydate/laydate.js" type="text/javascript"></script>
+<script src="../../Libs/knob/jquery.knob.js" type="text/javascript"></script>
+<script src="../../Libs/raphael/raphael-min.js" type="text/javascript"></script>
+<script src="../../Libs/zTree/js/jquery.ztree.all-3.5.min.js" type="text/javascript"></script>
+<script src="../../Libs/pin/jquery.pin.js" type="text/javascript"></script>
+<script src="../../Libs/smint/jquery.smint.js" type="text/javascript"></script>
+<script src="../../Libs/flot/jquery.flot.js" type="text/javascript"></script>
+<script src="../../Libs/echarts/echarts-all.js"></script>
+<script src="../../Libs/autocompleter/jquery.autocompleter.js" type="text/javascript"></script>
+<script src="../../Scripts/component/dount.js" type="text/javascript"></script>
+<script src="../../Scripts/component/rating.js" type="text/javascript"></script>
+<script src="../../Scripts/component/searchPopup.js" type="text/javascript"></script>
+<script src="../../Scripts/component/selection.js" type="text/javascript"></script>
+<script src="../../Scripts/component/sortBar.js" type="text/javascript"></script>
+
+<script src="../../Scripts/common/units.js" type="text/javascript"></script>
+<script src="../../Scripts/common/init.js" type="text/javascript"></script>
+<script src="../../Scripts/common/common.js" type="text/javascript"></script>
+<!-- 引入的组件的JS 结束 -->
+<script src="../../Scripts/chat/jquery-migrate-1.2.1.min.js"></script>
+<script src="../../Scripts/chat/jquery.qqFace.js"></script>
+<script src="../../Libs/jquery-cookie/jquery.cookie.js"></script>
+<script src="../../Scripts/chat/chat.js"></script>
+
+<!-- 本页调用的JS 开始 -->
+<script>
+    $(function () {
+        var hrefReg = /^#|^javascript/i;
+        $(document).delegate("a", "click", function (e) {
+            if ($(this).hasClass('toNew')) {
+                return;
+            }
+            e.preventDefault();
+            var href = $(this).attr("href");
+            if (href && !hrefReg.test(href)) {
+                loadViewToMain(href);
+            }
+        });
+        var $nav = $("#mainNav");
+        $nav.find("a").click(function () {
+            if ($(this).hasClass('toNew')) {
+                return;
+            }
+            if ($(this).parent().is(".active")) {
+                return false;
+            }
+            $nav.find(".active").removeClass("active");
+            $(this).parent().addClass("active");
+        })
+        var lastUrl = sessionStorage.getItem("currentUrl");
+        if (lastUrl) {
+            loadViewToMain(lastUrl);
+        } else {
+            $nav.find("[def]>a").click();
+        }
+    });
+</script>
+<!-- 本页调用的JS 结束 -->
+</body>
+</html>

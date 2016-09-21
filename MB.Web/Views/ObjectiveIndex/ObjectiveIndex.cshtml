@@ -1,0 +1,1085 @@
+﻿<link href="~/Styles/objective/objectiveHome.css" rel="stylesheet" />
+    <!--  甘特图样式 -->
+    <!--<link rel=stylesheet href="../../Libs/gantt/css/platform.css" type="text/css">-->
+    <link rel=stylesheet href="../../Libs/gantt/libs/dateField/jquery.dateField.css" type="text/css">
+    <link rel=stylesheet href="../../Libs/gantt/css/gantt.css" type="text/css">
+    <link rel=stylesheet href="../../Libs/gantt/css/ganttPrint.css" type="text/css" media="print">
+    <!--<link rel=stylesheet href="gant.css" type="text/css" media="text/css">-->
+    <!--  甘特图样式结束-->
+
+<!-- 页面内容 开始 -->
+<div class="row">
+        <div id="objectContainer" class="col-xs-9">
+            <div class="panel panel-default" id="filterBox">
+                <div class="panel-heading" id="filter_selected">
+                    <div class="row">
+                       <span  class="col-xs-1">已选条件</span>
+                       <ul class="list-inline selectedCondition col-xs-10" >
+
+                       </ul>
+                        <a href="#" class="pull-right" id="cleanCondition">清空</a>
+                    </div>
+                </div>
+                <div  class="panel-body" id="specific">
+                   <div class="row">
+                       <span class="col-xs-1">目标对象：</span>
+                       <div class="col-xs-2">
+                          <div class="dropdown" id="object_target">
+                              <span class="dropdown-toggle" data-toggle="dropdown" data-delay="50" aria-expanded="false">
+                                  <span id="orgPersonSelect" term="1" >全部</span>
+                                  <span class="upPic"></span>
+                              </span>
+                              <ul class="dropdown-menu">
+                                  <li><a href="#" term="0">全部</a></li>
+                                  <li><a href="#" term="1"  data-toggle="modal" data-target="#department_modal" >架构目标</a></li>
+                                  <li><a href="#" term="2" >人员</a></li>
+                              </ul>
+                          </div>
+                       </div>
+                   </div>
+                    <div class="row" id="statusCondition">
+                        <span class="col-xs-1">状态：</span>
+                        <ul class="list-inline col-xs-6">
+                            <li><a  term="1" href="#">待提交</a></li>
+                            <li><a  term="2" href="#">待审核</a></li>
+                            <li><a  term="3"  href="#">审核通过</a></li>
+                            <li><a  term="4" href="#">待确认</a></li>
+                            <li><a  term="5" href="#">已完成</a></li>
+                        </ul>
+                    </div>
+                   <div class="row" id="timeSelect">
+                       <span class="col-xs-1">时间 : </span>
+                       <ul class="list-inline">
+                           <li><a href="#" term="1" >近一月</a></li>
+                           <li><a href="#" term="2" >近一周</a></li>
+                           <li>
+                               <div class="form-group form-inline">
+                                   <label  for="startTime">开始日期 </label>
+                                   <div class="input-group">
+                                       <input type="button" class="form-control"  id="startTime" placeholder="开始日期">
+                                       <span class="input-group-addon">
+                                           <span class="dateCorn" ></span>
+                                       </span>
+                                   </div>
+                                   <span style="font-size:16px;">-</span>
+                                   <label for="endTime" >结束日期 </label>
+                                   <div class="input-group" >
+                                       <input type="button" class="form-control" id="endTime" placeholder="结束日期">
+                                       <span class="input-group-addon">
+                                           <span class="dateCorn" ></span>
+                                       </span>
+                                   </div>
+                               </div>
+                           </li>
+                           <li><a href="#" term="3" id="timeSure">确定</a></li>
+                       </ul>
+                   </div>
+                   <div class="drawer-handle chooseCondition" id="filterbox_shrink">
+                        看完了，点我收起来吧
+                   </div>
+                </div>
+            </div>
+            <div class="panel panel-default" style="margin-bottom: 0">
+                <div class="panel-heading object">
+                    <div class="panel-title">
+                        <ul class="nav nav-tabs" >
+                            <li role="presentation" class="active listObj"><a href="#myObject" aria-controls="myObject" role="tab" id="myObjectTab" >我的目标</a></li>
+                            <li role="presentation" class="listObj"><a href="#subObject"  aria-controls="subObject"  id="subObjectTab" role="tab" >下属目标</a></li>
+                            <li class="nav-right" >
+                                <ul class="list-inline" >
+                                    <li><a href="#" class="chooseCondition listObj">筛选</a></li>
+                                    <li><a  class="listShow TabActiveColor" href="#"  aria-controls="subObject"   role="tab" data-toggle="tab" id="punckListTab">列表</a></li>
+                                    <li  style="margin-left: -15px;"><span>/</span></li>
+                                    <li  style="margin-left: -15px;"><a href="#gantList" class="listShow"  aria-controls="subObject" role="tab" data-toggle="tab" id="gantListTab">甘特图</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <div id ="objectKind" class="listObj">
+                            <ul class="list-inline">
+                                <!--&lt;!&ndash;//快捷查询，忽略其他筛选条件：1：待提交 2：待审核 3：审核通过 4：待确认 5：已完成 6、超时 int&ndash;&gt;-->
+                                <!--<li term="1"><a  href="#">待提交 : </a><span style="color:#be1d9a"></span></li>-->
+                                <!--<li term="2"><a  href="#">待审核 : </a><span style="color:#fbab11"></span></li>-->
+                                <!--<li term="3"><a  href="#">审核通过 : </a><span style="color:#64d8ae"></span></li>-->
+                                <!--<li term="4"><a  href="#">待确认 : </a><span style="color:#57acdb"></span></li>-->
+                                <!--<li term="5"><a  href="#">已完成 : </a><span style="color:#58b557"></span></li>-->
+                                <!--<li term="6"><a  href="#">已超时 : </a><span style="color:#e02215"></span></li>-->
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div  class="panel-body">
+                    <div class="tab-content" id="listTabContent">
+                        <!--我的目标-->
+                        <div class="tab-pane active" role="tabpanel" id="myObject">
+
+                        </div>
+                        <!--下属目标-->
+                        <div class="tab-pane" role="tabpanel" id="subObject">
+
+                        </div>
+
+                        <!--甘特图-->
+                        <div class=""  id="gantList" style="width:100%">
+                            <div id="ganttOpt">
+                                <a href="javascript:;"><i style="cursor: pointer;margin-left:10px;" class="glyphicon glyphicon-chevron-left viewDown"></i></a><a
+                                    href="javascript:;"><i style="cursor:pointer;margin-left: 10px;"  class="viewUp glyphicon glyphicon-chevron-right"></i></a><a  href="javascript:;" class="pull-right active setMonth">月</a><span class="pull-right active">/</span><a href="javascript:;" class="pull-right setYear">年</a>
+                            </div>
+                             <div id="workSpace" style="padding:0px;overflow-y:hidden; overflow-x:hidden;border:1px solid #e5e5e5;position:relative;margin:0 5px;height:100%;width:100%">
+                                <div class="leftYear viewDown"><i class="glyphicon glyphicon-chevron-left"></i></div><div class="rightYear viewUp"><i class=" glyphicon glyphicon-chevron-right"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="sidebarContainer" class="col-xs-3">
+            <div class="sidebar">
+                <a type="button" class="btn btn-block btn-warning" id="newObjectiveBtn">新建目标</a>
+                 @Html.Partial("~/Views/Shared/_UserInfo.cshtml")
+                <div class="panel panel-default panel-chart" id="object_statistics">
+                    <div class="panel-heading">目标进程</div>
+                    <div class="panel-body pos-r chart-container" style="padding-bottom:0px">
+                        <div class="chart-content" id="object_chart">
+
+                        </div>
+                        <div class="chart-center"></div>
+                        <div class="month text-center" style="margin-top: 13px;">
+                           <span class="arrowsBBLCom pull-left" style="margin-top: -1px;"></span>
+                           <span class="text"></span>
+                           <span class="arrowsBBRCom pull-right" style="display: none"></span>
+                        </div>
+                    </div>
+                    <div class="panel-footer">
+                        <ul class="list-inline chart-label">
+                        </ul>
+                    </div>
+                </div>
+             </div>
+        </div>
+    </div>
+
+<!-- 页面内容 结束 -->
+
+<!--弹出层  开始-->
+
+<!-- 个人资料设置 开始 -->
+
+
+<!-- 个人资料设置 结束 -->
+
+<!--部门添加开始-->
+<div class="modal fade" id="department_modal" tabindex="-1" role="dialog" aria-labelledby="department_modal_label" aria-hidden="true" data-backdrop="false" data-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+              @Html.Partial("~/Views/Shared/DepartmentSelect.cshtml")
+        </div>
+    </div>
+</div>
+<!-- 部门添加结束 -->
+
+
+<!--人资添加开始-->
+<div class="modal fade" id="HR_modal"  tabindex="-1"   role="dialog" aria-labelledby="station_modal_label" aria-hidden="true" data-backdrop="false" data-keyboard="false">
+    <div class="modal-dialog" >
+        <div class="modal-content">
+            @Html.Partial("~/Views/Shared/PersonSelect.cshtml")
+        </div>
+    </div>
+</div>
+<!--人资添加结束-->
+
+
+<!--目标详情 开始-->
+<div class="modal fade" id="object_detail_modal" tabindex="-1" role="dialog" aria-labelledby="object_detail_modal" aria-hidden="true" data-backdrop="false" data-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+                 <h4 class="modal-title" id="objectDetailLabel">目标详情</h4>
+                 <h4 class="modal-title" id="objectRoleLabel">目标规则</h4>
+            </div>
+            <div class="tab-content" >
+                <div role="tabpanel" id="detailViewTab" class="tab-pane active">
+                    <div class="modal-body" style="overflow-y: auto;overflow-x: hidden;height:590px">
+
+                    </div>
+                </div>
+                <div role="tabpanel" id="FormularViewTab" class="tab-pane ">
+                    <div class="modal-body" style="overflow-y: auto;overflow-x: hidden;height:590px">
+
+                    </div>
+                </div>
+            </div>
+            <!--右边弹窗画面-->
+            <div class="rightModal">
+                <h4 id="rightTitle" style="margin-bottom: 7px;" ></h4>
+                <hr/>
+                <div id="rightContent">
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+<!--目标详情 结束-->
+
+
+<!--目标修改 开始-->
+<div class="modal fade" tabindex="-1"  role="dialog" aria-labelledby="object_modify_modal" id="object_modify_modal" aria-hidden="true" data-backdrop="false" data-keyboard="false">
+    <div class="modal-dialog" >
+        <div class="modal-content">
+            <div class="modal-header" style="height:35px">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+                <a href="#modifyView" aria-controls="modifyView" role="tab" data-toggle="tab"><h4 class="modal-title" id="objectModifyTab">目标修改</h4></a>
+                <a href="#modifyFormularView" aria-controls="modifyFormularView" role="tab" data-toggle="tab"><h4 class="modal-title disabledColor" id="objectModifyRole">目标规则</h4></a>
+            </div>
+
+             <div class="tab-content" >
+                <div role="tabpanel" id="modifyView" class="tab-pane active">              
+                     <div class="modal-body" style="overflow-y: auto;overflow-x: hidden;height:560px">
+                            <h4 style="margin-top: 0px;">目标内容</h4>
+                            <hr/>
+                            <form class="borderTop" id="modifyObjectContent">
+                                <div class="form-inline">
+                                    <label for="objectName" class="control-label" style="">目标名称:</label>
+                                    <input type="text" id="objectName" class="form-control" maxlength="50">
+                                    <label for="modifyObjectInput" class="control-label  marginSm">目标对象:</label>
+                                    <div class="dropdown" id="modifyObjectInput">
+                                        <button class="btn btn-default dropdown-toggle dropdownBtn" data-toggle="dropdown" data-delay="50" role="button" aria-expanded="false">
+                                            <span chooseId="" class="textOverFlow" style="max-width:155px"></span>
+                                            <span class="pull-right upPic"></span>
+                                        </button>
+                                        <ul class="dropdown-menu" role="menu">
+                                            <li><a herf='#' term='1'>架构</a></li>
+                                            <li><a herf='#' term='2'>人员</a></li>
+                                        </ul>
+                                    </div>
+                                    <!--<input type="text" class="form-control" id="modifyObjectInput" maxlength="50">-->
+                                </div>
+                                <div class="form-inline">
+                                    <label for="objectBonus" class="control-label">奖励基数:</label>
+                                    <input type="text" id="objectBonus" class="form-control"   maxlength="18">
+                                    <label for="modifyWeight" class="control-label  marginSm">权重</label>
+                                    <input type="text" class="form-control" id="modifyWeight"  maxlength="18" >
+                                </div>
+                                <div class="form-inline">
+                                    <label for="modifyCheckType" class="control-label">考核类型:</label>
+                                    <div class="dropdown" id="modifyCheckType">
+                                        <button class="btn btn-default dropdown-toggle dropdownBtn" data-toggle="dropdown" data-delay="50" role="button" aria-expanded="false">
+                                            <span></span>
+                                            <span class="pull-right upPic"></span>
+                                        </button>
+                                        <ul class="dropdown-menu" role="menu">
+                                            <li><a herf='#' term='1'>金额</a></li>
+                                            <li><a herf='#' term='2'>时间</a></li>
+                                            <li><a herf='#'  term='3'>数字</a></li>
+                                        </ul>
+                                    </div>
+                                    <label class=" control-label  marginSm">指标值:</label>
+                                    <div id="targetInput"  class="modifyObjectValue">
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" id="targetMoney" maxlength="20">
+                                            <span class="input-group-addon">
+                                                <span class="glyphicon glyphicon-yen" ></span>
+                                            </span>
+                                        </div>
+                                        <div class="input-group">
+                                            <input type="button" class="form-control" id="targetTime" placeholder="日期">
+                                            <span class="input-group-addon">
+                                               <span class="dateCorn" ></span>
+                                            </span>
+                                        </div>
+                                        <input type="text" class="form-control" id="targetNumber" maxlength="20" oninput="value=value.replace(/[^\d]/g,'')">
+                                    </div>
+                                </div>
+                                <div class="form-inline">
+                                    <label  class="control-label">理想值:</label>
+                                    <div  id="expectInput"  class="modifyObjectValue">
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" id="expectMoney" maxlength="20" >
+                                            <span class="input-group-addon" >
+                                               <span class="glyphicon glyphicon-yen"></span>
+                                            </span>
+                                        </div>
+                                        <div class="input-group">
+                                            <input type="button" class="form-control" id="expectTime" placeholder="日期">
+                                            <span class="input-group-addon">
+                                                <span class="dateCorn" ></span>
+                                            </span>
+                                        </div>
+                                        <input type="text" class="form-control" id="expectNumber" maxlength="20" oninput="value=value.replace(/[^\d]/g,'')">
+                                    </div>
+
+                                     <label class="control-label marginSm" >备注项目:</label>
+                                     <input type="text" class="form-control" id="modifyRemark" maxlength="100">
+                                </div>
+                            </form>
+
+                            <div class="form-inline borderTop" id="modifyObjectTime">
+                                <label class="control-label">开始时间：</label>
+                                <div class="input-group">
+                                    <input type="button" class="form-control" id="modifyStartTime" placeholder="开始时间">
+                                    <span class="input-group-addon">
+                                       <span class="dateCorn" ></span>
+                                    </span>
+                                </div>
+                                <label class="control-label">结束时间：</label>
+                                <div class="input-group">
+                                    <input type="button" class="form-control" id="modifyEndTime" placeholder="结束时间">
+                                     <span class="input-group-addon">
+                                       <span class="dateCorn" ></span>
+                                    </span>
+                                </div>
+                                
+                            </div>
+
+                            <div class="form-inline borderTop" id="modifyObjectPerson">
+                                <label class="control-label">责任人：</label>
+                                <div class="input-group">
+                                    <input type="button" class="form-control" id="responsePerson">
+                                     <button class="input-group-addon" style="height: 33px;">
+                                       <span class="responseCorn" ></span>
+                                    </button>
+                                </div>
+                                <label class="control-label">确认人：</label>
+                                <div class="input-group">
+                                    <input type="button" class="form-control" id="confirmPerson">
+                                    <button class="input-group-addon" style="height: 33px;">
+                                        <span class="confirmCorn" ></span>
+                                    </button>
+                                </div>
+                            </div>
+
+                           <div class="col-xs-12">
+                                <div class="label-head" style="width:12%;float:left;">
+                                    标签:
+                                </div>
+                                <div class="label-main label-list" style="width:85%;float:left;">
+                                    <ul class="modfily-ul label-ul">
+                                        <li class="label-list-ul label-modify">
+                                             <input type="text" id="new-labe"  class="new_label" term="" style="display:none;">
+                                             <button class="editLabel" type="button"><i class="fa fa-plus"></i></button>           
+                                        </li>
+                                    </ul>          
+                  
+           
+                                </div>
+                            </div>
+
+                            <div class="row"><h4 class="col-xs-6"> 相关文档 </h4>
+                                <span class="modifyDocumentAdd  pull-right"><input type="file"  class="fileUploadBtn" id="fileUpload" name="files[]" multiple ></span>
+                                <div class="progress"><div class="bar" style="width:0%;"></div></div>
+                            </div>
+                            <hr class="noMarginTop"  />
+                            <table class="table table-hover" id="modifyObjectDocument">
+                            </table>
+
+                            <h4>意见</h4>
+                            <hr class="noMarginTop"/>
+                            <textarea class="form-control" id="modifyMessage"  rows="2" maxlength="250"></textarea>
+
+                            <h4>操作日志</h4>
+                            <hr class="noMarginTop"/>
+                            <table class="table table-hover" id="modifyObjectLog">
+                            </table>
+                        </div>
+                        
+                     <div class="modal-footer fifty-fifty">
+                            <a class="btn btn-transparency " data-dismiss="modal" id="objectModifyCancel">取消</a>
+                            <a class="btn btn-transparency " term="1" id="objectModifySave">保存</a>
+                            <a class="btn btn-transparency " term="2" id="objectModifyCommit">提交</a>
+                     </div>
+                </div>
+                <div role="tabpanel" id="modifyFormularView" class="tab-pane ">
+                    <div class="modal-body" style="overflow-y: auto;overflow-x: hidden;height:590px">
+
+                    </div>
+                </div>
+            </div>
+    @*        <div class="modal-body" style="overflow-y: auto;overflow-x: hidden;height:560px">
+                <h4 style="margin-top: 0px;">目标内容</h4>
+                <hr/>
+                <form class="borderTop" id="modifyObjectContent">
+                    <div class="form-inline">
+                        <label for="objectName" class="control-label" style="">目标名称:</label>
+                        <input type="text" id="objectName" class="form-control" maxlength="50">
+                        <label for="modifyObjectInput" class="control-label  marginSm">目标对象:</label>
+                        <div class="dropdown" id="modifyObjectInput">
+                            <button class="btn btn-default dropdown-toggle dropdownBtn" data-toggle="dropdown" data-delay="50" role="button" aria-expanded="false">
+                                <span chooseId="" class="textOverFlow" style="max-width:155px"></span>
+                                <span class="pull-right upPic"></span>
+                            </button>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a herf='#' term='1'>架构</a></li>
+                                <li><a herf='#' term='2'>人员</a></li>
+                            </ul>
+                        </div>
+                        <!--<input type="text" class="form-control" id="modifyObjectInput" maxlength="50">-->
+                    </div>
+                    <div class="form-inline">
+                        <label for="objectBonus" class="control-label">奖励基数:</label>
+                        <input type="text" id="objectBonus" class="form-control"   maxlength="18">
+                        <label for="modifyWeight" class="control-label  marginSm">权重</label>
+                        <input type="text" class="form-control" id="modifyWeight"  maxlength="18" >
+                    </div>
+                    <div class="form-inline">
+                        <label for="modifyCheckType" class="control-label">考核类型:</label>
+                        <div class="dropdown" id="modifyCheckType">
+                            <button class="btn btn-default dropdown-toggle dropdownBtn" data-toggle="dropdown" data-delay="50" role="button" aria-expanded="false">
+                                <span></span>
+                                <span class="pull-right upPic"></span>
+                            </button>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a herf='#' term='1'>金额</a></li>
+                                <li><a herf='#' term='2'>时间</a></li>
+                                <li><a herf='#'  term='3'>数字</a></li>
+                            </ul>
+                        </div>
+                        <label class=" control-label  marginSm">指标值:</label>
+                        <div id="targetInput"  class="modifyObjectValue">
+                            <div class="input-group">
+                                <input type="text" class="form-control" id="targetMoney" maxlength="20">
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-yen" ></span>
+                                </span>
+                            </div>
+                            <div class="input-group">
+                                <input type="button" class="form-control" id="targetTime" placeholder="日期">
+                                <span class="input-group-addon">
+                                   <span class="dateCorn" ></span>
+                                </span>
+                            </div>
+                            <input type="text" class="form-control" id="targetNumber" maxlength="20" oninput="value=value.replace(/[^\d]/g,'')">
+                        </div>
+                    </div>
+                    <div class="form-inline">
+                        <label  class="control-label">理想值:</label>
+                        <div  id="expectInput"  class="modifyObjectValue">
+                            <div class="input-group">
+                                <input type="text" class="form-control" id="expectMoney" maxlength="20" >
+                                <span class="input-group-addon" >
+                                   <span class="glyphicon glyphicon-yen"></span>
+                                </span>
+                            </div>
+                            <div class="input-group">
+                                <input type="button" class="form-control" id="expectTime" placeholder="日期">
+                                <span class="input-group-addon">
+                                    <span class="dateCorn" ></span>
+                                </span>
+                            </div>
+                            <input type="text" class="form-control" id="expectNumber" maxlength="20" oninput="value=value.replace(/[^\d]/g,'')">
+                        </div>
+
+                         <label class="control-label marginSm" >备注项目:</label>
+                         <input type="text" class="form-control" id="modifyRemark" maxlength="100">
+                    </div>
+                </form>
+
+                <div class="form-inline borderTop" id="modifyObjectTime">
+                    <label class="control-label">开始时间：</label>
+                    <div class="input-group">
+                        <input type="button" class="form-control" id="modifyStartTime" placeholder="开始时间">
+                        <span class="input-group-addon">
+                           <span class="dateCorn" ></span>
+                        </span>
+                    </div>
+                    <label class="control-label">结束时间：</label>
+                    <div class="input-group">
+                        <input type="button" class="form-control" id="modifyEndTime" placeholder="结束时间">
+                         <span class="input-group-addon">
+                           <span class="dateCorn" ></span>
+                        </span>
+                    </div>
+                    <label class="control-label">警戒时间：</label>
+                    <div class="input-group">
+                        <input type="button" class="form-control" id="modifyAlertTime" placeholder="警戒时间">
+                         <span class="input-group-addon">
+                           <span class="dateCorn" ></span>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-inline borderTop" id="modifyObjectPerson">
+                    <label class="control-label">责任人：</label>
+                    <div class="input-group">
+                        <input type="button" class="form-control" id="responsePerson">
+                         <button class="input-group-addon" style="height: 33px;">
+                           <span class="responseCorn" ></span>
+                        </button>
+                    </div>
+                    <label class="control-label">确认人：</label>
+                    <div class="input-group">
+                        <input type="button" class="form-control" id="confirmPerson">
+                             <span class="input-group-addon">
+                               <span class="confirmCorn" ></span>
+                            </span>
+                    </div>
+                </div>
+
+                <div class="row"><h4 class="col-xs-6"> 相关文档 </h4>
+                    <span class="modifyDocumentAdd  pull-right"><input type="file"  class="fileUploadBtn" id="fileUpload" name="files[]" multiple ></span>
+                    <div class="progress"><div class="bar" style="width:0%;"></div></div>
+                </div>
+                <hr class="noMarginTop"  />
+                <table class="table table-hover" id="modifyObjectDocument">
+                </table>
+
+                <h4>意见</h4>
+                <hr class="noMarginTop"/>
+                <textarea class="form-control" id="modifyMessage"  rows="2" maxlength="250"></textarea>
+
+                <h4>操作日志</h4>
+                <hr class="noMarginTop"/>
+                <table class="table table-hover" id="modifyObjectLog">
+                </table>
+            </div>
+            <div class="modal-footer fifty-fifty">
+                <a class="btn btn-transparency " data-dismiss="modal" id="objectModifyCancel">取消</a>
+                <a class="btn btn-transparency " term="1" id="objectModifySave">保存</a>
+                <a class="btn btn-transparency " term="2" id="objectModifyCommit">提交</a>
+            </div>*@
+
+            <!--右边弹窗画面-->
+            <div class="rightModal">
+                <h4 id="chooseTitle" style="margin-bottom: 7px;" ></h4>
+                <hr/>
+                <div id="chooseContent">
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!--目标修改 结束-->
+
+
+
+<!--目标展开 开始-->
+<div class="modal fade" tabindex="-1"  role="dialog" aria-labelledby="object_unfold_modal" id="object_unfold_modal" aria-hidden="true" data-backdrop="false" data-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content" style="min-width: 760px;height: 603px;">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+                <h4 class="modal-title">展开</h4>
+            </div>
+            <div class="modal-body" style="overflow: auto;height: 566px;">
+                <div class="unfoldChild" >
+                    <div class="oneChild"  >
+                        <div  class="oneBlock">
+                            <div class="labels">
+                                <span class="labelOne"></span>
+                                <div class="labelTwo">
+                                    <span>已分解</span>
+                                </div>
+                                <span class="labelThree"></span>
+                                <span class="modifyDocumentAdd pull-right noMarginTop" aria-hidden="true" term="0"></span>
+                            </div>
+                            <ul class="list-unstyled">
+                                <li><span class="unfoldObjName textOverFlow">目标导航项目</span> <span class="unfoldWeight">60%</span></li>
+                                <li>目标对象: </li>
+                                <li>起止时间:<span class="unfoldSETime"> 2012-01-01~2012-02-02 </span><span class="pull-right glyphicon glyphicon-triangle-top slideBtn"></span></li>
+                            </ul>
+                            <div class="operateDiv unfoldOperate">
+                                <ul class="list-inline">
+                                    <li class='liDetail'  >详情</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!--目标展开 结束-->
+
+
+
+
+<!--------目标新建弹窗 开始--------->
+<div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="objectiveNew_modal" id="objectiveNew_modal" aria-hidden="true" data-backdrop="false" data-keyboard="false">
+<div class="modal-dialog">
+<div class="modal-content modal-left-content">
+<div class="modal-header">
+    <a class="modal-titleClick nav-item" href="#modal_con_objective" aria-controls="modal_con_objective" role="tab" id="ModalObjectiveTab" data-toggle="tab">目标</a>
+    <a class=" nav-item" href="#modal_con_objectiveRule" aria-controls="modal_con_objectiveRule" role="tab" id="ModalObjectiveRuleTab" data-toggle="tab">目标规则 </a>
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+</div>
+<div class="tab-content" >
+<div id="modal_con_objective" role="tabpanel" class="tab-pane active">
+    <!--目标内容-->
+    <div class="modal-body">
+        <div class="row">
+            <h4>目标内容</h4>
+        </div>
+        <hr/>
+        <table  id="table-objective-content" class="table">
+            <tr>
+                <td style="width:10%"> <span class="table-span">目标名称:</span> </td>
+                <td style="width:40%"> <input type="text" id="new-objectiveName" maxlength="50" class="form-control"></td>
+                <td style="width:10%"> <span class="table-span">目标对象:</span></td>
+                <td style="width:40%">
+                    <div class="dropdown"id="new-objectiveType-dropdown">
+                                        <span class="dropdown-toggle" data-toggle="dropdown"  data-delay="50" role="button" aria-expanded="false">
+                                            <span term="" value="" id="new-objectiveType"></span><!--term判断选择的是架构还是人员选择，value用于在选择架构时记录责任部门的架构id，在选择人员时 记录责任人所在架构名------->
+                                            <span class="upPic"></span>
+                                        </span>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="javascript:void(0)" term="1">架构</a></li>
+                            <li class="divider short"></li>
+                            <li><a href="javascript:void(0)" term="2">人员选择</a></li>
+                        </ul>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td style="width:10%"> <span class="table-span">奖励基数:</span></td>
+                <td style="width:40%"> <input id="new-bonus" type="text" class="form-control"></td>
+                <td style="width:10%"> <span class="table-span">权重:</span></td>
+                <td style="width:40%">
+                    <input class="form-control" id="new-weight" maxlength="18">
+                </td>
+            </tr>
+            <tr>
+                <td style="width:10%"><span class="table-span">考核类型:</span></td>
+                <td style="width:40%">
+                    <div class="dropdown"  id="new-checkType-dropdown">
+                                       <span class="dropdown-toggle" data-toggle="dropdown"  data-delay="50" role="button" aria-expanded="false">
+                                          <span term="1" id="new-checkType">金额</span>
+                                           <span class="upPic"></span>
+                                       </span>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="javascript:void(0)" term="1">金额</a></li>
+                            <li class="divider short"></li>
+                            <li><a href="javascript:void(0)" term="2">时间</a></li>
+                            <li class="divider short"></li>
+                            <li><a href="javascript:void(0)" term="3">数字</a></li>
+                        </ul>
+                    </div>
+                </td>
+                <td style="width:10%"><span class="table-span">指标值:</span></td>
+                <td style="width:40%">
+                    <div class="input-group" id="new-objectiveValue-money-group">
+                        <input type="text" maxlength="20" id="new-objectiveValue-money" class="form-control" > <a class="btn btn-default glyphicon glyphicon-yen" type="button"></a>
+                    </div>
+                    <div class="input-group"  style="display:none;"  id="new-objectiveValue-date-group">
+                        <input type="button" maxlength="20" id="new-objectiveValue-date" class="form-control"> <a class="btn btn-default new-date" type="button"></a>
+                    </div>
+                    <input type="text" maxlength="20" id="new-objectiveValue-number"  style="display:none;" oninput="value=value.replace(/[^\d]/g,'')" class="form-control">
+                </td>
+            </tr>
+            <tr>
+                <td style="width:10%"><span class="table-span">理想值:</span></td>
+                <td style="width:40%">
+                    <div class="input-group"  id="new-expectedValue-money-group">
+                        <input type="text" maxlength="20" id="new-expectedValue-money" class="form-control"> <a class="btn btn-default glyphicon glyphicon-yen" type="button"></a>
+                    </div>
+                    <div class="input-group" style="display:none;" id="new-expectedValue-date-group">
+                        <input type="button" maxlength="20" id="new-expectedValue-date"  class="form-control"> <a class="btn btn-default new-date" type="button"></a>
+                    </div>
+                    <input type="text" maxlength="20" style="display:none;" id="new-expectedValue-number" class="form-control"  oninput="value=value.replace(/[^\d]/g,'')">
+                </td>
+                <td style="width:10%"><span class="table-span">备注项目:</span></td>
+                <td style="width:40%"> <input type="text" id="new-description" class="form-control" maxlength="100" ></td>
+            </tr>
+        </table>
+        <hr/>
+        <table id="table-objective-date" class="table">
+            <tr><!-------- style="border-bottom: 1px solid #eee;"---------------->
+                <td style="width:10%">
+                    <span class="table-span">开始时间:</span>
+                </td>
+                <td style="width:23%">
+                    <div class="input-group" >
+                        <input type="button" id="new-startTime" class="form-control">
+                        <a class="btn btn-default new-date" type="button"></a>
+                    </div>
+                </td>
+                <td style="width:10%">
+                    <span class="table-span">截止时间:</span>
+                </td >
+                <td style="width:23%">
+                    <div class="input-group" >
+                        <input type="button" id="new-endTime" class="form-control">
+                        <a class="btn btn-default new-date" type="button"></a>
+                    </div>
+
+                </td>
+                <td style="width:10%">
+@*                    <span class="table-span">警戒时间:</span>
+                </td>
+                <td style="width:23%">
+                    <div class="input-group" >
+                        <input type="button" id="new-alarmTime" class="form-control">
+                        <a class="btn btn-default new-date" type="button"></a>
+                    </div>
+
+                </td>*@
+            </tr>
+            <tr>
+                <td style="width: 10%;">
+                    <span class="table-span">责任人:</span>
+                </td>
+                <td  style="width:23%">
+                    <div class="input-group" >
+                        <input type="button" id="new-responsibleUser" term="" class="form-control">
+                        <a class="btn btn-default new-responsibleUser" type="button"></a>
+                    </div>
+                </td>
+                <td style="width: 10%;">
+                    <span class="table-span">确认人:</span>
+                </td>
+                <td  style="width:23%">
+                    <div class="input-group" >
+                        <input type="button" id="new-confirmUser" term="" class="form-control">
+                        <a class="btn btn-default new-confirmUser" type="button"></a>
+                    </div>
+
+                </td>
+              
+            </tr> 
+        </table>
+        <hr />
+        <div class="col-xs-12">
+            <div class="label-head" style="width:12%;float:left;">
+                标签:
+            </div>
+            <div class="label-main label-list" style="width:85%;float:left;">
+                <ul class="add-ul label-ul">
+                    <li class="label-list-ul label-add">
+                         <input type="text" id="new-label" class="new_label" term="" style="display:none;">
+                         <button class="addLabel" type="button"><i class="fa fa-plus"></i></button>           
+                    </li>
+                </ul>          
+                  
+           
+            </div>
+        </div>
+@*        <div class="col-xs-12">
+            <div class="label-head" style="width:12%;float:left;">
+           
+            </div>
+            <div class="label-main label-list" style="width:85%;float:left;">          
+                <ul class="label-list-ul">
+                    
+                </ul>
+           
+            </div>
+        </div>*@
+    </div>
+
+    <div class="modal-footer thirty-thirty">
+        <a class="btn btn-transparency btn-lg"  data-dismiss="modal" id="newModal-Cancel">取消</a>
+        <a class="btn btn-transparency btn-lg"  id="newModal-Save">保存</a>
+        <a class="btn btn-transparency btn-lg"  id="newModal-Submit">提交</a>
+    </div>
+</div>
+
+<div id="modal_con_objectiveRule" role="tabpanel" class="tab-pane" >
+    <!--目标规则-->
+    <div class="modal-body">
+        
+    </div>
+</div>
+</div>
+</div>
+
+<div class="modal-right-content modal-content" style="display:none">
+    <div class="modal-header">
+        <h4 class="modal-title"id="newModal-rightTitle" ></h4>
+    </div>
+    <div id="node-rightContent">
+
+    </div>
+</div>
+</div>
+</div>
+
+<!--------目标新建弹窗 结束--------->
+
+<!--------公式设置弹窗 开始--------->
+<div class="modal fade calculator in" id="formula_modal"  style="z-index:1100" tabindex="-1" role="dialog" aria-labelledby="formula_modal_label" aria-hidden="true"  data-backdrop="false" data-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                </button>
+                <h4 class="modal-title" id="formula_modal_label" >公式设置</h4>
+            </div>
+            <div class="monitor well well-sm">
+                <div class="text-right monitor-inner" id="formula_modal_monitor"></div>
+            </div>
+            <div class="operate clearfix">
+                <a class="btn btn-transparency pull-right" id="formula_modal_backspace">退格</a>
+                <a class="btn btn-transparency pull-right" id="formula_modal_clear">清除全部</a>
+            </div>
+            <hr>
+            <div class="forty-sixty clearfix area-key">
+                <div class="area">
+                    <fieldset class="areabox clearfix"  >
+                        <a class="btn btn-default btn-number" value="实际值">实际值</a>
+                        <a class="btn btn-default btn-number" value="指标值">指标值</a>
+                        <a class="btn btn-default btn-number" value="理想值">理想值</a>
+                        <a class="btn btn-default btn-number" value="开始时间">开始时间</a>
+                        <a class="btn btn-default btn-number" value="结束时间">结束时间</a>
+                        <a class="btn btn-default btn-number" value="权重">权重</a>
+                        <a class="btn btn-default btn-number" value="奖励基数">奖励基数</a>
+                        <a class="btn btn-default btn-number" value="数字">数字</a>
+                    </fieldset>
+
+                    <!----<div class="areabox clearfix" id="formula_modal_cols">
+                                        </div>-->
+
+                </div>
+                <div class="area area-number">
+                    <fieldset class="areabox clearfix"  >
+                        <a class="btn btn-default btn-operational" value="(">(</a>
+                        <a class="btn btn-default btn-operational" value=")">)</a>
+                        <a class="btn btn-default btn-operational" value="+">+</a>
+                        <a class="btn btn-default btn-operational" value="-">-</a>
+                        <a class="btn btn-default btn-operational" value="*">*</a>
+                        <a class="btn btn-default btn-number" value="1">1</a>
+                        <a class="btn btn-default btn-number" value="2">2</a>
+                        <a class="btn btn-default btn-number" value="3">3</a>
+                        <a class="btn btn-default btn-operational" value=">">></a>
+                        <a class="btn btn-default btn-operational" value="/">/</a>
+                        <a class="btn btn-default btn-number" value="4">4</a>
+                        <a class="btn btn-default btn-number" value="5">5</a>
+                        <a class="btn btn-default btn-number" value="6">6</a>
+                        <a class="btn btn-default btn-operational" value="≥"> ≥ </a>
+                        <a class="btn btn-default btn-operational" value="且">且</a>
+                        <a class="btn btn-default btn-number " value="7">7</a>
+                        <a class="btn btn-default btn-number " value="8">8</a>
+                        <a class="btn btn-default btn-number " value="9">9</a>
+                        <a class="btn btn-default btn-operational" value="<"> < </a>
+                        <a class="btn btn-default btn-operational"id="formula_modal_time" value="时间"> 时间 </a>
+                        <input type="text"id="formula_modal_time_hidden" value=""></input>
+                        
+                        <a class="btn btn-default btn-long btn-number" value="0">0</a>
+                        <a class="btn btn-default btn-number" value=".">·</a>
+                        <a class="btn btn-default btn-operational" value="≤"> ≤</a>
+                        <a class="btn btn-default btn-operational" value="或">或</a>
+                    </fieldset>
+                </div>
+            </div>
+            <div class="modal-footer fifty-fifty">
+                <a class="btn btn-transparency" data-dismiss="modal">取消</a>
+                <a class="btn btn-transparency" id="formula_modal_submit">确定</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!--------公式设置弹窗 结束--------->
+
+
+<!--弹出层  结束-->
+
+<div id="taZone" style="display:none;" class="noprint">
+   <textarea rows="8" cols="150" id="ta">
+     {"tasks":[
+     {"id":-1,"name":"Gantt editor","code":"","level":0,"progress":50,"status":"STATUS_ACTIVE","canWrite":true,"start":1396994400000,"duration":21,"Responser":"Lilei","end":1399672799999,"startIsMilestone":false,"endIsMilestone":false,"collapsed":false,"assigs":[],"hasChild":true,"pid":"","endParent":1400515200000,"startParent":1396454400000}
+     ,{"id":-10,"name":"Gantt Master","code":"","level":0,"status":"STATUS_ACTIVE","canWrite":true,"start":1396994400000,"duration":21,"end":1399672799999,"startIsMilestone":false,"endIsMilestone":false,"collapsed":false,"assigs":[],"hasChild":true}
+     ],"selectedRow":0,"canWrite":true,"canWriteOnParent":true}
+   </textarea>
+   <textarea rows="8" cols="150" id="tal" style="display:none">
+     {"tasks":[
+     {"id":11,"name":"Test","code":"","level":0,"status":"STATUS_ACTIVE","canWrite":true,"start":1430755200000,"duration":21,"Responser":"Lilei","end":1433260800000,"startIsMilestone":false,"endIsMilestone":false,"collapsed":false,"assigs":[],"hasChild":true}
+     ,{"id":12,"name":"MLGB","code":"","level":0,"status":"STATUS_ACTIVE","canWrite":true,"start":1430841600000,"duration":21,"end":1432137600000,"startIsMilestone":false,"endIsMilestone":false,"collapsed":false,"assigs":[],"hasChild":true}
+     ],"selectedRow":0,"canWrite":true,"canWriteOnParent":true}
+   </textarea>
+
+    <button onclick="loadGanttFromServer();">load</button>
+</div>
+
+
+
+<!--甘特图JST模板开始-->
+<div id="gantEditorTemplates" style="display:none;">
+    <div class="__template__" type="GANTBUTTONS"></div>
+
+    <div class="__template__" type="TASKSEDITHEAD"><!--
+  <table class="gdfTable" cellspacing="0" cellpadding="0" >
+    <thead>
+    <tr style="height:40px;background:#fff;">
+      <th class="gdfColHeader gdfResizable" style="width:30px;">序号</th>
+
+      <th class="gdfColHeader gdfResizable" style="width:117px;">目标</th>
+      <th class="gdfColHeader gdfResizable" style="width:55px;">责任人</th>
+      <th class="gdfColHeader gdfResizable" style="width:55px;">确认人</th>
+    </tr>
+    </thead>
+  </table>
+  --></div>
+
+    <div class="__template__" type="TASKROW"><!--
+  <tr taskId="(#=obj.id#)" class="taskEditRow" level="(#=level#)">
+    <td class="gdfCell"><input type="text" name="code" value="(#=obj.code?obj.code:''#)"></td>
+    <td class="gdfCell indentCell" style="padding-left:(#=obj.level*10#)px;font-size:12px;">
+      <span class="taskNamett" title="(#=obj.name#)">(#=obj.name#)</span><span class="startFind"></span><span class="endFind"></span>
+    </td>
+    <td class="gdfCell indentCell">(#=obj.responsibleUserName#)</td>
+    <td class="gdfCell indentCell" style="position:relative;">(#=obj.confirmUserName#)<div style="display:(#=!obj.haschild?'none':'block'#)" class="shrink trag" align="center"></div></td>
+  </tr>
+  --></div>
+
+    <div class="__template__" type="TASKEMPTYROW"><!--
+  <tr class="taskEditRow emptyRow" >
+
+    <td class="gdfCell noClip" align="center"></td>
+    <td class="gdfCell"></td>
+    <td class="gdfCell"></td>
+    <td class="gdfCell"></td>
+    <td class="gdfCell"></td>
+  </tr>
+  --></div>
+
+    <div class="__template__" type="TASKBAR"><!--
+  <div class="taskBox taskBoxDiv" taskId="(#=obj.id#)" >
+    <div class="layout (#=obj.hasExternalDep?'extDep':''#)">
+      <div class="taskStatus" status="(#=obj.status#)"></div>
+      <div class="taskProgress" style="width:(#=obj.progress>100?100:obj.progress#)%; background-color:(#=obj.progress>100?'red':'rgb(153,255,51);'#);"></div>
+      <div class="milestone (#=obj.startIsMilestone?'active':''#)" ></div>
+
+      <div class="taskLabel"></div>
+      <div class="milestone end (#=obj.endIsMilestone?'active':''#)" ></div>
+    </div>0
+  </div>
+  --></div>
+
+    <div class="__template__" type="CHANGE_STATUS"><!--
+    <div class="taskStatusBox">
+      <div class="taskStatus cvcColorSquare" status="STATUS_ACTIVE" title="active"></div>
+      <div class="taskStatus cvcColorSquare" status="STATUS_DONE" title="completed"></div>
+      <div class="taskStatus cvcColorSquare" status="STATUS_FAILED" title="failed"></div>
+      <div class="taskStatus cvcColorSquare" status="STATUS_SUSPENDED" title="suspended"></div>
+      <div class="taskStatus cvcColorSquare" status="STATUS_UNDEFINED" title="undefined"></div>
+    </div>
+  --></div>
+
+
+    <div class="__template__" type="TASK_EDITOR"><!--
+  <div class="ganttTaskEditor">
+  <table width="100%">
+    <tr>
+      <td>
+        <table cellpadding="5">
+          <tr>
+            <td><label for="code">code/short name</label><br><input type="text" name="code" id="code" value="" class="formElements"></td>
+           </tr><tr>
+            <td><label for="name">name</label><br><input type="text" name="name" id="name" value=""  size="35" class="formElements"></td>
+          </tr>
+          <tr></tr>
+            <td>
+              <label for="description">description</label><br>
+              <textarea rows="5" cols="30" id="description" name="description" class="formElements"></textarea>
+            </td>
+          </tr>
+        </table>
+      </td>
+      <td valign="top">
+        <table cellpadding="5">
+          <tr>
+          <td colspan="2"><label for="status">status</label><br><div id="status" class="taskStatus" status=""></div></td>
+          <tr>
+          <td colspan="2"><label for="progress">progress</label><br><input type="text" name="progress" id="progress" value="" size="3" class="formElements"></td>
+          </tr>
+          <tr>
+          <td><label for="start">start</label><br><input type="text" name="start" id="start"  value="" class="date" size="10" class="formElements"><input type="checkbox" id="startIsMilestone"> </td>
+          <td rowspan="2" class="graph" style="padding-left:50px"><label for="duration">dur.</label><br><input type="text" name="duration" id="duration" value=""  size="5" class="formElements"></td>
+        </tr><tr>
+          <td><label for="end">end</label><br><input type="text" name="end" id="end" value="" class="date"  size="10" class="formElements"><input type="checkbox" id="endIsMilestone"></td>
+        </table>
+      </td>
+    </tr>
+    </table>
+
+  <h2>assignments</h2>
+  <table  cellspacing="1" cellpadding="0" width="100%" id="assigsTable">
+    <tr>
+      <th style="width:100px;">name</th>
+      <th style="width:70px;">role</th>
+      <th style="width:30px;">est.wklg.</th>
+      <th style="width:30px;" id="addAssig"><span class="teamworkIcon" style="cursor: pointer">+</span></th>
+    </tr>
+  </table>
+
+  <div style="text-align: right; padding-top: 20px"><button id="saveButton" class="button big">save</button></div>
+  </div>
+  --></div>
+
+
+    <div class="__template__" type="ASSIGNMENT_ROW"><!--
+  <tr taskId="(#=obj.task.id#)" assigId="(#=obj.assig.id#)" class="assigEditRow" >
+    <td ><select name="resourceId"  class="formElements" (#=obj.assig.id.indexOf("tmp_")==0?"":"disabled"#) ></select></td>
+    <td ><select type="select" name="roleId"  class="formElements"></select></td>
+    <td ><input type="text" name="effort" value="(#=getMillisInHoursMinutes(obj.assig.effort)#)" size="5" class="formElements"></td>
+    <td align="center"><span class="teamworkIcon delAssig" style="cursor: pointer">d</span></td>
+  </tr>
+  --></div>
+
+
+    <div class="__template__" type="RESOURCE_EDITOR"><!--
+  <div class="resourceEditor" style="padding: 5px;">
+
+    <h2>Project team</h2>
+    <table  cellspacing="1" cellpadding="0" width="100%" id="resourcesTable">
+      <tr>
+        <th style="width:100px;">name</th>
+        <th style="width:30px;" id="addResource"><span class="teamworkIcon" style="cursor: pointer">+</span></th>
+      </tr>
+    </table>
+
+    <div style="text-align: right; padding-top: 20px"><button id="resSaveButton" class="button big">save</button></div>
+  </div>
+  --></div>
+
+
+    <div class="__template__" type="RESOURCE_ROW"><!--
+  <tr resId="(#=obj.id#)" class="resRow" >
+    <td ><input type="text" name="name" value="(#=obj.name#)" style="width:100%;" class="formElements"></td>
+    <td align="center"><span class="teamworkIcon delRes" style="cursor: pointer">d</span></td>
+  </tr>
+  --></div>
+
+
+</div>
+
+
+
+
+
+
+<!--甘特图JST模板结束-->
+
+
+
+
+
+
+<!-- 甘特图JS引入 -->
+<script src="../../Libs/gantt/libs/jquery.livequery.min.js"></script>
+<script src="../../Libs/gantt/libs/jquery.timers.js"></script>
+<script src="../../Libs/gantt/libs/platform.js"></script>
+<script src="../../Libs/gantt/libs/date.js"></script>
+<script src="../../Libs/gantt/libs/i18nJs.js"></script>
+<script src="../../Libs/gantt/libs/dateField/jquery.dateField.js"></script>
+<script src="../../Libs/gantt/libs/JST/jquery.JST.js"></script>
+<link rel="stylesheet" type="text/css" href="../../Libs/gantt/libs/jquery.svg.css">
+<script type="text/javascript" src="../../Libs/gantt/libs/jquery.svg.min.js"></script>
+@*<script type="text/javascript" src="../../Libs/gantt/libs/jquery.svgdom.1.8.js"></script>*@
+<script src="../../Libs/gantt/js/ganttUtilities.js"></script>
+<script src="../../Libs/gantt/js/ganttTask.js"></script>
+<script src="../../Libs/gantt/js/ganttDrawerSVG.js"></script>
+@*<script src="../../Libs/gantt/js/ganttDrawer.js"></script>*@
+<script src="../../Libs/gantt/js/ganttGridEditor.js"></script>
+<script src="../../Libs/gantt/js/ganttMaster.js"></script>
+<script src="../../Scripts/objective/gantt.js"></script>
+
+<!-- 甘特图JS引入结束 -->
+<script src="~/Scripts/objective/objectiveHome.js"></script>

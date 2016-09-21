@@ -1,0 +1,72 @@
+﻿@using MB.Model
+@{
+    //ViewBag.Title = "NewsDel";
+    //Layout = "~/Views/ModelView/ModelView.cshtml";
+    var list = ViewBag.NewsInfo as NewsInfo;
+    var next = ViewBag.newslast as NewsInfo;
+    var last = ViewBag.newsNext as NewsInfo;
+    var Dinfo = ViewBag.DInfp as NewsDirectoryInfo;
+}
+<link href="../../Styles/common/common-before-bs.css" rel="stylesheet" />
+<link href="~/Styles/index/index-news.css" rel="stylesheet" />
+
+ <div class="container-before-bootstrap clearfix">
+<!-- 新闻详情内容 开始 -->
+<div class="newDetailArea">
+    <div class="newDetail">
+        <div class="newNavArea">
+            <ul>
+                <li><a href="@Url.Action("CompanyIndex", "Company")">公司首页</a>></li> 
+                @if (Dinfo!=null)
+                {
+                <li ><a href="/News/NewsList?Flag=@Session["Flag"].ToString()&DriID= @Dinfo.directoryId">@Dinfo.directoryName</a>></li> 
+                } 
+                <li class="currentPage">正文</li>
+            </ul>
+        </div>
+        @if (list != null)
+        {
+            <div class="newArea">
+                <div class="newTitleArea">
+
+                    <span class="newTitle">@list.title</span>
+                    <span class="newDate">@list.createTime</span>
+                    <span class="newAuthor">作者：@list.UserName</span>
+                    <span class="numLook">查看次数：@list.viewNum</span>
+                </div>
+               
+            </div>  <div class="newDetailDisplay">
+                   @Html.Raw(list.contents);
+                </div>
+        }
+    </div>
+    <div class="nextPrevArea">
+        @if (next != null)
+        {
+            <div class="prevNew">
+                上一篇：<span><a href="#"onclick="NewsInfo(@next.newId)">@MB.Common.StringUtils.CutString(next.title,15)</a></span>
+            </div>
+        }
+        @if (last != null)
+        {
+            <div class="nextNew">
+                下一篇：<span><a href="#" onclick="NewsInfo(@last.newId)">@MB.Common.StringUtils.CutString(last.title,15)</a></span>
+            </div>
+        }
+    </div>
+</div>
+     </div>
+<!-- 新闻详情内容 结束 -->
+<script>
+    function NewsInfo(id) {
+        loadViewToMain("/NewsDel/NewsDel?id=" + id);
+        //window.location.href = "/NewsDel/NewsDel?id=" + id + "";
+    }
+    function GetNext(id) {
+        loadViewToMain("/NewsDel/NewsDel?id=" + id);
+        //window.location.href = "";
+    }
+</script>
+
+<script src="~/Scripts/index/index-news.js"></script>
+<script src="~/Scripts/index/index_functionality.js"></script>

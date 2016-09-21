@@ -1,0 +1,436 @@
+﻿@{
+    //ViewBag.Title = "FlowIndex";
+    //Layout = "~/Views/Shared/_TopView.cshtml";
+    var showAdmin = Convert.ToInt32(ViewBag.ShowAdmin);
+}
+
+<link href="~/Styles/flow/widgetFormResolver.css" rel="stylesheet" />
+<link href="~/Styles/flow/flowIndex.css" rel="stylesheet" />
+<div class="row">
+    <!--<div class="filterBox"></div>-->
+    <div class="col-xs-9">
+        <div class="panel panel-default hashandle">
+            <div class="panel-heading">
+                <div class="selectedbar">
+                    <span class="selected-label">已选条件</span>
+                    <span class="operate-clear">
+                        <a class="btn btn-transparency borderhide" id="removeFilter">清空</a>
+                    </span>
+                    <ul class="list-inline selecteds">
+                        <!--<span class="selected">互联网 <span class="glyphicon glyphicon-remove"></span></span>-->
+
+                    </ul>
+                </div>
+            </div>
+            <div class="panel-body pos-r">
+                <div class="selection">
+                    <span class="select-label">状态：</span>
+                    <div class="selects status">
+                        <a href="#" class="option select_unSubmit" term="1">待提交</a>
+                        <a href="#" class="option select_flowing" term="11" style="display: none">流程中</a>
+                        <a href="#" class="option select_hasSubmited" term="2">已提交</a>
+                        <a href="#" class="option select_unRead" term="7">待查阅</a>
+                        <a href="#" class="option select_unChecked" term="3">待审批</a>
+                        <a href="#" class="option select_processed" term="4">已处理</a>
+                        <a href="#" class="option" term="5">已办结</a>
+                        <!--<input type="text" class="form-control seek" placeholder="" aria-describedby="basic-addon2">
+                            <span class="input-group-addon seek"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></span>-->
+                    </div>
+                    <span class="select-label">时间：</span>
+                    <div class="selects">
+                        <a href="#" class="option" id="near_week">近一周</a>
+                        <a href="#" class="option" id="near_month">近一月</a>
+                        <input type="text" class="select-time laydate-icon" id="start_time">-<input type="text" class="select-time laydate-icon" id="end_time">
+                        <a class="btn btn-transparency" id="user_defined">确定</a>
+                    </div>
+                    <span class="select-label">创建人：</span>
+                    <div class="selects" id="creaters">
+                        <!--<a href="#" class="option">小刘</a>-->
+
+                        <span class="pos-r">
+                            <input type="text" class="select-name" id="commonUser" placeholder="姓名">
+                        </span>
+                    </div>
+
+
+                    <div class="directory-set">
+                        <span class="select-label">创建部门：</span>
+                        <div class="department glyphicon glyphicon-chevron-down" aria-hidden="true">
+                            <!--<span class="" ></span>-->
+                        </div>
+                    </div>
+                    <div class="panel-body ztree creDepart" id="catalogue"></div>
+
+                </div>
+
+                <div class="drawer-handle">
+                    看完了，点我收起来吧
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default own">
+
+            <div class="panel-heading document">
+                <div class="panel-title">
+                    <ul class="nav nav-tabs model sortbar" role="tablist">
+                        <!--左侧下拉菜单-->
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="50" role="button" aria-expanded="false" id="categorylist_li"><span id="xxc_selectedcate" style="max-width: 180px">全部</span><span class="caret"></span></a>
+                            <ul class="dropdown-menu batch-menu xxc_category" role="menu" style="margin-top: 5px;">
+                                <li><a id="category_all" href="#" term="null">全部</a></li>
+                                <li class="divider short"></li>
+                            </ul>
+                        </li>
+                        <li role="presentation" class="xxc_order active">
+                            <a href="#" class="orderby">
+                                <span>默认</span>
+                                <span class="sort-icon" style="display: none">
+                                    <span class="icon-up active"></span>
+                                    <span class="icon-down"></span>
+                                </span>
+                            </a>
+                        </li>
+                        <li role="presentation" class="xxc_order">
+                            <a href="#" class="orderby">
+                                <span>紧急度</span>
+                                <span class="sort-icon">
+                                    <span class="icon-up active"></span>
+                                    <span class="icon-down"></span>
+                                </span>
+                            </a>
+                        </li>
+                        @*<li role="presentation"><a href="#userdefined-Order" aria-controls="profile" role="tab" data-toggle="tab" id="userdefined-Order" style="cursor: pointer;">自定义排序</a></li>*@
+                        <!--右侧下拉菜单-->
+                        <li class="nav-right userdefined">
+                            <ul>
+                                <li><a href="/FlowEntrust/FlowEntrust">流程委托</a></li>
+                                <li class="sift"><a href="#">筛选</a></li>
+                            </ul>
+                        </li>
+
+                    </ul>
+                    <div class="tab-content frontDoc">
+                        <div role="tabpanel" class="tab-pane active">
+                        </div>
+                        <div role="tabpanel" class="tab-pane" id="urgency">
+                        </div>
+                        <div role="tabpanel" class="tab-pane" id="importance">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="panel-body">
+                <div class="listcommen">
+
+                    <!--流程列表开始-->
+                    <div class="row row-flowChunk" role="tabpanel" class="tab-pane active" id="defult">
+                        <!-- <div class="col-xs-6">
+                                <div class="cell">
+                                    <div class="nest">
+                                        <div class="pull-left left-image"></div>
+                                        <div class="pull-right info-list">
+                                            <ul class="list-inline">
+                                                <li>工作流：</li>
+                                                <li>能诚集团需求用人流程</li>
+                                            </ul>
+                                            <ul class="list-inline">
+                                                <li>请求标题：</li>
+                                                <li>智能媒体用人需求</li>
+                                            </ul>
+                                            <ul class="list-inline">
+                                                <li>当前为操作者：</li>
+                                                <li>李丽</li>
+                                            </ul>
+                                            <ul class="list-inline">
+                                                <li>当前节点：</li>
+                                                <li>人力资源总监助理</li>
+                                            </ul>
+                                            <ul class="list-inline">
+                                                <li>紧急度：</li>
+                                                <li>
+                                                    <ul class="list-inline starsR">
+                                                        <li></li>
+                                                        <li></li>
+                                                        <li></li>
+                                                        <li></li>
+                                                        <li></li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="bottomUser">大刘:8-12</div>
+                                </div>
+                            </div>-->
+                    </div>
+                </div>
+                <!--<流程列表结束>-->
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-3">
+        <div class="sidebar">
+            <a href="#" class="btn btn-block btn-warning" data-toggle='modal' data-target='#addflow_modal'>新建流程</a>
+            @Html.Partial("~/Views/Shared/_UserInfo.cshtml")
+            <div class="panel panel-default panel-chart" id="file_statistics">
+                <div class="panel-heading">流程进程</div>
+                <div class="chart">
+                    <div id="chart3"></div>
+                    <div class="planNum">流程<span style="color: #58b456"></span>项</div>
+                    <div class="month">
+                        <span style="width: 23px" class="arrowsBBLCom"></span>
+                        <span class="text"></span>
+                        <span style="width: 23px; display: none" class="arrowsBBRCom"></span>
+                    </div>
+                </div>
+
+                <div class="sign">
+                </div>
+            </div>
+            <!--<div class="process">-->
+            <!--<span class="title">文档</span>-->
+
+            <!--<div class="chart">-->
+            <!--<div id="chart3"></div>-->
+            <!--<div class="planNum"></div>-->
+            <!--<div class="month">-->
+            <!--<span class="arrowsBBLCom"></span>-->
+            <!--<span class="text"></span>-->
+            <!--<span class="arrowsBBRCom" style="display: none"></span>-->
+            <!--</div>-->
+            <!--</div>-->
+
+            <!--<div class="sign">-->
+            <!--<ul>-->
+            <!--<li><span class="color" style="background-color:#57acdb"></span><span class="text">&lt;!&ndash;待确认&ndash;&gt;</span></li>-->
+            <!--<li><span class="color" style="background-color:#e00e16"></span><span class="text">&lt;!&ndash;已中止&ndash;&gt;</span></li>-->
+            <!--<li><span class="color" style="background-color:#be1d9a"></span><span class="text">&lt;!&ndash;待提交&ndash;&gt;</span></li>-->
+            <!--<li><span class="color" style="background-color:#fbab11"></span><span class="text">&lt;!&ndash;已审核&ndash;&gt;</span></li>-->
+            <!--<li><span class="color" style="background-color:#58b557"></span><span class="text">&lt;!&ndash;已完成&ndash;&gt;</span></li>-->
+            <!--<li><span class="color" style="background-color:#49dca7"></span><span class="text">&lt;!&ndash;待审核&ndash;&gt;</span></li>-->
+            <!--</ul>-->
+            <!--</div>-->
+            <!--<a href="#" class="topCom"></a>-->
+        </div>
+    </div>
+</div>
+<!--弹窗开始-->
+
+<!-- 排序 开始 -->
+<div class="popUp sort" style="display: none;">
+    <div class="title">
+        排序
+    </div>
+    <span class="closeWCom" style="z-index: 999"></span>
+    <div class="sortCon">
+        <span class="tit">添加按以下方式排序的级别</span>
+        <div class="sortTab">
+            <table border="0" cellpadding="0" cellspacing="0">
+                <tr class="sortTabHeader">
+                    <td width="80"></td>
+                    <td>| 标题</td>
+                    <td>| 次序</td>
+                </tr>
+                <tr class="sortTabTxt">
+                    <td style="text-align: center;">主要关键字</td>
+                    <td>
+                        <select class="sortTitle">
+                            <option term="0">组织架构</option>
+                            <option term="1">项目分类</option>
+                            <option term="2">紧急度</option>
+                            <option term="3">重要度</option>
+                            <option term="4">责任人</option>
+                            <option term="5">确认人</option>
+                            <option term="6">完成时间</option>
+                            <option term="7">状态</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select>
+                            <option term="0">降序</option>
+                            <option term="1">升序</option>
+                        </select>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="sortBot">
+            <span>+</span>
+            <span style="width: 29px; border-left: 0;">-</span>
+        </div>
+    </div>
+    <div class="canCon">
+        <span style="width: 279px; border-right: 1px solid #bbb;">取消</span>
+        <span id="confirmSorted">确定</span>
+    </div>
+</div>
+<!-- 排序 结束 -->
+
+<!-- 个人资料设置 开始 -->
+
+
+<!-- 个人资料设置 结束 -->
+
+<!--详情弹窗开始-->
+<div class="modal fade" id="details-modal" tabindex="-1" role="dialog" aria-labelledby="detail_modal_label" aria-hidden="true" data-backdrop="false" data-keyboard="false">
+    <div class="modal-dialog modal-lg" style="margin-left: 200px">
+        <div class="modal-content">
+        </div>
+    </div>
+</div>
+<!--详情弹窗结束-->
+<!--转发开始-->
+<div class="modal fade" id="transpont_modal" tabindex="-1" role="dialog" aria-labelledby="share_modal_label" aria-hidden="true" data-backdrop="true" data-keyboard="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        </div>
+    </div>
+</div>
+<!--转发结束-->
+<!--意见开始-->
+<div class="modal fade" id="suggestion_modal" tabindex="-1" role="dialog" aria-labelledby="suggestion_modal_label" aria-hidden="true" data-backdrop="true" data-keyboard="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        </div>
+    </div>
+</div>
+<!--意见结束-->
+<!--新建流程开始-->
+<div class="modal fade" id="addflow_modal" tabindex="-1" role="dialog" aria-labelledby="addflow_modal_label" aria-hidden="true" data-backdrop="false" data-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+                <h4 class="modal-title" id="addflow_modal_label">新建流程</h4>
+            </div>
+            <div class="modal-body">
+                <div class="input-group col-xs-10" id="addflow_modal_search">
+                    <label for="category_select" class="col-xs-4 control-label" style="width: auto; margin-top: 8px">选择类型</label>
+                    <div class="col-xs-6">
+                        <!--<input type="text" class="form-control" placeholder="选择表单类型" id="category_select">-->
+                        <div class="dropdown">
+                            <span class="form-control" data-toggle="dropdown" data-hover="dropdown" aria-expanded="false" id="category_span">
+                                <span id="category_select" style="margin-right: 6px;"></span><span class="caret"></span>
+                            </span>
+                            <ul class="dropdown-menu category_content" role="menu">
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="bottom-line"></div>
+                <div class="row form-list sortable">
+                    <!--<div class="categoryinfo-div">-->
+                    <!--<div id="category4" class="category-name col-xs-12">-->
+                    <!--财务类-->
+                    <!--</div>-->
+                    <!--<div class="template-category">-->
+                    <!--<div class="col-xs-4">-->
+                    <!--<div class="cell">-->
+                    <!--<div class="pull-left img-circle templateId">-->
+                    <!--<span class="content-center">2</span>-->
+                    <!--</div>-->
+                    <!--<div class="info-list">-->
+                    <!--<div class="title">应该用</div>-->
+                    <!--<div class="des" title="发的是啥" style="word-wrap: break-word;">发的是啥</div>-->
+                    <!--</div>-->
+                    <!--<div class="form_preview">-->
+                    <!--<span >预览</span>-->
+                    <!--</div>-->
+                    <!--<img src="../../Images/flow/addflow_select_hit.png" class="addflow_select" term="0" >-->
+                    <!--</div>-->
+                    <!--</div>-->
+                    <!--</div>-->
+                    <!--</div>-->
+                </div>
+            </div>
+            <div class="modal-footer fifty-fifty">
+                <a id="addflow_modal_cancel" class="btn btn-transparency btn-lg user-defined" data-dismiss="modal">取消</a>
+                <a class="btn btn-transparency btn-lg user-defined" id="addflow_modal_submit">确定</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 新建流程结束 -->
+
+<!-- 预览 开始 -->
+<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" id="preview_modal">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+                <h4 class="modal-title" id="preview_modal_title">预览</h4>
+            </div>
+            <div class="modal-content-fixedH">
+                <div class="modal-body" id="preview_modal_content">
+                    <div id="addflow-mask"></div>
+                    <div class="template-title">
+                        <span class="template-name"></span>
+                        <span class="template-desc"></span>
+                    </div>
+                    <div class="bottom-line"></div>
+                    <div style="margin-top: 10px;">
+                        <span>标题</span>
+                        <input type="text" class="form-title" id="preview_title" maxlength="50">
+                        <span style="margin-left: 5px;">紧急度：</span>
+                        <span class="stars starsR">
+                            <ul>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                            </ul>
+                        </span>
+                    </div>
+                    <div class="bottom-line"></div>
+                    <div style="margin-top: 10px; vertical-align: middle;">
+                        <span>创建人</span>
+                        <input id="yulan_createUser" class="addflow-text" type="text" readonly="true">
+                        <span class="addflow-span">创建部门</span>
+                        <span class="dropdown addflow-text">
+                            <span class="form-control addflow_dropdown" data-toggle="dropdown" aria-expanded="false">
+                                <span id="department_select"></span><span class="caret"></span>
+                            </span>
+                            <ul class="dropdown-menu department_ul" role="menu">
+                            </ul>
+                        </span>
+                        <span class="addflow-span">创建岗位</span>
+                        <span class="dropdown addflow-text">
+                            <span class="form-control addflow_dropdown" data-toggle="dropdown" aria-expanded="false">
+                                <span id="station_select"></span><span class="caret"></span>
+                            </span>
+                            <ul class="dropdown-menu station_ul" role="menu">
+                            </ul>
+                        </span>
+                        <span class="addflow-span">创建时间</span>
+                        <span class="optionCell" id="addflow_createtime"><em class="icon decplan_icon" style="background: url('../../Images/plan/completeDate.png') no-repeat"></em>
+                            <input class="emptyInput" id="addflow_createtime_v" placeholder="选择创建日期" />
+                        </span>
+                    </div>
+                    <div id="Label-content">
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer fifty-fifty addflow_footer" style="display: none">
+                <a class="btn btn-transparency btn-lg" data-dismiss="modal" id="addflow_cancel" style="width: 33.2%">取消</a>
+                <a class="btn btn-transparency btn-lg  addflow_sure" term="1" style="width: 33.4%">保存</a>
+                <a class="btn btn-transparency btn-lg addflow_sure" term="2" style="width: 33.4%">提交</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 预览 结束 -->
+
+<!--弹窗结束-->
+
+
+<input type="hidden" id="showAdmin" value="@showAdmin"/>
+
+<script src="~/Libs/bootstrap-select/js/bootstrap-select.js"></script>
+<script src="~/Scripts/component/searchPopup.js"></script>
+<script src="~/Scripts/component/dount.js"></script>
+<script src="~/Scripts/component/flowLine.js"></script>
+<script src="~/Scripts/flow/widgetFormResolver.js"></script>
+<script src="~/Scripts/flow/flowIndex.js"></script>

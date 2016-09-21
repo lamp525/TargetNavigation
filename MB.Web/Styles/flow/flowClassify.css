@@ -1,0 +1,1446 @@
+﻿@charset "utf-8";
+/*选项框样式 开始*/
+
+.panel.panel-default.creDepart{
+    border-style: none;
+}
+.panel-heading.document{
+    padding-bottom: 0;
+    padding-top: 0;
+}
+ul.nav.nav-tabs.model{
+    border-bottom: hidden;
+    margin-left: -10px;
+}
+/*选项框样式 结束*/
+
+/* CSS 整体样式*/
+.row {
+    margin-right: 0px;
+}
+
+/* CSS 整体样式*//* CSS Document */
+#flowType-list button{
+	border-style:none;
+}
+/* 拖动排序 开始CSS   */
+ .ui-state-highlight{
+     float: left;
+     height:120px;
+     width: 210px;
+     position: relative;
+     margin-top: 10px;
+     margin-left:3px;
+ }
+/* 拖动排序 结束CSS   */
+/* 流程分类 开始CSS   */
+.susclass {
+		background-color: #f9f9f9;
+		margin-top: 10px;
+		margin-left: 0px;
+		position: relative;
+		height: 120px;
+		padding: 10px 0px 30px;
+		border: 1px solid #ddd;
+     }
+    .systemsusclass{
+        background-color: #f6fcf5;
+      border-color:#8ccc8c;
+   }
+
+	 .add{
+		background-color: #f9f9f9;
+		margin-top: 10px;
+		margin-left: 0px;
+		position: relative;
+		height: 120px;
+		padding: 10px 10px 30px;
+		border: 1px solid #ddd;
+	 }
+
+	  .shuzikuang{
+          text-align: center;
+          /* margin-left: 20px; */
+          padding-top: 6px;
+          float: left;
+          margin: 5px 5px 5px 15px;
+          width: 35px;
+          height: 35px;
+          border-radius: 50px;
+          border: solid #bdbdbd 1px;
+          background-color: #ffffff;
+    }
+
+#flowType-list .addPicture{
+        border-style:none;
+		 margin-left:20px;
+		 margin-top:20px;
+		 padding-left:70px; 
+		 height:60px;
+		 font-size:16px;
+		 background:url(../../Images/plan/addB.png) no-repeat 0;
+   }
+   .wordPosition{
+		float:left;
+		margin-left:5px;
+        max-width: 140px;
+        max-height: 50px;
+    }
+
+	.wordPosition label{
+		font-weight:normal;
+		font-size:12px;
+        overflow:hidden;
+        max-height:41px;
+       word-wrap: break-word;
+	}
+
+	.wordPosition label:first-child{
+		font-size:14px;
+        color: #686868;
+	}
+
+   .wordPosition .label2{
+       color: #bbbbbb;
+   }
+
+
+   
+   
+/* 绿条CSS */
+  .susclass .operate {
+	position:relative;
+	top:70px;
+	right:0;
+	z-index:1;
+	width: 100%;
+	height:40px;
+	display:none;
+}
+
+
+#flowType-list .operate .operateDiv {
+	position:absolute;
+	top:0px;
+	right:0;
+	float:left;
+	width: 100%;
+	height:40px;
+	 
+}
+#flowType-list .operateDiv .operateBg {
+	position:absolute;
+	float:left;
+	width: 100%;
+	height:40px;
+	background:#58b456;
+	filter:alpha(opacity=80); /*IE滤镜，透明度50%*/
+	-moz-opacity:0.8; /*Firefox私有，透明度50%*/
+	opacity:0.8;/*其他，透明度50%*/
+}
+#flowType-list .operateDiv .operateText {
+	position:absolute;
+	float:left;
+	width: 100%;
+	height:40px;
+	line-height:40px;
+	color:#fff;
+}
+
+#flowType-list .operateDiv .operateText button{
+	float:right;
+	margin-top: 5px;
+	padding-left:22px;
+    padding-right: 5px;
+	cursor:pointer;
+    background-position-y: 3px;
+}
+
+#flowType-list .operateDiv .operateText button:first-child{
+    padding-right: 10px;
+}
+
+
+#flowType-list .operateText .delete {
+	padding-left:30px; 
+   background:url(../../Images/plan/deleteWhite.png) no-repeat;
+}
+#flowType-list .operateText .delete:hover {
+	color:#136012;
+    background:url(../../Images/plan/delete.png) no-repeat;
+    background-position-y: 3px;
+}
+#flowType-list .operateText .detail {
+	background:url(../../Images/plan/planDetail.png) no-repeat;
+}
+#flowType-list .operateText .detail:hover {
+	color:#136012;
+	background:url(../../Images/plan/planDetailHit.png) no-repeat;
+    background-position-y: 3px;
+}
+
+
+#flowType-list .operateText .modification {
+	padding-left:30px;
+	background:url(../../Images/plan/modification.png) no-repeat;
+}
+#flowType-list .operateText .modification:hover {
+	color:#136012;
+	background:url(../../Images/plan/modificationHit.png) no-repeat;
+    background-position-y: 3px;
+}
+
+/* 绿条CSS结束 */
+/*弹出框 分类详情和分类编辑的CSS 开始 */
+#classifyDetail_modal .btnModify,#classifyModify_modal .btnDetail {
+  display: block;
+  float: left;
+  width: 50%;
+}
+#classifyDetail_modal  .modalfooter,#classifyModify_modal .modalfooter{
+	padding:0px;
+}
+#classifyDetail_modal .modalbody,#classifyModify_modal .modalbody{
+	height:300px;
+}
+#classifyDetail_modal input,#classifyModify_modal input{
+ width: 250px;
+ background-color:white;
+}
+
+#classifyDetail_modal textarea,#classifyModify_modal textarea{
+    outline:none;
+    width: 250px;
+    overflow-x: hidden;
+    background-color:white;
+    border:1px solid #ccc;
+    padding: 2px 5px;
+
+}
+
+#classifyDetail_modal input,#classifyDetail_modal textarea{
+    border-style: none;
+    resize:none;
+}
+#classifyDetail_modal .set-group .set ,#classifyDetail_modal .set-group .set {
+    margin-bottom: 20px;
+}
+/* 弹出框 分类详情和分类编辑的CSS 结束 */
+
+
+
+/*表单管理开始*/
+#ddlUserList, #ddlsystemList{
+  max-width: 500px;
+  width: auto;
+  min-width: 100%;
+}
+span#power-span.dropdown-toggle {
+}
+/*表单类别*/
+.formClassify li {
+    cursor:pointer
+}
+ul.list-inline.formtype{
+    font-size: 14px;
+    padding-left: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #f5f5f5;
+}
+.formtype li a span{
+    height: 24px;
+    padding-left: 24px;
+    line-height: 24px;
+    display: inline-block;
+    cursor: pointer;
+}
+
+
+span.glyphicon.glyphicon-menu-down.form1,
+span.glyphicon.glyphicon-menu-down.form2,
+span.glyphicon.glyphicon-menu-down.form{
+    vertical-align: middle;
+    padding-left: 0;
+}
+
+.formtype .active{
+    color: #58b458;
+}
+span.form_systerm{
+    background: url(../../Images/flow/sysform.png) no-repeat;
+}
+span.form_systerm:hover{
+    background: url(../../Images/flow/sysform_hit.png) no-repeat;
+}
+span.form_userdefined{
+    background: url(../../Images/flow/cusform.png) no-repeat;
+}
+span.form_userdefined:hover{
+    background: url(../../Images/flow/cusform_hit.png) no-repeat;
+}
+.addFormClassify:hover {
+    cursor:pointer;
+}
+.addFlowClassify:hover {
+    cursor:pointer;
+}
+/*表单列表*/
+.row.form-list{
+    margin-top: 10px;
+}
+.form-list .cell{
+    position: relative;
+      /** padding: 10px 5px 0;*/
+    padding: 5px 5px 0;
+    margin-bottom: 10px;
+    border: 1px solid #a7d8a6;
+    height: 120px;
+    background-color: #f6fbf5;
+}
+.img-circle.templateId{
+    width: 30px;
+    height: 30px;
+    margin-top: 10px;
+    margin-left: 5px;
+    border: 1px solid;
+    text-align: center;
+    line-height: 25px;
+}
+.cell .Use
+{
+ 
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 2;
+  cursor: pointer;
+  width: 0;
+  height: 0;
+  line-height: 0;
+  border: 30px solid transparent;
+  border-left-color: #58b456;
+  border-right: 0;
+  border-top: 0;
+}
+.cell .Use a{
+  background: url(../../Images/flow/lock.png) no-repeat;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  left: -33px;
+  float: left;
+}
+.cell .AlreadyUse
+{
+     display: none;
+}
+ .cell .stopUse
+{
+     display: block;
+}
+.info-list{
+    /**margin-top: 10px;*/
+      margin-top: 5px;
+      margin-left: 45px;
+}
+.title{
+    font-size: 14px;
+   word-wrap: break-word;
+}
+.des{
+  
+    line-height: 1.4em;
+    height: 2.8em;
+    position: absolute;
+    -webkit-line-clamp: 2;
+    width: 150px;
+      color: #bbbbbb;
+     /* bottom: 0*/
+}
+
+.info-list ul{
+    height: 20px;
+}
+#formManage-list .operate{
+    position: absolute;
+    width: 100%;
+    height: 30px;
+    margin-left: -5px;
+    /*padding-left: 20px;*/
+    background:#58b456;
+    bottom: 0;
+    display: none;
+    z-index: 1;
+    filter:alpha(opacity=10);
+    -moz-opacity:0.9;
+    opacity:0.9;
+}
+.btns{
+    position: absolute;
+    float: left;
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+}
+.btns ul {
+    /* height: 30px;
+    margin: 0 15%;*/
+    float: right;
+}
+.btns ul>*li {
+    height: 24px;
+    margin-right: 10px;
+}
+.btns ul li a{
+    color: #fff;
+    height: 24px;
+    line-height: 24px;
+    padding-left: 30px;
+    display: inline-block;
+    cursor: pointer;
+}
+.btns ul li a:hover{
+    width:100%;
+    color:#686868;
+}
+.btns ul li a ul li{
+    color: #ccc;
+}
+.operateMore {
+    margin-left:-20px;
+}
+a.systermCopy{
+    background:url(../../Images/plan/submit.png) no-repeat ;
+}
+a.systermCopy:hover{
+    background:url(../../Images/plan/submitHit.png) no-repeat ;
+}
+.form-process:hover{
+    background: url(../../Images/flow/browse.png) no-repeat;
+}
+.form-process{
+    background: url(../../Images/flow/browse-hit.png)no-repeat;
+}
+.form-test:hover{
+    background: url(../../Images/flow/test-hit.png) no-repeat;
+}
+.form-test{
+    background: url(../../Images/flow/test.png)no-repeat;
+}
+.form-add{
+    position: relative;
+    border: 1px solid #a7d8a6;
+    height: 120px;
+    padding-left: 25px;
+    background-color: #f6fbf5;
+    text-align: center;
+}
+.form-addPicture{
+    height: 65px;
+    margin-top: 20px;
+    background: url(../../Images/plan/addB.png) no-repeat;
+}
+.form-wordPosition{
+    font-size: 14px;
+    margin-top: -45px;
+    margin-left: 35px;
+}
+ul.dropdown-menu.batch-menu.more li a{
+    color:#000;
+}
+/*弹出层-复制*/
+.chosenbox .chosen-count{
+    padding: 3px 10px;
+}
+.chosens{
+    padding-left: 0;
+  list-style: none;
+  width: 75%;
+  height: 60px;
+  float: right;
+  overflow: auto;
+  position: absolute;
+  margin-left: 110px;
+  margin-top: -35px;
+}
+.chosens li{
+    float: left;
+    width: auto;
+    height: 30px;
+    padding: 5px 10px;
+}
+.chosens li:hover{
+    background-color: #eee;
+}
+.chosens li>span{
+    width: auto;
+    height: 30px;
+    margin-right: 10px;
+    float: left;
+    display: inline-block;
+}
+.chosens li a{
+    height: 30px;
+    float:right;
+    margin-top:5px;
+    display: inline-block;
+}
+#copy_modal_folder,#move_modal_folder{
+    padding: 15px 0 20px 0;
+    height: 380px;
+    width: 100%;
+}
+.chosenbox{
+    height: 30px;
+    line-height: 30px;
+    margin: 5px 0 30px 5px;
+}
+#copy_modal_search,#move_modal_search{
+    margin: 15px 0 0 15px;
+    height: 33px;
+    line-height: 33px;
+}
+input#copy_select,input#move_select{
+    width: 90%;
+    float: right;
+}
+.formTypeChoose{
+    width: 80%;
+    height: 30px;
+    display: inline-block;
+}
+/****/
+.pos-r ul {
+  
+  margin-left: 65px;
+  width: 493px !important;
+  
+}
+/* 选择框 开始 */
+.moreBg{
+    margin-right: 10px;
+}
+.col-xs-3 .choose
+{
+    position: relative;
+    top: -20px;
+    right: -382px;
+    z-index: 2;
+    display: none;
+    width: 30px;
+    height: 30px;
+    background: #dadada;
+    cursor: pointer;
+}
+
+.col-xs-3 .choose.chooseHit
+{
+    border-left: 1px solid #bababa;
+    border-bottom: 1px solid #bababa;
+}
+
+.col-xs-3 .choose span
+{
+    position: relative;
+    top: 3px;
+    left: 3px;
+    display: block;
+    width: 24px;
+    height: 24px;
+    background: url(../../Images/plan/choose.png) no-repeat;
+}
+
+.col-xs-3 .choose span.spanHit
+{
+    background: url(../../Images/plan/chooseHit.png) no-repeat;
+}
+
+.col-xs-3 .prohibit
+{
+    position: relative;
+    top: -20px;
+    right: -384px;
+    z-index: 2;
+    width: 28px;
+    height: 28px;
+    background: url(../../Images/plan/prohibit.png) no-repeat;
+}
+
+.form-list {
+    min-height:625px;
+}
+
+.form-list  .col-xs-3 .choose,
+.form-list .col-xs-3 .prohibit
+{
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+/*新建表单*/
+.modal-body.newform{
+    height: 350px;
+}
+.input-file,.input-doc{
+    height: 50px;
+    margin: 3px 0 0 0;
+    position: relative;
+}
+span.group-laber{
+    height: 33px;
+    width: 13%;
+    line-height: 33px;
+    float: left;
+    margin-right: 5px
+}
+#input_filename.form-control{
+    width: 267px;
+}
+#input_filedes.form-control{
+    width: 267px;
+    height: 66px;
+}
+li.dropdown.addborder{
+    width: 120px;
+    height: 25px;
+    margin-top: 10px;
+    border: 1px solid #dddddd;
+    padding-left: 10px;
+    padding-top: 2px;
+    text-align: center;
+}
+
+
+
+
+
+
+  
+
+.img-circle.templateId {
+    width: 30px;
+    height: 30px;
+    /*margin-top: 10px;*/
+    margin-left: 5px;
+    border: 1px solid;
+    text-align: center;
+    line-height: 25px;
+}
+
+.row-flowChunk .info-list {
+    margin-left: 10px;
+    position: absolute;
+    left: 100px;
+    width: 300px;
+    /*margin-right: 180px;*/
+}
+
+.addflow_cell .info-list {
+    margin-left: 10px;
+    position: absolute;
+    left: 50px;
+    width: 100px;
+    /*margin-right: 180px;*/
+}
+
+.nest .title {
+    width: 200px;
+    font-size: 12px;
+}
+
+.addflow_cell .title {
+    width:90px;
+    font-size:12px;
+}
+
+.des {
+    margin-top: 3px;
+    line-height: 1.4em;
+    height: 2.8em;
+    position: absolute;
+    -webkit-line-clamp: 2;
+    width: 115px;
+    color: #bbbbbb;
+}
+
+.info-list ul {
+    height: 20px;
+}
+
+.form_preview {
+    float: right;
+    position: initial;
+    margin-top: 68px;
+}
+
+.addflow_select {
+    position: relative;
+    margin: 0 auto;
+    left: 20px;
+    display: none;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+#addflow_modal_search .caret, .addflow-text .caret {
+    position: absolute;
+    left: 200px;
+    top: 8px;
+}
+
+#addflow_modal_search .caret {
+    position: absolute;
+    left: 190px;
+    top: 13px;
+}
+
+#addflow_modal_search .dropdown-menu {
+    width: 100%;
+    top: 30px;
+}
+
+.dropdown, .form_preview {
+    cursor: pointer;
+}
+
+.categoryinfo-div {
+    margin: 5px;
+}
+
+.category-name {
+    margin-bottom: 5px;
+}
+
+.gray-background {
+    background-color: #c0c0c0;
+}
+
+.template-name, .template-desc {
+    width: 100%;
+    display: block;
+    text-align: center;
+}
+
+.template-name {
+    font-size: 18px;
+    color: black;
+    font-weight: 400;
+}
+
+.template-desc {
+    word-wrap: break-word;
+    font-size: 17px;
+}
+
+.form-title {
+    margin-left: 22px;
+    width: 60%;
+    height: 33px;
+}
+
+.category_content {
+    height: 200px;
+    overflow: auto;
+}
+
+
+/*表单管理结束*/
+
+
+/* 流程进程 开始 */
+
+.panel-chart .chart {
+    position: relative;
+    float: left;
+    width: 292px;
+    height: 310px;
+    background: white;
+    border: 1px solid #ccc;
+}
+
+.chart #chart3 {
+    float: left;
+    width: 292px;
+    height: 300px;
+    margin-top: -10px;
+}
+
+
+.chart .planNum {
+    position: absolute;
+    top: 135px;
+    left: 100px;
+    width: 90px;
+    text-align: center;
+    font-size: 13px;
+}
+
+.chart .month {
+    float: left;
+    width: 330px;
+    height: 24px;
+    margin-top: -5px;
+}
+
+    .chart .month .text {
+        display: block;
+        float: left;
+        width: 282px;
+        line-height: 24px;
+        text-align: center;
+    }
+
+.panel-chart .sign {
+    float: left;
+    width: 292px;
+    height: 50px;
+    border-top: 1px solid #bbb;
+    background: white;
+    border: 1px solid #ccc;
+}
+
+.sign ul li {
+    float: left;
+    width: 55px;
+    list-style-type: none;
+}
+
+.sign ul {
+    position: absolute;
+    left: -27px;
+    margin-top: 5px;
+}
+
+.sign .color {
+    float: left;
+    width: 10px;
+    height: 10px;
+    margin: 5px 2px 9px 5px;
+    border-radius: 2px;
+}
+
+#chart3 svg {
+    margin-left: -20px;
+}
+
+.panel-chart .arrowsBBRCom {
+    position: absolute;
+    right: 0px;
+}
+/* 箭头 开始 */
+/* 箭头:Black,Big,方向 开始 */
+.arrowsBBTCom,
+.arrowsBBRCom,
+.arrowsBBBCom,
+.arrowsBBLCom {
+    position: relative;
+    float: left;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+}
+
+.arrowsBBTCom {
+    background: url(../../Images/common/arrowsBBT.png) no-repeat;
+}
+
+    .arrowsBBTCom:hover {
+        background: url(../../Images/common/arrowsBBTHit.png) no-repeat;
+    }
+
+.arrowsBBRCom {
+    background: url(../../Images/common/arrowsBBR.png) no-repeat;
+}
+
+    .arrowsBBRCom:hover {
+        background: url(../../Images/common/arrowsBBRHit.png) no-repeat;
+    }
+
+.arrowsBBBCom {
+    background: url(../../Images/common/arrowsBBB.png) no-repeat;
+}
+
+    .arrowsBBBCom:hover {
+        background: url(../../Images/common/arrowsBBBHit.png) no-repeat;
+    }
+
+.arrowsBBLCom {
+    background: url(../../Images/common/arrowsBBL.png) no-repeat;
+}
+
+    .arrowsBBLCom:hover {
+        background: url(../../Images/common/arrowsBBLHit.png) no-repeat;
+    }
+/* 箭头:Black,Big,方向 结束 */
+/* 箭头:Black,Small,方向 开始 */
+.arrowsBSTCom,
+.arrowsBSRCom,
+.arrowsBSBCom,
+.arrowsBSLCom {
+    float: left;
+    width: 12px;
+    height: 12px;
+    cursor: pointer;
+}
+
+.arrowsBSTCom {
+    background: url(../../Images/common/arrowsBST.png) no-repeat;
+}
+
+    .arrowsBSTCom:hover {
+        background: url(../../Images/common/arrowsBSTHit.png) no-repeat;
+    }
+
+.arrowsBSRCom {
+    background: url(../../Images/common/arrowsBSR.png) no-repeat;
+}
+
+    .arrowsBSRCom:hover {
+        background: url(../../Images/common/arrowsBSRHit.png) no-repeat;
+    }
+
+.arrowsBSBCom {
+    background: url(../../Images/common/arrowsBSB.png) no-repeat;
+}
+
+    .arrowsBSBCom:hover {
+        background: url(../../Images/common/arrowsBSBHit.png) no-repeat;
+    }
+
+.arrowsBSLCom {
+    background: url(../../Images/common/arrowsBSL.png) no-repeat;
+}
+
+    .arrowsBSLCom:hover {
+        background: url(../../Images/common/arrowsBSLHit.png) no-repeat;
+    }
+/* 箭头:Black,Small,方向 结束 */
+/* 箭头(实心):Black,Small,方向 开始 */
+.arrowSolidTCom,
+.arrowSolidRCom,
+.arrowSolidBCom,
+.arrowSolidLCom,
+.arrowSolidTComHit,
+.arrowSolidRComHit,
+.arrowSolidBComHit,
+.arrowSolidLComHit {
+    float: left;
+    width: 12px;
+    height: 12px;
+    cursor: pointer;
+}
+
+.arrowSolidTCom {
+    background: url(../../Images/common/arrowSolidT.png) no-repeat;
+}
+
+    .arrowSolidTComHit,
+    .arrowSolidTCom:hover,
+    .arrowSolidTCom.hit {
+        background: url(../../Images/common/arrowSolidTHit.png) no-repeat;
+    }
+
+.arrowSolidRCom {
+    background: url(../../Images/common/arrowSolidR.png) no-repeat;
+}
+
+    .arrowSolidRCom:hover {
+        background: url(../../Images/common/arrowSolidRHit.png) no-repeat;
+    }
+
+.arrowSolidBCom {
+    background: url(../../Images/common/arrowSolidB.png) no-repeat;
+}
+
+    .arrowSolidBComHit,
+    .arrowSolidBCom:hover,
+    .arrowSolidBCom.hit {
+        background: url(../../Images/common/arrowSolidBHit.png) no-repeat;
+    }
+
+.arrowSolidLCom {
+    background: url(../../Images/common/arrowSolidL.png) no-repeat;
+}
+
+    .arrowSolidLCom:hover {
+        background: url(../../Images/common/arrowSolidLHit.png) no-repeat;
+    }
+/* 箭头(实心):Black,Small,方向 结束 */
+/* 箭头 结束 */
+/* 流程进程 结束 */
+
+/*五角星 开始*/
+.stars {
+    /*float:left;*/
+    position: absolute;
+    right: 150px;
+    margin-top: 5px;
+}
+
+.urgency {
+    position: absolute;
+    left: 10px;
+    margin-top: -1px;
+}
+
+.stars ul li {
+    float: left;
+    width: 18px;
+    height: 20px;
+    margin-top: -2px;
+    cursor: pointer;
+    list-style-type: none;
+}
+
+.urgency ul li {
+    float: left;
+    width: 18px;
+    height: 20px;
+    margin-top: -2px;
+    list-style-type: none;
+}
+
+.urgencyR ul li {
+    background: url(../../Images/plan/fiveStarR.png) no-repeat;
+}
+
+    .urgencyR ul li.liHit {
+        background: url(../../Images/plan/fiveStarR.png) 0 -20px no-repeat;
+    }
+
+.starsR ul li {
+    background: url(../../Images/plan/fiveStarR.png) no-repeat;
+}
+
+.starsY ul li {
+    background: url(../../Images/plan/fiveStarY.png) no-repeat;
+}
+
+.starsG ul li {
+    background: url(../../Images/plan/fiveStarG.png) no-repeat;
+}
+
+.starsR ul li.liHover,
+.starsR ul li.liHit {
+    background: url(../../Images/plan/fiveStarR.png) 0 -20px no-repeat;
+}
+
+.starsY ul li.liHover,
+.starsY ul li.liHit {
+    background: url(../../Images/plan/fiveStarY.png) 0 -20px no-repeat;
+}
+
+.starsG ul li.liHover,
+.starsG ul li.liHit {
+    background: url(../../Images/plan/fiveStarG.png) 0 -20px no-repeat;
+}
+
+.stars ul li.liHoverNot {
+    background: url(../../Images/plan/fiveStarR.png) no-repeat;
+}
+/*五角星 结束*/
+/*新建流程 开始*/
+.bottom-line {
+    border-bottom: 1px solid #dddddd;
+    margin-top: 10px;
+}
+
+ul.dropdown-menu.batch-menu {
+    min-width: 70px;
+    max-width: 100%;
+}
+
+.formClassify li {
+    cursor: pointer;
+}
+
+.row.form-list {
+    margin-top: 10px;
+    height: 450px;
+    
+    display: block;
+}
+
+/*.form-list .cell {
+    position: relative;
+    padding: 10px 5px 0;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    height: 100px;
+    /*-moz-opacity:0.3;*/
+    /*opacity: 0.3;*/
+    /*filter:alpha(opacity=70); 
+}*/
+
+.img-circle.templateId {
+    width: 30px;
+    height: 30px;
+    /*margin-top: 10px;*/
+    margin-left: 5px;
+    border: 1px solid;
+    text-align: center;
+    line-height: 25px;
+}
+
+.row-flowChunk .info-list {
+    margin-left: 10px;
+    position: absolute;
+    left: 100px;
+    width: 300px;
+    /*margin-right: 180px;*/
+}
+
+.addflow_cell .info-list {
+    margin-left: 10px;
+    position: absolute;
+    left: 40px;
+    width: 100px;
+    /*margin-right: 180px;*/
+}
+
+.nest .title {
+    width: 300px;
+    font-size: 12px;
+}
+
+.addflow_cell .title {
+    width: 90px;
+    font-size: 12px;
+}
+
+.des {
+    margin-top: 3px;
+    line-height: 1.4em;
+    height: 2.8em;
+    position: absolute;
+    -webkit-line-clamp: 2;
+    width: 115px;
+    color: #bbbbbb;
+}
+
+.info-list ul {
+    height: 20px;
+}
+
+.form_preview {
+    float: right;
+    position: initial;
+    margin-top: 68px;
+}
+
+.addflow_select {
+    position: relative;
+    margin: 0 auto;
+    left: 20px;
+    display: none;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+#addflow_modal_search .caret, .addflow-text .caret {
+    position: absolute;
+    left: 200px;
+    top: 8px;
+}
+
+#addflow_modal_search .caret {
+    position: absolute;
+    left: 190px;
+    top: 13px;
+}
+
+#addflow_modal_search .dropdown-menu {
+    width: 100%;
+    top: 30px;
+}
+
+.dropdown, .form_preview {
+    cursor: pointer;
+}
+
+.gray-background {
+    background-color: #c0c0c0;
+}
+
+.detial_template_name,.template-name,
+ .template-desc,.detail_template_desc {
+    width: 100%;
+    display: block;
+    text-align: center;
+}
+
+.detial_template_name,.template-name {
+    font-size: 18px;
+    color: black;
+    font-weight: 400;
+}
+
+.template-desc,.detail_template_desc {
+    word-wrap: break-word;
+    font-size: 17px;
+}
+
+.detail_form_title,.form-title {
+    margin-left: 22px;
+    width: 60%;
+    height: 33px;
+}
+
+/*.category_content {
+    height: 200px;
+    overflow: auto;
+}*/
+#Load-position
+{
+    position:absolute;
+    left:500px;
+    top:300px;
+
+}
+#formBuild_modal ul.newbuilde li a
+{
+    overflow:hidden;
+    width:100%;
+    text-overflow:ellipsis;
+
+}
+#formBuild_modal #power-span span:first-child
+{
+  overflow: hidden;
+  white-space: nowrap;
+  width: 100%;
+  display: inline-block;
+}
+#preview_modal ul.department_ul
+{
+    width:98.5%;
+}
+
+
+
+
+
+
+
+/*测试 */
+
+.textOverFlow {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width:90%;
+    overflow: hidden;
+    display: inline-block;
+}
+.dropDownSpan {
+    width: 80%;
+}
+
+#flow_test_modal .modal-body{
+    height:538px;
+    overflow-y: auto;
+}
+#flow_test_modal .upPic{
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    background: url(../../Images/objective/up.png) no-repeat;
+    float: right;
+    margin-top: 4px;
+}
+
+#flow_test_modal .dropdown > span,#flow_test_modal .dropdown > button {
+    height: 33px;
+    width: 100%;
+    border: 1px solid #ccc;
+    display: block;
+    line-height: 33px;
+    padding-left: 10px;
+    background-color: #ffffff;
+    box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+    text-align:left;
+}
+
+#test_main_title{
+    font-size: 18px;
+    color: black;
+    font-weight: 400;
+    text-align: center;
+}
+#test_des_title {
+  width:100%;
+  font-size:17px;
+  text-align: center;
+}
+#flow_test_modal span.control-label{
+    width: 87px;
+    display: inline-block;
+}
+#test_createPerson, #test_createOrg,#test_createPosition{
+   width: 160px;
+}
+
+#testRow>div{
+    float: left;
+    margin-right:30px;
+}
+#flow_test_modal .dropdown-menu {
+    min-width: 0px;
+    width: 100%;
+}
+#test_flowPic{
+    background: #ffffff;
+    height: 445px !important;
+    text-align: center;
+    overflow: auto;
+
+    margin-top: 15px;
+    margin-left: -40px;
+}
+#endTestBtn{
+    width: 100px;
+    margin: 10px;
+    background: -webkit-linear-gradient(bottom,#dedede,#fafafa);
+}
+#test_rightModal{
+    background-color: #f9f9f9;
+    overflow: hidden;
+    position: absolute;
+    top:0px;
+    width: 350px;
+    height: 100%;
+    padding-left:15px;
+    border: 1px solid #999;
+    border: 1px solid rgba(0, 0, 0, .2);
+    outline: 0;
+    -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, .5);
+    box-shadow: 0 3px 9px rgba(0, 0, 0, .5);
+    z-index:-1;
+}
+
+#test_rightModal svg {
+  width:92% !important;
+}
+#test_node_list{
+    display: inline-block;
+    width: 122px;
+}
+
+#flow_test_modal .dateCorn{
+    background: url(../../Images/objective/date.png) no-repeat;
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+}
+#flow_test_commit, #flow_test_save, #flow_test_agree, #flow_test_back , #flow_test_modal .modal-footer{
+  display:none;
+}
+#flow_test_modal input[type="button"] {
+   text-align:left;
+}
+#flow_test_modal .disabledStart li,.form-control[disabled] {
+  cursor:auto !important;
+}
+
+
+/*预览样式修改 开始*/
+ #preview_modal #yulan_createUser
+ {
+  height: 33px;
+  margin-left:10px;
+  margin-right:10px;
+}
+#preview_modal .createDeparment
+{
+  display: inline-block;
+  width: 25%;
+  height: 33px;
+  vertical-align: middle;
+  margin-left:10px;
+   margin-right:10px;
+}
+ #preview_modal .createDeparment .caret
+ {
+        top: 15px;
+ }
+ #preview_modal #addflow_createtime 
+{
+  margin-left: 10px;
+}
+#preview_modal #addflow_createtime_v
+{
+    height: 33px;
+}
+
+#preview_modal #addflow_createtime em
+{
+  background:url(../../Images/plan/completeDate.png) no-repeat;
+  border: 1px solid #ccc;
+  border-left: 0;
+  margin-left: -5px;
+  width: 30px;
+  height: 33px;
+  display: inline-block;
+  vertical-align: top;
+  background-position-y: center;
+}
+#preview_modal #Label-content
+{
+    margin-top:10px;
+}
+/*预览样式修改 结束*/
+
+
+
+#HR_modal .chosebox {
+    height: 200px;
+}
+#HR_modal .chosenbox,  #widgetForm_hr_modal .chosenbox{
+    height: 400px;
+    line-height: 0px;
+    margin: 0px;
+}
+#HR_modal .chosenbox .chosen-count, #widgetForm_hr_modal .chosenbox .chosen-count {
+    padding: 3px 10px;
+    border-bottom: 1px solid #ccc;
+}
+#HR_modal .chosens,#widgetForm_hr_modal .chosens  {
+    padding-left: 0;
+    list-style: none;
+    width: 100%;
+    margin-left: 0px;
+    position: relative;
+    margin-top: 0px;
+}
+#HR_modal .chosens li ,#widgetForm_hr_modal .chosens li{
+    padding: 0px 10px;
+    float: none;
+}
+#HR_modal .choseClass,#widgetForm_hr_modal  .choseClass{
+    height: 200px;
+    margin-top: -200px;
+    overflow-y: hidden;
+}
+#HR_modal .adopt, #widgetForm_hr_modal .adopt{
+    height: 30px;
+    border-bottom: 1px solid #dddddd;
+}
+#HR_modal .adopt>ul.list-inline ,#widgetForm_hr_modal .adopt>ul.list-inline{
+    padding: 5px 5px;
+}
+#HR_modal .getadopt ,#widgetForm_hr_modal  .getadopt {
+    padding: 5px;
+    overflow-y: auto;
+    height: 172px;
+}
+#HR_modal ul.list-inline li input,#widgetForm_hr_modal ul.list-inline li input {
+    vertical-align: top;
+}
+#HR_modal .chosens li > span ,#widgetForm_hr_modal .chosens li > span {
+  line-height: 30px;
+}
+
+#HR_modal .pos-r ul, #widgetForm_hr_modal .pos-r ul{
+  margin-left: 0px;
+  width: 100% !important;
+}

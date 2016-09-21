@@ -1,0 +1,214 @@
+﻿   
+<!-- 会议室样式开始 -->
+<link rel="stylesheet" href="~/Libs/clockpicker/bootstrap-clockpicker.min.css">
+<link href="~/Styles/Meet/meeting.css" rel="stylesheet" />
+<!-- 会议室样式结束 -->
+ <div class="row">
+        <div id="meetContainer" class="col-xs-9 appointCommon">
+            <div class="panel panel-default" style="margin-bottom: 0">
+                <div class="panel-heading object">
+                    <div class="panel-title">
+                        <ul class="nav nav-tabs" >
+                            <li role="presentation" class="active"><a href="#byDate" aria-controls="myObject" role="tab" id="dateChange" data-toggle="tab">日期</a></li>
+                            <li role="presentation"><a href="#bySite"  aria-controls="subObject"  id="siteChange" role="tab" data-toggle="tab">场地</a></li>
+                        </ul>
+                        <a href="#" class="addMeeting addIcon"><i class="fa fa-plus"></i></a>
+                    </div>
+                </div>
+                <div  class="panel-body">
+                    <div class="tab-content row" id="meetTabContent">
+                        <!--我的目标-->
+                        <div class="tab-pane active row" role="tabpanel" id="byDate">
+                            <div class="col-xs-4 ">
+                                <div id="meetDate"></div>
+                            </div>
+                            <div class="col-xs-8 meetDetail">
+                                <div class="detailHead">
+                                    预约详情
+                                </div>
+                                <div class="listDate">
+
+                                </div>
+                            </div>
+                            <div class="col-xs-12 meetArea">
+                                <div class="areaHead">
+                                    <div class="firstArea">
+                                        <div class="col-xs-1"></div>
+                                        <div class="col-xs-1"></div>
+                                        <div class="col-xs-1"></div>
+                                        <div class="col-xs-1"></div>
+                                        <div class="col-xs-1">00:00<i></i></div>
+                                        <div class="col-xs-1">01:00<i></i></div>
+                                        <div class="col-xs-1">02:00<i></i></div>
+                                        <div class="col-xs-1">03:00<i></i></div>
+                                        <div class="col-xs-1">04:00<i></i></div>
+                                        <div class="col-xs-1">05:00<i></i></div>
+                                        <div class="col-xs-1">06:00<i></i></div>
+                                        <div class="col-xs-1">07:00<span class="glyphicon glyphicon-chevron-right rightToClick"></span></div>
+                                    </div>
+                                    <div class="secondArea">
+                                        <div class="col-xs-1"></div>
+                                        <div class="col-xs-1">08:00<span class="glyphicon glyphicon-chevron-left leftToClick"></span><i></i></div>
+                                        <div class="col-xs-1">09:00<i></i></div>
+                                        <div class="col-xs-1">10:00<i></i></div>
+                                        <div class="col-xs-1">11:00<i></i></div>
+                                        <div class="col-xs-1">12:00<i></i></div>
+                                        <div class="col-xs-1">13:00<i></i></div>
+                                        <div class="col-xs-1">14:00<i></i></div>
+                                        <div class="col-xs-1">15:00<i></i></div>
+                                        <div class="col-xs-1">16:00<i></i></div>
+                                        <div class="col-xs-1">17:00<i></i></div>
+                                        <div class="col-xs-1">18:00<span class="glyphicon glyphicon-chevron-right rightClick"></span></div>
+                                    </div>
+                                    <div class="thirdArea">
+                                        <div class="col-xs-1"></div>
+                                        <div class="col-xs-1"><span>19:00</span><span class="glyphicon glyphicon-chevron-left leftClick"></span><i></i></div>
+                                        <div class="col-xs-1">20:00<i></i></div>
+                                        <div class="col-xs-1">21:00<i></i></div>
+                                        <div class="col-xs-1">22:00<i></i></div>
+                                        <div class="col-xs-1">23:00<i></i></div>
+                                        <div class="col-xs-1">24:00</div>
+                                    </div>
+                                </div>
+                                <div class="areaBody">
+
+                                </div>
+                            </div>
+                        </div>
+                        <!--下属目标-->
+                        <div class="tab-pane" role="tabpanel" id="bySite">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="meetingSidebar" class="col-xs-3">
+             <button class="addMeeting meetingCommon">新建会议</button>  
+            @Html.Partial("~/Views/Shared/_UserInfo.cshtml")   
+        </div>
+    </div>
+<!--弹出层  开始-->
+<!--预约添加开始-->
+<div class="modal fade" id="meeting_modal"  tabindex="-1" role="dialog" aria-labelledby="department_modal_label" aria-hidden="true"  data-backdrop="false" data-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+                <h4 class="modal-title" id="meeting_modal_label">预约</h4>
+            </div>
+            <div class="modal-body">
+                <input type="hidden" name="room" class="roomHidden"/>
+                <div class="row">
+                    <div class="col-xs-2 intro_head">
+                        会议室:
+                    </div>
+                    <div class="col-xs-10 nameSelect">
+                        <div class="downName" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+                        </div>
+                        <i class="fa fa-chevron-down"></i>
+                        <ul class="dropdown-menu roomSelect">
+
+                        </ul>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-xs-2 intro_head">
+                        开始时间:
+                    </div>
+                    <div class="col-xs-4">
+                        <input type="text" class="select-time laydate-icon" id="startDateMeet" />
+                        <span style="float:left">-</span>
+                        <!--<input type="text" class="select-clock"/><button class="clockIcon"><i class="fa fa-clock-o"></i></button>-->
+                        <div class="input-group clockpicker" data-autoclose="true">
+                            <input type="text" class="form-control">
+                            <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-time"></span>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col-xs-2 intro_head">
+                        结束时间:
+                    </div>
+                    <div class="col-xs-4">
+                        <input type="text" class="select-time laydate-icon" id="endDateMeet" readonly=true />
+                        <span style="float:left">-</span>
+                        <!--<input type="text" class="select-clock"/><button class="clockIcon"><i class="fa fa-clock-o"></i></button>-->
+                        <div class="input-group clockpickerTwo" data-autoclose="true">
+                            <input type="text" class="form-control">
+                            <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-time"></span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-2 intro_head">
+                        主讲人员:
+                    </div>
+                    <div class="col-xs-10 memberRoom">
+                        <div class="plusMain" type="1">
+                            <i class="fa fa-plus"></i>
+                        </div>
+                        <div class="memberList mainFirst">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-2 intro_head">
+                        参加人员:
+                    </div>
+                    <div class="col-xs-10 memberRoom">
+                        <div class="plusMain" type="2">
+                            <i class="fa fa-plus"></i>
+                        </div>
+                        <div class="memberList mainSecond">
+
+                        </div>
+                    </div>
+                </div>
+                 <div class="row">
+                     <div class="col-xs-2 intro_head">
+                        上传文档:
+                    </div>
+                    <div class="col-xs-10 memberRoom">
+                        <div class="uploadButton">上传 <input id="fileuploadAppoint" type="file" name="files[]" multiple/></div>
+                    </div>
+                     <div class="col-xs-10 col-xs-offset-2 fileList">
+                         <ul>
+                            
+                         </ul>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-2 intro_head">
+                        预约事项:
+                    </div>
+                    <div class="col-xs-12 appEvent">
+                        <textarea name="" id="contentMeet" cols="30" rows="2" maxlength="50"></textarea>
+                    </div>
+                </div>
+                <div class="appointSee">
+                   预约情况
+               </div>
+            </div>
+            <div class="modal-footer fifty-fifty">
+                <a id="department_modal_cancel" class="btn btn-transparency btn-lg" data-dismiss="modal">取消</a>
+                <a class="btn btn-transparency btn-lg" id="meeting_modal_submit">确定</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 预约添加结束 -->
+
+
+<!--弹出层  结束-->
+<script src="~/Libs/clockpicker/bootstrap-clockpicker.min.js"></script>
+<script src="~/Scripts/Meet/meeting.js"></script>
+
+<script src="~/Scripts/Meet/newAppoint.js"></script>

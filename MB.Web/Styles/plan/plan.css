@@ -1,0 +1,3603 @@
+/* 内容 */
+.conL ,
+.conR {
+	float:left;
+	width:860px;
+}
+.conL {
+	width:858px;
+}
+.conR {
+	width:332px;
+	margin-left:10px;
+}
+
+.conL .planList.listMode
+{
+}
+
+    .conL .planList.listMode .addPlan
+    {
+        margin: 30px auto;
+    }
+
+    .conL .planList.listMode .PLChunk
+    {
+        width: 838px;
+        height: 120px;
+    }
+
+        .conL .planList.listMode .PLChunk .label
+        {
+            background-color: #e0e0e0;
+            left: 0px;
+            top: 0px;
+        }
+
+            .conL .planList.listMode .PLChunk .label .labelOne
+            {
+                display: none;
+            }
+
+            .conL .planList.listMode .PLChunk .label .labelDiv
+            {
+                z-index: 4;
+            }
+
+            .conL .planList.listMode .PLChunk .label .labelLast
+            {
+                display: inline;
+                margin-left: 10px;
+                font-weight: bold;
+            }
+
+            .conL .planList.listMode .PLChunk .label .childPlanDiv
+            {
+                width: 828px;
+                left: -1px;
+                top: 121px;
+            }
+
+                .conL .planList.listMode .PLChunk .label .childPlanDiv .output
+                {
+                    width: 475px;
+                }
+
+                .conL .planList.listMode .PLChunk .label .childPlanDiv .dutyPer
+                {
+                    width: 130px;
+                }
+
+                .conL .planList.listMode .PLChunk .label .childPlanDiv .finTime
+                {
+                    width: 220px;
+                }
+
+        .conL .planList.listMode .PLChunk .main
+        {
+            width: 100%;
+            height: 100px;
+            margin: 0;
+        }
+
+            .conL .planList.listMode .PLChunk .main .arrowsBBLCom
+            {
+                display: none;
+            }
+
+            .conL .planList.listMode .PLChunk .main .accomplishment
+            {
+                display: block;
+                float: right;
+                height: 0px;
+            }
+
+                .conL .planList.listMode .PLChunk .main .accomplishment .arrowsBBRCom
+                {
+                    display: none;
+                }
+
+            .conL .planList.listMode .PLChunk .main .knobwrapper
+            {
+                margin-top: 5px;
+                height: 95px;
+                position: relative;
+                z-index: 2;
+                background-color: #ececec;
+            }
+
+            .conL .planList.listMode .PLChunk .main .runMode
+            {
+                position: relative;
+                width: 400px;
+                height: 100px;
+            }
+
+                .conL .planList.listMode .PLChunk .main .runMode .runModeInfo
+                {
+                    width: 190px;
+                    height: 100px;
+                    margin-left: 10px;
+                }
+
+                .conL .planList.listMode .PLChunk .main .runMode .runModeStar
+                {
+                    width: 190px;
+                    height: 100px;
+                    position: absolute;
+                    top: 0px;
+                    right: 0px;
+                }
+
+        .conL .planList.listMode .PLChunk .choose,
+        .conL .planList.listMode .PLChunk .prohibit
+        {
+            position: absolute;
+            right: 0px;
+            top: 0px;
+        }
+
+        .conL .planList.listMode .PLChunk .dutyPerson
+        {
+            width: auto;
+            float: none;
+            position: absolute;
+            right: 50px;
+            top: 0px;
+        }
+
+        .conL .planList.listMode .PLChunk .susPlan
+        {
+            height: 120px;
+            z-index: 3;
+        }
+
+            .conL .planList.listMode .PLChunk .susPlan .susPlanBg
+            {
+                height: 120px;
+            }
+
+            .conL .planList.listMode .PLChunk .susPlan .susPlanDiv
+            {
+                top: 20px;
+            }
+
+        .conL .planList.listMode .PLChunk .operate
+        {
+            top: -40px;
+        }
+
+
+/* 内容左边 开始 */
+/* 筛选框 开始 */
+.conL .filterBox {
+	display:none;
+	float:left;
+	width:858px;
+	height:auto;
+	margin-bottom:25px;
+	background-color:#f9f9f9;
+	border:1px solid #bbb;
+}
+.selected {
+	float:left;
+	width:844px;
+	line-height:29px;
+	padding:0 7px;
+	border-bottom:1px solid #bbb;
+}
+.selected .condition {
+	float:left;
+}
+.selected .conditionDiv {
+	float:left;
+	width:785px;
+	margin-left:-63px;
+}
+.selected .conditionDiv ul li {
+	float:left;
+	height:16px;
+	line-height:16px;
+	margin:4px 3px;
+	padding:2px;
+	color:#fff;
+	background-color:#58b456;
+}
+.selected .conditionDiv ul li .closeW {
+	display:block;
+	float:right;
+	width:16px;
+	height:16px;
+	background:url(../../Images/common/closeW.png) no-repeat;
+	cursor:pointer;
+}
+.selected .conditionDiv ul li .closeW:hover {
+	background:url(../../Images/common/closeWHit.png) no-repeat;
+}
+
+.filterBox .specific {
+	float:left;
+	width:844px;
+	height:auto;
+	margin-bottom:-19px;
+	padding:0 7px;
+}
+.filterBox .specific ul {
+	float:left;
+	width:100%;
+}
+.filterBox .specific ul li {
+	float:left;
+	line-height:30px;
+}
+/*.filterBox .specific ul li input {
+	float:left;
+	margin-top:9px;
+}*/
+.filterBox .specific .shortcut li span ,
+.filterBox .specific .state li span ,
+.filterBox .specific .time li span ,
+.filterBox .specific .personnel li span {
+	margin-left:20px;
+	cursor:pointer;
+}
+.shortcut li span:hover ,
+.state li span:hover ,
+.time li span.timeHover:hover ,
+.personnel li span:hover {
+	color:#58b456;
+}
+.filterBox .specific ul li span {
+	float:left;
+}
+.handle {
+	display:block;
+	width:50px;
+	height:20px;
+	line-height:20px;
+	text-align:center;
+	margin:4px 0 0 3px;
+	color:#686868;
+	border:1px solid #f9f9f9;
+	cursor:pointer;
+}
+.handle.handleHover {
+	color:#fff;
+	background-color:#fbac0f;
+	border:1px solid #fbbf3d;
+}
+.handle.handleHit {
+	color:#fff;
+	background-color:#e99900;
+	border:1px solid #fbbf3d;
+}
+.filterBox .specific ul.time li .laydate-icon {
+	display:block; 
+	width:100px; 
+	height:20px;
+	margin:4px 0 0 0;
+	margin-left:0;
+	padding:0;
+}
+.filterBox .specific ul.personnel input[type='checkbox'] {
+	display:none;
+}
+.filterBox .specific ul li.perSecMain {
+	position:relative;
+}
+.filterBox .specific ul li input.perSec {
+	float:left;
+	width:100px; 
+	height:18px;
+	margin:5px 0 0 22px;
+	border:1px solid #bbb;
+}
+.perSecMain li {
+	float:none !important;
+}
+.filterBox .specific ul li .perSecDiv {
+	position:absolute;
+	top:27px;
+	left:22px;
+	display:none;
+	width:200px;
+	background-color:#fff;
+	border:1px solid #bbb;
+	z-index:1;
+}
+.perSecDiv li {
+	margin-left:-20px;
+}
+.perSecDiv li span {
+	float:left;
+	width:200px;
+	height:30px;
+	line-height:30px;
+	margin-left:0;
+	cursor:pointer;
+	overflow:hidden;
+}
+.perSecDiv li span:hover {
+	color:#fff;
+	background-color:#58b456;
+}
+
+.personnel .icon
+{
+    float: left;
+}
+
+.filterBox .specific ul li input#select_confirmUser
+{
+    float: left;
+    width: 100px;
+    height: 18px;
+    margin: 5px 0 0 0px;
+    border: 1px solid #bbb;
+}
+
+.filterBox .specific ul li .multipie {
+	float:left;
+	margin-right:14px;
+	cursor:pointer;
+}
+.filterBox .specific ul li .multipie:hover {
+	color:#fff;
+	background-color:#fbac0f;
+	border:1px solid #fbbf3d;
+}
+.multipie .addS {
+	display:block;
+	width:12px;
+	height:12px;
+	margin:9px 3px;
+	background:url(../../Images/common/add.png) no-repeat;
+}
+.multipie span {
+	float:left;
+}
+.filterBox .specific ul li .handles {
+	display:none;
+	float:right;
+}
+.filterBox .specific ul li .handles .handle {
+	float:right;
+}
+
+/* 更多选项 开始 */
+.filterBox .specific .moreOpt {
+	position:relative;
+	top:0;
+	left:344px;
+	width:180px;
+	height:19px;
+}
+.moreOpt li {
+	width:100%;
+	height:19px;
+}
+.moreOpt li div {
+	width:160px;
+	height:19px;
+	line-height:19px;
+	text-align:center;
+	padding-left:8px;
+	background-color:#f9f9f9;
+	border:1px solid #bbb;
+	border-top-color:#f9f9f9;
+	cursor:pointer;
+}
+/* 更多选项 结束 */
+
+/* 部门，项目分类 开始 */
+.filterBox .specific .sectProMain {
+	display:none;
+}
+.sectProMain .SPMArrowsBB {
+	display:block;
+	width:24px;
+	height:24px;
+	background:url(../../Images/common/arrowsBBB.png) no-repeat;
+	cursor:pointer;
+}
+.sectProMain .SPMArrowsTB {
+	background:url(../../Images/common/arrowsBBT.png) no-repeat;
+}
+.sectProMain .sectPro {
+	width:788px;
+	margin-top:24px;
+	margin-left:-70px;
+}
+.sectPro ul li {
+	float:left;
+	width:100%;
+	line-height:20px;
+}
+.sectPro ul li input {
+	float:left;
+}
+.sectPro ul li span {
+	line-height:20px;
+}
+.sectPro ul li .arrowSolidRCom {
+	margin:3px 4px 5px;
+}
+.sectPro ul li .arrowSolidBCom {
+}
+.sectPro ul li li {
+	float:left;
+	width:97%;
+	margin-left:3%;
+}
+/* 部门，项目分类 结束 */
+
+
+
+/* 筛选框 结束 */
+.conL .conLMain {
+	float:left;
+	width:100%;
+	height:auto;
+	background-color:#fff;
+	border:1px solid #bbb;
+}
+/* 我的计划+下属计划 开始 */
+.conLMain .mySubPlan {
+	float:left;
+	width:100%;
+	height:29px;
+	line-height:29px;
+	border-bottom:1px solid #bbb;
+}
+.conLMain .mySubPlan ul {
+	float:left;
+	width:100%;
+	height:29px;
+}
+.conLMain .mySubPlan ul li {
+	float:left;
+	margin-left:7px;
+}
+.conLMain .mySubPlan ul li span {
+	font-size:14px;
+	cursor:pointer;
+}
+.conLMain .mySubPlan ul li span.mySubPlanHit {
+	color:#58b456;
+	font-size:14px;
+}
+.conLMain .mySubPlan ul li span.mySubPlanNot {
+	color:#d7d7d7;
+	font-size:12px;
+}
+/* 我的计划+下属计划 结束 */
+
+/* 条条 开始 */
+.conL .head {
+	float:left;
+	width:100%;
+	height:29px;
+	line-height:29px;
+	background-color:#f9f9f9;
+	border-bottom:1px solid #bbb;
+}
+.conL .headL {
+	float:left;
+	width:auto;
+}
+.head span {
+	float:left;
+	width:auto;
+	padding:0 8px;
+	cursor:pointer;
+}
+.headL .headLSpan {
+	padding:0 12px;
+	border-right:1px solid #f9f9f9;
+	border-left:1px solid #f9f9f9;
+}
+.headL .spanHit {
+	background-color:#fff;
+	border-right:1px solid #bbb;
+	border-bottom:1px solid #fff;
+	border-left:1px solid #bbb;
+}
+.headL .headLSpan .headText {
+	padding:0;
+}
+.headL span .arrows {
+	float:right;
+	width:12px;
+	height:24px;
+	margin-top:2px;
+	margin-left:5px;
+}
+/*.headL .moreBg {
+    display: block;
+    float: left;
+    width: 24px;
+    height: 24px;
+    margin-top: 2px;
+    margin-left: 10px;
+    padding: 0;
+}*/
+
+.headL .moreBg,
+.headL .moreCancel {
+	display:none;
+	padding:0;
+	margin-left:5px;
+}
+.headL .moreBg {
+	margin-left:15px;
+}
+
+.headL.more:hover,
+.headL .moreCancel:hover {
+	color:#58b456;
+}
+.conL .headR {
+	float:right;
+	width:140px;
+}
+.conL .headR .more {
+	position:relative;
+	float:left;
+	height:29px;
+	margin-left:8px;
+	cursor:pointer;
+}
+.more .arrowsBBB {
+	float:right;
+	display:block;
+	width:12px;
+	height:12px;
+	margin-top:10px;
+	padding:0;
+	background:url(../../Images/common/arrowsBSB.png) no-repeat;
+}
+.more .arrowsBBB.arrowsBBBHit {
+	background:url(../../Images/common/arrowsBSBHit.png) no-repeat;
+}
+.more .arrowsBBBDiv
+{
+    position: absolute;
+    top: 17px;
+    left: -25px;
+    z-index: 1000;
+    padding-top: 20px;
+}
+.headR .chunk ,
+.headR .list {
+	width:24px;
+	height:24px;
+	margin:3px 0;
+	padding:0;
+	background:url(../../Images/plan/chunk.png) no-repeat;
+}
+.headR .chunk:hover,
+.headR .chunk.hit{
+	background:url(../../Images/plan/chunkHit.png) no-repeat;
+}
+.headR .list {
+	background:url(../../Images/plan/list.png) no-repeat;
+}
+.headR .list:hover,
+.headR .list.hit{
+	background:url(../../Images/plan/listHit.png) no-repeat;
+}
+/* 条条 结束 */
+
+
+/* 中间计划 开始 */
+.conL .planList {
+	float:left;
+	width:848px;
+    min-height: 300px;
+    margin: 6px 10px 10px 0;
+}
+.planList .PLChunk {
+	position:relative;
+	float:left;
+	width:412px;
+	height:170px;
+	margin:10px 0 0 10px;
+	border:1px solid #bbb;	
+}
+.PLChunk .plLabel {
+	position:relative;
+	top:-1px;
+	left:-4px;
+	width:auto;
+	height:20px;
+}
+.PLChunk .plLabel .labelOne {
+	float:left;
+	display:block;
+	width:3px;
+	height:24px;
+	background:url(../../Images/plan/labelOne.png) no-repeat;
+}
+.PLChunk .plLabel .labelTwo {
+	float:left;
+	width:auto;
+	height:20px;
+	background:url(../../Images/plan/labelTwo.png) repeat-x;
+}
+.PLChunk .plLabel .labelTwo img {
+	float:left;
+	cursor:pointer;
+}
+.labelTwo span {
+	float:left;	
+	display:block;
+	width:20px;
+	height:20px;
+	cursor:pointer;
+}
+.PLChunk .plLabel .labelThree {
+	float:left;
+	display:block;
+	width:6px;
+	height:20px;
+	background:url(../../Images/plan/labelThree.png) no-repeat;
+}
+.labelTwo .recyclePlan {
+	background:url(../../Images/plan/recyclePlan.png) no-repeat;
+}
+.labelTwo .recyclePlan:hover {
+	background:url(../../Images/plan/recyclePlanHit.png) no-repeat;
+}
+.labelTwo .accessory {
+	background:url(../../Images/plan/accessory.png) no-repeat;
+}
+.labelTwo .accessory:hover {
+	background:url(../../Images/plan/accessoryHit.png) no-repeat;
+}
+.labelTwo .childrenPlan {
+	background:url(../../Images/plan/childrenPlan.png) no-repeat;
+}
+.labelTwo .childrenPlan:hover {
+	background:url(../../Images/plan/childrenPlanHit.png) no-repeat;
+}
+.labelTwo .premisePlan {
+	background:url(../../Images/plan/premisePlan.png) no-repeat;
+}
+.labelTwo .premisePlan:hover {
+	background:url(../../Images/plan/premisePlanHit.png) no-repeat;
+}
+.labelTwo .cooperatePlan {
+	background:url(../../Images/plan/cooperatePlan.png) no-repeat;
+}
+.labelTwo .cooperatePlan:hover {
+	background:url(../../Images/plan/cooperatePlanHit.png) no-repeat;
+}
+.labelTwo .temporaryPlan {
+	background:url(../../Images/plan/temporaryPlan.png) no-repeat;
+}
+.labelTwo .temporaryPlan:hover {
+	background:url(../../Images/plan/temporaryPlanHit.png) no-repeat;
+}
+/* 计划块左上角：附件、前提计划 开始 */
+.plLabel .labelDiv {
+	position:absolute;
+	top:20px;
+	left:3px;
+    display: none;
+    z-index: 11;
+}
+
+.plLabel .labelLast
+{
+    display: none;
+}
+
+#detailAccessory .labelDivBg,
+.labelDiv .labelDivBg {
+	position:absolute;
+	top:0;
+	left:0;
+	display:block;
+	background:#000;
+	border-radius:3px;
+	filter:alpha(opacity=50); /*IE滤镜，透明度50%*/
+	-moz-opacity:0.5; /*Firefox私有，透明度50%*/
+	opacity:0.5;/*其他，透明度50%*/
+}
+#detailAccessory ul,
+.labelDiv ul {
+	position:relative;
+	z-index:1;
+}
+#detailAccessory ul li,
+.labelDiv ul li {
+	height:22px;
+	line-height:22px;
+	padding:0 5px;
+	color:#fff;
+	cursor:pointer;
+}
+#detailAccessory ul li.liAccessory{
+	padding-left:25px;
+	background:url(../../Images/plan/download.png) no-repeat;
+            white-space: nowrap;
+        }
+.accessoryOpe{
+    margin-right: 5px;
+}
+.accessoryOpe:hover{
+    color: #58b456;
+}
+
+#detailAccessory ul li.allDownload,
+.labelDiv ul li.allDownload {
+	text-align:right;
+	margin:0 5px;
+	padding:0;
+	border-bottom:1px solid #333;
+	cursor:pointer;
+}
+#detailAccessory ul li.allDownload:hover,
+.plLabelDiv ul li.allDownload:hover {
+	color:#58b456;
+}
+/* 计划块左上角：附件、前提计划 结束 */
+/* 计划块左上角：子计划 开始 */
+.plLabel .childPlanDiv {
+	position:absolute;
+	top:172px;
+	left:3px;
+	z-index:4;
+	display:none;
+	width:402px;
+	padding:0 5px 30px;
+	background-color:#fff;
+	border:1px solid #bbb;
+	border-top-width:0;
+}
+.plLabel .labelLast{
+    display: none;
+}
+.childPlanDiv .output {
+	float:left;
+	width:230px;
+}
+.childPlanDiv .dutyPer {
+	float:left;
+	width:62px;
+}
+.childPlanDiv .finTime {
+	float:left;
+	width:110px;
+}
+.childPlanDiv .output ul {
+	display:none;
+	float:left;
+	width:90%;
+	padding-left:10%;
+}
+
+.childPlanDiv .dutyPer ul ,
+.childPlanDiv .finTime ul {
+    /*display:none;*/
+    float: left;
+}
+
+.childPlanDiv li {
+	height:24px;
+	line-height:24px;
+}
+.childPlanDiv .CPHead {
+	color:#bbb;
+	border-bottom:1px solid #e3e3e3;
+}
+.childPlanDiv .CPDetail {
+	position:absolute;
+	top:0px;
+	left:60px;
+	display:none;
+	width:1000px;
+	height:22px;
+}
+.CPDetail .CPDetailBg {
+	position:absolute;
+	top:0;
+	left:0;
+	height:22px;
+	background:#000;
+	border-radius:3px;
+	filter:alpha(opacity=50); /*IE滤镜，透明度50%*/
+	-moz-opacity:0.5; /*Firefox私有，透明度50%*/
+	opacity:0.5;/*其他，透明度50%*/
+}
+.CPDetail .CPDetailText {
+	position:absolute;
+	height:22px;
+	padding:0 2px;
+}
+.CPDetail .CPDetailText span {
+	line-height:22px;
+	color:#fff;
+}
+.output .addCircle ,
+.output .cutCircle {
+	float:left;
+	display:block;
+	width:20px;
+	height:20px;
+	margin:2px;
+	cursor:pointer;
+}
+.output .addCircle {
+	background:url(../../Images/plan/addCircle.png) no-repeat;
+}
+.output .cutCircle {
+	display:none;
+	background:url(../../Images/plan/cutCircle.png) no-repeat;
+}
+.output .level {
+	position:relative;
+    float: left;
+    width: 12px;
+    height: 15px;
+	margin-top:5px;
+	margin-right:2px;
+    background: url(../../Images/common/level.png) no-repeat;
+	cursor:pointer;
+}
+.plan .planUl li .level:hover {
+    background: url(../../Images/common/levelHit.png) no-repeat;
+}
+.level .levelDiv {
+	position:absolute;
+	top:0;
+	left:15px;
+	z-index:1;
+	display:none;
+	width:60px;
+	height:44px;
+}
+.levelDiv .levelBg  {
+	position:absolute;
+	top:0;
+	left:0;
+	width:70px;
+	height:44px;
+	background:#000;
+	border-radius:3px;
+	filter:alpha(opacity=50); /*IE滤镜，透明度50%*/
+	-moz-opacity:0.5; /*Firefox私有，透明度50%*/
+	opacity:0.5;/*其他，透明度50%*/
+}
+.levelDiv .levelList {
+}
+.levelDiv .levelList li {
+	position:relative;
+	width:70px;
+	height:22px;
+	line-height:22px;
+	margin:0;
+	padding:0;
+	color:#fff;
+}
+.output .outputText {
+    float: left;
+    width: 194px;
+	height:24px;
+	overflow:hidden;
+}
+.dutyPer li span ,
+.finTime li div {
+	float:left;
+	display:block;
+    width: 100%;
+	height:24px;
+	overflow:hidden;
+}
+/* 计划块左上角：子计划 结束 */
+.labelDiv li .schedule {
+	margin-left:5px;
+}
+.planList .main {
+	float:left;
+	width:402px;
+	height:145px;
+	margin:-15px 5px 0;
+	/*background-color:#fcc;*/
+	background-color:#ececec;
+}
+.knobwrapper {
+	float:left;
+	width: 100px;
+	height:115px;
+	text-align: center;
+	margin-top:30px;
+}
+.runMode {
+	float:left;
+	width: 190px;
+	height:145px;
+}
+.runMode ul li {
+	float:left;
+	width: 200px;
+        height: 20px;
+        line-height: 20px;
+        overflow: hidden;
+    }
+
+.stars {
+	float:left;
+}
+.stars ul li {
+	float:left;
+	width:24px;
+	height:23px;
+	margin-top:-2px;
+	cursor:pointer;
+    }
+
+.PLChunk .runMode .stars ul li
+{
+    cursor: default;
+}
+
+.starsR ul li
+{
+    background: url(../../Images/plan/fiveStarR.png) no-repeat;
+}
+
+.starsY ul li
+{
+    background: url(../../Images/plan/fiveStarY.png) no-repeat;
+}
+
+.starsG ul li
+{
+    background: url(../../Images/plan/fiveStarG.png) no-repeat;
+}
+
+.starsR ul li.liHover,
+.starsR ul li.liHit
+{
+    background: url(../../Images/plan/fiveStarR.png) 0 -20px no-repeat;
+}
+
+.starsY ul li.liHover,
+.starsY ul li.liHit
+{
+    background: url(../../Images/plan/fiveStarY.png) 0 -20px no-repeat;
+}
+
+.starsG ul li.liHover,
+.starsG ul li.liHit
+{
+    background: url(../../Images/plan/fiveStarG.png) 0 -20px no-repeat;
+}
+
+.stars ul li.liHoverNot
+{
+    background: url(../../Images/plan/fiveStarR.png) no-repeat;
+}
+
+.main .arrowsBBLCom
+{
+    position: relative;
+    top: 60px;
+    left: 97px;
+    /*margin-top:60px;
+	margin-left:88px;*/
+}
+
+.main .accomplishment
+{
+    /*float:left;*/
+    display: none;
+    position: absolute;
+    width: 120px;
+    right: 0px;
+    height: 145px;
+    background: #dedede;
+    border-left: 1px solid #d7d7d7;
+}
+
+.accomplishment .arrowsBBRCom
+{
+    margin-top: 60px;
+    margin-left: -10px;
+}
+
+.accomplishment ul
+{
+    float: left;
+    width: 110px;
+    margin-left: -4px;
+}
+
+    .accomplishment ul li
+    {
+        float: left;
+        line-height: 20px;
+    }
+
+/* 选择框 开始 */
+.PLChunk .choose
+{
+    position: relative;
+    top: -20px;
+    right: -382px;
+    z-index: 2;
+    display: none;
+    width: 30px;
+    height: 30px;
+    background: #dadada;
+    cursor: pointer;
+}
+
+    .PLChunk .choose.chooseHit
+    {
+        border-left: 1px solid #bababa;
+        border-bottom: 1px solid #bababa;
+    }
+
+    .PLChunk .choose span
+    {
+        position: relative;
+        top: 3px;
+        left: 3px;
+        display: block;
+        width: 24px;
+        height: 24px;
+        background: url(../../Images/plan/choose.png) no-repeat;
+    }
+
+        .PLChunk .choose span.spanHit
+        {
+            background: url(../../Images/plan/chooseHit.png) no-repeat;
+        }
+
+.PLChunk .prohibit
+{
+    position: relative;
+    top: -20px;
+    right: -384px;
+    z-index: 2;
+    width: 28px;
+    height: 28px;
+    background: url(../../Images/plan/prohibit.png) no-repeat;
+}
+/* 选择框 结束 */
+
+.PLChunk .operate
+{
+    position: relative;
+    top: -44px;
+    right: 0;
+    z-index: 1;
+    display: none;
+    float: left;
+    width: 100%;
+    height: 40px;
+}
+
+.PLChunk .susPlan
+{
+    position: absolute;
+    top: 0px;
+    right: 0;
+    float: left;
+    width: 100%;
+    height: 170px;
+}
+
+.susPlan .susPlanBg
+{
+    position: absolute;
+    float: left;
+    width: 100%;
+    height: 170px;
+    background: #000;
+    filter: alpha(opacity=50); /*IE滤镜，透明度50%*/
+    -moz-opacity: 0.5; /*Firefox私有，透明度50%*/
+    opacity: 0.5; /*其他，透明度50%*/
+}
+
+.susPlan .susPlanDiv
+{
+    position: absolute;
+    top: 40px;
+    width: 100%;
+    height: 90px;
+    z-index: 100;
+}
+
+.susPlanDiv .susPlanImg
+{
+    display: block;
+    width: 47px;
+    height: 47px;
+    margin: 0 auto;
+    background: url(../../Images/plan/susPlanImg.png) no-repeat;
+}
+
+.susPlanDiv .susPlanText
+{
+    display: block;
+    width: 100%;
+    height: 43px;
+    line-height: 43px;
+    color: #fff;
+    text-align: center;
+}
+
+.operate .operateDiv
+{
+    position: absolute;
+    top: 0px;
+    right: 0;
+    float: left;
+    width: 100%;
+    height: 40px;
+}
+
+.operateDiv .operateBg
+{
+    position: absolute;
+    float: left;
+    width: 100%;
+    height: 40px;
+    background: #58b456;
+    filter: alpha(opacity=80); /*IE滤镜，透明度50%*/
+    -moz-opacity: 0.8; /*Firefox私有，透明度50%*/
+    opacity: 0.8; /*其他，透明度50%*/
+}
+
+.operateDiv .operateText
+{
+    position: absolute;
+    float: left;
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    color: #fff;
+}
+
+    .operateDiv .operateText ul
+    {
+        width: 96%;
+        height: 40px;
+        margin: 0 2%;
+        overflow: hidden;
+    }
+
+        .operateDiv .operateText ul li
+        {
+            float: right;
+            height: 24px;
+            line-height: 24px;
+            margin: 8px 3px;
+            padding-left: 24px;
+            cursor: pointer;
+        }
+
+.operateText .restart
+{
+    background: url(../../Images/plan/restart.png) no-repeat;
+}
+
+    .operateText .restart:hover
+    {
+        color: #136012;
+        background: url(../../Images/plan/restartHit.png) no-repeat;
+    }
+
+.operateText .file
+{
+    background: url(../../Images/plan/file.png) no-repeat;
+}
+
+    .operateText .file:hover
+    {
+        color: #136012;
+        background: url(../../Images/plan/fileHit.png) no-repeat;
+    }
+
+.operateText .checks
+{
+    background: url(../../Images/plan/checks.png) no-repeat;
+}
+
+    .operateText .checks:hover
+    {
+        color: #136012;
+        background: url(../../Images/plan/checksHit.png) no-repeat;
+    }
+
+.operateText .planDetail
+{
+    background: url(../../Images/plan/planDetail.png) no-repeat;
+}
+
+    .operateText .planDetail:hover
+    {
+        color: #136012;
+        background: url(../../Images/plan/planDetailHit.png) no-repeat;
+    }
+
+.operateText .submit
+{
+    background: url(../../Images/plan/submit.png) no-repeat;
+}
+
+    .operateText .submit:hover
+    {
+        color: #136012;
+        background: url(../../Images/plan/submitHit.png) no-repeat;
+    }
+
+.operateText .affirm
+{
+    background: url(../../Images/plan/affirm.png) no-repeat;
+}
+
+    .operateText .affirm:hover
+    {
+        color: #136012;
+        background: url(../../Images/plan/affirmHit.png) no-repeat;
+    }
+
+.operateText .suspend
+{
+    background: url(../../Images/plan/suspend.png) no-repeat;
+}
+
+    .operateText .suspend:hover
+    {
+        color: #136012;
+        background: url(../../Images/plan/suspendHit.png) no-repeat;
+    }
+
+.operateText .modification
+{
+    background: url(../../Images/plan/modification.png) no-repeat;
+}
+
+    .operateText .modification:hover
+    {
+        color: #136012;
+        background: url(../../Images/plan/modificationHit.png) no-repeat;
+    }
+
+.operateText .transimitPlan
+{
+    background: url(../../Images/plan/transmit.png) no-repeat;
+}
+
+    .operateText .transimitPlan:hover
+    {
+        color: #136012;
+        background: url(../../Images/plan/transmitHit.png) no-repeat;
+    }
+
+.operateText .decPlan
+{
+    background: url(../../Images/plan/resolve.png) no-repeat;
+}
+
+    .operateText .decPlan:hover
+    {
+        color: #136012;
+        background: url(../../Images/plan/resolveHit.png) no-repeat;
+    }
+
+.operateText .revocation
+{
+    background: url(../../Images/plan/revocation.png) no-repeat;
+}
+
+    .operateText .revocation:hover
+    {
+        color: #136012;
+        background: url(../../Images/plan/revocationHit.png) no-repeat;
+    }
+
+
+.conL .planList.listMode
+{
+}
+
+    .conL .planList.listMode .addPlan
+    {
+        margin: 30px auto;
+    }
+
+    .conL .planList.listMode .PLChunk
+    {
+        width: 838px;
+        height: 120px;
+    }
+
+.conL .planList.listMode .PLChunk .plLabel{
+    background-color: #e0e0e0;
+    left: 0px;
+    top:0px;
+}
+.conL .planList.listMode .PLChunk .plLabel .labelOne{
+    display: none;
+}
+.conL .planList.listMode .PLChunk .plLabel .labelDiv{
+    z-index: 4;
+}
+.conL .planList.listMode .PLChunk .plLabel .labelLast{
+    display: inline;
+    margin-left: 10px;
+    font-weight: bold;
+}
+.conL .planList.listMode .PLChunk .plLabel .childPlanDiv{
+    width: 828px;
+    left: -1px;
+    top:121px;
+}
+.conL .planList.listMode .PLChunk .plLabel .childPlanDiv .output{
+    width: 475px;
+}
+.conL .planList.listMode .PLChunk .plLabel .childPlanDiv .dutyPer{
+    width: 130px;
+}
+.conL .planList.listMode .PLChunk .plLabel .childPlanDiv .finTime{
+    width: 220px;
+}
+
+        .conL .planList.listMode .PLChunk .main
+        {
+            width: 100%;
+            height: 100px;
+            margin: 0;
+        }
+
+            .conL .planList.listMode .PLChunk .main .arrowsBBLCom
+            {
+                display: none;
+            }
+
+            .conL .planList.listMode .PLChunk .main .accomplishment
+            {
+                display: block;
+                float: right;
+                height: 0px;
+                width: 150px;
+            }
+
+                .conL .planList.listMode .PLChunk .main .accomplishment .arrowsBBRCom
+                {
+                    display: none;
+                }
+
+                .conL .planList.listMode .PLChunk .main .accomplishment ul
+                {
+                    width: 150px;
+                }
+
+            .conL .planList.listMode .PLChunk .main .knobwrapper
+            {
+                margin-top: 5px;
+                height: 95px;
+                position: relative;
+                z-index: 2;
+                background-color: #ececec;
+            }
+
+            .conL .planList.listMode .PLChunk .main .runMode
+            {
+                position: relative;
+                width: 400px;
+                height: 100px;
+            }
+
+                .conL .planList.listMode .PLChunk .main .runMode .runModeInfo
+                {
+                    width: 190px;
+                    height: 100px;
+                    margin-left: 10px;
+                }
+
+                .conL .planList.listMode .PLChunk .main .runMode .runModeStar
+                {
+                    width: 190px;
+                    height: 100px;
+                    position: absolute;
+                    top: 0px;
+                    right: 0px;
+                }
+
+        .conL .planList.listMode .PLChunk .choose,
+        .conL .planList.listMode .PLChunk .prohibit
+        {
+            position: absolute;
+            right: 0px;
+            top: 0px;
+        }
+
+        .conL .planList.listMode .PLChunk .dutyPerson
+        {
+            width: auto;
+            float: none;
+            position: absolute;
+            right: 50px;
+            top: 0px;
+        }
+
+        .conL .planList.listMode .PLChunk .susPlan
+        {
+            height: 120px;
+            z-index: 3;
+        }
+
+            .conL .planList.listMode .PLChunk .susPlan .susPlanBg
+            {
+                height: 120px;
+            }
+
+            .conL .planList.listMode .PLChunk .susPlan .susPlanDiv
+            {
+                top: 20px;
+            }
+
+        .conL .planList.listMode .PLChunk .operate
+        {
+            top: -40px;
+        }
+/* 中间计划 结束 */
+
+
+
+/* 责任人 */
+.PLChunk .dutyPerson
+{
+    float: left;
+    width: 407px;
+    height: 20px;
+    line-height: 20px;
+    padding-left: 5px;
+    color: #bbb;
+}
+
+
+
+/* 刷新，全部显示 开始 */
+.conL .bottom
+{
+    display: none;
+    float: left;
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    font-size: 14px;
+}
+
+.bottom .refresh
+{
+    width: 100px;
+    height: 20px;
+    margin: 20px auto;
+    background: url(../../Images/common/refresh.gif) no-repeat;
+}
+
+.bottom .botNone div
+{
+    height: 30px;
+    line-height: 30px;
+    text-align: right;
+    font-size: 12px;
+}
+/* 刷新，全部显示 结束 */
+
+
+
+/* 方块里的新建计划 开始 */
+.PLChunk .addPlan
+{
+    width: 140px;
+    height: 63px;
+    margin: 53px auto;
+}
+
+.addPlan .addB
+{
+    float: left;
+    width: 63px;
+    height: 63px;
+    background: url(../../Images/plan/addB.png) no-repeat;
+    cursor: pointer;
+}
+
+    .addPlan .addB:hover
+    {
+        background: url(../../Images/plan/addBHit.png) no-repeat;
+    }
+
+.addPlan .new
+{
+    display: block;
+    float: left;
+    width: 77px;
+    line-height: 63px;
+    text-align: center;
+    color: #d7d7d7;
+    font-size: 14px;
+}
+/* 方块里的新建计划 结束 */
+/* 内容左边 结束 */
+
+
+
+
+
+/* 内容右边 开始 */
+/* 新建计划 */
+.conR .addPlan
+{
+    margin-bottom:10px;
+    line-height: 30px;
+    text-align: center;
+    color: #fff;
+    background-color: #fbac0f;
+    border: 1px solid #fbbf3d;
+    cursor: pointer;
+}
+/* 我的信息 开始 */
+.conR .mine
+{
+    float: left;
+    width: 330px;
+    height: 208px;
+    margin-top: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid #bbb;
+}
+
+.mine .myself
+{
+    float: left;
+    width: 100%;
+    height: 79px;
+    border-bottom: 1px solid #bbb;
+    cursor: pointer;
+}
+
+    .mine .myself .introduce
+    {
+        float: left;
+        width: 212px;
+        height: 49px;
+        margin: 15px 0 15px 10px;
+    }
+
+        .mine .myself .introduce span
+        {
+            float: left;
+            width: 100%;
+        }
+
+        .mine .myself .introduce .name
+        {
+            height: 29px;
+            line-height: 29px;
+            color: #373737;
+            font-size: 14px;
+        }
+
+        .mine .myself .introduce .post
+        {
+            height: 20px;
+            line-height: 20px;
+        }
+
+    .mine .myself .portraitBox
+    {
+        float: left;
+        width: 70px;
+        height: 70px;
+        margin: 4px 5px 3px 31px;
+        background-color: #fff;
+        border: 1px solid #bbb;
+        border-radius: 50%;
+    }
+
+.portraitBox .portraitCom
+{
+    width: 64px;
+    height: 64px;
+    margin: 3px;
+}
+
+.mine .planUl
+{
+    height: 126px;
+}
+
+    .mine .planUl li
+    {
+        margin: 0 2.4%;
+    }
+
+        .mine .planUl li.line
+        {
+            float: left;
+            width: 95.2%;
+            height: 0px;
+            border-bottom: 1px solid #e3e3e3;
+        }
+
+        .mine .planUl li a
+        {
+            float: left;
+            width: 78%;
+            height: 30px;
+            line-height: 30px;
+            color: #686868;
+            overflow: hidden;
+        }
+
+.planUl li a:hover
+{
+    color: #58b456;
+}
+
+.planUl li span
+{
+    float: left;
+    width: 20%;
+    height: 30px;
+    line-height: 30px;
+    text-align: right;
+    margin-left: 2%;
+}
+
+.mine .planUl li .news
+{
+    float: right;
+    width: auto;
+    height: 18px;
+    margin: 6px 0;
+}
+
+    .mine .planUl li .news .newsL,
+    .mine .planUl li .news .newsR
+    {
+        display: block;
+        float: left;
+        width: 8px;
+        height: 18px;
+        margin: 0;
+    }
+
+    .mine .planUl li .news .newsM
+    {
+        position: relative;
+        z-index: 1;
+        display: block;
+        float: left;
+        width: auto;
+        height: 18px;
+        line-height: 18px;
+        margin: 0;
+    }
+
+.mine .planUl li .newsHit .newsL
+{
+    background: url(../../Images/plan/newsL.png) no-repeat;
+}
+
+.mine .planUl li .newsHit .newsR
+{
+    background: url(../../Images/plan/newsR.png) no-repeat;
+}
+
+.mine .planUl li .newsHit .newsM
+{
+    color: #fff;
+    background: url(../../Images/plan/newsM.png);
+}
+/* 我的信息 结束 */
+
+/* 查询 */
+.conR .inquire
+{
+    float: left;
+    width: 330px;
+    height: 28px;
+    margin-top: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid #bbb;
+}
+
+    .conR .inquire .search
+    {
+        float: left;
+        width: 24px;
+        height: 24px;
+        margin: 2px;
+        background: url(../../Images/common/search.png) no-repeat;
+        cursor: pointer;
+    }
+
+    .conR .inquire input
+    {
+        float: left;
+        width: 282px;
+        height: 26px;
+        padding: 0 10px;
+        background-color: #f9f9f9;
+        border: 0;
+    }
+
+/* 计划进程 */
+.conR .process
+{
+    position: relative;
+    float: left;
+    width: 330px;
+    height: 370px;
+    margin-top: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid #bbb;
+}
+
+.process .title
+{
+    display: block;
+    float: left;
+    width: 320px;
+    line-height: 29px;
+    padding-left: 10px;
+    border-bottom: 1px solid #bbb;
+}
+
+.process .chart
+{
+    position: relative;
+    float: left;
+    width: 330px;
+    height: 310px;
+}
+
+.chart #chart3
+{
+    float: left;
+    width: 330px;
+    height: 310px;
+    margin-top: -10px;
+}
+
+.chart .planNum
+{
+    position: absolute;
+    top: 135px;
+    left: 120px;
+    width: 90px;
+    text-align: center;
+    font-size: 13px;
+}
+
+.chart .month
+{
+    float: left;
+    width: 330px;
+    height: 24px;
+    margin-top: -14px;
+}
+
+    .chart .month .text
+    {
+        display: block;
+        float: left;
+        width: 282px;
+        line-height: 24px;
+        text-align: center;
+    }
+
+.process .sign
+{
+    float: left;
+    width: 330px;
+    height: 29px;
+    border-top: 1px solid #bbb;
+}
+
+.sign ul li
+{
+    float: left;
+    width: 55px;
+    line-height: 29px;
+}
+
+.sign .color
+{
+    float: left;
+    width: 10px;
+    height: 10px;
+    margin: 10px 2px 9px 5px;
+    border-radius: 2px;
+}
+/* 内容右边 开始 */
+
+
+
+
+
+/* 弹窗 开始 */
+/* 排序 开始 */
+.sort .sortCon
+{
+    width: 520px;
+    padding: 0 20px;
+}
+
+    .sort .sortCon .tit
+    {
+        display: block;
+        width: 520px;
+        line-height: 25px;
+        margin-top: 5px;
+    }
+
+    .sort .sortCon .sortTab
+    {
+        width: 518px;
+        min-height: 170px;
+        background-color: #ececec;
+        border: 1px solid #bbb;
+    }
+
+        .sort .sortCon .sortTab table
+        {
+            width: 518px;
+        }
+
+    .sort .sortCon .sortTabHeader td
+    {
+        line-height: 19px;
+        color: #373737;
+        border-bottom: 1px solid #bbb;
+    }
+
+    .sort .sortCon .sortTabTxt
+    {
+        line-height: 20px;
+    }
+
+.sortTabTxt.sortTabTxtHit
+{
+    background-color: #58b456;
+}
+
+.sort .sortCon .sortTabTxt select
+{
+    width: 218px;
+    height: 20px;
+    line-height: 20px;
+    margin: 0 auto;
+    background-color: #ececec;
+    border: 0;
+    cursor: pointer;
+}
+
+.sort .sortCon .sortBot
+{
+    width: 520px;
+    height: 30px;
+    padding-top: 5px;
+}
+
+    .sort .sortCon .sortBot span
+    {
+        display: block;
+        float: left;
+        width: 28px;
+        line-height: 23px;
+        text-align: center;
+        font-size: 16px;
+        background-color: #ececec;
+        border: 1px solid #bbb;
+        cursor: pointer;
+    }
+/* 排序 开始 */
+
+
+
+/* 个人资料设置 开始 */
+.perData .information
+{
+    width: 520px;
+    height: 190px;
+    padding: 0 20px;
+}
+
+    .perData .information .portraitDiv
+    {
+        float: left;
+        width: 150px;
+        height: 190px;
+    }
+
+        .perData .information .portraitDiv .portrait
+        {
+            display: block;
+            width: 140px;
+            height: 140px;
+            margin-top: 10px;
+            padding: 5px;
+            background-color: #e3e3e3;
+            border: 1px solid #bbb;
+            border-radius: 50%;
+        }
+
+        .perData .information .portraitDiv .portraitCom
+        {
+            margin-top: 10px;
+            padding: 5px;
+            background-color: #e3e3e3;
+            border: 1px solid #bbb;
+            border-radius: 50%;
+        }
+
+        .perData .information .portraitDiv .alter
+        {
+            display: block;
+            width: 150px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            color: #fbac0f;
+        }
+
+    .perData .information .list
+    {
+        float: left;
+        width: 350px;
+        height: 135px;
+        margin-top: 15px;
+        margin-left: 20px;
+    }
+
+        .perData .information .list li
+        {
+            width: 100%;
+            line-height: 44px;
+        }
+
+            .perData .information .list li.line
+            {
+                width: 100%;
+                border-bottom: 1px solid #e3e3e3;
+            }
+
+            .perData .information .list li span
+            {
+                color: #373737;
+            }
+
+.perData .set
+{
+    width: 540px;
+    height: auto;
+}
+
+    .perData .set .title
+    {
+        width: 520px;
+        height: 30px;
+        line-height: 30px;
+        padding: 0 20px;
+        color: #373737;
+        font-size: 14px;
+        background-color: #ececec;
+    }
+
+        .perData .set .title .modify
+        {
+            display: block;
+            float: right;
+            width: 24px;
+            height: 24px;
+            margin-top: 3px;
+            background: url(../../Images/plan/modify.png) no-repeat;
+            cursor: pointer;
+        }
+
+        .perData .set .title .cancel
+        {
+            display: none;
+            color: #686868;
+            font-size: 12px;
+            cursor: pointer;
+        }
+
+            .perData .set .title .cancel:hover
+            {
+                color: #58b456;
+            }
+
+    .perData .set .list
+    {
+        width: 520px;
+        height: auto;
+        padding: 10px 20px;
+    }
+
+        .perData .set .list li
+        {
+            width: 100%;
+            line-height: 30px;
+            margin-bottom: 10px;
+        }
+
+            .perData .set .list li span
+            {
+                float: left;
+                width: 90px;
+                color: #373737;
+            }
+
+            .perData .set .list li input[type="text"]
+            {
+                width: 56px;
+                height: 26px;
+                line-height: 26px;
+                text-align: center;
+                margin-right: 10px;
+                border: 1px solid #fff;
+            }
+
+.perData .password .list li input[type="text"]
+{
+    width: 220px;
+    padding: 0 20px;
+    text-align: left;
+}
+
+.perData .set .list li input[type="text"].inputHit
+{
+    border-color: #bbb;
+}
+
+.popUp .canCon
+{
+    width: 560px;
+    height: 40px;
+    margin-top: 40px;
+    background-color: #ececec;
+}
+/* 个人资料设置 结束 */
+
+
+
+/* 归类到计划 开始 */
+#sortPlan
+{
+}
+
+    #sortPlan .selected
+    {
+        width: 520px;
+        padding: 10px 20px;
+        border-width: 0;
+    }
+
+        #sortPlan .selected .condition
+        {
+            line-height: 30px;
+        }
+
+        #sortPlan .selected .conditionDiv
+        {
+            width: 100%;
+        }
+
+    #sortPlan .conditionDiv li
+    {
+        height: 24px;
+        margin: 0;
+        background-color: inherit;
+        border: 1px solid #fff;
+    }
+
+        #sortPlan .conditionDiv li:hover
+        {
+            border-color: #58b456;
+        }
+
+        #sortPlan .conditionDiv li span
+        {
+            float: left;
+            line-height: 24px;
+            color: #686868;
+        }
+
+            #sortPlan .conditionDiv li span.closeW
+            {
+                margin-top: 4px;
+            }
+
+    #sortPlan .sortTo
+    {
+        width: 560px;
+        height: 30px;
+    }
+
+        #sortPlan .sortTo .titles
+        {
+            display: block;
+            width: 520px;
+            height: 30px;
+            line-height: 30px;
+            padding: 0 20px;
+            background-color: #ececec;
+        }
+
+    #sortPlan .sortToDiv
+    {
+        position: relative;
+        width: 518px;
+        height: 28px;
+        margin: 10px 20px 0;
+        border: 1px solid #bbb;
+    }
+
+        #sortPlan .sortToDiv input[type="text"]
+        {
+            float: left;
+            width: 441px;
+            height: 28px;
+            line-height: 28px;
+            padding: 0 10px;
+            border-width: 0;
+        }
+
+        #sortPlan .sortToDiv .search
+        {
+            float: left;
+            display: block;
+            width: 24px;
+            height: 24px;
+            padding: 2px;
+            background: url(../../Images/common/search.png) no-repeat;
+            border-right: 1px solid #bbb;
+            cursor: pointer;
+        }
+
+    #sortPlan .arrowsBBBDiv
+    {
+        position: absolute;
+        top: 29px;
+        left: -1px;
+        z-index: 1;
+        width: 518px;
+        padding: 0;
+    }
+
+        #sortPlan .arrowsBBBDiv ul
+        {
+            width: 518px;
+            border-top-width: 0;
+        }
+
+        #sortPlan .arrowsBBBDiv li
+        {
+            width: 508px;
+        }
+
+            #sortPlan .arrowsBBBDiv li.line
+            {
+                width: 498px;
+            }
+
+            #sortPlan .arrowsBBBDiv li a
+            {
+                width: 498px;
+                overflow: hidden;
+            }
+
+    #sortPlan .arrowsBBB
+    {
+        float: left;
+        display: block;
+        width: 24px;
+        height: 24px;
+        margin: 2px;
+        background: url(../../Images/common/arrowsBBB.png) no-repeat;
+        cursor: pointer;
+    }
+
+    #sortPlan .childPlanDiv
+    {
+        position: absolute;
+        top: 29px;
+        left: -1px;
+        z-index: 1;
+        display: none;
+        width: 508px;
+        max-height:147px;
+        padding: 0 5px;
+        background-color: #fff;
+        border: 1px solid #bbb;
+        border-top-width: 0;
+        overflow:hidden;
+        overflow-y:scroll;
+    }
+
+        #sortPlan .childPlanDiv .CPHead
+        {
+            display: block;
+            line-height: 24px;
+            color: #bbb;
+            border-bottom: 1px solid #e3e3e3;
+        }
+
+        #sortPlan .childPlanDiv .output
+        {
+            width: 257px;
+            margin-left: 13px;
+        }
+
+        #sortPlan .childPlanDiv .dutyPer
+        {
+            width: 75px;
+            margin-left: 3px;
+        }
+
+        #sortPlan .childPlanDiv .finTime
+        {
+            width: 137px;
+            margin-left: 3px;
+        }
+
+    #sortPlan .output .CPRadio
+    {
+        position: absolute;
+        top: -3px;
+        left: -20px;
+        width: 13px;
+        height: 13px;
+        cursor: pointer;
+    }
+    #sortPlan .output .outputText
+    {
+        width: 238px;
+    }
+
+    #sortPlan .canCon
+    {
+        margin-top: 200px;
+    }
+/* 归类到计划 结束 */
+
+
+
+/* 新建计划 开始 */
+
+.mainContent .rowDiv{
+    padding: 5px 0;
+    position: relative
+}
+
+.mainContent .optionCell
+{
+    display: inline-block;
+    width: 31%;
+    padding: 10px 0;
+    display: inline-block;
+}
+
+    .mainContent .optionCell em
+    {
+        margin-right: 5px;
+    }
+
+    .mainContent .optionCell input,
+    .mainContent .optionCell select
+    {
+        width: 130px;
+    }
+
+    .mainContent .optionCell select
+    {
+        cursor: pointer;
+    }
+
+        .mainContent .optionCell select option
+        {
+            padding: 0;
+        }
+
+
+.line
+{
+    border: none;
+    border-bottom: solid #e3e3e3 1px;
+}
+
+.leaf-info > span
+{
+    display: inline-block;
+}
+.select-trigger{  cursor: pointer;  }
+.select-trigger:hover{
+    background-color: #99CCFF;
+    color: #fff;
+}
+.select-options{
+    overflow-y:auto;
+    border: 1px solid #e3e3e3;
+    background-color: #fff;
+}
+.select-options>div{
+    padding-left: 5px;
+}
+.select-options>li{
+    line-height: 20px;
+    padding-left: 5px;
+    cursor: pointer;
+}
+.select-options>li:hover{
+    background-color: #e0e0e0;
+}
+/* 新建计划 结束 */
+
+
+
+.xubox_layer
+{
+    box-shadow: 0 0 12px rgba(156,156,156,1);
+}
+
+/* 分解计划 开始 */
+	.layer_decplan .mainContent .rowDiv{
+	    padding: 5px 0;
+	}
+
+.layer_decplan .decplan_line
+{
+    border: none;
+    border-bottom: solid #e3e3e3 1px;
+}
+
+.layer_decplan .mainContent .runMode
+{
+    width: 100%;
+    height: 47px;
+    overflow: hidden;
+    float: none;
+}
+
+.layer_decplan .mainContent .runModeUl
+{
+    margin-top: 13px;
+    width: 555px;
+    height: 21px;
+}
+
+.layer_decplan .mainContent .runModeUlLi
+{
+    width: 180px;
+    float: left;
+    margin-right: 5px;
+}
+
+.layer_decplan .mainContent .addDecplan
+{
+    width: 530px;
+    height: 29px;
+    line-height: 28px;
+    border-bottom: 1px solid #bbb;
+    border-top: 1px solid #bbb;
+    background-color: #f9f9f9;
+    margin-left: -10px;
+    padding: 0px 20px 0 10px;
+    position: relative;
+}
+
+.addDecplan .addA
+{
+    position: absolute;
+    top: 3px;
+    right: 10px;
+    width: 24px;
+    height: 24px;
+    background: url(../../Images/plan/add.png);
+    cursor: pointer;
+}
+
+.addDecplan .addB
+{
+    position: absolute;
+    top: 3px;
+    right: 10px;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    display: none;
+}
+
+    .addDecplan .addB:hover
+    {
+        color: #58b557;
+    }
+
+.addDecplan .addA:hover
+{
+    background: url(../../Images/plan/add_hit.png);
+}
+
+.cla_decplan .decplan_selectP
+{
+    height: 26px;
+}
+
+.layer_decplan .decplan_selectP
+{
+    margin: 10px 0;
+}
+
+.decplan_selectP .optionCell
+{
+    display: block;
+    height: 24px;
+    float: left;
+    width: 160px;
+}
+
+.decplan_selectP .decplan_icon
+{
+    display: block;
+    float: left;
+    width: 24px;
+    height: 24px;
+}
+
+.decplan_selectP .optionCell input
+{
+    margin-top: 3px;
+    width: 110px;
+}
+
+.decplanDone
+{
+    width: 550px;
+    margin-left: -10px;
+    height: auto;
+    border-top: 2px solid #bbb;
+    margin-top: 10px;
+    padding-top: 10px;
+    padding-left: 10px;
+}
+
+    .decplanDone ul.decplanList
+    {
+        width: 100%;
+        height: auto;
+    }
+
+    .decplanDone .decplanList li
+    {
+        position: relative;
+        width: 100%;
+        height: 30px;
+    }
+
+        .decplanDone .decplanList li span
+        {
+            display: block;
+        }
+
+            .decplanDone .decplanList li span.decplanState
+            {
+                position: absolute;
+                top: 7px;
+                left: 0;
+            }
+
+            .decplanDone .decplanList li span.decplanTitle
+            {
+                position: absolute;
+                top: 7px;
+                left: 85px;
+            }
+
+            .decplanDone .decplanList li span.decplanPerson
+            {
+                position: absolute;
+                top: 7px;
+                left: 385px;
+            }
+
+            .decplanDone .decplanList li span.decplanDate
+            {
+                position: absolute;
+                top: 7px;
+                right: 15px;
+            }
+
+.decplanList .operate_tr
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 540px;
+    height: 30px;
+    display: none;
+    z-index: 9999999;
+}
+
+    .decplanList .operate_tr .operateDiv
+    {
+        width: 100%;
+        height: 100%;
+    }
+
+    .decplanList .operate_tr .operateBg
+    {
+        width: 100%;
+        height: 100%;
+        background: #7f7f7f;
+        filter: alpha(opacity=70);
+        -moz-opacity: 0.7;
+        opacity: 0.7;
+    }
+
+    .decplanList .operate_tr .operateText
+    {
+        width: 100%;
+        height: 100%;
+    }
+
+        .decplanList .operate_tr .operateText ul
+        {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+            .decplanList .operate_tr .operateText ul li
+            {
+                margin: 0;
+                padding: 0;
+                height: 32px;
+                width: 52px;
+                line-height: 32px;
+                position: relative;
+            }
+
+                .decplanList .operate_tr .operateText ul li img
+                {
+                    margin-top: 4px;
+                }
+
+                .decplanList .operate_tr .operateText ul li span
+                {
+                    display: block;
+                    position: absolute;
+                    top: 0;
+                    right: 5px;
+                }
+/* 分解计划 结束 */
+
+.xubox_layer
+{
+    box-shadow: 0 0 12px rgba(156,156,156,1);
+}
+
+/* 转办计划 开始 */
+.layer_Transmitplan .mainContent
+{
+    height: 28px;
+}
+
+    .layer_Transmitplan .mainContent .selectUser
+    {
+        float: left;
+        margin-top: 4px;
+    }
+
+.layer_Transmitplan .transmitplan_selectP
+{
+    margin: 10px 0;
+}
+
+.transmitplan_selectP .optionCell
+{
+    display: block;
+    height: 24px;
+    float: left;
+    width: 160px;
+}
+
+.transmitplan_selectP .transmitplan_icon
+{
+    display: block;
+    float: left;
+    width: 24px;
+    height: 24px;
+}
+
+.transmitplan_selectP .optionCell input
+{
+    margin-top: 3px;
+    width: 100px;
+}
+/* 转办计划 结束 */
+
+
+
+/* 审核 开始 */
+#checksPopUp
+{
+    position: relative;
+}
+
+.checkBox,
+.commentBox
+{
+    position: absolute;
+    top: 0;
+    left: 560px;
+    display: none;
+    width: 360px;
+    height: 40px;
+    padding: 0 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #bbb;
+}
+
+    .checkBox .checkHeader,
+    .commentBox .checkHeader
+    {
+        display: block;
+        width: 360px;
+        height: 29px;
+        line-height: 29px;
+        font-size: 14px;
+        border-bottom: 1px solid #bbb;
+    }
+
+        .checkBox .checkHeader .closeWHit
+        {
+            display: block;
+            float: right;
+            width: 16px;
+            height: 16px;
+            margin-top: 7px;
+            background: url(../../Images/common/closeWHit.png) no-repeat;
+            cursor: pointer;
+        }
+
+    .checkBox .degreeDiv
+    {
+        width: 360px;
+        height: 60px;
+        border-bottom: 1px solid #e3e3e3;
+    }
+
+.degreeDiv .degree
+{
+    float: left;
+    width: 180px;
+    height: 30px;
+    line-height: 30px;
+}
+
+.degree .stars ul li
+{
+    margin-top: 2px;
+}
+
+.checkBox .view
+{
+    width: 360px;
+    height: 60px;
+}
+
+.view span
+{
+    display: block;
+    width: 360px;
+    height: 25px;
+    line-height: 25px;
+    margin-top: 5px;
+}
+/*.view input[type="text"] {
+	width:356px;
+	height:26px;
+	line-height:26px;
+	border:1px solid #e3e3e3;
+}
+*/ .view textarea
+{
+    float: left;
+    width: 356px;
+    height: 26px;
+    line-height: 26px;
+    border: 1px solid #e3e3e3;
+    overflow: hidden;
+    resize: none;
+}
+
+.checkBox .checkOperate
+{
+    width: 360px;
+    height: 30px;
+    margin-top: 30px;
+}
+
+.checkOperate span
+{
+    float: right;
+    width: 78px;
+    height: 28px;
+    line-height: 28px;
+    text-align: center;
+    border: 1px solid #e3e3e3;
+    cursor: pointer;
+}
+
+    .checkOperate span:hover
+    {
+        color: #fff;
+        background-color: #fbac0f;
+        border-color: #fbbf3d;
+    }
+/* 审核 结束 */
+
+
+
+/* 评论 开始 */
+.commentBox
+{
+    position: absolute;
+    top: 0;
+    left: 560px;
+    display: none;
+    width: 360px;
+    height: 40px;
+    padding: 0 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #bbb;
+}
+
+    .commentBox .checkHeader
+    {
+        display: block;
+        width: 360px;
+        height: 29px;
+        line-height: 29px;
+        font-size: 14px;
+        border-bottom: 1px solid #bbb;
+    }
+
+    .commentBox .commentList
+    {
+        width: 360px;
+    }
+
+.commentList li
+{
+    width: 360px;
+    min-height: 50px;
+    /*border-bottom: 1px solid #e3e3e3;*/
+}
+
+.portraitComment
+{
+    float: left;
+    display: block;
+    width: 32px;
+    height: 32px;
+    margin: 9px;
+    border-radius: 50%;
+}
+
+.commentDiv .discuss
+{
+    float: left;
+    display: block;
+    width: 275px;
+    min-height: 30px;
+    line-height: 30px;
+    margin-right: 35px;
+    /*overflow-x:hidden;*/
+}
+
+.discuss .discussCon
+{
+    /*display:block;
+        margin-top:-30px;*/
+}
+
+.commentDiv .botComent
+{
+    float: left;
+    display: block;
+    width: 310px;
+    height: 20px;
+}
+
+.botComent .time
+{
+    float: left;
+    color: #bbb;
+    line-height: 20px;
+}
+
+.botComent .accessory
+{
+    position: relative;
+    float: left;
+    width: 20px;
+    height: 20px;
+    margin-left: 10px;
+    background: url(../../Images/plan/accessoryAsh.png) no-repeat;
+    cursor: pointer;
+}
+
+    .botComent .accessory:hover
+    {
+        background: url(../../Images/plan/accessoryHit.png) no-repeat;
+    }
+
+.botComent .accessoryDiv
+{
+    position: absolute;
+    top: 0px;
+    left: 30px;
+    display: none;
+}
+
+.botComent .labelDivBg
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    background: #000;
+    border-radius: 3px;
+    filter: alpha(opacity=50); /*IE滤镜，透明度50%*/
+    -moz-opacity: 0.5; /*Firefox私有，透明度50%*/
+    opacity: 0.5; /*其他，透明度50%*/
+}
+
+.botComent .accessoryDiv ul
+{
+    position: relative;
+    z-index: 1;
+}
+
+.botComent .accessoryDiv li
+{
+    width: auto;
+    height: 22px;
+    min-height: 22px;
+    line-height: 22px;
+    padding: 0 5px;
+    color: #fff;
+    border: 0;
+    cursor: pointer;
+}
+
+    .botComent .accessoryDiv li.liAccessory
+    {
+        padding-left: 25px;
+        background: url(../../Images/plan/download.png) no-repeat;
+    }
+
+    .botComent .accessoryDiv li.allDownload
+    {
+        text-align: right;
+        margin: 0 5px;
+        padding: 0;
+        border-bottom: 1px solid #333;
+        cursor: pointer;
+    }
+
+        .botComent .accessoryDiv li.allDownload:hover
+        {
+            color: #58b456;
+        }
+
+.botComent .reply,
+.botComent .delete
+{
+    float: right;
+    line-height: 20px;
+    cursor: pointer;
+}
+
+.botComent .delete
+{
+    margin-right: 10px;
+}
+
+.replyDiv
+{
+    float: left;
+    display: none;
+    width: 360px;
+    height: 0;
+    min-height: 0px;
+    margin-left: -20px;
+    padding: 0 20px;
+    background-color: #fff;
+}
+
+    .replyDiv textarea
+    {
+        float: left;
+        width: 304px;
+        height: 26px;
+        line-height: 26px;
+        margin: 10px 0;
+        border: 1px solid #bbb;
+        overflow: hidden;
+        resize: none;
+    }
+
+    .replyDiv .replyHandle
+    {
+        float: left;
+        width: 360px;
+        height: 40px;
+    }
+
+.replyHandle span
+{
+    float: right;
+    width: 58px;
+    height: 28px;
+    line-height: 28px;
+    text-align: center;
+    margin-bottom: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid #bbb;
+    cursor: pointer;
+}
+
+    .replyHandle span:hover
+    {
+        color: #fff;
+        background-color: #fbac0f;
+        border: 1px solid #fbbf3d;
+    }
+/* 评论 结束 */
+
+
+
+/* 确认上传 开始 */
+.uploadBox .allProcessBar
+{
+    height: 30px;
+    position: relative;
+}
+
+    .uploadBox .allProcessBar span
+    {
+        display: block;
+        position: absolute;
+    }
+
+    .uploadBox .allProcessBar .processBar
+    {
+        padding: 3px;
+        position: absolute;
+        width: 222px;
+        height: 12px;
+        left: 68px;
+    }
+
+#slider .ui-slider-range
+{
+    background: #58b557;
+}
+
+.ui-slider
+{
+    width: 216px;
+    height: 10px;
+    border: none;
+    background: url("../../Images/plan/sliderBg.png") repeat-x;
+}
+
+#slider .ui-slider-handle
+{
+    margin-top: 1px;
+    width: 15px;
+    height: 15px;
+    background: url("../../Images/plan/sliderDrag.png");
+    border: none;
+}
+
+    #slider .ui-slider-handle:focus
+    {
+        outline: none;
+    }
+
+    #slider .ui-slider-handle:hover
+    {
+        background: url("../../Images/plan/sliderDragHit.png");
+    }
+
+.uploadBox .allProcessBar span.degree
+{
+    right: 30px;
+}
+
+.uploadBox .file_upload .fileinput_frame
+{
+    height: auto;
+    /*line-height: 32px;*/
+    position: relative;
+}
+
+.uploadBox .file_upload .fileinput-button
+{
+    position: absolute;
+    top: 100px;
+    left: 70px;
+    overflow: hidden;
+    width: 70px;
+    height: 32px;
+    text-align: center;
+    line-height: 32px;
+    padding: 0;
+    margin: 0;
+    float: right;
+    top: 0;
+    right: 350px;
+    background: url("../../Images/plan/uploadBtnM.png") repeat-x;
+}
+
+    .uploadBox .file_upload .fileinput-button .fileinput-button_l,
+    .uploadBox .file_upload .fileinput-button .fileinput-button_r
+    {
+        position: absolute;
+        width: 4px;
+        height: 32px;
+        top: 0;
+    }
+
+    .uploadBox .file_upload .fileinput-button .fileinput-button_l
+    {
+        background: url("../../Images/plan/uploadBtnL.png") no-repeat;
+    }
+
+    .uploadBox .file_upload .fileinput-button .fileinput-button_r
+    {
+        right: 0;
+        background: url("../../Images/plan/uploadBtnR.png") no-repeat;
+    }
+
+    .uploadBox .file_upload .fileinput-button input
+    {
+        position: absolute;
+        top: 0;
+        right: 0;
+        margin: 0;
+        height: 30px;
+        opacity: 0;
+        direction: ltr;
+        cursor: pointer;
+    }
+
+.uploadBox .file_upload span.uploadTag
+{
+    display: block;
+    height: 30px;
+    line-height: 30px;
+}
+
+.uploadBox .file_upload .files
+{
+    padding: 1px 0;
+    top: 36px;
+    width: 100%;
+    min-height: 30px;
+    height: auto;
+}
+
+    .uploadBox .file_upload .files li
+    {
+        width: 100%;
+        height: 40px;
+        vertical-align: bottom;
+        margin: 2px 0;
+        position: relative;
+    }
+
+        .uploadBox .file_upload .files li.uploaded
+        {
+            height: 25px;
+        }
+
+        .uploadBox .file_upload .files li .file
+        {
+            display: block;
+            position: absolute;
+            bottom: 5px;
+            left: 3px;
+        }
+
+.uploadBox .file_upload .file span
+{
+    display: none;
+    cursor: pointer;
+}
+
+.uploadBox .file_upload .files .up_progress
+{
+    position: absolute;
+    top: 2px;
+    height: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background: #58b557;
+}
+
+.uploadBox .uploadOperate
+{
+    width: 360px;
+    height: 30px;
+    margin-top: 30px;
+}
+
+    .uploadBox .uploadOperate span
+    {
+        margin-right: 10px;
+        float: right;
+        width: 78px;
+        height: 28px;
+        line-height: 28px;
+        text-align: center;
+        border: 1px solid #e3e3e3;
+        cursor: pointer;
+    }
+
+        .uploadBox .uploadOperate span:hover
+        {
+            color: #fff;
+            background-color: #fbac0f;
+            border-color: #fbbf3d;
+        }
+
+.uploadBox .finishTime
+{
+    padding-bottom: 7px;
+    border-bottom: 1px solid #bbb;
+}
+
+    .uploadBox .finishTime input
+    {
+        width: 30px;
+        height: 20px;
+    }
+/* 确认上传 结束 */
+/* 确认 开始 */
+.evaluateBox .evaluateArea .com
+{
+    position: relative;
+    height: 33px;
+    line-height: 33px;
+}
+
+.evaluateBox .com span
+{
+    display: block;
+    position: absolute;
+}
+
+.evaluateBox .com .degInput
+{
+    margin: 0;
+    margin-top: -2px;
+    padding: 0;
+    width: 40px;
+    height: 20px;
+    border: 1px solid #e3e3e3;
+    position: absolute;
+    right: 25px;
+    top: 9px;
+    text-align: center;
+}
+
+.evaluateBox .evaluateArea .processBar
+{
+    padding: 3px 0;
+    position: absolute;
+    width: 214px;
+    height: 12px;
+    left: 65px;
+    top: 9px;
+}
+
+#num_slider .ui-slider-range, #qua_slider .ui-slider-range, #time_slider .ui-slider-range
+{
+    background: #58b557;
+}
+
+.ui-slider
+{
+    width: 216px;
+    height: 10px;
+    border: none;
+    background: url("../../Images/plan/sliderBg.png") repeat-x;
+}
+
+.evaluateArea .ui-slider-handle
+{
+    margin-top: 1px;
+    width: 15px;
+    height: 15px;
+    background: url("../../Images/plan/sliderDrag.png");
+    border: none;
+}
+
+    .evaluateArea .ui-slider-handle:focus
+    {
+        outline: none;
+    }
+
+    .evaluateArea .ui-slider-handle:hover
+    {
+        background: url("../../Images/plan/sliderDragHit.png");
+    }
+
+.evaluateBox .evaluateArea span.degree
+{
+    right: 30px;
+}
+
+.evaluateBox .finishTime .number
+{
+    font-size: 14px;
+}
+
+.evaluateBox .auditOpinion
+{
+    padding-top: 10px;
+    height: 50px;
+    width: 100%;
+}
+
+    .evaluateBox .auditOpinion span
+    {
+        display: block;
+    }
+
+    .evaluateBox .auditOpinion input
+    {
+        margin-top: 5px;
+        border: 1px solid #e3e3e3;
+        height: 24px;
+        width: 100%;
+    }
+
+.evaluateBox .confirmOperate
+{
+    width: 360px;
+    height: 30px;
+    margin-top: 30px;
+}
+
+    .evaluateBox .confirmOperate span
+    {
+        margin-right: 10px;
+        float: right;
+        width: 78px;
+        height: 28px;
+        line-height: 28px;
+        text-align: center;
+        border: 1px solid #e3e3e3;
+        cursor: pointer;
+    }
+
+        .evaluateBox .confirmOperate span:hover
+        {
+            color: #fff;
+            background-color: #fbac0f;
+            border-color: #fbbf3d;
+        }
+
+.evaluateBox .finishTime
+{
+    padding-bottom: 7px;
+    border-bottom: 1px solid #bbb;
+}
+
+    .evaluateBox .finishTime input
+    {
+        width: 30px;
+        height: 20px;
+    }
+/* 确认 结束 */
+/* 弹窗 结束 */
+
+
+/* ztree 开始 */
+.ztree *
+{
+    font-family: "微软雅黑";
+    color: #686868;
+}
+
+.ztree li span.button.noline_open
+{
+    background: url("../../Images/common/arrowSolidB.png") no-repeat center !important;
+}
+
+.ztree li span.button.noline_close
+{
+    background: url("../../Images/common/arrowSolidR.png") no-repeat center !important;
+}
+
+/* ztree 结束 */
+
+
+.emptyInput
+{
+    border: none;
+    cursor: pointer;
+}
+
+.icon
+{
+    font-size: 0;
+    vertical-align: middle;
+}
+
+.add-min
+{
+    display: inline-block;
+    height: 24px;
+    width: 24px;
+    background: url('../../Images/common/add.png') no-repeat;
+    cursor: pointer;
+}
+
+    .add-min:hover
+    {
+        background-image: url("../../Images/common/addHit.png");
+    }
+
+.add-min-grey
+{
+    display: inline-block;
+    height: 24px;
+    width: 24px;
+    background: url('../../Images/plan/add-mini.png') no-repeat;
+    cursor: pointer;
+}
+
+    .add-min-grey:hover
+    {
+        background-image: url("../../Images/common/addHit.png");
+        background-color: #ffffff !important;
+    }
+
+.add-min-wide
+{
+    display: inline-block;
+    width: 40px;
+    height: 24px;
+    vertical-align: middle;
+    border: 1px solid #e3e3e3;
+    background: url('../../Images/plan/add-mini.png') 50% no-repeat;
+    cursor: pointer;
+}
+
+    .add-min-wide:hover
+    {
+        border-color: #58b456;
+        background-image: url("../../Images/common/addHit.png");
+    }
+
+.hasborder
+{
+    border: 1px solid #e3e3e3;
+}
+
+    .hasborder:hover
+    {
+        border-color: #58b456;
+    }
+
+.rowDiv .tag{
+    position: relative;
+    padding: 5px 20px 5px 10px;
+    border: 1px solid #fff;
+    display: inline-block;
+    height: 16px;
+    line-height: 16px;
+}
+
+.rowDiv .tag:hover{
+    border-color: #58b456;
+    color:#58b456;
+}
+.rowDiv .tag .close{
+    position: absolute;
+    top:5px;
+    right: 6px;
+    cursor: pointer;
+}
+
+#nosubDiv
+{
+    text-align: center;
+    line-height: 26px;
+    height: 26px;
+    margin-top: 30px;
+    font-size: 14px;
+}
+
+.bound
+{
+    height: 30px;
+    border-top: 1px solid #e3e3e3;
+    border-bottom: 1px solid #e3e3e3;
+    width: 540px;
+    margin: 5px 0 0 -10px;
+    line-height: 30px;
+    padding-left: 20px;
+    background-color: #fffffa;
+}
+
+#addplan_list_table ul li div.focus
+{
+    background-color: #e3e3e3;
+}
+
+#addplan_list_table .circle
+{
+    display: inline-block;
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    z-index: 10;
+}
+
+#addplan_list_table .mimusCircle
+{
+    background: url(../../Images/plan/cutCircle.png) no-repeat;
+}
+
+#addplan_list_table .plusCircle
+{
+    background: url(../../Images/plan/addCircle.png) no-repeat;
+}
+
+.rowDiv.listView{
+    max-height: 200px;
+    overflow: auto;
+}
+.rowDiv.listView ul li{
+    padding: 3px 0;
+}
+.rowDiv.listView ul li span{
+    display: inline-block;
+}
+
+input.knob
+{
+    font-family: "微软雅黑" !important;
+    font-size: 12px !important;
+}
+
+.mine .planUl
+{
+    height: 126px;
+}
+
+    .mine .planUl li a
+    {
+        float: left;
+        width: 78%;
+        height: 30px;
+        line-height: 30px;
+        color: #686868;
+        overflow: hidden;
+    }
+
+.planUl li a:hover
+{
+    color: #58b456;
+}
+
+.planUl li span
+{
+    float: left;
+    width: 20%;
+    height: 30px;
+    line-height: 30px;
+    text-align: right;
+    margin-left: 2%;
+}
+
+.mine .planUl li span .news
+{
+    float: right;
+    width: auto;
+    height: 18px;
+    margin: 6px 0;
+}
+
+    .mine .planUl li span .news .newsL,
+    .mine .planUl li span .news .newsR
+    {
+        display: block;
+        float: left;
+        width: 8px;
+        height: 18px;
+        margin: 0;
+    }
+
+    .mine .planUl li span .news .newsL
+    {
+        width: 7px;
+    }
+
+    .mine .planUl li span .news .newsL
+    {
+        background: url(../../Images/plan/newsL.png) no-repeat;
+    }
+
+    .mine .planUl li span .news .newsR
+    {
+        background: url(../../Images/plan/newsR.png) no-repeat;
+    }
+
+    .mine .planUl li span .news .newsM
+    {
+        position: relative;
+        z-index: 1;
+        display: block;
+        float: left;
+        width: auto;
+        height: 18px;
+        line-height: 18px;
+        margin: 0;
+        color: #fff;
+        background: url(../../Images/plan/newsM.png);
+    }
+
+em.accessory
+{
+    display: inline-block;
+    background: url(../../Images/plan/accessoryAsh.png) no-repeat;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+    em.accessory:hover
+    {
+        background: url(../../Images/plan/accessoryHit.png) no-repeat;
+    }
+
+.select_person span, .select_person li
+{
+    float: none !important;
+    color: #686868 !important;
+}
+
+.condensed a {
+    padding-bottom:7px !important;
+    padding-top:7px !important;
+}
+.panel-default {
+margin-bottom:10px;
+}
+
+.optionCell-select {
+    margin-top:2px;
+    margin-left:-6px;
+}

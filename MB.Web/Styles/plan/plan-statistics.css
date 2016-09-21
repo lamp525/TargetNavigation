@@ -1,0 +1,396 @@
+.main {
+	width:1200px;
+	min-height:39px;
+	border:1px solid #bbb;
+}
+
+
+
+/* 小标题（执行力统计） 开始 */
+.main .title {
+	width:1180px;
+	height:38px;
+	line-height:38px;
+	padding:0 10px;
+	color:#373737;
+    font-size: 14px;
+	background-color:#f9f9f9;
+	border-bottom:1px solid #bbb;
+	/* box-shadow: 0 0 12px rgba(156,156,156,1); */
+}
+.title .titleL {
+	float:left;
+}
+.title .titleR {
+	float:right;
+}
+.title .text {
+	float:left;
+}
+.title .arrowsBBBCom {
+	margin-top:12px;
+}
+.title .arrowsBBBDiv {
+	left:-45px;
+	padding-top:0px;
+}
+/* 小标题（执行力统计） 结束 */
+
+
+
+
+
+/* 内容 开始 */
+.main .mainCon {
+	width:1180px;
+	padding: 0 10px;
+    background-color: #fff;
+}
+/* 还没有统计表，点击添加 开始 */
+.mainCon .addSta {
+	width:224px;
+	height:30px;
+	line-height:30px;
+	margin:40px auto 0;
+	font-size:14px;
+}
+/*.copySelect{*/
+    /*position: relative;*/
+    /*width: 100%;*/
+    /*z-index: 100;*/
+    /*max-height: 100px;*/
+    /*border: 1px solid #bbb;*/
+    /*margin-left: -1px;*/
+    /*background-color: #f9f9f9;*/
+/*}*/
+/*.copySelect li{*/
+    /*padding-left: 5px;*/
+    /*line-height: 26px;*/
+/*}*/
+/*.copySelect li:hover{*/
+    /*background-color: #d0d0d0;*/
+/*}*/
+.addSta span {
+	float:left;
+}
+.addSta .addBtn {
+	float:left;
+	width:58px;
+	height:28px;
+	margin:0 5px;
+	background-color:#f9f9f9;
+	border:1px solid #e3e3e3;
+	cursor:pointer;
+}
+.addSta .addBtn .addCom {
+	margin:2px 17px;
+}
+/* 还没有统计表，点击添加 结束 */
+
+
+
+/* 具体内容 开始 */
+/* 具体内容的头部 开始 */
+.mainCon .contain {
+	width:1180px;
+	min-height:51px;
+}
+.contain .conHeader {
+	width:1180px;
+	height:50px;
+	border-bottom:1px solid #e3e3e3;
+}
+.conHeader .conHeaL {
+    position: relative;
+	float:left;
+	width:189px;
+	height:28px;
+	margin-top:10px;
+	background-color:#f9f9f9;
+	border:1px solid #bbb;
+}
+.conHeader .conHeaL select {
+	/*float:left;*/
+	width:100%;/* 160px */
+	height:28px;/* 28px */
+	line-height:28px;/* 28px */
+	background-color:#f9f9f9;
+	border:0;
+}
+.conHeader .conHeaL .addBtn {
+	position:absolute;
+	width:24px;
+	height:24px;
+	padding:2px;
+	border-left:1px solid #bbb;
+    top: 0px;
+    right: 0px;
+    background-color: #f9f9f9;
+}
+.conHeader .conHeaR {
+	float:right;
+	height:30px;
+	line-height:30px;
+	margin-top:10px;
+}
+/*
+.conHeader .conHeaR .time {
+	float:left;
+}
+.conHeader .conHeaR .time span {
+	margin-right:3px;
+	cursor:pointer;
+}
+*/
+.conHeaR .timeQuan {
+	float:left;
+}
+.conHeaR .timeQuan span,
+.conHeaR .timeQuan input{
+	float:left;
+}
+.conHeaR .timeQuan .laydate-icon {
+	display:block; 
+	width:100px; 
+	height:20px;
+	margin:4px 0 0 0;
+	padding:0;
+}
+.conHeaR .timeQuan .handle {
+    padding: 0 10px;
+	margin-left:20px;
+	cursor:pointer;
+    /*border: 1px solid #e3e3e3;*/
+}
+.conHeaR .timeQuan .handle:hover{
+    background-color: #fbac0f;
+    color: #ffffff;
+}
+.contain .planNum ,
+.contain .accomplishNum ,
+.contain .accomplishRate {
+	float:left;
+	margin-left:15px;
+}
+/*.contain .planNum span ,*/
+.contain .accomplishNum span ,
+.contain .accomplishRate span,
+.contain .staffCompare span,
+.contain .departmentCompare span{
+	float:left;
+}
+.contain .planNum .arrows ,
+.contain .accomplishNum .arrows ,
+.contain .accomplishRate .arrows {
+	float:left;
+	width:12px;
+	height:24px;
+	margin-top:3px;
+	margin-left:5px;
+}
+/* 具体内容的头部 结束 */
+
+
+
+/* 统计图 开始 */
+.contain .chartAll {
+	position:relative;
+	width:1230px;
+	margin-left:-50px;
+}
+.chartAll .chartDiv {
+	float:left;
+	width:250px;
+	height:305px;
+	margin-left:50px;
+}
+.chartDiv .chartSingle {
+	float:left;
+	width:250px;
+	height:250px;
+	margin-top:25px;
+	/*background-color:#696;*/
+	/*border-radius:50%;*/
+}
+.chartSingle .chart {
+	position:relative;
+	width:250px;
+	height:250px;
+	/*margin-top:-9px;*/
+	/*margin-left:-10px;*/
+}
+.chart .canvas {
+	float:left;
+	width:250px;
+	height:250px;
+}
+.chart .planNum {
+	position:absolute;
+	top:110px;
+	left:90px;
+	/*width:330px;*/
+	text-align:center;
+}
+.chart .planNum.interior{
+    width: 90px;
+    top: 115px;
+    left: 80px;
+    margin: 0;
+}
+
+.chartDiv .chartText {
+	float:left;
+	width:250px;
+	height:30px;
+	line-height:30px;
+	text-align:center;
+	/*margin-top:15px;*/
+	cursor:pointer;
+}
+/* 统计图 结束 */
+
+
+
+/* 统计图详情 开始 */
+.chartAll .chartDetail {
+	display:none;
+	width:1180px;
+	padding:0 5px 10px;
+	background-color:#f9f9f9;
+	border:1px solid #bbb;
+}
+.chartDetail .CDHeader {
+	width:1170px;
+	height:29px;
+	line-height:29px;
+	border-bottom:1px solid #bbb;
+}
+.CDHeader .CDHeaL {
+	float:left;
+	margin-left:15px;
+}
+.CDHeader .CDHeaR {
+	float:right;
+	margin-right:15px;
+}
+.chartDetail .CDAll {
+	width:1290px;
+	margin-left:-120px;
+}
+.CDAll .CDDiv {
+	float:left;
+	width:310px;
+	height:170px;
+	margin-left:120px;
+	border-bottom:1px solid #e3e3e3;
+}
+.CDDiv .portraitBox {
+	float:left;
+	width:100px;
+	height:170px;
+}
+.portraitBox .portrait {
+	width:70px;
+	height:70px;
+	margin:40px 15px 0;
+	background-color:#fff;
+	border:1px solid #bbb;
+	border-radius:50%;
+}
+.portraitBox .name {
+	display:block;
+	width:100px;
+	height:35px;
+	line-height:35px;
+	text-align:center;
+}
+.CDDiv .CDText {
+	float:left;
+	width:210px;
+	height:140px;
+	padding:15px 0;
+}
+.CDText .CDTextNum ,
+.CDText .CDTextRate {
+	float:left;
+	width:120px;
+	height:140px;
+}
+.CDTextNum li ,
+.CDTextRate li {
+	float:left;
+	width:120px;
+	height:20px;
+	line-height:20px;
+}
+.CDText .CDTextR {
+	float:left;
+	width:90px;
+	height:140px;
+}
+.CDTextR .accomRate {
+	width:120px;
+	height:40px;
+	line-height:40px;
+	font-size:14px;
+}
+.CDTextR .accomRatePass {
+	color:#e50000;
+}
+.CDTextR .accomRateFail {
+	color:#58b456;
+}
+/* 统计图详情 结束 */
+/* 具体内容 结束 */
+/* 内容 结束 */
+
+
+
+
+
+
+/* 弹窗 开始 */
+/* 自定义统计表 开始 */
+.statisTab .STName {
+	width:520px;
+	height:30px;
+	line-height:30px;
+	padding:20px;
+}
+.STName span {
+	float:left;
+}
+.STName input[type="text"] {
+	float:left;
+	width:426px;
+	height:26px;
+	line-height:26px;
+	margin-left:20px;
+}
+.statisTab .STList {
+	width:100%;
+	min-height:440px;
+	padding:0 20px;
+}
+.STList .STListHead {
+	display:inline-block;
+	/*width:100px;*/
+	height:15px;
+}
+/* 自定义统计表 结束 */
+/* 结束 开始 */
+
+/* ztree 开始 */
+.ztree *{
+    font-family: "微软雅黑";
+    color: #686868;
+}
+
+.ztree li span.button.noline_open {background: url("../../Images/common/arrowSolidB.png") no-repeat center;}
+.ztree li span.button.noline_close {background: url("../../Images/common/arrowSolidR.png") no-repeat center;}
+
+/* ztree 结束 */
+
+span.focus{
+    color:#58b456;
+}

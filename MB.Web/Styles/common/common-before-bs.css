@@ -1,0 +1,485 @@
+/*@charset "utf-8";*/
+/*body {*/
+	/*font-family: "微软雅黑";*/
+	/*font-size: 12px;*/
+	/*margin: 0px;*/
+	/*padding: 0px;*/
+	/*color:#686868;*/
+/*}*/
+.container-before-bootstrap{
+    line-height: normal;
+}
+.container-before-bootstrap *{
+    box-sizing: content-box;
+}
+.container-before-bootstrap input{
+    box-sizing: border-box;
+}
+
+ul , li {
+	margin: 0px;
+	padding: 0px;
+	list-style-type: none;
+}
+em , i {
+	font-style: normal;
+}
+b {
+	font-weight: normal;
+}
+a {
+	text-decoration: none;
+	cursor:pointer;
+}
+img {
+	border:0;
+}
+input , 
+select ,
+textarea
+{
+	color:#686868;
+	font-size:12px;
+	/*font-family: "微软雅黑";*/
+}
+
+
+
+
+
+/* 共同的类 开始 */
+/* 弹窗 开始 */
+.popUp {
+	width:560px;
+	background-color:#fff;
+	box-shadow: 0 0 12px rgba(156,156,156,1);
+}
+.popUp .title {
+	width:520px;
+	height:30px;
+	line-height:30px;
+	padding:0 20px;
+	color:#fff;
+	font-size:14px;
+	background-color:#58b456;
+}
+.popUp .title a{
+    color:#fff;
+}
+.popUp .title .sub{
+    font-size: 10px;
+    color: #e3e3e3;
+}
+.popUp .title .closeWCom {
+	margin-top:6px;
+}
+.popUp .mainContent{
+    padding: 10px;
+}
+.popUp .canCon {
+	width:100%;
+	height:40px;
+}
+.popUp .canCon span {
+	display:block;
+	float:left;
+	width:280px;
+	line-height:40px;
+	text-align:center;
+	font-size:14px;
+	cursor:pointer;
+}
+.popUp .canCon span:hover {
+	color:#fff;
+	background-color:#fbac0f;
+}
+.popUp .canCon span div{
+    position: absolute;
+    width: 100%;
+    color: #686868;
+    top: -80px;
+    background-color:#ececec;
+}
+/* 弹窗 结束 */
+
+
+
+/* 箭头 开始 */
+/* 箭头:Black,Big,方向 开始 */
+.arrowsBBTCom ,
+.arrowsBBRCom ,
+.arrowsBBBCom ,
+.arrowsBBLCom {
+	position:relative;
+	float:left;
+	width:24px;
+	height:24px;
+	cursor:pointer;
+}
+.arrowsBBTCom {
+	background:url(../../Images/common/arrowsBBT.png) no-repeat;
+}
+.arrowsBBTCom:hover {
+	background:url(../../Images/common/arrowsBBTHit.png) no-repeat;
+}
+.arrowsBBRCom {
+	background:url(../../Images/common/arrowsBBR.png) no-repeat;
+}
+.arrowsBBRCom:hover {
+	background:url(../../Images/common/arrowsBBRHit.png) no-repeat;
+}
+.arrowsBBBCom {
+	background:url(../../Images/common/arrowsBBB.png) no-repeat;
+}
+.arrowsBBBCom:hover {
+	background:url(../../Images/common/arrowsBBBHit.png) no-repeat;
+}
+.arrowsBBLCom {
+	background:url(../../Images/common/arrowsBBL.png) no-repeat;
+}
+.arrowsBBLCom:hover {
+	background:url(../../Images/common/arrowsBBLHit.png) no-repeat;
+}
+/* 箭头:Black,Big,方向 结束 */
+/* 箭头:Black,Small,方向 开始 */
+.arrowsBSTCom ,
+.arrowsBSRCom ,
+.arrowsBSBCom ,
+.arrowsBSLCom {
+	float:left;
+	width:12px;
+	height:12px;
+	cursor:pointer;
+}
+.arrowsBSTCom {
+	background:url(../../Images/common/arrowsBST.png) no-repeat;
+}
+.arrowsBSTCom:hover {
+	background:url(../../Images/common/arrowsBSTHit.png) no-repeat;
+}
+.arrowsBSRCom {
+	background:url(../../Images/common/arrowsBSR.png) no-repeat;
+}
+.arrowsBSRCom:hover {
+	background:url(../../Images/common/arrowsBSRHit.png) no-repeat;
+}
+.arrowsBSBCom {
+	background:url(../../Images/common/arrowsBSB.png) no-repeat;
+}
+.arrowsBSBCom:hover {
+	background:url(../../Images/common/arrowsBSBHit.png) no-repeat;
+}
+.arrowsBSLCom {
+	background:url(../../Images/common/arrowsBSL.png) no-repeat;
+}
+.arrowsBSLCom:hover {
+	background:url(../../Images/common/arrowsBSLHit.png) no-repeat;
+}
+/* 箭头:Black,Small,方向 结束 */
+/* 箭头(实心):Black,Small,方向 开始 */
+.arrowSolidTCom ,
+.arrowSolidRCom ,
+.arrowSolidBCom ,
+.arrowSolidLCom ,
+.arrowSolidTComHit ,
+.arrowSolidRComHit ,
+.arrowSolidBComHit ,
+.arrowSolidLComHit{
+	float:left;
+	width:12px;
+	height:12px;
+	cursor:pointer;
+}
+.arrowSolidTCom {
+	background:url(../../Images/common/arrowSolidT.png) no-repeat;
+}
+.arrowSolidTComHit,
+.arrowSolidTCom:hover,
+.arrowSolidTCom.hit{
+	background:url(../../Images/common/arrowSolidTHit.png) no-repeat;
+}
+.arrowSolidRCom {
+	background:url(../../Images/common/arrowSolidR.png) no-repeat;
+}
+.arrowSolidRCom:hover {
+	background:url(../../Images/common/arrowSolidRHit.png) no-repeat;
+}
+.arrowSolidBCom {
+	background:url(../../Images/common/arrowSolidB.png) no-repeat;
+}
+.arrowSolidBComHit,
+.arrowSolidBCom:hover,
+.arrowSolidBCom.hit{
+	background:url(../../Images/common/arrowSolidBHit.png) no-repeat;
+}
+.arrowSolidLCom {
+	background:url(../../Images/common/arrowSolidL.png) no-repeat;
+}
+.arrowSolidLCom:hover {
+	background:url(../../Images/common/arrowSolidLHit.png) no-repeat;
+}
+/* 箭头(实心):Black,Small,方向 结束 */
+/* 箭头 结束 */
+
+
+
+/* 加 */
+.addCom {
+	float:right;
+	width:24px;
+	height:24px;
+	background:url(../../Images/common/add.png) no-repeat;
+	cursor:pointer;
+}
+.addCom:hover {
+	background:url(../../Images/common/addHit.png) no-repeat;
+}
+
+
+
+/* 关闭 */
+.closeWCom {
+    position: absolute;
+    top: 7px;
+    right: 10px;
+	display:block;
+	/*float:right;*/
+	width:16px;
+	height:16px;
+	background:url(../../Images/common/closeW.png) no-repeat;
+	cursor:pointer;
+}
+.closeWCom:hover {
+	background:url(../../Images/common/closeWHit.png) no-repeat;
+}
+
+
+
+/* 肖像 */
+.portraitCom {
+	float:left;
+	width:140px;
+	height:140px;
+	border-radius:50%;
+}
+
+/* 共同的类 结束 */
+
+
+
+/* 页面共同的css 开始 */
+.all
+{
+    width: 1202px;
+    height: auto;
+    margin: 0 auto;
+}
+
+
+
+/* 导航条 开始 */
+/*.nav*/
+/*{*/
+    /*position: absolute;*/
+    /*top: 0px;*/
+    /*z-index: 1000;*/
+    /*float: left;*/
+    /*width: 1200px;*/
+    /*height: 49px;*/
+    /*background-color: #fff;*/
+    /*border: 1px solid #bbb;*/
+    /*border-top-width: 0px;*/
+    /*box-shadow: 0 1px 2px #bbb;*/
+/*}*/
+/* 导航条左边部分 开始 */
+.navOne
+{
+    float: left;
+    width: 50%;
+    height: 100%;
+}
+.navOne .logo
+{
+    float: left;
+    width: 49px;
+    height: 49px;
+    background: url(../../Images/index/logo.png) no-repeat;
+}
+.navOne .arrowsBBBCom
+{
+    margin: 12px 0 13px 8px;
+}
+/* 下拉箭头的框 开始 */
+.arrowsBBBDiv
+{
+    position: absolute;
+    top: 24px;
+    left: -35px;
+    z-index: 1000;
+    display: none;
+    padding-top: 24px;
+}
+.arrowsBBBDiv ul
+{
+    float: left;
+    height: auto;
+	background-color:#fff;
+    border: 1px solid #bbb;
+}
+.arrowsBBBDiv ul li
+{
+    width: 90px;
+    height: 30px;
+    padding: 0 5px;
+    background-color: #fff;
+}
+.arrowsBBBDiv li:hover
+{
+    /*background-color: #58b456;*/
+}
+.arrowsBBBDiv ul li.line
+{
+    width: 80px;
+    height: 0px;
+    margin: 0 5px;
+    border-bottom: 1px solid #e3e3e3;
+}
+.arrowsBBBDiv ul li a
+{
+    display: block;
+    width: 80px;
+    height: 30px;
+    line-height: 30px;
+    text-align: left;
+    margin: 0 5px;
+    color: #686868;
+    font-size: 12px;
+}
+.arrowsBBBDiv ul li a:hover
+{
+    /*color: #fff;*/
+}
+/* 下拉箭头的框 结束 */
+/* 导航条左边部分 结束 */
+
+/* 导航条右边部分 开始 */
+.navTwo
+{
+    float: left;
+    width: 50%;
+    height: 100%;
+}
+.navTwo li
+{
+    position: relative;
+    float: left;
+    width: 100px;
+    height: 100%;
+    background-color: #fff;
+}
+.navTwo li:hover
+{
+    background-color: #58b456;
+}
+.navTwo li a
+{
+    float: left;
+    width: 100px;
+    height: 100%;
+    line-height: 49px;
+    text-align: center;
+    color: #686868;
+    font-size: 14px;
+}
+.navTwo li a.hover ,
+.navTwo li a.hit
+{
+    color: #fff;
+    background-color: #58b456;
+}
+.navTwo div
+{
+    position: absolute;
+    top: 49px;
+    display: none;
+    padding-top: 10px;
+}
+.navTwo ul
+{
+    float: left;
+    height: auto;
+    border: 1px solid #bbb;
+	background-color:#fff;
+}
+.navTwo ul li
+{
+    width: 90px;
+    height: 30px;
+    padding: 0 5px;
+}
+.navTwo ul li.line
+{
+    width: 80px;
+    height: 0px;
+    margin: 0 5px;
+    border-bottom: 1px solid #e3e3e3;
+}
+.navTwo ul li a
+{
+    width: 80px;
+    height: 30px;
+    line-height: 30px;
+    text-align: left;
+    margin: 0 5px;
+    font-size: 12px;
+}
+/* 导航条右边部分 结束 */
+/* 导航条 结束 */
+
+
+
+/* top */
+.topCom {
+	position:absolute;
+	top:321px;
+	left:331px;
+	display:block;
+	width:50px;
+	height:50px;
+	background:url(../../Images/common/top.png) no-repeat;
+	cursor:pointer;
+}
+
+
+
+/* 页面共同的css 结束 */
+
+/* 消息提示框Messenger 开始 */
+/*.messenger{
+    z-index: 9999999999 !important;
+}
+.messenger-message-slot{
+	min-width: 180px;
+	width:auto;
+	min-height:30px;
+	height: auto;
+	background: rgb(232,246,232);
+	border:1px solid #71b971;
+	border-radius: 4px;
+}
+.messenger-message-inner{
+	margin: 0 auto;
+	min-width: 180px;
+	width: auto;
+	height:18px;
+	text-align: center;
+}
+ul.messenger-theme-flat .messenger-message{
+}
+.messenger-message{
+	min-width: 180px;
+	width:auto;
+	min-height: 30px;
+	height:auto;
+}*/
+/* 消息提示框Messenger 结束 */

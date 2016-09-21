@@ -1,0 +1,497 @@
+﻿@*@{
+    Layout = "~/Views/Shared/_TopView.cshtml";
+}
+@section Remark_CSS {
+    <link href="~/Styles/common-bootstrap/bootstrap-custom.css" rel="stylesheet" />
+    <link href="~/Libs/messenger/css/messenger-theme-block.css" rel="stylesheet" />
+    <link href="~/Libs/messenger/css/messenger.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../../Libs/jQuery-ui/css/jquery-ui.css">
+    <link href="../../Styles/common-bootstrap/common.css" rel="stylesheet">
+      <link href="../../Styles/flow/flowClassify.css" rel="stylesheet">
+    
+    <link href="~/Styles/flow/widgetFormResolver.css" rel="stylesheet" />
+    <link href="~/Libs/bootstrap-select/css/bootstrap-select.css" rel="stylesheet" />
+    
+}*@
+<link href="../../Styles/flow/flowClassify.css" rel="stylesheet">
+    
+    <link href="~/Styles/flow/widgetFormResolver.css" rel="stylesheet" />
+
+<div class="container-before-bootstrap clearfix">
+    <div class="row">
+        <!--<div class="filterBox"></div>-->
+        <div class="col-xs-9">
+            <div class="panel panel-default own">
+                <div class="panel-heading document">
+                    <div class="panel-title">
+                        <ul class="nav nav-tabs model sortbar"  role="tablist">
+                            <!--左侧选项框-->
+                             <li role="presentation" class="flowType active"><a href="#flowType-list" aria-controls="profile" role="tab" data-toggle="tab" id="flowType">流程分类</a></li>
+                            <!--右侧选项框-->
+                            <li role="presentation" class="formManage"><a href="#formManage-list" aria-controls="profile" role="tab" data-toggle="tab" id="formManage">表单管理</a></li>
+                            <!--右侧选项框-->
+                            <li class="pull-right userdefined">
+                                 <a class="glyphicon glyphicon-plus addFlowClassify"   class="modal fade"  aria-hidden="true" id="addFlow" ></a>
+                                 <!--<a class="glyphicon glyphicon-plus addFormClassify" id="authority-a" href="../../test/data/flow/formBuild.html" data-toggle='modal' data-target='#formBuild_modal'aria-hidden="true"></a>-->
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                 <!--流程分类部分  -->
+
+                <div class="panel-body" >
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane active" id="flowType-list">
+
+                            <div class="row documents card CategoryList sortable"> 
+                              <!-- 新建分类开始
+                                <div class="newadd col-xs-3 ">
+                                    <div class="add">
+                                        <button class="addPicture">新建分类</button>
+                                    </div>
+                                </div>
+                            <!-- 新建分结束 -->
+                            </div>
+
+                        </div>
+                        <div role="tabpanel" class="tab-pane" id="formManage-list">
+                            <ul class="list-inline formtype">
+                                <li class="dropdown" id="ddlSystem">
+                                    <a href="#" class="dropdown-toggle" id="syterm_form" data-toggle="dropdown" data-hover="dropdown" data-delay="50" role="button" aria-expanded="false">
+                                        <span class="form_systerm">系统表单</span>
+                                        <span class="glyphicon glyphicon-menu-down form1"></span>
+                                    </a>
+                                    <ul class="dropdown-menu batch-menu formClassify userdefinedForm" role="menu" id="ddlsystemList">
+                                    
+                                    </ul>
+                                </li>
+                                <li class="dropdown" id="ddlUser">
+                                    <a href="#" class="dropdown-toggle"id="userdefined_form"  data-toggle="dropdown" data-hover="dropdown" data-delay="50" role="button" aria-expanded="false">
+                                        <span class="form_userdefined">自定义表单</span>
+                                        <span class="glyphicon glyphicon-menu-down form2" id="MyCaregory"></span>
+                                    </a>
+                                    <ul class="dropdown-menu batch-menu formClassify userdefinedForm" role="menu" id="ddlUserList">
+                                     
+                                    </ul>
+                                </li>
+                                <li class="pull-right dropdown">
+                                    <a class="moreBg" href="#" style="display: none;"></a><a class="moreCancel" href="#" style="display: none;">取消</a>
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="50" role="button" aria-expanded="false">
+                                        <span class="">批量</span>
+                                        <span class="glyphicon glyphicon-menu-down form"></span>
+                                    </a>
+                                    <ul class="dropdown-menu batch-menu lot" role="menu">
+                                        <li><a href="#" id="delete">批量删除</a></li>
+                                        <li class="divider short"></li>
+                                        <li><a href="#" id="move" >批量移动</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <div id="Load-position"></div>
+                            <div class="row form-list sortable">  
+                              
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+      <div class="col-lg-3">
+        <div class="sidebar">
+           @Html.Partial("~/Views/Shared/_UserInfo.cshtml")
+            <div class="panel panel-default panel-chart" id="file_statistics">
+                <div class="panel-heading">流程进程</div>
+                <div class="chart">
+                    <div id="chart3"></div>
+                    <div class="planNum">流程<span style="color: #58b456"></span>项</div>
+                    <div class="month">
+                        <span style="width: 23px" class="arrowsBBLCom"></span>
+                        <span class="text"></span>
+                        <span style="width: 23px; display: none" class="arrowsBBRCom"></span>
+                    </div>
+                </div>
+
+                <div class="sign">
+                </div>
+            </div>
+        </div>
+    </div>
+       @* <div class="col-xs-3">
+            <div class="sidebar"> 
+             @Html.Partial("~/Views/Shared/_UserInfo.cshtml")
+               
+                <div class="panel panel-default panel-chart" id="file_statistics">
+                    <div class="panel-heading">流程进程</div>
+                    <div class="panel-body pos-r chart-container">
+                        <div class="chart-content" id="file_statistics_chart">
+                        </div>
+                        <div class="chart-center"></div>
+                    </div>
+                    <div class="panel-footer">
+                        <ul class="list-inline chart-label">
+                            <!--<li>集团文档</li>-->
+                            <!--<li>个人文档</li>-->
+                            <!--<li>我的共享</li>-->
+                            <!--<li>他人共享</li>-->
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>*@
+    </div> 
+<!-- 弹出层 开始 -->
+
+<!-- 个人资料设置 开始 -->
+  <div class="modal fade" id="personal_modal" tabindex="-1" role="dialog" aria-labelledby="personal_modal_label" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                @Html.Partial("~/Views/Shared/_EditUserInfo.cshtml")
+            </div>
+        </div>
+    </div>
+<!-- 个人资料设置 结束 -->
+
+<!--分类编辑 开始-->
+ <div class="modal fade" id="classifyModify_modal" tabindex="-1" role="dialog" aria-labelledby="classifyModify_modal_label" aria-hidden="true" data-backdrop="false" data-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+                <h4 class="modal-title" id="classifyModify_modal_label">流程分类</h4>
+            </div>
+
+            <div class="modal-row  modalbody">
+                <div class="set-group">
+                    <div class="set-label">流程分类名</div>
+                    <div class="set">
+                        <input type="text" class="short classifyName" id="classifyModify_modal_countPerPage"  maxlength="20" >
+                    </div>
+                    <div class="set-label">描述</div>
+                    <div class="set">
+                        <textarea class="describe classifyDescrib"   rows="4" maxlength="250"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer fifty-fifty">
+                <a class="btn btn-transparency btn-lg btnModify" data-dismiss="modal">取消</a>
+                <a class="btn btn-transparency btn-lg btnModify btnModifySure" id="btnModifySure">确定</a>
+            </div>
+            <!--    <div class="modal-row modalfooter">
+                  <button type="button" class="btn btn-default btnModify" data-dismiss="modal">取消</button>
+                  <button type="button" class="btn btn-default btnModify btnModifySure">确定</button>
+                </div>-->
+
+             </div>
+         </div>
+     </div>
+ <!--分类编辑 结束-->
+<!--分类详情 开始-->
+<div class="modal fade" id="classifyDetail_modal" tabindex="-1" role="dialog" aria-labelledby="classifyDetail_modal_label" aria-hidden="true" data-backdrop="false" data-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+                <h4 class="modal-title" id="classifyDetail_modal_label">流程分类</h4>
+            </div>
+
+          <div class="modal-row modalbody">
+                <div class="set-group">
+                    <div class="set-label">流程分类名</div>
+                    <div class="set">
+                        <input type="text" class="short classifyName" id="classifyDetail_modal_countPerPage" value="xxxxx" readonly>
+                    </div>
+                    <div class="set-label">描述</div>
+                    <div class="set">
+                        <textarea  class="classifyDescrib"  value="xxxxx" rows="4"  readonly></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer fifty-fifty">
+                <a class="btn btn-transparency btn-lg btnDetail" data-dismiss="modal">取消</a>
+                <a class="btn btn-transparency btn-lg btnDetail btnDetailSure" id="newDoc_modal_submit" >更新</a>
+            </div>
+
+            <!-- <div class="modal-row modalfooter">
+               <button type="button" class="btn btn-default btnDetail" data-dismiss="modal" >取消</button>
+               <button type="button" class="btn btn-default btnDetail"  data-dismiss="modal" data-toggle="modal" data-target="#classifyModify_modal">更新</button>
+             </div>-->
+
+        </div>
+    </div>
+</div>
+<!--分类详情 结束-->
+
+<!--表单开始-->
+    <!--表单复制开始-->
+    <div class="modal fade" id="formCopy_modal" tabindex="-1" role="dialog" aria-labelledby="formCopy_modal_label" aria-hidden="true" data-backdrop="false" data-keyboard="false">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+            </div>
+        </div>
+    </div>
+    <!--表单复制结束-->
+    <!--表单移动开始-->
+    <div class="modal fade" id="formMove_modal" tabindex="-1" role="dialog" aria-labelledby="formMove_modal_label" aria-hidden="true" data-backdrop="false" data-keyboard="false">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+            </div>
+        </div>
+    </div>
+    <!--表单移动结束-->
+    <!--表单新建开始-->
+    <div class="modal fade" id="formBuild_modal" tabindex="-1" role="dialog" aria-labelledby="formBuild_modal_label" aria-hidden="true" data-backdrop="false" data-keyboard="false" >
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+                    <h4 class="modal-title" data-toggle="modal" id="newform_modal_label">新建表单</h4>
+                </div>
+                <div class="modal-body newform">
+                    <div class="input-file">
+                        <span class="group-laber">表单名称</span>
+                        <span class="inputBox"><input type="text" class="form-control "  aria-describedby="basic-addon2" id="input_filename" maxlength="20"></span>
+                    </div>
+                    <div class="input-file"style="margin-top: -5px">
+                        <span class="group-laber" style="height: 50px;line-height: 50px">表单描述</span>
+                        <textarea class="form-control"  aria-describedby="basic-addon2" id="input_filedes" maxlength="100"></textarea>
+                    </div>
+                    <div class="input-file" style="margin-top: 20px">
+                        <span class="group-laber">表单分类</span>
+                        <div class="">
+                            <ul class="list-inline">
+                                <li class="dropdown addborder">
+                    <span id="power-span" class="dropdown-toggle" style="width:100%;display:block" data-toggle="dropdown" data-hover="dropdown" data-delay="50" role="button" aria-expanded="false">
+                        <span term="4"style="margin-left:-10px"></span>
+                        <span class="caret" style="float: right;margin-top: 8px;" ></span>
+                    </span>
+                                    <ul class="dropdown-menu batch-menu formClassify newbuilde" role="menu" style="min-width: 95px">
+                                       @* <li><a href="#" term="1">人事工作类</a></li>
+                                        <li class="divider short"></li>
+                                        <li><a href="#" term="2">人事类</a></li>
+                                        <li class="divider short"></li>
+                                        <li><a href="#" term="3">采购类</a></li>
+                                        <li class="divider short"></li>
+                                        <li><a href="#" term="4">销售类</a></li>
+                                        <li class="divider short"></li>
+                                        <li><a href="#" term="5">日常工作类</a></li>
+                                        <li class="divider short"></li>
+                                        <li><a href="#" term="6">销售采购类</a></li>*@
+                                    </ul>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer fifty-fifty">
+                    <a class="btn btn-transparency btn-lg" data-dismiss="modal">取消</a>
+                    <a class="btn btn-transparency btn-lg" id="newfile_modal_submit">确定</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--表单新建结束-->
+<!-- 预览 开始 -->
+<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" id="preview_modal">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+                <h4 class="modal-title" id="preview_modal_title">预览</h4>
+            </div>
+            <div class="modal-body" id="preview_modal_content">
+                <div id="addflow-mask"></div>
+                <div class="template-title">
+                    <span class="template-name"></span>
+                    <span class="template-desc"></span>
+                </div>
+                <div class="bottom-line"></div>
+                <div style="margin-top: 10px;margin-left:10px;">
+                    <span>标题</span>
+                    <input type="text" class="form-title" id="preview_title">
+                    <span style="margin-left: 5px;">紧急度：</span>
+                    <span class="stars starsR">
+                        <ul>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                        </ul>
+                    </span>
+                </div>
+                <div class="bottom-line"></div>
+                <div style="margin-top: 10px;margin-left:10px;">
+                    <span>创建人</span>
+                    <input id="yulan_createUser" class="addflow-text" type="text">
+                    <span class="addflow-span">创建部门</span>
+                    <span class="dropdown addflow-text createDeparment">
+                        <span  data-toggle="dropdown" aria-expanded="false" style="display: inline-block; width: 100%; height: 33px ; border: 1px solid #ccc;"><!--class="form-control"-->
+                            <span id="department_select"></span><span class="caret"></span>
+                        </span>
+                        <ul class="dropdown-menu department_ul" role="menu">
+                        </ul>
+                    </span>
+                    <span class="addflow-span">创建时间</span>
+                    <span class="optionCell" id="addflow_createtime">
+                        
+                        <input class="emptyInput" id="addflow_createtime_v" placeholder="选择创建日期" />
+                        <em class="icon decplan_icon"></em>
+                    </span>
+                </div>
+                <div id="Label-content">
+                </div>
+            </div>
+
+            <div class="modal-footer fifty-fifty addflow_footer" style="display: none">
+                <a class="btn btn-transparency btn-lg" data-dismiss="modal" id="addflow_cancel" style="width:33.2%">取消</a>
+                <a class="btn btn-transparency btn-lg  addflow_sure" term="1" style="width:33.4%">保存</a>
+                <a class="btn btn-transparency btn-lg addflow_sure" term="2" style="width:33.4%">提交</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 预览 结束 -->
+
+
+<!-- 测试 开始 -->
+<div class="modal fade" id="flow_test_modal" tabindex="-1"  role="dialog" aria-labelledby="flow_test_modal"   aria-hidden="true" data-backdrop="false" data-keyboard="false">
+    <div class="modal-dialog modal-lg" style="margin-left: 200px;z-index: 1031 ">
+        <div class="modal-content" style="height: 620px;">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+                <h4 class="modal-title" data-toggle="modal" id="flow_test_title" >能诚集团请假单</h4>
+            </div>
+            <div class="modal-body">
+                 <div id="test_main_title">能诚集团请假单</div>
+                 <div id="test_des_title">能诚集团请假单</div>
+                 <hr/>
+                 <div class="row" style="padding-left: 9px;">
+                     <div class="form-inline col-xs-8">
+                         <span class="control-label" for="flowTestName" style="width:85px">标题 : </span>
+                         <input type="text" class="form-control" id="flowTestName"  style="width: 80%">
+                     </div>
+                     <div class="col-xs-4">
+                         <span class="control-label" style="margin-top: 7px;display: inline-block;">紧急度 : </span>
+                         <span class="stars starsR">
+                            <ul id="testUrgence">
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                            </ul>
+                         </span>
+                     </div>
+                 </div>
+                 <hr/>
+                 <div class="row" id="testRow"  style="padding-left: 13px;">
+                     <div class="form-group form-inline" >
+                         <span class="control-label" for="test_createPerson">创建人 : </span>
+                         <input type="button" class="form-control" id="test_createPerson" >
+                     </div>
+                     <div class="form-group form-inline" >
+                        <span class="control-label" for="test_createOrg">创建部门 : </span>
+                        <input  type="button" class="form-control" id="test_createOrg" />
+                     </div>
+                     <div class="form-inline">
+                         <span class="control-label" for="test_createPosition" style="vertical-align: top;margin-top: 7px;">创建岗位 : </span>
+                         <div class="dropdown" id="test_createPosition" style="display:inline-block">
+                              <button class="dropdown-toggle" data-toggle="dropdown" data-delay="50" aria-expanded="false">
+                                  <span  class="dropDownSpan textOverFlow"></span>
+                                  <span class="upPic"></span>
+                              </button>
+                             <ul class="dropdown-menu">
+                             </ul>
+                         </div>
+                     </div>
+                 </div>
+                <div id="test_label-content">
+                </div>
+            </div>
+            <div class="modal-footer fifty-fifty">
+                 <a class="btn btn-transparency btn-lg" id="flow_test_save">保存</a>           
+                 <a class="btn btn-transparency btn-lg" id="flow_test_commit">提交</a>           
+                 <a class="btn btn-transparency btn-lg" id="flow_test_back">退回</a>
+                 <a class="btn btn-transparency btn-lg" id="flow_test_agree">同意</a>
+            </div>
+            <!--右边弹窗画面-->
+            <div id="test_rightModal">
+                <h4 style="margin-bottom: 7px;" >流程图</h4>
+                <hr/>
+                <div id="rightContent">
+                    <div class="row">
+                        <span class="control-label" style="margin-right: 10px;">流程特送至 : </span>
+                        <div class="dropdown" id="test_node_list">
+                            <button class="dropdown-toggle" data-toggle="dropdown" data-delay="50" aria-expanded="false">
+                              <span style="display:inline-block"></span>
+                              <span class="upPic"></span>
+                            </button>
+                            <ul class="dropdown-menu">
+                                
+                            </ul>
+                        </div>
+                    </div>
+                    <hr/>
+                    <div id="test_flowPic" style=" height: 445px;">
+
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-6"   id="linkTestRatio" style="margin: 15px;">
+                        </div>
+                        <button class="btn btn-default pull-right" id="endTestBtn"> 结束测试 </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+     </div>
+</div>
+<!-- 测试 结束 -->
+<!-- 人员选择 开始 -->
+
+<!--人资添加开始-->
+<div class="modal fade" id="HR_modal"  tabindex="-1"   role="dialog" aria-labelledby="station_modal_label" aria-hidden="true" data-backdrop="false" data-keyboard="false">
+    <div class="modal-dialog"  style="z-index: 1032">
+        <div class="modal-content">
+            @Html.Partial("~/Views/Shared/PersonSelect.cshtml")
+        </div>
+    </div>
+</div>
+<!--人资添加结束-->
+
+
+<!-- 人员选择 结束 -->
+
+
+<!--表单结束-->
+    </div>
+
+@*@section Remark_JS {
+    <script src="../../Libs/dotdotdot/jquery.dotdotdot.js"></script>
+    <script src="../../Libs/jQuery-ui/jquery-ui.js"></script>
+    <script src="../../Scripts/common/units.js"></script>
+    <script src="../../Scripts/common-bootstrap/common.js"></script>
+    <script src="../../Scripts/component/searchPopup.js"></script>
+    <script src="../../Scripts/component/dount.js"></script>
+    <script src="../../Scripts/flow/flowClassify.js"></script>
+    <script src="../../Scripts/flow/flowClassify-form.js"></script> 
+    <script src="~/Scripts/flow/widgetFormResolver.js"></script>
+    
+    <script src="~/Libs/bootstrap-select/js/bootstrap-select.js"></script>
+    <script src="~/Scripts/component/searchPopup.js"></script>
+}*@
+
+<script src="../../Libs/dotdotdot/jquery.dotdotdot.js"></script>
+
+    <script src="~/Scripts/flow/widgetFormResolver.js"></script>
+    <script src="~/Scripts/component/flowChart.js"></script>
+    <script src="../../Scripts/flow/flowClassify.js"></script>
+    <script src="../../Scripts/flow/flowClassify-form.js"></script> 
+    
+<!-- 本页调用的JS 开始 -->
+

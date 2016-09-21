@@ -1,0 +1,147 @@
+﻿<!-- 本页所需的样式 开始 -->
+<link rel="stylesheet" href="../../Styles/SystemSetting/bankInfoManage.css"/>
+<!-- 本页所需的样式 结束 -->
+
+<!-- 页面内容 开始 -->
+
+<div class="row">
+    <div id="dateContainer" class="col-xs-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <div class="panel-title">
+                    后台管理
+                    <div class="pull-right">
+                        <a href="#bankcard_add_modal" data-toggle="modal" data-target="#bankcard_add_modal">新增</a>
+                      
+                    </div>
+                </div>
+            </div>
+            <div class="panel-body pos-r">
+                <table class="table" id="bankInfo">
+                    <thead>
+                    <tr>
+                        <th>卡号前6位</th>
+                        <th>开户行</th> 
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>123456</td>
+                        <td>中国建设银行</td>
+                        <td>VISA龙卡</td>
+                        <td>修改 删除</td>
+                    </tr>
+                    <tr>
+                        <td>123456</td>
+                        <td>中国建设银行</td>
+                        <td>VISA龙卡</td>
+                        <td>修改 删除</td>
+                    </tr><tr>
+                        <td>123456</td>
+                        <td>中国建设银行</td>
+                        <td>VISA龙卡</td>
+                        <td>修改 删除</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 弹出层 开始 -->
+<div class="modal fade" id="bankcard_add_modal" tabindex="-1" role="dialog" aria-labelledby="bankcard_add_modal" aria-hidden="true" data-backdrop="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+                <h4 class="modal-title">新增</h4>
+            </div>
+            <div class="modal-body" style="min-height: 200px">
+                <form class="form-horizontal">
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <div class="form-group">
+                                <label class="control-label col-xs-4">卡号前6位:</label>
+                                <div class="col-xs-8">
+                                    <input type="text" class="form-control" id="bankcard_add_number" maxlength="6">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-6">
+                            <div class="form-group">
+                                <label class="control-label col-xs-4">开户行:</label>
+                                <div class="col-xs-8">
+                                    <select class="form-control" id="bankcard_add_opening">
+                                       
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <div class="form-group">
+                            
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer fifty-fifty">
+                <a class="btn btn-transparency btn-lg" data-dismiss="modal" id="bankcard_add_cancel">取消</a>
+                <a class="btn btn-transparency btn-lg" id="bankcard_add_submit">确定</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="bankcard_change_modal" tabindex="-1" role="dialog" aria-labelledby="bankcard_change_modal" aria-hidden="true" data-backdrop="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+                <h4 class="modal-title">修改</h4>
+            </div>
+            <div class="modal-body" style="min-height: 200px">
+                <form class="form-horizontal">
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <div class="form-group">
+                                <label class="control-label col-xs-4">卡号前6位:</label>
+                                <div class="col-xs-8">
+                                    <input type="text" class="form-control" id="bankcard_change_number">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-6">
+                            <div class="form-group">
+                                <label class="control-label col-xs-4">开户行:</label>
+                                <div class="col-xs-8">
+                                    <select class="form-control" id="bankcard_change_opening">
+                                    
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-6">
+                          
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer fifty-fifty">
+                <a class="btn btn-transparency btn-lg" data-dismiss="modal" id="bankcard_change_cancel">取消</a>
+                <a class="btn btn-transparency btn-lg" id="bankcard_change_submit">确定</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 弹出层 结束 -->
+
+<!-- 页面内容 结束 -->
+<script src="../../Scripts/SystemSetting/bankInfoManage.js"></script>
+<!-- 本页调用的JS 结束 -->

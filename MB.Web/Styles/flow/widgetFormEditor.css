@@ -1,0 +1,426 @@
+.form-head{
+    padding: 10px 10px 0;
+    border-bottom: 1px solid #e3e3e3;
+}
+.form-head .control-content{
+    margin-bottom: 10px;
+}
+.form-head .widget-mask{
+    right: 0;
+}
+.form-content{
+    height: 600px;
+    padding-top: 5px;
+    margin-bottom: 31px;
+    overflow: auto;
+}
+.form-content .widget-item{
+    position: relative;
+    margin: 10px;
+    padding: 5px;
+    border: 1px solid transparent;
+}
+.form-content .layout .widget-item{
+    margin: 5px;
+}
+.form-content .widget-item.layout{
+    border: none;
+    padding: 0;
+}
+.form-content .widget-item:hover,
+.form-content .widget-item.active{
+    border-color: #ccc;
+    background-color: #eee;
+}
+
+.form-content .widget-item .radio-inline,
+.form-content .widget-item .checkbox-inline,
+.form-content .widget-item .checkbox,
+.form-content .widget-item .radio{
+    margin-right: 10px;
+    margin-left: 0;
+    line-height: 1.6;
+}
+.form-content .widget-item .radio-inline span,
+.form-content .widget-item .checkbox-inline span,
+.form-content .widget-item .checkbox span,
+.form-content .widget-item .radio span{
+    display: inline-block;
+}
+.form-content .form-group{
+    display: table;
+    width: 100%;
+    margin-bottom: 0;
+}
+.form-content .control-label{
+    float: none;
+    display: table-cell;
+    vertical-align: middle;
+}
+.form-content .control-content{
+    display: table-cell;
+}
+
+
+.form-footer{
+    position: absolute;
+    display: table;
+    bottom: 0;
+    width: 100%;
+    background-color: #f5f5f5;
+}
+.form-footer .btn{
+    display: table-cell;
+    border: none;
+}
+.form-footer .btn + .btn{
+    border-left: 1px solid #e3e3e3;
+}
+
+.widget_placeholder{
+    display: block;
+    height: 40px;
+    margin: 10px;
+    border: 1px dashed #d9534f;
+}
+.layout .widget_placeholder{
+    margin: 5px;
+}
+
+.widget-item .table-row{
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+}
+.layout-divide,
+.layout-operate,
+.field-container,
+.field-operate{
+    display: table-cell;
+}
+.layout-operate,
+.field-operate,
+table.account-table .component[wtype='label'] .field-operate,
+table.account-table .component[wtype='line'] .field-operate{
+    position: static;
+    visibility: hidden;
+    width: 30px;
+    padding-left: 10px;
+    vertical-align: middle;
+}
+.layout-operate>.glyphicon,
+.field-operate>.glyphicon{
+    display: block;
+    padding: 4px 3px;
+}
+.field-operate>.glyphicon-remove:hover{
+    color: #d9534f;
+}
+.layout-cell{
+    float: none;
+    display: table-cell;
+    height: 50px;
+    border: dashed 1px #ccc;
+    vertical-align: top;
+}
+.layout-cell:hover{
+    border-color: #aaa;
+}
+
+.account-label{
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-bottom: none;
+}
+.account-description{
+    padding: 5px;
+    margin-bottom: 0;
+    border: 1px solid #ccc;
+    border-bottom: none;
+    word-break: break-all;
+}
+.account-label:empty{
+    display: none;
+}
+.account-description:empty{
+    display: none;
+}
+table.account-table{
+    width: 100%;
+    table-layout: fixed;
+}
+/*table.account-table td{*/
+    /*vertical-align: top;*/
+/*}*/
+table.account-table .col-title{
+    display: none;
+    width: 264px;
+    height: 31px;
+    padding: 5px;
+    border: 1px solid #ccc ;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+table.account-table .layout-cell{
+    width: 258px;
+    height: 80px;
+    border: 1px solid #ccc;
+}
+table.account-table .layout-cell:first-child{
+    border-left: none;
+}
+table.account-table .layout-cell:last-child{
+    border-right: none;
+}
+table.account-table .control-label{
+    display: block;
+    width: 100%;
+    margin-bottom: 5px;
+    border-bottom: 1px solid #ccc;
+}
+table.account-table .control-label.empty{
+    display: none;
+}
+table.account-table .layout-cell .label-text{
+    width: 200px;
+}
+table.account-table .layout-cell .sign-requ .label-text{
+    width: 190px;
+}
+table.account-table .control-description{
+    display: none !important;
+}
+table.account-table .control-content{
+    display: block;
+    margin-left: 0;
+}
+table.account-table .widget-mask{
+    right: 0;
+}
+table.account-table .field-operate{
+    position: absolute;
+    top: 10px;
+    right: 5px;
+    z-index: 3;
+}
+
+
+textarea{
+    resize: none;
+}
+.widget-label{
+    padding: 5px;
+    min-height: 29px;
+    word-break: break-all;
+}
+
+.widget-item.active .layout-operate,
+.widget-item.active .field-operate{
+    visibility: visible;
+}
+
+.sign-requ{
+    position: relative;
+    padding-left: 10px;
+}
+.sign-requ:before{
+    content: "*";
+    position: absolute;
+    display: block;
+    left: 0;
+    color: #ff0000;
+}
+
+
+.line{
+    margin-top: 10px;
+    border-top: 1px #c3c3c3;
+}
+.widget-editor .line{
+    width: 200px;
+}
+.line.line-solid{
+    border-top-style: solid;
+}
+.line.line-double{
+    height: 5px;
+    border-top-style: solid;
+    border-bottom: 1px solid #c3c3c3;
+}
+.line.line-dashed{
+    border-top-style: dashed;
+}
+
+.widget-mask{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 30px;
+    z-index: 2;
+}
+.move-handle{
+    cursor: move;
+}
+
+.control-label{
+    float: left;
+    display: block;
+    width: 60px;
+    line-height: 33px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.control-label .label-text{
+    width: 60px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.control-label.sign-requ .label-text{
+    width: 50px;
+}
+
+.layout-cell .control-label,
+.layout-cell .control-label .label-text{
+    width: 40px;
+}
+.layout-cell .control-label.sign-requ .label-text{
+    width: 30px;
+}
+
+.control-content{
+    display: block;
+    margin-left: 60px;
+    line-height: 33px;
+}
+.widget-item .control-content{
+    width: 100%;
+}
+.control-description{
+    margin-bottom: 2px;
+    border-bottom : 1px solid #c3c3c3;
+    word-break: break-all;
+    line-height: 1.6;
+}
+.control-description:empty{
+    display: none;
+}
+
+.form-content .small{
+    width: 60%;
+}
+.form-content .medium{
+    width: 80%;
+}
+.form-content .large{
+    width: 100%;
+}
+
+.form-control.form-time{
+    display: inline-block;
+    /*width: 150px;*/
+}
+/*.form-time.small{*/
+    /*width: 110px;*/
+/*}*/
+/*.form-time.medium{*/
+    /*width: 145px;*/
+/*}*/
+/*.form-time.large{*/
+    /*width: 180px;*/
+/*}*/
+.layout-cell .field-operate{
+    width: 20px;
+    padding-left: 5px;
+}
+.layout-cell .widget-mask,
+table.account-table .component[wtype='label'] .widget-mask,
+table.account-table .component[wtype='line'] .widget-mask{
+    right: 20px;
+}
+/*.layout-cell .form-control.form-time{*/
+    /*display: block;*/
+    /*width: 100%;*/
+    /*padding: 0;*/
+/*}*/
+table.account-table .form-time.small{
+    width: 60%;
+}
+table.account-table .form-time.medium{
+    width: 80%;
+}
+table.account-table .form-time.large{
+    width: 100%;
+}
+.widget-item.layout.ui-draggable-dragging,
+.widget-item.ui-draggable-dragging{
+    width: 129px;
+    padding: 5px 30px;
+    margin: 10px 10px 0;
+    border: 1px solid #ccc;
+}
+
+.formulaList{
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+}
+.formulaList li{
+    display: table-row;
+}
+.formula-text{
+    display: table-cell;
+    color: #fbac0f;
+    word-break: break-all;
+}
+.formula-operate{
+    display: table-cell;
+    width: 20px;
+    text-align: center;
+    vertical-align: middle;
+    visibility: hidden;
+}
+.formulaList li:hover{
+    background-color: #eee;
+}
+.formulaList li:hover .formula-operate{
+    visibility: visible;
+}
+.form-content .account-container{
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    overflow-x: auto;
+}
+
+.layout:not(.onlyCell) .layout-cell .space-line{
+    display: block;
+    height: 5px;
+}
+.layout.onlyCell .layout-cell .form-time.large,
+.doubleDate .form-time.large{
+    width: 45%;
+}
+.layout.onlyCell .layout-cell .form-time.medium,
+.doubleDate .form-time.medium{
+    width: 35%;
+}
+.layout.onlyCell .layout-cell .form-time.small,
+.doubleDate .form-time.small{
+    width: 25%;
+}
+.layout-cell .doubleDate .form-time.large{
+    width: 100%;
+}
+.layout-cell .doubleDate .form-time.medium{
+    width: 80%;
+}
+.layout-cell .doubleDate .form-time.small{
+    width: 60%;
+}
+.form-title-main{
+    font-size: 16px;
+    color: #4d4d4d;
+}

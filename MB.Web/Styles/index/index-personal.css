@@ -1,0 +1,1533 @@
+
+/* 内容 */
+
+.conL,
+.conR {
+    float: left;
+    width: 860px;
+    /*margin-top: 65px;*/
+}
+
+.conR {
+    width: 330px;
+    margin-left: 10px;
+}
+/* 计划、流程列表 开始 */
+
+.conLOne {
+    float: left;
+    width: 423px;
+    height: 350px;
+    background-color: #f9f9f9;
+    border: 1px solid #bbb;
+    /*display: none;*/
+}
+
+.flow {
+    margin-left: 9px;
+}
+
+.conLOne .title {
+    float: left;
+    width: 100%;
+    height: 39px;
+    border-bottom: 1px solid #bbb;
+}
+
+.conLOne .title .TOne,
+.conLOne .title .TTwo {
+    float: left;
+    width: auto;
+    height: 39px;
+    line-height: 39px;
+    margin-left: 10px;
+    color: #58b557;
+    font-size: 14px;
+    cursor: pointer;
+}
+.conLOne .title .flow{
+    color:#373737;
+}
+.conLOne .title .arrowsBBBCom {
+    margin-top: 12px;
+    margin-bottom: 3px;
+}
+
+.conLOne .title .arrowsBBBDiv {
+    left: -45px;
+    padding-top: 0px;
+}
+
+.conLOne .title .TTwo {
+    color: #bbb;
+    font-size: 12px;
+}
+
+.conLOne .title .addCom {
+    margin-top: 8px;
+    margin-right: 8px;
+}
+/* 计划、流程列表 开始 */
+
+.planUl {
+    float: left;
+    width: 100%;
+    height: 280px;
+    overflow: hidden;
+}
+
+.planUl li {
+    float: left;
+    width: 95.2%;
+    height: 30px;
+    margin: 0 2.4%;
+}
+
+.planUl li.line {
+    float: left;
+    width: 95.2%;
+    height: 0px;
+    border-bottom: 1px solid #e3e3e3;
+}
+
+.planUl li a {
+    float: left;
+    width: 58%;
+    height: 30px;
+    line-height: 30px;
+    color: #686868;
+    overflow: hidden;
+}
+
+.planUl li a:hover {
+    color: #58b456;
+}
+
+.planUl li span {
+    float: left;
+    width: 20%;
+    height: 30px;
+    line-height: 30px;
+    text-align: right;
+    margin-left: 2%;
+}
+
+.conLOne .more {
+    float: left;
+    width: 100%;
+    height: 29px;
+    line-height: 29px;
+    text-align: center;
+    border-top: 1px solid #bbb;
+    cursor: pointer;
+}
+.conLOne .more:hover{
+    color:#58b557;
+    -webkit-column-rule: #58b557;
+    -moz-column-rule: #58b557;
+    -o-column-rule: #58b557;
+    column-rule: #58b557;
+}
+/* 计划、流程列表 结束 */
+/* 计划、流程列表 开始 */
+
+.plan .planUl li {
+    float: left;
+    width: 92.8%;
+    height: 30px;
+    margin-right: 2.4%;
+    margin-left: 4.8%;
+}
+
+.plan .planUl li.line {
+    float: left;
+    width: 92.8%;
+    height: 0px;
+    border-bottom: 1px solid #e3e3e3;
+}
+/* 紧急、重要度 开始 */
+.plan .planUl li .level {
+	position:relative;
+    float: left;
+    width: 4%;
+    height: 15px;
+	margin-top:8px;
+    margin-left: -4%;
+    background: url(../../Images/common/level.png) no-repeat;
+	cursor:pointer;
+}
+.plan .planUl li .level:hover {
+    background: url(../../Images/common/levelHit.png) no-repeat;
+}
+.level .levelDiv {
+	position:absolute;
+	top:0;
+	left:15px;
+	display:none;
+	width:70px;
+	height:44px;
+}
+.levelDiv .levelBg  {
+	position:absolute;
+	top:0;
+	left:0;
+	width:70px;
+	height:44px;
+	background:#000;
+	border-radius:3px;
+	filter:alpha(opacity=50); /*IE滤镜，透明度50%*/
+	-moz-opacity:0.5; /*Firefox私有，透明度50%*/
+	opacity:0.5;/*其他，透明度50%*/
+}
+.levelDiv .levelList li {
+	position:relative;
+	width:70px;
+	height:22px;
+	line-height:22px;
+	text-align:center;
+	margin:0;
+	padding:0;
+	color:#fff;
+}
+.levelDiv .levelList li span {
+	float:none;
+	line-height:22px;
+	color:#fff;
+}
+/* 紧急、重要度 结束 */
+.plan .planUl li a .text {
+    width: auto;
+    text-align: left;
+    max-width: 89%;
+    margin: 0;
+}
+
+.plan .planUl li a .rate {
+    float: none;
+    width: auto;
+    height: 30px;
+    color: #eb2d2c;
+}
+
+.plan .planUl li span .importDate {
+    float: right;
+    width: auto;
+    padding: 0 10px;
+    height: 20px;
+    line-height: 20px;
+    margin: 5px 0;
+    color: #fff;
+    background-color: #fbac0f;
+}
+
+.plan .planUl li span .overDate {
+    float: right;
+    width: auto;
+    color: #eb2d2c;
+}
+/* 计划、流程列表 结束 */
+/* 计划、流程列表 结束 */
+/* 工效价值、TOP 开始 */
+
+.conLTwo {
+    width: 858px;
+    margin-top: 15px;
+}
+
+.conLTwo .YMHit {
+    color: #58b456;
+}
+
+.conLTwo .LMonth {
+    float: left;
+    width: 30px;
+    height: 34px;
+    line-height: 34px;
+    text-align: center;
+    margin-top: 123px;
+    color: #fff;
+    background-color: #000;
+    filter: alpha(opacity=50);
+    /*IE滤镜，透明度50%*/
+    
+    -moz-opacity: 0.5;
+    /*Firefox私有，透明度50%*/
+    
+    opacity: 0.5;
+    /*其他，透明度50%*/
+    
+    cursor: pointer;
+}
+.LMonth.disabled {
+    background-color: #919191;
+    cursor: default;
+}
+.conLTwo .LMonth:hover{
+    color:#58b557;
+}
+.LMonth.disabled:hover{
+    color:#fff;
+}
+#graph-wrapper .titles {
+    /*float: left;*/
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    display: block;
+}
+
+#graph-wrapper .borders-bottom {
+    position: absolute;
+    top:249px;
+    left:35px;
+    width:760px;
+    height:0;
+    border-bottom: 2px solid #b2dab3;
+}
+
+#graph-wrapper .borders-left {
+    position: absolute;
+    top:30px;
+    left:35px;
+    width:0;
+    height:220px;
+    border-left: 2px solid #b2dab3;
+}
+
+.conLTwo .more {
+    width: 93%;
+    padding-left: 7%;
+}
+
+.graph-info .linesOne:before {
+    background: #fbac0f;
+}
+
+.graph-info .linesTwo:before {
+    background: #58b456;
+}
+/* 工效价值、TOP 结束 */
+/* 日程安排详情 开始*/
+
+.conLThree {
+    width: 858px;
+    height: 735px;
+    border: 1px solid #bbb;
+    background: #f9f9f9;
+    display: none;
+}
+
+.conLThree .calendarDate {
+    width: 858px;
+    height: 39px;
+    border-bottom: 1px solid #bbb;
+}
+
+#showCalendarDate {
+    margin: 10px 8px;
+    background: #f9f9f9;
+}
+
+.conLThree .calendarDetails {
+    width: 100%;
+    height: 678px;
+}
+
+.calendarDetails .ui-datepicker {
+    width: 100%;
+    height: 676px;
+    margin: 0;
+    padding: 0;
+}
+
+.calendarDetails .ui-datepicker-header {
+    display: none;
+}
+
+.calendarDetails .ui-datepicker-calendar {
+    height: 100%;
+    margin: 0;
+}
+
+.calendarDetails .ui-datepicker-calendar thead {
+    height: 36px;
+    border-bottom: 1px solid #bbb;
+}
+
+.calendarDetails .ui-datepicker-calendar td {
+    vertical-align: top;
+    padding-top: 10px;
+    overflow: hidden;
+}
+
+.conLThree .dateThings {
+    position: absolute;
+    float: left;
+    top:40px;
+    left:15px;
+    width: 120px;
+    height: 90px;
+    display: none;
+}
+.conLThree .dateThings small{
+    display: block;
+    margin:3px 0;
+}
+.conLThree .arrowRight{
+    background: url(../../Images/common/arrowsBBR.png);
+    display: block;
+    width: 24px;
+    height:24px;
+    position: absolute;
+    top:50%;
+    display: none;
+    right:0;
+    cursor: pointer;
+    padding:0;
+    margin-right: -3px;
+}
+.conLThree .arrowLeft{
+    background: url(../../Images/common/arrowsBBL.png);
+    display: block;
+    width: 24px;
+    height:24px;
+    position: absolute;
+    top:50%;
+    display: none;
+    left:0;
+    cursor: pointer;
+    padding:0;
+    margin-left: -3px;
+}
+.calendarDetails td.ui-datepicker-today a{
+    background: #f9f9f9;
+    color:#222;
+}
+/* 日程安排详情 结束*/
+/* 内容右边 开始 */
+/* 新建计划 */
+
+.conR .addPlan {
+    margin-bottom:10px;
+    line-height: 30px;
+    text-align: center;
+    color: #fff;
+    background-color: #fbac0f;
+    border: 1px solid #fbbf3d;
+    cursor: pointer;
+}
+/* 我的信息 开始 */
+
+.conR .mine {
+    float: left;
+    width: 330px;
+    height: 208px;
+    margin-top: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid #bbb;
+}
+
+.mine .myself {
+    float: left;
+    width: 100%;
+    height: 79px;
+    border-bottom: 1px solid #bbb;
+	cursor:pointer;
+}
+
+.mine .myself .introduce {
+    float: left;
+    width: 100px;
+    height: 49px;
+    margin: 15px 0 15px 10px;
+}
+
+.mine .myself .introduce span {
+    float: left;
+    width: 100%;
+}
+
+.mine .myself .introduce .name {
+    height: 29px;
+    line-height: 29px;
+    color: #373737;
+    font-size: 14px;
+}
+
+.mine .myself .introduce .post {
+    height: 20px;
+    line-height: 20px;
+}
+
+.mine .myself .portraitBox {
+    float: right;
+    width: 70px;
+    height: 70px;
+    margin: 4px 5px 3px 31px;
+    background-color: #fff;
+    border: 1px solid #bbb;
+    border-radius: 50%;
+}
+
+.portraitBox .portrait {
+    float: left;
+    width: 64px;
+    height: 64px;
+    margin: 3px;
+    background: url(../../Images/common/portrait.png) no-repeat;
+    border-radius: 50%;
+}
+
+.mine .planUl {
+    height: 126px;
+}
+
+.mine .planUl li a {
+    float: left;
+    width: 78%;
+    height: 30px;
+    line-height: 30px;
+    color: #686868;
+    overflow: hidden;
+}
+
+.planUl li a:hover {
+    color: #58b456;
+}
+
+
+.planUl li span {
+    float: left;
+    width: 30%;
+    height: 30px;
+    line-height: 30px;
+    text-align: left;
+    margin-left: 2%;
+}
+.index_span_text {
+    float:right !important;
+    text-align: right !important;
+}
+.mine .planUl li span .news {
+    float: right;
+    width: auto;
+    height: 18px;
+    margin: 6px 0;
+}
+
+.mine .planUl li span .news .newsL,
+.mine .planUl li span .news .newsR {
+    display: block;
+    float: left;
+    width: 8px;
+    height: 18px;
+    margin: 0;
+}
+.mine .planUl li span .news .newsL{
+    width: 7px;
+}
+.mine .planUl li span .news .newsL {
+    background: url(../../Images/plan/newsL.png) no-repeat;
+}
+
+.mine .planUl li span .news .newsR {
+    background: url(../../Images/plan/newsR.png) no-repeat;
+}
+
+.mine .planUl li span .news .newsM {
+    position: relative;
+    z-index: 1;
+    display: block;
+    float: left;
+    width: auto;
+    height: 18px;
+    line-height: 18px;
+    margin: 0;
+    color: #fff;
+    background: url(../../Images/plan/newsM.png);
+}
+/* 我的信息 结束 */
+/* 查询 */
+
+.conR .inquire {
+    float: left;
+    width: 330px;
+    height: 28px;
+    margin-top: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid #bbb;
+    position: relative;
+}
+
+.conR .inquire .search {
+    /*display: block;*/
+    float: left;
+    width: 24px;
+    height: 24px;
+    margin: 2px;
+    background: url(../../Images/common/search.png) no-repeat;
+    cursor: pointer;
+}
+
+.conR .inquire input {
+    /*display: block;*/
+    /*position: absolute;*/
+    right:0;
+    float: left;
+    width: 292px;
+    height: 26px;
+    padding-left: 10px;
+    background-color: #f9f9f9;
+    border: 0;
+}
+/* 日程安排 开始 */
+
+.conR .calen {
+    position: relative;
+    float: left;
+    margin-top: 10px;
+    height: 278px;
+    width: 330px;
+    border: 1px solid #bbb;
+    background: #f9f9f9;
+    box-shadow:0 1px 2px 0 #bbb;
+}
+
+.calen .title {
+    float: left;
+    width: 98.75%;
+    height: 38px;
+    line-height: 38px;
+    padding-left: 1.25%;
+    color: #373737;
+    font-size: 16px;
+    border-bottom: 1px solid #bbb;
+    box-shadow:0 1px 2px 0 #bbb;
+}
+.calen .setDate{
+    position: absolute;
+    top:45px;
+    left:110px;
+    width: 110px;
+    height:24px;
+    background: #f9f9f9;
+    line-height: 24px;
+}
+.calen .setDate input{
+   /*position: absolute;*/
+    border:none;
+    height:16px;
+    /*padding-bottom: 3px;    */
+    /*top:3px;*/
+    text-align: right;
+    background: #f9f9f9;
+    margin:0;
+    padding:0;
+    /*line-height: 12px;*/
+}
+.calen .setDate span{
+    /*display: block;*/
+    /*position: absolute;*/
+    /*top:2px;*/
+}
+.calen .setDate span.labelYear{
+    left:44px;
+}
+.calen .setDate span.labelMonth{
+    right:0;
+}
+.calen .calenYear{
+    width: 42px;
+}
+.calen .calenMonth{
+    width: 18px;
+    left:60px;
+}
+/* 日历 开始 */
+
+.calen .calendar {
+    float: left;
+    height: 232px;
+    width: 100%;
+    margin-top:1px; 
+}
+
+.ui-datepicker {
+    background: #f9f9f9;
+    width: 98%;
+    height: 98%;
+    border: 0;
+}
+
+.ui-datepicker .ui-state-default {
+    margin: 0 auto;
+}
+
+.ui-datepicker-header {
+    width: 100%;
+    background: #f9f9f9;
+    color: #373737;
+    font-size: 12px;
+    border: 0;
+}
+
+.ui-state-default,
+.ui-widget-content .ui-state-default,
+.ui-widget-header .ui-state-default {
+    border: 0;
+    background: #f9f9f9;
+    font-size: 12px;
+    color: #222;
+    text-align: center;
+    width: 22px;
+    height: 22px;
+    line-height: 22px;
+}
+
+.ui-datepicker-today .ui-state-highlight {
+    border: 0;
+    background: #eee;
+}
+.ui-datepicker-info .ui-state-default{
+    background-color: #fbac0f;
+    color:#fff
+}
+.ui-state-hover,
+.ui-widget-content .ui-state-hover,
+.ui-widget-header .ui-state-hover,
+.ui-state-focus,
+.ui-widget-content .ui-state-focus,
+.ui-widget-header .ui-state-focus {
+    border: 0;
+    background-color: #f9f9f9;
+}
+
+.ui-state-default.ui-state-hover {
+    background: #eb2d2c;
+    color: #fff;
+}
+
+.ui-datepicker-prev.ui-corner-all ,.ui-datepicker-next.ui-corner-all{
+    width: 24px;
+    height: 24px;
+    top:0;
+}
+.ui-datepicker-prev.ui-corner-all{
+    left:0;
+}
+.ui-datepicker-next.ui-corner-all{
+    right:0;
+}
+.ui-datepicker-prev.ui-corner-all span,.ui-datepicker-next.ui-corner-all span{
+    width: 24px;
+    height: 24px;
+    top:7px;
+    left:8px;
+}
+.ui-datepicker select.ui-datepicker-year,.ui-datepicker select.ui-datepicker-month{
+    width: 65px;
+}
+.ui-state-hover.ui-datepicker-prev-hover{
+    background: url('../../Images/common/arrowsBBLHit.png');
+}
+.ui-state-hover.ui-datepicker-next-hover{
+    background: url('../../Images/common/arrowsBBRHit.png');
+}
+.ui-icon.ui-icon-circle-triangle-w {
+    background: url(../../Images/common/arrowsBBL.png);
+}
+
+.ui-icon.ui-icon-circle-triangle-e {
+    background: url(../../Images/common/arrowsBBR.png);
+}
+
+.ui-datepicker-current-day .ui-state-active {
+    background: #eb2d2c;
+    color: #fff;
+}
+/* 每日事项 开始 */
+
+.conR .calThing {
+    background-color: #f9f9f9;
+    border: 1px solid #bbb;
+    border-top:none;
+    float: left;
+    height: 135px;
+    margin-top: 1px;
+    width: 330px;
+    position: relative;
+}
+.calThing .agendaDetails{
+    height: 28px;
+    border-bottom: 1px solid #bbb;
+    position: relative;
+}
+.calThing .agendaDetails span{
+    display: block;
+    position: absolute;
+}
+.calThing .agendaDetails .agendaDetailsTitle{
+    top:5px;
+    left:4px;
+}
+.calThing .agendaDetails .addAgenda{
+    top:2px;
+    right:4px;
+    width: 24px;
+    height:24px;
+    background: url('../../Images/common/add.png');
+    cursor: pointer;
+}
+.calThing .agendaDetails .addAgenda:hover{
+    background: url('../../Images/common/addHit.png');   
+}
+.calThing .wrapThings {
+    height:106px;
+}
+
+.calThing .wrapThings p {
+    margin:8px 0 0 25px;
+    position: absolute;
+    float:left;
+    display:none;
+    line-height: 20px;
+    cursor: pointer;
+}
+.calThing span.arrowRight,.calThing span.arrowLeft{
+    display: block;
+    width: 24px;
+    height:24px;
+    position: absolute;
+    top:50%;
+    display: none;
+    cursor: pointer;
+}
+.calThing span.arrowRight{
+    background: url(../../Images/common/arrowsBBR.png);
+    right:0;
+}
+.calThing span.arrowLeft{
+    background: url(../../Images/common/arrowsBBL.png);
+    left:0;
+}
+.calThing span.arrowRight:hover{
+    background: url(../../Images/common/arrowsBBRHit.png);
+}
+.calThing span.arrowLeft:hover{
+    background: url(../../Images/common/arrowsBBLHit.png);
+}
+/* 每日事项 结束 */
+/* 日程安排 结束 */
+/* 弹窗 开始 */
+.popUp .canCon {
+    width:560px;
+    height:40px;
+    margin-top:40px;
+    background-color:#ececec;
+}
+/* 新建日程 开始 */
+#con_addAgenda .upContent{
+    height: 166px;
+    border-bottom: 1px solid #e3e3e3;
+}
+#con_addAgenda .agendaConArea{
+    height: 36px;
+    position: relative;
+    line-height: 36px;
+    margin-bottom: 12px;
+}
+#con_addAgenda .agendaInput,#con_addAgenda textarea{
+    position: absolute;
+    float: left;
+    top:2px;
+    width: 206px;
+    height: 28px;
+    border:1px solid #bbb;
+    line-height: 28px;
+}
+#con_addAgenda .selectTime input{
+    width:233px;
+    height:28px;
+    background: url('../../Images/common/arrowsBBB.png') right no-repeat;
+}
+#con_addAgenda .selectTime input:hover{
+    border:1px solid #58b557;
+    background: url('../../Images/common/arrowsBBBHit.png') right no-repeat;
+}
+#con_addAgenda .selectTime input.startTime{
+    left:42px;
+}
+#con_addAgenda .selectTime input.endTime{
+    left:295px;
+}
+
+.timeList{
+    position: absolute;
+    top:50%;
+    margin-top:-100px;
+    border: 1px solid #bbb;
+    width: 154px;
+    height:auto;
+    background: #fafafa;
+    display: none;
+    z-index: 999999999;
+    box-shadow: 0 0 2px 1px #bbb;
+}
+.startTimeList{
+    left:94px;
+}
+.endTimeList{
+    left:346px;
+}
+.timeList ul{
+    margin:3px 0;
+}
+.timeList li{
+    text-align: center;
+    min-height:22px;
+    line-height: 22px;
+    cursor: pointer;
+}
+.timeList .mins{
+    background: #fff;
+    height: 130px;
+    border:1px solid #bbb;
+    display: none;
+}
+.mins li:hover{
+    color:#58b557;
+}
+#con_addAgenda .agendaAddr input.inputAddr{
+    width: 490px;
+    left:42px;
+}
+#con_addAgenda .agendaMemo textarea.inputMemoArea{
+    width:490px;
+    height:30px;
+    left:42px;
+    padding: 0;
+}
+.mainContent .row{
+    padding: 5px 0;
+}
+.icon{
+    font-size: 0;
+    vertical-align: middle;
+}
+.add-min{
+    display: inline-block;
+    height: 24px;
+    width: 24px;
+    background: url('../../Images/common/add.png') no-repeat;
+    cursor: pointer;
+}
+.add-min:hover{
+    background-image: url("../../Images/common/addHit.png");
+}
+.add-min-grey{
+    display: inline-block;
+    height: 24px;
+    width: 24px;
+    background: url('../../Images/plan/add-mini.png') no-repeat;
+    cursor: pointer;
+}
+.add-min-grey:hover{
+    background-image: url("../../Images/common/addHit.png");
+    background-color: #ffffff !important;
+}
+.add-min-wide{
+    display: inline-block;
+    width: 40px;
+    height: 24px;
+    vertical-align: middle;
+    border: 1px solid #e3e3e3;
+    background: url('../../Images/plan/add-mini.png') 50% no-repeat;
+    cursor: pointer;
+}
+.add-min-wide:hover{
+    border-color: #58b456;
+    background-image: url("../../Images/common/addHit.png");
+}
+.hasborder{
+    border: 1px solid #bbb;
+}
+.hasborder:hover{
+    border-color: #58b456;
+}
+.row .tag{
+    position: relative;
+    padding: 5px 20px 5px 10px;
+    border: 1px solid #fff;
+    display: inline-block;
+    height: 16px;
+    line-height: 16px;
+}
+.row .tag:hover{
+    border-color: #58b456;
+    color:#58b456;
+}
+.row .tag .close{
+    position: absolute;
+    top:5px;
+    right: 6px;
+    cursor: pointer;
+}
+/* 新建日程 结束 */
+/* 日程详情 开始 */
+.layer_Agenda span.showInfo{
+    display: block;
+    position: absolute;
+    top:0;
+    left:50px;
+    font-size: 12px;
+    color: #373737;
+    display: none;
+}
+.layer_Agenda span.showTag{
+    top:210px;
+    left:80px;
+    font-size: 14px;
+}
+.layer_Agenda span.showPartner{
+    /*top:260px;*/
+    left:80px;
+    font-size: 14px;
+    padding-top:10px;
+}
+/* 日程详情 结束 */
+/* 新建计划 开始 */
+
+.mainContent .row{
+    padding: 5px 0;
+}
+.mainContent .optionCell{
+    display: inline-block;
+    width: 31%;
+    padding: 10px 0;
+    display: inline-block;
+}
+.mainContent .optionCell em{
+    margin-right: 5px;
+}
+.mainContent .optionCell input,
+.mainContent .optionCell select{
+    width: 130px;
+}
+.mainContent .optionCell select{
+    cursor: pointer;
+}
+.mainContent .optionCell select option{
+    padding: 0;
+}
+
+
+.line{
+    border: none;
+    border-bottom: solid #e3e3e3 1px
+}
+
+/* 新建计划 结束 */
+/* 个人资料设置 开始 */
+.perData .information {
+    width:520px;
+    height:190px;
+    padding:0 20px;
+}
+.perData .information .portraitDiv {
+    float:left;
+    width:150px;
+    height:190px;
+}
+.perData .information .portraitDiv .portrait {
+    display:block;
+    width:140px;
+    height:140px;
+    margin-top:10px;
+    padding:5px;
+    background-color:#e3e3e3;
+    border:1px solid #bbb;
+    border-radius:50%;
+}
+.perData .information .portraitDiv .portraitCom {
+    margin-top:10px;
+    padding:5px;
+    background-color:#e3e3e3;
+    border:1px solid #bbb;
+    border-radius:50%;
+}
+.perData .information .portraitDiv .alter {
+    display:block;
+    width:150px;
+    height:30px;
+    line-height:30px;
+    text-align:center;
+    color:#fbac0f;
+}
+.perData .information .list {
+    float:left;
+    width:350px;
+    height:135px;
+    margin-top:15px;
+    margin-left:20px;
+}
+.perData .information .list li {
+    width:100%;
+    line-height:44px;
+}
+.perData .information .list li.line {
+    width:100%;
+    border-bottom:1px solid #e3e3e3;
+}
+.perData .information .list li span {
+    color:#373737;
+}
+.perData .set {
+    width:540px;
+    height:auto;
+}
+.perData .set .title {
+    width:520px;
+    height:30px;
+    line-height:30px;
+    padding:0 20px;
+    color:#373737;
+    font-size:14px;
+    background-color:#ececec;
+}
+.perData .set .title .modify {
+    display:block;
+    float:right;
+    width:24px;
+    height:24px;
+    margin-top:3px;
+    background:url(../../Images/plan/modify.png) no-repeat;
+    cursor:pointer;
+}
+.perData .set .list {
+    width:520px;
+    height:auto;
+    padding:10px 20px 0;
+}
+.perData .set .list li {
+    width:100%;
+    line-height:30px;
+    margin-bottom:10px;
+}
+.perData .set .list li span {
+    float:left;
+    width:90px;
+    color:#373737;
+}
+.perData .set .list li input[type="text"] {
+    width:56px;
+    height:26px;
+    line-height:26px;
+    text-align:center;
+    margin-right:10px;
+    border:1px solid #fff;
+}
+.perData .password .list li input[type="text"] {
+    width:220px;
+    padding:0 20px;
+    text-align:left;
+}
+.perData .set .list li input[type="text"].inputHit {
+    border-color:#bbb;
+}
+.popUp .canCon {
+    width:560px;
+    height:40px;
+    margin-top:40px;
+    background-color:#ececec;
+}
+/* 个人资料设置 结束 */
+/* 弹窗 结束 */
+/* 内容右边 开始 */
+
+
+.ztree li span.button.noline_close {
+  background: url("../../Images/common/arrowSolidR.png") no-repeat center !important;
+}
+
+/*新建流程 开始*/
+.bottom-line {
+    border-bottom: 1px solid #dddddd;
+    margin-top: 10px;
+}
+
+ul.dropdown-menu.batch-menu {
+    min-width: 70px;
+    max-width: 100%;
+}
+
+.formClassify li {
+    cursor: pointer;
+}
+
+.row.form-list {
+    margin-top: 10px;
+    height: 450px;
+    overflow: auto;
+    display: block;
+}
+
+.form-list .cell {
+    position: relative;
+    padding: 10px 5px 0;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    height: 100px;
+    /*-moz-opacity:0.3;*/
+    /*opacity: 0.3;*/
+    /*filter:alpha(opacity=70);*/
+}
+
+.img-circle.templateId {
+    width: 30px;
+    height: 30px;
+    /*margin-top: 10px;*/
+    margin-left: 5px;
+    border: 1px solid;
+    text-align: center;
+    line-height: 25px;
+}
+
+.row-flowChunk .info-list {
+    margin-left: 10px;
+    position: absolute;
+    left: 100px;
+    width: 300px;
+    /*margin-right: 180px;*/
+}
+
+.addflow_cell .info-list {
+    margin-left: 10px;
+    position: absolute;
+    left: 40px;
+    width: 100px;
+    /*margin-right: 180px;*/
+}
+
+.nest .title {
+    width: 300px;
+    font-size: 12px;
+}
+
+.addflow_cell .title {
+    width: 90px;
+    font-size: 12px;
+}
+
+.des {
+    margin-top: 3px;
+    line-height: 1.4em;
+    height: 2.8em;
+    position: absolute;
+    -webkit-line-clamp: 2;
+    width: 115px;
+    color: #bbbbbb;
+}
+
+.info-list ul {
+    height: 20px;
+}
+
+.form_preview {
+    float: right;
+    position: initial;
+    margin-top: 68px;
+}
+
+.addflow_select {
+    position: relative;
+    margin: 0 auto;
+    left: 20px;
+    display: none;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+#addflow_modal_search .caret, .addflow-text .caret {
+    position: absolute;
+    left: 122px;
+    top: 8px;
+}
+
+#addflow_modal_search .caret {
+    position: absolute;
+    left: 190px;
+    top: 13px;
+}
+
+#addflow_modal_search .dropdown-menu {
+    width: 100%;
+    top: 30px;
+}
+
+.dropdown, .form_preview {
+    cursor: pointer;
+}
+
+.categoryinfo-div {
+    margin: 5px;
+}
+
+.category-name {
+    margin-bottom: 5px;
+}
+
+.gray-background {
+    background-color: #c0c0c0;
+}
+
+.detial_template_name, .template-name,
+.template-desc, .detail_template_desc {
+    width: 100%;
+    display: block;
+    text-align: center;
+}
+
+.detial_template_name, .template-name {
+    font-size: 18px;
+    color: black;
+    font-weight: 400;
+}
+
+.template-desc, .detail_template_desc {
+    word-wrap: break-word;
+    font-size: 17px;
+}
+
+.detail_form_title, .form-title {
+    margin-left: 22px;
+    width: 60%;
+    height: 33px;
+}
+
+.category_content {
+    height: 200px;
+    overflow: auto;
+}
+
+
+/*五角星 开始*/
+.stars {
+    /*float:left;*/
+    position: absolute;
+    right: 150px;
+    margin-top: 5px;
+}
+
+.urgency {
+    position: absolute;
+    left: 10px;
+    margin-top: -1px;
+}
+
+.stars ul li {
+    float: left;
+    width: 18px;
+    height: 20px;
+    margin-top: -2px;
+    cursor: pointer;
+    list-style-type: none;
+}
+
+.urgency ul li {
+    float: left;
+    width: 18px;
+    height: 20px;
+    margin-top: -2px;
+    list-style-type: none;
+}
+
+.urgencyR ul li {
+    background: url(../../Images/plan/fiveStarR.png) no-repeat;
+}
+
+    .urgencyR ul li.liHit {
+        background: url(../../Images/plan/fiveStarR.png) 0 -20px no-repeat;
+    }
+
+.starsR ul li {
+    background: url(../../Images/plan/fiveStarR.png) no-repeat;
+}
+
+.starsY ul li {
+    background: url(../../Images/plan/fiveStarY.png) no-repeat;
+}
+
+.starsG ul li {
+    background: url(../../Images/plan/fiveStarG.png) no-repeat;
+}
+
+.starsR ul li.liHover,
+.starsR ul li.liHit {
+    background: url(../../Images/plan/fiveStarR.png) 0 -20px no-repeat;
+}
+
+.starsY ul li.liHover,
+.starsY ul li.liHit {
+    background: url(../../Images/plan/fiveStarY.png) 0 -20px no-repeat;
+}
+
+.starsG ul li.liHover,
+.starsG ul li.liHit {
+    background: url(../../Images/plan/fiveStarG.png) 0 -20px no-repeat;
+}
+
+.stars ul li.liHoverNot {
+    background: url(../../Images/plan/fiveStarR.png) no-repeat;
+}
+/*五角星 结束*/
+.emptyInput {
+    /*border: none;*/
+    cursor: pointer;
+}
+
+.addflow-span {
+    margin-left: 10px;
+}
+
+.addflow_dropdown {
+    display: inline-block;
+    width: 13%;
+    height: 20px;
+    vertical-align: middle;
+}
+
+.formdetail_orgsta {
+    display: inline-block;
+    width: 16%;
+    height: 33px;
+    vertical-align: text-top;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.addflow-text {
+    margin-left: 10px;
+    height: 33px;
+    width: 10%;
+}
+
+.optionCell {
+    /*width: 31%;*/
+    padding: 10px 0;
+    display: inline-block;
+}
+
+    .optionCell em {
+        margin-right: 5px;
+    }
+
+    .optionCell input,
+    .optionCell select {
+        width: 150px;
+        height: 33px;
+        margin-left: 10px;
+    }
+
+    .optionCell select {
+        cursor: pointer;
+    }
+
+        .optionCell select option {
+            padding: 0;
+        }
+
+#addflow-mask {
+    position: absolute;
+    width: 100%;
+    z-index: 99999;
+    height: 100%;
+}
+
+.category-line {
+    border-bottom: 1px dashed #dddddd;
+    margin-bottom: 10px;
+}
+
+.xxc_category li {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.addflow-text .department_ul,
+.addflow-text .station_ul,
+.addflow-text .detail_department_ul,
+.addflow-text .detail_station_ul {
+    margin-top: 11px;
+    min-width: 139px;
+}
+
+
+.orderby {
+    cursor: pointer !important;
+}
+
+#category_span {
+    width: 185px;
+    height: 24px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+#categorylist_li {
+    max-width: 196px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.flowDetailMask {
+  display:none;
+  width: 97.5%;
+  height: 100%;
+  position: absolute;
+  top: 30px;
+  left: 0px;
+  z-index: 999999;
+  display: block;
+}
+
+.file {
+    cursor:pointer;
+}
+
+.col-xs-12 {
+  width: 97%;
+}
+.col-xs-4 {
+  width: 31%;
+}
+.fifty-fifty > * {
+      width: 44.0888%;
+}
+/*新建流程 结束*/
+
+.condensed a {
+    padding-bottom:7px !important;
+    padding-top:7px !important;
+}
+.panel-default {
+margin-bottom:10px;
+}
+
+.flowtitle {
+     width: 220px !important;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+
+.conR .autocompleter {
+    margin-top:40px;
+}
+.conR .autocompleter li{
+    padding:3px 5px;
+}

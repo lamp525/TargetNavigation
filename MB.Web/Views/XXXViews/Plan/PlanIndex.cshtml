@@ -1,0 +1,270 @@
+﻿
+<link href="~/Styles/Styles/PlanList/plan.css" rel="stylesheet" />
+
+    <div id="modal_plan" style="height: 100%">
+        <div class="col-xs-2 side-left">
+            <ul class="side-nav">
+                <li class="has-children active" id="nav_myplan">
+                    <a href="javascript:void(0)" style="padding-left: 60px;">我的计划</a>
+                    <ul class="open-child">
+                        <li planStatus="1" class="selected" id="nav_myplan_submiting"><a href="javascript:void(0)">待提交<div class="label label-danger"></div></a></li>
+                        <li planStatus="2" id="nav_myplan_checking"><a href="javascript:void(0)">待审核<div class="label label-danger"></div></a></li>
+                        <li planStatus="3" id="nav_myplan_checked"><a href="javascript:void(0)">进行中<div class="label label-danger"></div></a></li>
+                        <li planStatus="4" id="nav_myplan_confirming"><a href="javascript:void(0)">待确认<div class="label label-danger"></div></a></li>
+                        <li planStatus="6"><a href="javascript:void(0)">已中止<div class="label label-danger"></div></a></li>
+                        <li planStatus="5"><a href="javascript:void(0)">已完成<div class="label label-danger"></div></a></li>
+                    </ul>
+                </li>
+                <li class="has-children" id="nav_subplan">
+                    <a href="javascript:void(0)" style="padding-left: 60px;">下属计划</a>
+                    <ul class="open-child" style="display: none">
+                        <li planStatus="1" id="nav_subplan_submiting"><a href="javascript:void(0)">待提交<div class="label label-danger"></div></a></li>
+                        <li planStatus="2" id="nav_subplan_checking"><a href="javascript:void(0)">待审核<div class="label label-danger"></div></a></li>
+                        <li planStatus="3" id="nav_subplan_checked"><a href="javascript:void(0)">进行中<div class="label label-danger"></div></a></li>
+                        <li planStatus="4" id="nav_subplan_confirming"><a href="javascript:void(0)">待确认<div class="label label-danger"></div></a></li>
+                        <li planStatus="5"><a href="javascript:void(0)">已中止<span class="label label-danger"></span></a></li>
+                        <li planStatus="6"><a href="javascript:void(0)">已完成<span class="label label-danger"></span></a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="side-right col-xs-offset-2" style="position: relative">
+            <div class="main-container">
+                <div class="input-group" id="shortcut_plan">
+                    <span class="input-group-addon shortcut-time"></span>
+                    <input type="text" class="form-control" placeholder="输入计划名称,快速新建计划">
+                    <span class="input-group-btn">
+                        <button class="btn btn-warning shortcut-btn" type="button">添加</button>
+                    </span>
+                </div>
+                <div class="content">
+                    <ul class="nav nav-tabs">
+                        <li class="active" isLoop="false"><a href="#ordinaryPlanBox" aria-controls="ordinary" data-toggle="tab">一般计划</a></li>
+                        <li isLoop="true"><a href="#loopPlanBox" aria-controls="revolve" data-toggle="tab">循环计划</a></li>
+                    </ul>
+                    <div class="operateBox clearfix">
+                        <ul class="sortbar pull-left">
+                            <li class="active"><span class="orderby">默认</span></li>
+                            <li><span class="orderby">重要度</span><span class="sort-icon"><span class="icon-up"></span><span class="icon-down"></span></span></li>
+                            <li><span class="orderby">紧急度</span><span class="sort-icon"><span class="icon-up"></span><span class="icon-down"></span></span></li>
+                            <li><span class="orderby">时间</span><span class="sort-icon"><span class="icon-up"></span><span class="icon-down"></span></span></li>
+                        </ul>
+                        <ul class="operateBar pull-right">
+                            <li><a href="javascript:void(0)">全选</a></li>
+                            <li class="dropdown">
+                                <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="50" role="button" aria-expanded="true">分组</a>
+                                <ul class="dropdown-menu" role="menu" id="groupMode">
+                                    <li group="1"><a href="#">完成时间分组</a></li>
+                                    <li group="2"><a href="#">部门分组</a></li>
+                                    <li group="3"><a href="#">人员分组</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="ordinaryPlanBox">
+                            
+                        </div>
+                        <div class="tab-pane" id="loopPlanBox">
+                            
+                        </div>
+
+                        <div class="operateBox-float hide">
+                            <a href="javascript:void(0)" class="option-checkall"> 全选</a>
+                            <a href="javascript:void(0)" class="option-delete"> 删除</a>
+                            <a href="javascript:void(0)" class="option-handover"> 转办</a>
+                            <a href="javascript:void(0)" class="option-export"> 导出</a>
+                            <a href="javascript:void(0)" class="option-close"> 关闭</a>
+                        </div>
+                        <div class="classifyBox-float hide">
+                            <div class="classifyBox">
+                                <a href="javascript:void(0)">目标导航</a>
+                                <a href="javascript:void(0)">目标导航</a>
+                                <a href="javascript:void(0)">目标导航</a>
+                                <a href="javascript:void(0)">目标导航</a>
+                            </div>
+                            <a class="stretchController glyphicon glyphicon-triangle-top" href="javascript:void(0)"></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="side-stretchController"></div>
+            </div>
+            <div class="aside">
+                <div class="aside-content">
+                    <div class="panel panel-default filter">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">筛选</h3>
+                        </div>
+                        <div class="panel-body">
+                            <div class="selection">
+                                <span class="select-label">快捷：</span>
+                                <div class="selects">
+                                    <a href="#" class="option">今日未完成</a>
+                                    <a href="#" class="option">超时完成</a>
+                                </div>
+                            </div>
+                            <div class="selection">
+                                <span class="select-label">状态：</span>
+                                <div class="selects">
+                                    <a href="#" class="option">待提交</a>
+                                    <a href="#" class="option">进行中</a>
+                                    <a href="#" class="option">已完成</a>
+                                    <a href="#" class="option">已中止</a>
+                                    <a href="#" class="option">待确定</a>
+                                    <a href="#" class="option">待审核</a>
+                                </div>
+                            </div>
+                            <div class="selection">
+                                <span class="select-label">时间：</span>
+                                <div class="selects">
+                                    <a href="#" class="option">近一周</a>
+                                    <a href="#" class="option">近一月</a><br>
+                                    <input type="text" class="select-time laydate-icon" id="start_time"> - <input type="text" class="select-time laydate-icon" id="end_time">
+                                </div>
+                            </div>
+                            <div class="selection">
+                                <span class="select-label">人员：</span>
+                                <div class="selects">
+                                    <a href="#" class="option">系统管理员</a>
+                                    <a href="#" class="option">章镇</a>
+                                    <a href="#" class="option">梁良</a>
+                                    <a href="#" class="option">张琪梅</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel-footer">
+                            <a class="btn btn-warning">确认</a>
+                            <a class="btn btn-default">清空</a>
+                        </div>
+                    </div>
+
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">周有效工时</h3>
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-sm-6 total-manhour">
+                                    总工时<br>
+                                    <span class="striking">38</span>小时
+                                </div>
+                                <div class="col-sm-6 avg-manhour">
+                                    平均工时<br>
+                                    <span class="striking">38</span>小时
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="panel panel-default panel-chart">
+                        <div class="panel-heading">计划进程</div>
+                        <div class="panel-body pos-r chart-container">
+                            <div class="chart-content" style="position: relative;"></div>
+                            <div class="chart-center">计划<span style="color:#58b456">1</span>项</div>
+                        </div>
+                        <div class="panel-footer">
+                            <ul class="list-inline chart-label">
+                                <li><span class="color-block" style="background-color:#57acdb"></span>进行中</li>
+                                <li><span class="color-block" style="background-color:#e00e16"></span>已中止</li>
+                                <li><span class="color-block" style="background-color:#be1d9a"></span>已完成</li>
+                                <li><span class="color-block" style="background-color:#be1d9a"></span>待确认</li>
+                                <li><span class="color-block" style="background-color:#be1d9a"></span>待提交</li>
+                                <li><span class="color-block" style="background-color:#be1d9a"></span>待审核</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/html" id="tpl_planbox">
+        {{each}}
+        <div class="planBox">
+            <div class="planBox-title">
+                <span class="checkBox checked">
+                    <span class="glyphicon glyphicon-ok"></span>
+                </span>
+                <span class="title-info">
+                    <span class="label label-success">{{$value.status}}</span>
+                    <span class="mianTitle">{{$value.organizationName}}</span>
+                    <span class="subTitle">{{$value.responsibleUserName}} {{$value.createTime}}</span>
+                </span>
+            </div>
+            <div class="planBox-content">
+                <div class="progressBar">{{$value.progress}}%</div>
+                <div class="mainInfo">
+                    <div>
+                        <span class="planName">{{$value.eventOutput}}</span>
+                        <span class="endtime">完成时间：<strong>{{$value.endTime}}</strong></span>
+                        <span class="confirmor">确认人：<strong>{{$value.confirmUserName}}</strong></span>
+                    </div>
+                    <div class="grade">
+                        <div>
+                            重要度：
+                            <div class="rating red">
+                                {{for var i = 0; i < $value.importance; i++}}
+                                    {{if i==0}}
+                                    <span class="fa fa-star-o hit"></span>
+                                    {{else}}
+                                    <span class="fa fa-star-o"></span>
+                                    {{/if}}
+                                {{/for}}
+                            </div>
+                        </div>
+                        <div>
+                            紧急度：
+                            <div class="rating yellow">
+                                {{for var i = 0; i < $value.urgency; i++}}
+                                    {{if i==0}}
+                                    <span class="fa fa-star-o hit"></span>
+                                    {{else}}
+                                    <span class="fa fa-star-o"></span>
+                                    {{/if}}
+                                {{/for}}
+                            </div>
+                        </div>
+                        <div>
+                            难易度：
+                            <div class="rating green">
+                                {{for var i = 0; i < $value.difficulty; i++}}
+                                    {{if i==0}}
+                                    <span class="fa fa-star-o hit"></span>
+                                    {{else}}
+                                    <span class="fa fa-star-o"></span>
+                                    {{/if}}
+                                {{/for}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="subInfo">
+                    <div class="man-hour">
+                        <div>有效工时：{{$value.effectiveTime}}分钟</div>
+                        <div>评定工时：{{$value.selfTime}}分钟</div>
+                    </div>
+                </div>
+                <div class="accessoryBox">
+                    <span class="glyphicon glyphicon-paperclip"></span>
+                    <div>附件</div>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+    </script>
+    <script type="text/html" id="tpl_groupplanbox">
+        <div class="plan-group-box">
+            {{each}}
+            <div class="plan-group" groupId="{{$value.groupId}}">
+                <div class="group-tag">
+                    <div class="tag">
+                        <a class="btn btn-transparency">{{$value.groupName}}</a>
+                    </div>
+                </div>
+                <div class="group-content">
+
+                </div>
+            </div>
+            {{/each}}
+        </div>
+    </script>

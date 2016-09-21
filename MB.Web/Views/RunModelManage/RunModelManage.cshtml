@@ -1,0 +1,104 @@
+﻿<!-- 本页所需的样式 开始 -->
+<link rel="stylesheet" href="../../Styles/SystemSetting/runmodeManage.css"/>
+<!-- 本页所需的样式 结束 -->
+
+<!-- 页面内容 开始 -->
+
+<div class="row">
+    <div id="dateContainer" class="col-xs-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <div class="panel-title">
+                    后台管理
+                    <div class="pull-right">
+                        <a href="#runmode_add_modal" data-toggle="modal" data-target="#runmode_add_modal">新增</a>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-body pos-r">
+                <table class="table" id="runmodeInfo">
+                    <thead>
+                    <tr>
+                        <th>执行方式</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>确认完成</td>
+                        <td>增加 修改 删除</td>
+                    </tr>
+                    <tr>
+                        <td>编制完成</td>
+                        <td>增加 修改 删除</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 弹出层 开始 -->
+<div class="modal fade" id="runmode_add_modal" tabindex="-1" role="dialog" aria-labelledby="runmode_add_modal" aria-hidden="true" data-backdrop="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+                <h4 class="modal-title">新增</h4>
+            </div>
+            <div class="modal-body" style="min-height: 80px">
+                <form class="form-horizontal">
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <div class="form-group">
+                                <label class="control-label col-xs-4">执行方式:</label>
+                                <div class="col-xs-8">
+                                    <input type="text" class="form-control" id="runmode_add">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer fifty-fifty">
+                <a class="btn btn-transparency btn-lg" data-dismiss="modal" id="runmode_add_cancel">取消</a>
+                <a class="btn btn-transparency btn-lg" id="runmode_add_submit">确定</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="runmode_change_modal" tabindex="-1" role="dialog" aria-labelledby="runmode_change_modal" aria-hidden="true" data-backdrop="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+                <h4 class="modal-title">修改</h4>
+            </div>
+            <div class="modal-body" style="min-height: 80px">
+                <form class="form-horizontal">
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <div class="form-group">
+                                <label class="control-label col-xs-4">执行方式:</label>
+                                <div class="col-xs-8">
+                                    <input type="text" class="form-control" id="runmode_change">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer fifty-fifty">
+                <a class="btn btn-transparency btn-lg" data-dismiss="modal" id="runmode_change_cancel">取消</a>
+                <a class="btn btn-transparency btn-lg" id="runmode_change_submit">确定</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 弹出层 结束 -->
+
+<!-- 页面内容 结束 -->
+<script src="../../Scripts/SystemSetting/runmodeManage.js"></script>
+<!-- 本页调用的JS 结束 -->

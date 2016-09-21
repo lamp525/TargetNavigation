@@ -1,0 +1,98 @@
+﻿@using MB.Model
+@{
+    ViewBag.Title = "UserInfo";
+    var userInfo = ViewBag.UserInfo as UserInfo;
+    var planCount = ViewBag.UserPlanCount as UserPlanCountInfo;
+    var type = Convert.ToBoolean(ViewBag.Type);
+}
+
+<div class="addPlan">新建计划</div>
+<div class="mine">
+    <div class="myself">
+        <div class="introduce">
+            @if (userInfo != null)
+            {
+                <span class="name">@userInfo.userName</span>
+                <span class="post">@userInfo.stationName</span>
+            }
+            <span class="post">
+                <!--前端开发-->
+            </span>
+        </div>
+        <div class="portraitBox">
+            <img style="height: 64px; width: 64px; margin: 3px; border-radius: 50%" src="@userInfo.bigImage" />
+            <span></span>
+        </div>
+    </div>
+    <ul class="planUl">
+
+        @if (planCount != null)
+        {
+            if (type)
+            {
+                 <li flag="0"><a  term="1" href="/Plan/Index/8">今日未完成</a>
+                <span>
+                    <div class="news">
+                        <span class="newsL"></span>
+                        <span class="newsM">@(planCount.todayUnfinished)/@(planCount.todayPlanTotal)</span>
+                        <span class="newsR"></span>
+                    </div>
+                </span>
+            </li> 
+            <li class="line"></li>
+            <li><a  term="2" href="/Plan/Index/9">超时计划</a>
+                <span>
+                    <div class="news">
+                        <span class="newsL"></span>
+                        <span class="newsM">@planCount.overTimePlan</span>
+                        <span class="newsR"></span>
+                    </div>
+                </span></li>
+            <li class="line"></li>
+            }
+            else
+            {
+                 <li flag="0"><a class="SCShortcut" term="1" href="#">今日未完成</a>
+                <span>
+                    <div class="news">
+                        <span class="newsL"></span>
+                        <span class="newsM">@(planCount.todayUnfinished)/@(planCount.todayPlanTotal)</span>
+                        <span class="newsR"></span>
+                    </div>
+                </span>
+            </li> 
+            <li class="line"></li>
+            <li><a class="SCShortcut" term="2" href="#">超时计划</a>
+                <span>
+                    <div class="news">
+                        <span class="newsL"></span>
+                        <span class="newsM">@planCount.overTimePlan</span>
+                        <span class="newsR"></span>
+                    </div>
+                </span></li>
+            <li class="line"></li>
+            }
+        }
+
+        <li><a href="#">我的流程</a>
+            <div class="news">
+                <span class="newsL"></span>
+                <span class="newsM"></span>
+                <span class="newsR"></span>
+            </div>
+        </li>
+        <li class="line"></li>
+        <li><a href="#">我的激励</a>
+            <div class="news">
+                <span class="newsL"></span>
+                <span class="newsM"></span>
+                <span class="newsR"></span>
+            </div>
+        </li>
+    </ul>
+
+</div>
+
+
+
+

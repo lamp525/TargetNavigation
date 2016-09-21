@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8C217773-70AE-4F4F-A13D-D33153BDE275}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MB.New.Model</RootNamespace>
+    <AssemblyName>MB.New.Model</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AuthManagement\AuthShift.cs" />
+    <Compile Include="BankManagement\BankCardModel.cs" />
+    <Compile Include="BankManagement\BankModel.cs" />
+    <Compile Include="Calendar\CalendarInfoModel.cs" />
+    <Compile Include="Calendar\CalendarCountModel.cs" />
+    <Compile Include="Calendar\HolidayInfoModel.cs" />
+    <Compile Include="File\FileInfoModel.cs" />
+    <Compile Include="Flow\NodeEditModel.cs" />
+    <Compile Include="Flow\NodeFieldEditModel.cs" />
+    <Compile Include="Flow\NodeFieldModel.cs" />
+    <Compile Include="Flow\NodeInfoModel.cs" />
+    <Compile Include="Flow\NodeModel.cs" />
+    <Compile Include="Flow\NodeOperateModel.cs" />
+    <Compile Include="Incentive\RewardPunishDetailModel.cs" />
+    <Compile Include="Incentive\RewardPunishModel.cs" />
+    <Compile Include="Incentive\RewardPunishNumModel.cs" />
+    <Compile Include="Incentive\UserIndexIncentiveInfoModel.cs" />
+    <Compile Include="Incentive\ValueIncentiveCustomModel.cs" />
+    <Compile Include="Incentive\ValueIncentiveInfoModel.cs" />
+    <Compile Include="Objective\ObjectiveModel.cs" />
+    <Compile Include="Plan\ExecutionInfoModel.cs" />
+    <Compile Include="Plan\LoopPlanInfoModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Organization\OrganizationInfoModel.cs" />
+    <Compile Include="Plan\LoopPlanOperateModel.cs" />
+    <Compile Include="Plan\LoopPlanSubmitInfoModel.cs" />
+    <Compile Include="Plan\PlanCommentModel.cs" />
+    <Compile Include="Plan\PlanCompleteCountModel.cs" />
+    <Compile Include="Plan\PlanGroupInfoModel.cs" />
+    <Compile Include="Plan\PlanInfoModel.cs" />
+    <Compile Include="Plan\PlanLogModel.cs" />
+    <Compile Include="Plan\PlanOperateModel.cs" />
+    <Compile Include="Plan\PlanSearchModel.cs" />
+    <Compile Include="Plan\PlanStatusCountModel.cs" />
+    <Compile Include="Project\ProjectInfoModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Station\StationInfoModel.cs" />
+    <Compile Include="Tag\DocumentSearchResultModel.cs" />
+    <Compile Include="Tag\NewsSearchResultModel.cs" />
+    <Compile Include="Tag\ObjectiveSearchResultModel.cs" />
+    <Compile Include="Tag\PlanSearchResultModel.cs" />
+    <Compile Include="Tag\SearchInfoModel.cs" />
+    <Compile Include="User\UserBaseInfoModel.cs" />
+    <Compile Include="User\UserInfoSimpleModel.cs" />
+    <Compile Include="Version\VersionModel.cs" />
+    <Compile Include="WorkTime\UserOrgWorkTimeModel.cs" />
+    <Compile Include="WorkTime\WorkTimeInfoModel.cs" />
+    <Compile Include="WorkTime\WorkTimeStatisticsModel.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\MB.New.Common\MB.New.Common.csproj">
+      <Project>{0fac51d6-a678-439b-b9fe-a4225fb7eb68}</Project>
+      <Name>MB.New.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

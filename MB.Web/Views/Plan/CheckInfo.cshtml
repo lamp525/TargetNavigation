@@ -1,0 +1,66 @@
+﻿@{
+    var height = Convert.ToInt32(ViewBag.Height);
+}
+<script src="~/Scripts/plan/Check.js"></script>
+<div class="checkBox">
+    <span class="closeWCom" style="background: url(../../Images/common/closeWHit.png) no-repeat; display: none"></span>
+    <div class="calendar_batch" style="display:none">
+        <span class="checkHeader">所选计划</span>
+        <span class="closeWHit"></span>
+        <div class="plan_selected">
+            <div class="check_name"><span>徐晓催</span><span class="check_eventoutput">《发到手机费的事》</span></div>
+            <div class="check_name"><span>徐晓催</span><span class="check_eventoutput">《发到手机费的事》</span></div>
+            <div class="check_name"><span>徐晓催</span><span class="check_eventoutput">《发到手机费的事》</span></div>
+        </div>
+    </div>
+    <span class="closeWHit"></span>
+    <span class="checkHeader">系数评定</span>
+    <span class="closeWHit"></span>
+    <div class="degreeDiv">
+        <div class="degree">
+            <span style="float: left;">重要度：</span>
+            <div id="xxc_import" class="stars starsR">
+                <ul>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+            </div>
+        </div>
+        <div class="degree">
+            <span style="float: left;">紧急度：</span>
+            <div id="xxc_urgency" class="stars starsY">
+                <ul aria-readonly="true">
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+            </div>
+        </div>
+        <div class="degree">
+            <span style="float: left;">难易度：</span>
+            <div id="xxc_difficulty" class="stars starsG">
+                <ul>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="view">
+        <span>审核意见</span>
+        <textarea id="xxc_checkinfo" maxlength="100"></textarea>
+    </div>
+    <div class="checkOperate">
+        <span style="margin-left: 10px;" id="xxc_checkpass" flag="1">通过</span>
+        <span id="xxc_checknopass" flag="1">不通过</span>
+    </div>
+</div>
+<input id="checkheight" type="hidden" value="@height" />

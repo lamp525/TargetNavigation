@@ -1,0 +1,20 @@
+﻿@using MB.Model
+@{
+
+    var Newlist = ViewBag.NewsList as List<NewsInfo>;
+}
+<li class="generalNewsList">
+    @if (Newlist != null)
+    {
+        foreach (var item in Newlist)
+        { 
+        <ul>
+            <a>
+                <li onclick=" NewsInfo(@item.newId)">@MB.Common.StringUtils.CutString(item.title, 15)
+                    <span class="dateOfNew">@item.createTime.ToString("yyyy-mm-dd")</span>
+                </li>
+            </a>
+        </ul> 
+        }
+    }
+</li> 

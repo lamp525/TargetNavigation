@@ -1,0 +1,59 @@
+﻿<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+    <h4 class="modal-title" id="share_modal_label">岗位</h4>
+</div>
+<div class="input-group" id="station_modal_search">
+    <input id="station_select" type="text" class="form-control" placeholder="选择岗位" aria-describedby="basic-addon2">
+    <span class="input-group-btn">
+        <a class="btn btn-default" type="a"><span class="glyphicon glyphicon-search"></span></a>
+    </span>
+</div>
+<div class="fifty-fifty clearfix">
+    <div class="chosebox">
+        <div class="ztree" id="station_modal_folder"></div>
+    </div>
+    <div class="chosenbox">
+        <div class="chosen-count">
+            已选: <span class="badge badge-success" id="station_modal_chosen_count">0</span>
+        </div>
+        <ul class="chosens" id="station_modal_chosen">
+            <!--<li>证券<a class="close" aria-label="Close"><span aria-hidden="true">&times;</span></a></li>-->
+        </ul>
+    </div>
+    <div class="choseClass">
+        <div class="adopt">
+            <ul class="list-inline pull-left">
+                <li>
+                    <input id="station-haschildren" type="checkbox"></li>
+                <li>包含下级</li>
+            </ul>
+            <ul class="list-inline pull-right">
+                <li>
+                    <input id="station-selectall" type="checkbox"></li>
+                <li>全部选择</li>
+            </ul>
+        </div>
+        <div class="getadopt station_list" style="height:170px;overflow:auto">
+            <!--<ul class="list-inline">-->
+            <!--<li><input type="checkbox"></li>-->
+            <!--<li>小妞-证券分析</li>-->
+            <!--</ul>-->
+            <!--<ul class="list-inline">-->
+            <!--<li><input type="checkbox"></li>-->
+            <!--<li>李艳兰-人力资源</li>-->
+            <!--</ul>-->
+            <!--<ul class="list-inline">-->
+            <!--<li><input type="checkbox"></li>-->
+            <!--<li>小妞-证券分析</li>-->
+            <!--</ul>-->
+            <!--<ul class="list-inline">-->
+            <!--<li><input type="checkbox"></li>-->
+            <!--<li>李艳兰-人力资源</li>-->
+            <!--</ul>-->
+        </div>
+    </div>
+</div>
+<div class="modal-footer fifty-fifty">
+    <a id="station_cancel" class="btn btn-transparency btn-lg" data-dismiss="modal">取消</a>
+    <a class="btn btn-transparency btn-lg" id="station_modal_submit">确定</a>
+</div>

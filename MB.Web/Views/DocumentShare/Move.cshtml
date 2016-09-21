@@ -1,0 +1,30 @@
+﻿<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+    <h4 class="modal-title" id="move_modal_label">移动</h4>
+</div>
+<div class="input-group" id="move_modal_search">
+    <input id="move_select" type="text" class="form-control" placeholder="选择文件夹" aria-describedby="basic-addon2">
+         <span class="input-group-btn">
+              <a class="btn btn-default" type="a"><span class="glyphicon glyphicon-search"></span></a>
+         </span>
+</div>
+<div class="fifty-fifty chosebox clearfix"style="height:400px">
+    
+    <div class="ztree" id="move_modal_folder">
+        <div class="directory-set goback" style="cursor: pointer">
+         <span>目录设置</span>
+    </div>
+    </div>
+    <div class="chosenbox department">
+        <div class="chosen-count">
+            已选: <span class="badge badge-success" id="move_modal_chosen_count">0</span>
+        </div>
+        <ul class="chosens" id="move_modal_chosen">
+            <!--<li>证券<a class="close" aria-label="Close"><span aria-hidden="true">&times;</span></a></li>-->
+        </ul>
+    </div>
+</div>
+<div class="modal-footer fifty-fifty">
+    <a id="move_modal_cancel" class="btn btn-transparency btn-lg" data-dismiss="modal">取消</a>
+    <a class="btn btn-transparency btn-lg" id="move_modal_submit">确定</a>
+</div>

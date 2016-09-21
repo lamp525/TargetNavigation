@@ -1,0 +1,86 @@
+﻿@{
+    Layout = null;
+    var execution = Convert.ToBoolean(ViewBag.Execution);
+    var admin = Convert.ToBoolean(ViewBag.Admin);
+}
+<ul class="navTwo">
+    <li class="nextLi">
+        <a href="@Url.Action("CompanyIndex", "Company")">首页 <span class="caret"></span></a>
+        <div>
+            <ul>
+                <li><a href="@Url.Action("CompanyIndex", "Company")">公司首页</a></li>
+                <li class="line"></li>
+                <li><a href="@Url.Action("UserIndex", "User")">个人首页</a></li>
+            </ul>
+        </div>
+    </li>
+    <li class="nextLi"><a href="#">目标</a></li>
+    <li class="nextLi"><a href="#">激励</a></li>
+    <li class="nextLi"><a href="/Plan/Index/1">计划 <span class="caret"></span></a>
+        <div>
+            <ul>
+                <li><a href="/Plan/Index/2">待提交</a></li>
+                <li class="line"></li>
+                <li><a href="/Plan/Index/3">待审核</a></li>
+                <li class="line"></li>
+                <li><a href="/Plan/Index/4">已审核</a></li>
+                <li class="line"></li>
+                <li><a href="/Plan/Index/5">待确认</a></li>
+                <li class="line"></li>
+                <li><a href="/Plan/Index/6">已完成</a></li>
+                <li class="line"></li>
+                <li><a href="/Plan/Index/7">已中止</a></li>
+                <li class="line"></li>
+                @if (execution)
+                {
+                    <li><a href="/Plan/Index/10">计划管控</a></li>
+                    <li class="line"></li> 
+                }
+                <li><a href="/PlanStatistics/Index">计划统计</a></li>
+            </ul>
+        </div>
+    </li>
+
+    <li class="nextLi"><a href="#">执行 <span class="caret"></span></a>
+        <div>
+            <ul>
+                <li><a href="/UserDocument/UserDocument">我的文档</a></li>
+                <li class="line"></li>
+                <li><a href="/FlowIndex/FlowIndex/0">流程首页</a></li>
+                @if (admin)
+                {
+                    <li class="line"></li>
+                    <li><a href="/FlowIndex/FlowIndex/1">流程管控</a></li>
+                }
+                
+            </ul>
+        </div>
+
+    </li>
+
+
+
+    <li class="nextLi"><a href="#">基础
+         @if (admin)
+         {
+             <span class="caret"></span>
+         }
+    </a>
+        @if (admin)
+        {
+            <div>
+                <ul>
+                    <li><a href="/DocumentManagement/DocumentManagement">文档管理</a></li>
+                    <li class="line"></li>
+                    <li><a href="/TemplateCategory/TemplateCategory">分类管理</a></li>
+                    <li class="line"></li>
+                    <li><a href="/NewsManagement/NewsManagement">新闻/通知管理</a></li>
+                    <li class="line"></li>
+                    <li><a href="/OrganizationManagement/OrganizationManagement">组织架构管理</a></li>
+                    <li class="line"></li>
+                    <li><a href="/IndexManagement/IndexManagement">首页管理</a></li>
+                </ul>
+            </div>
+        }
+    </li>
+</ul>

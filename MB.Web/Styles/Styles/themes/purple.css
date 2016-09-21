@@ -1,0 +1,41 @@
+.navbar-right{
+    color: white !important;
+}
+.nav-container{
+    background-color: #a29cc1 !important;
+}
+
+.nav-container .nav-model>.active>a,
+.nav-container .nav-model>.active>a:hover,
+.nav-container .nav-model>.active>a:focus{
+    background-color: #928bb7 !important;
+}
+.nav-container .nav-model>li>a:hover,
+.nav-container .nav-model>li>a:focus{
+    background-color: #928bb7 !important;
+}
+
+.side-left{
+    background-color: #b6b5be !important;
+}
+
+.side-left .side-nav li{
+    background-color: #928bb7 !important;
+}
+
+.side-left .side-nav li.active a{
+    background-color: #9c99bf !important;
+}
+
+.todo-tab .tabActive{
+    background-color: #a29cc1 !important;
+    color: white !important;
+}
+
+.index-left .index-detail .detail-top .underLine{
+    background-color: #9c99bf !important;
+}
+
+.index-right .myschedule .shedule-day .choosed{
+    background-color: #b6b5be !important;
+}

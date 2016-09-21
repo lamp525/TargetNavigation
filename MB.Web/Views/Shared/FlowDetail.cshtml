@@ -1,0 +1,75 @@
+﻿<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+    <h4 class="modal-title" id="detail_modal_title">详情</h4>
+</div>
+<div class="modal-content-fixedH">
+    <div class="modal-body" id="detail_modal_content">
+        <div class="template-title">
+            <span class="detial_template_name"></span>
+            <span class="detail_template_desc"></span>
+        </div>
+        <div class="bottom-line"></div>
+        <div style="margin-top: 10px;">
+            <span>标题</span>
+            <input type="text" class="detail_form_title" maxlength="50">
+            <span style="margin-left: 24px;">紧急度：</span>
+            <span class="stars starsR">
+                <ul id="detail_urgencyStart">
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+            </span>
+        </div>
+        <div class="bottom-line"></div>
+        <div style="margin-top: 10px; vertical-align: text-top;">
+            <span>创建人：</span>
+            <input id="detail_createuser_input" class="addflow-text" type="text" readonly="true">
+            <span class="addflow-span">创建部门：</span>
+            <span class="dropdown addflow-text">
+                <span class="form-control addflow_dropdown" data-toggle="dropdown" aria-expanded="false">
+                    <span id="detail_createdepart_span"></span><span class="caret"></span>
+                </span>
+                <ul class="dropdown-menu detail_department_ul" role="menu">
+                </ul>
+            </span>
+            <span class="addflow-span">创建岗位：</span>
+            <span class="dropdown addflow-text">
+                <span class="form-control addflow_dropdown" data-toggle="dropdown" aria-expanded="false">
+                    <span id="detail_createstation_span"></span><span class="caret"></span>
+                </span>
+                <ul class="dropdown-menu detail_station_ul" role="menu">
+                </ul>
+            </span>
+            <span class="addflow-span">创建时间：</span>
+            <span class="optionCell" id="addflow_createtime"><em class="icon decplan_icon" style="background: url('../../Images/plan/completeDate.png') no-repeat"></em>
+                <input class="emptyInput" id="flowdetail_createtime_v" placeholder="选择创建日期" />
+            </span>
+        </div>
+        <div id="detail_label-content">
+        </div>
+        <div id="xxc_detailsuggest" style="display: none">
+        </div>
+    </div>
+</div>
+<div class="modal-footer fifty-fifty flowdetail_operate">
+</div>
+<div id="modal_detail_flowchart_con" class="modal-extend box-shadow">
+    <div class="modal-extend-container">
+        <div class="modal-extend-content" style="width: 400px">
+            <div class="modal-extend-header">
+                <h4>流程图</h4>
+            </div>
+            <div class="modal-extend-body">
+                <div id="modal_detail_flowchart">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="modal_detail_flowchart_switch" class="modal-extend-switch-r">
+        <span class="fa fa-sitemap"></span>
+    </div>
+</div>
+@*<div class="flowDetailMask"></div>*@

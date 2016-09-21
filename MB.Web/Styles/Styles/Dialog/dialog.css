@@ -1,0 +1,1477 @@
+﻿/*日程弹窗*/
+
+.modal-footer .btn {
+    background:#E5DAD4;
+    color:#000;
+    border:none;
+}
+.modal-footer .btn:hover{
+     background:#fbac0f;
+   color:#fff;
+}
+.commonMoal textarea {
+    border-radius: 3px;
+    outline: none;
+    border-color: #D8D8D8;
+    border:1px solid #bfbfbf;
+}
+#scheduleMoal .modal-footer {
+    background:none;
+    border:none;
+}
+.commonMoal .modal-header{
+    background:#E5DAD4;
+}
+.commonMoal .content-title {
+    line-height: 30px;
+    text-indent: 10px;
+    margin-top: 10px;
+}
+.commonMoal .modal-content {
+    border: none!important;
+    border-right: 1px solid #bfbfbf!important;
+}
+.commonMoal .modal-header .modal-title{
+    color:#000;
+}
+.commonMoal .modal-header button.close {
+    color:#000;
+}
+.commonMoal .modal-rows {
+    width:100%;
+    margin-bottom:15px;
+    position:relative;
+}
+.commonMoal .content-head {
+    position:absolute;
+    padding:5px;
+    line-height:30px;
+}
+.commonMoal .content-body {
+    height:40px;
+    padding:5px 0px;
+    margin-left:45px;
+
+}
+.commonMoal .content-body .form-control{
+    display:inline-block;
+    padding-right: 30px;
+
+}
+.commonMoal .content-body .body-div{
+    width:48%;
+    display:inline-block;
+    position:relative;
+}
+.commonMoal .content-body .body-div:last-child{
+    margin-left:4%;
+}
+.commonMoal hr {
+    background: #E3E3E3;
+    border: 0;
+    height: 1px;
+    margin-top: 30px;
+}
+#iconMoal .d-7,.d-3{
+    float: left;
+    position: relative;
+    min-height: 1px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+#scheduleMoal .modal-body {
+   /*min-height:400px;*/
+}
+#scheduleMoal .fa-calendar {
+    position:absolute;
+    right:10px;
+    top:0px;
+    line-height:33px;
+    font-size:16px;
+   
+}
+#scheduleMoal .laydate-icon {
+    background:none;
+    height:33px;
+    z-index: 2;
+    position: relative;
+    padding-right:0;
+}
+#scheduleMoal input[readonly] {
+    background-color:#fff;
+    border:none;
+    outline:none;
+}
+
+#iconMoal .d-7 {
+    width:70%;
+}
+#iconMoal .d-3 {
+    width:30%;
+}
+#iconMoal .icon-upload-head{
+    line-height:25px;
+    
+}
+#iconMoal .icon-pre-head {
+    line-height:25px;
+    text-align:center;
+    
+}
+#iconMoal .modal-body {
+   padding-top:5px;
+}
+#iconMoal .icon-upload,.icon-pre {
+    height:365px;
+    
+}
+#iconMoal .upload-btn {
+   padding:0;
+   margin-top:153px;
+}
+#iconMoal .upload-btn .btn{
+    background:#C5B8AF;
+    color:#fff;
+    padding:3px 12px;
+    background:#C5B8AF;
+    border-radius:3px;
+    position:relative
+}
+#iconMoal .upload-btn .btn i{
+    margin-right:5px;
+}
+#iconMoal .upload-btn li{
+    height:30px;
+    line-height:30px;
+    text-align:center;
+}
+#iconMoal .upload-area {
+    background:#EAEAEA;
+    height:100%;
+    padding-top:1px;
+    text-align: center;
+    line-height: 365px;
+}
+#iconMoal .modal-footer {
+    padding:0px;
+    position:relative;
+    background:#F9F9F9;
+}
+#iconMoal .opt-upload:hover {
+   background:#fbac0f;
+   color:#fff;
+}
+#iconMoal .opt-upload:first-child::after{
+    content:'';
+    position:absolute;
+    height:100%;
+    width:1px;
+    background-color:#EAEAEA;
+    right:0;
+}
+#iconMoal .pre-area {
+    background:#EAEAEA;
+    height:100%;
+    padding-top:1px;
+}
+#iconMoal .opt-upload {
+    width:50%;
+    display:block;
+    float:left;
+    height:45px;
+    line-height:45px;
+    text-align:center;
+    color:#A2A2A2;
+    position:relative;
+}
+#iconMoal .pre-area ul {
+    padding:0;
+    margin:0;
+}
+#iconMoal .pre-area ul>li{
+    width:100%;
+    padding-top:1px;
+}
+#iconMoal .pre-area ul>li:first-child{
+    height:180px
+}
+#iconMoal .pre-area ul>li:nth-child(2){
+    height:100px
+}
+#iconMoal .pre-area ul>li:last-child{
+    height:70px
+}
+#iconMoal .pre-area ul>li div{
+    border-radius:50%;
+    margin:0 auto;
+    margin-top:10px;
+    background-color:#BBBBBB;
+    padding-top:1px;
+    overflow:hidden;
+}
+#iconMoal .pre-area ul>li p{
+    margin:10px 0 0 0;
+    text-align:center;
+}
+#iconMoal .pre-area ul>li .big-pre{
+    width:140px;
+    height:140px;
+}
+#iconMoal .pre-area ul>li .middle-pre{
+    width:60px;
+    height:60px;
+}
+#iconMoal .pre-area ul>li .small-pre{
+    width:30px;
+    height:30px;
+}
+
+
+#transModal .modal-footer {
+    padding:0;
+
+}
+#transModal .modal-body {
+    padding: 5px 15px 50px;
+}
+#transModal .trans-head {
+     line-height:35px;
+     border-bottom:1px solid #bfbfbf;
+     text-indent:5px;
+}
+#transModal .trans-head .col-xs-5{
+    width:45%;
+}
+#transModal .trans-head .col-xs-offset-2{
+    margin-left:10%;
+}
+#transModal .trans-p {
+    border:1px solid #bfbfbf;
+    border-radius:4px;
+    padding:0;
+    width:45%!important;
+}
+#transModal .trans-diff {
+    background:#ece8e5;
+    border:1px solid #d8d1cb;
+}
+#transModal .trans-diff .show-input{
+    background:#ece8e5;
+}
+#transModal .trans-p .wrap-select:first-child{
+    border-bottom:1px solid #bfbfbf;
+}
+#transModal .wrap-select {
+    width:100%;
+    padding:5px 0;
+    position:relative;
+   
+}
+#transModal .trans-info{
+     line-height:40px;
+}
+#transModal .opt-upload {
+    width:50%;
+    display:block;
+    float:left;
+    height:45px;
+    line-height:45px;
+    text-align:center;
+    color:#A2A2A2;
+    position:relative;
+}
+#transModal .opt-upload:first-child::after{
+    content:'';
+    position:absolute;
+    height:100%;
+    width:1px;
+    background-color:#BBBBBB;
+    right:0;
+}
+#transModal .opt-upload:hover {
+   background:#fbac0f;
+   color:#fff;
+}
+#transModal .trans-relative {
+    line-height:83px;
+    margin-top:10px;
+    text-align:center;
+}
+#transModal .trans-relative i{
+    font-size:20px;
+    color:#D2D2D2;
+}
+#transModal .img-trans {
+    position:absolute;
+    left:5px;
+    width: 25px;
+    height: 25px;
+    top:8px;
+}
+#transModal .img-selected {
+    left:90px;
+}
+#transModal .trans-title {
+    position:absolute;
+    left:35px;
+    line-height:30px;
+}
+#transModal .modal-body .col-xs-5 {
+    margin-top:10px;
+}
+
+#transModal .select-trans {
+   height:30px;
+   cursor:pointer;
+   margin-left: 120px;
+   position:relative;
+}
+#transModal .select-trans input{
+    width:100%;
+    height:100%;
+
+}
+#transModal .dropdown-menu{
+    margin-top: 2px;
+    border-radius: 3px;
+    border: 1px solid #E5DAD4;
+    padding: 0;
+    min-width:100px;
+}
+#transModal .dropdown-menu li {
+    padding: 5px;
+    position:relative;
+}
+#transModal .search-trans .trans-input {
+    border: 1px solid #DDDDDD;
+    border-radius: 2px;
+    background: #F1F1F1;
+}
+#transModal  .img-all {
+    position:absolute;
+    left:5px;
+    width:25px;
+    height:25px;
+}
+#transModal .list-trans p {
+    margin:0 0 0 35px;
+    line-height:25px;
+    padding:0;
+}
+#transModal .list-trans ul {
+    overflow-y:auto;
+    max-height:280px;
+}
+#transModal .list-trans .list-user:hover {
+    background:#DDDDDD;
+}
+#transModal .list-trans .train-tip {
+    text-align:center;
+}
+#transModal ul {
+    padding:0;
+    margin:0;
+}
+
+
+
+#fileMoal .row {
+    margin-left:0;
+    margin-right:0;
+    height:100%;
+}
+#fileMoal .preview-main{
+    /*height:500px;*/
+    height: 100%;
+    position:relative;
+    padding:0;
+    text-align:center;
+    
+}
+#fileMoal .img-center {
+    /*line-height:500px;*/
+}
+#fileMoal .preview-main ul{
+    padding:0;
+    position:absolute;
+    top:50%;
+    margin-top:-30px;
+    width:100%;
+
+}
+#fileMoal .preview-main ul li{
+    line-height:30px;
+    text-align:center;
+}
+#fileMoal .preview-main ul li .btn{
+    padding:3px 8px;
+    border-radius:3px;
+    background:#E5DAD4;
+    border:none;
+    color:#fff;
+}
+#fileMoal .preview-main embed{
+    width:100%;
+    height:100%;
+}
+#fileMoal .preview-list {
+    /*min-height:300px;*/
+    height:100%;
+    overflow-y:auto;
+}
+#fileMoal .preview-list .list-title{
+    width:100%;
+    font-size:16px;
+
+}
+#fileMoal .preview-list .file-main{
+    margin:0;
+    padding:0
+}
+#fileMoal .modal-dialog {
+    width:1150px;
+    height: 90%;
+}
+#fileMoal .modal-content {
+    height:100%;
+}
+#fileMoal .modal-body {
+    padding:15px 0;
+    height: calc(100% - 40px);
+}
+
+#fileMoal .preview-list .file-main li{
+    line-height:40px;
+    position:relative;
+    cursor:pointer;
+    border-bottom:1px solid #F2F2F2;
+}
+#fileMoal .preview-list .file-opt a{
+    display:inline-block;
+    width:50%;
+    line-height:30px;
+    background:#E5DAD4;
+    text-align:center;
+    color:#fff;
+}
+#fileMoal .preview-list .file-opt a i{
+    margin-right:5px;
+}
+#fileMoal .preview-list .file-opt a:first-child{
+    border-right:1px solid #fff;
+}
+#fileMoal .preview-list .file-main li.selected{
+    background:#F2F2F2;
+}
+#fileMoal .preview-list .file-main li:hover {
+    background:#F2F2F2;
+}
+#fileMoal .preview-list .file-main li:hover i{
+    background:#F2F2F2;
+    display:block;
+}
+#fileMoal .imgHref img{
+    max-height:100%;
+    max-width:100%;
+}
+#fileMoal .preview-list .file-main li i{
+    position:absolute;
+    right:5px;
+    top:0;
+    line-height:40px;
+    cursor:pointer;
+    /*color:#BEBEBE;*/
+    display:none;
+}
+#fileMoal .preview-list .file-main li p{
+   margin:0;
+   margin-right:30px;
+   overflow:hidden;
+   text-indent:5px;
+ 
+}
+
+#confirmModal .opt-upload {
+    width:50%;
+    display:block;
+    float:left;
+    height:45px;
+    line-height:45px;
+    text-align:center;
+    color:#A2A2A2;
+    position:relative;
+}
+#confirmModal .opt-upload:first-child::after{
+    content:'';
+    position:absolute;
+    height:100%;
+    width:1px;
+    background-color:#EAEAEA;
+    right:0;
+}
+#confirmModal .modal-footer {
+    padding: 0px;
+    position: relative;
+    background: #F9F9F9;
+}
+#confirmModal .modal-body {
+   height:110px;
+   line-height:80px;
+   text-align:center;
+   font-size:18px;
+}
+#confirmModal .modal-body i{
+    position: absolute;
+    line-height: 20px;
+    top: 5px;
+    right: 10px;
+    font-size: 13px;
+    color: #A2A2A2;
+    cursor: pointer;
+
+}
+#confirmModal .modal-sm {
+   margin-top:150px;
+}
+#confirmModal .opt-upload:hover {
+   background:#fbac0f;
+   color:#fff;
+}
+
+
+
+#pwdModal .content-body {
+    margin-left: 85px;
+    margin-right: 110px;
+}
+
+#pwdModal .info-tip {
+    position:absolute;
+    right:70px;
+    top:0;
+    line-height:40px;
+    font-size:18px;
+    display:none;
+}
+#detailPlanModal .modal-dialog {
+    position:relative;
+    left:-160px;
+}
+#detailPlanModal .modal-right {
+    width: 320px;
+    height: 100%;
+    background:#F8F8F8;
+    color:#000;
+    position:absolute;
+    top:0;
+    left:100%;
+    
+}
+#detailPlanModal .modal-content {
+
+}
+
+.planModal .modal-dialog {
+    height: 90%;
+    
+    min-width: 710px;
+   
+}
+.planModal .dialog-class {
+    min-width:320px!important;
+    width:320px!important;
+    left:0px!important;
+    min-height:350px!important;
+    height:400px!important;
+}
+.planModal .dialog-class .modal-right{
+    height:50%;
+}
+
+.planModal .modal-right .right-head{
+    line-height:35px;
+    border-bottom:1px solid #bfbfbf;
+    font-size: 15px;
+    text-indent: 15px;
+    
+}
+.planModal .modal-right .right-body{
+    padding:0 5px;
+    position:absolute;
+    top:32px;
+    bottom:0px;
+    overflow-y:auto;
+    width:100%;
+    padding-left:10px;
+}
+.planModal .modal-right .right-body .common-star *{
+    font-size:14px;
+    letter-spacing:5px;
+}
+.planModal .modal-right .right-body .common-star span{
+    letter-spacing:1px;
+}
+.planModal .modal-right .right-body .common-star {
+    margin-bottom:2px;
+}
+.planModal .modal-right .right-body .importance .fa-star{
+    color:red;
+}
+.planModal .modal-right .right-body .ergence .fa-star{
+    color:orange;
+}
+.planModal .modal-right .right-body .hard .fa-star{
+    color:green;
+}
+.planModal .modal-right .common-text{
+    resize:none;
+    width:100%;
+}
+.planModal .modal-right .eventMsg{
+   min-height:63px;
+   border:1px solid #bfbfbf;
+   border-radius:4px;
+   max-height:120px;
+   overflow-y:auto;
+   background:#fff;
+}
+.planModal .modal-right .eventMsg pre{
+   padding:0;
+   background:none;
+   margin:0;
+   border:none;
+   font-family: "微软雅黑","Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+.planModal .modal-right .attachList {
+    border: 1px solid #bfbfbf;
+    border-radius: 3px;
+    max-height: 150px;
+    overflow-y:auto;
+    padding-left:5px;
+}
+.planModal .modal-right .attachList ul{
+  margin:0;
+  padding:0;
+}
+.planModal .modal-right .attachList ul li{
+    line-height: 30px;
+    position: relative;
+}
+.planModal .modal-right .attachList ul li:hover i{
+    display:block
+}
+.planModal .modal-right .attachList ul li p{
+    margin: 0 30px 0 0;
+    overflow: hidden;
+    cursor: default;
+    height: 30px;
+}
+.planModal .modal-right .attachList ul li i{
+    position: absolute;
+    right: 5px;
+    top: 0;
+    line-height: 30px;
+    display: none;
+    cursor: pointer;
+}
+.planModal .modal-right .modal-rows{
+    padding-top:1px;
+}
+.planModal .modal-right .btn{
+    min-width:62px;
+    float:right;
+    padding: 3px 6px;
+    border-radius: 3px;
+    background: #FBB114;
+    color: #fff;
+    border:none;
+}
+.planModal .modal-right .cancelBtn {
+    background:#C8C8C8;
+}
+.planModal .modal-right .right-body .change-tip{
+    position:absolute;
+    top:0;
+    left:0
+}
+.planModal .modal-right .right-body .info-tip{
+    position:absolute;
+    right:5px;
+    top:0;
+    border: 1px solid #E3E3E3;
+    font-size: 12px;
+    line-height: 15px;
+    padding: 0 5px;
+    min-width:30px;
+    text-align:center;
+}
+.planModal .modal-right .right-body .status-show{
+    margin:0;
+    padding:20px 2px;
+}
+.planModal .modal-right .right-body .status-show li{
+    display:inline-block;
+    line-height:20px;
+    padding: 0 20px;
+    position: relative;
+}
+
+.planModal .modal-right .right-body .status-show .circle-choose{
+    content:'';
+    position:absolute;
+    width:16px;
+    height:16px;
+    left:0;
+    top:2px;
+    border-radius:50%;
+}
+.planModal .modal-right .right-body .time-zone{
+    margin:0;
+    padding:10px;
+}
+.planModal .modal-right .right-body .time-zone .zone-list{
+    min-height: 60px;
+    border-left: 1px solid #bfbfbf;
+    position: relative;
+    padding-bottom: 20px;
+}
+.planModal .modal-right .right-body .time-zone .zone-list .circle-choose{
+    content:'';
+    position:absolute;
+    width:16px;
+    height:16px;
+    top:-8px;
+    left:-9px;
+    cursor:pointer;
+    border-radius:50%;
+    z-index:3;
+}
+.statusCommit .circle-choose {
+    background:#FBB005;
+}
+.statusConfirm .circle-choose {
+    background:#5DABD3;
+}
+.statusComplete .circle-choose {
+    background:#4FB84B;
+}
+.planModal .modal-right .right-body .time-zone .zone-list::before{
+    content:'';
+    position:absolute;
+    width:32px;
+    height:1px;
+    top:0px;
+    left:0px;
+    background:#bfbfbf;    
+}
+.planModal .modal-right .right-body .time-zone .zone-list .zone-detail{
+    margin-left:40px;
+    padding:0;
+    padding-top:1px;
+    margin-right:80px;
+}
+.planModal .modal-right .right-body .time-zone .zone-list .zone-detail .zone-info{
+    line-height:20px;
+    font-size:11px;
+}
+.planModal .modal-right .right-body .time-zone .zone-list .commit-circle{
+   position:absolute;
+   top:-12px;
+   line-height:25px;
+   border:1px solid #D1A956;
+   padding:0 18px;
+   background:#F9AB13;
+   right:0px;
+   color:#fff;
+}
+.planModal .modal-right .right-body .time-zone .zone-list .add-comon {
+    width:310px;
+    margin-left:-60px;
+}
+.planModal .modal-right .right-body .time-zone .zone-list .common-commit {
+    margin-top:15px;
+    margin-bottom:10px;
+    border-top:1px solid #bfbfbf;
+    border-bottom:1px solid #bfbfbf;
+    padding-left:10px;
+}
+.planModal .modal-right .right-body .time-zone .zone-list .zone-detail .zone-info:not(:first-child){
+    line-height:20px;
+    font-size:11px;
+    font-family:FangSong;
+    font-weight:600;
+}
+.planModal .modal-right .right-body .time-zone .zone-list .zone-detail .zone-info:first-child{
+    line-height:25px;
+    font-size:12px;
+    margin-top: -12px;
+    letter-spacing: 1px;
+}
+.statusCommit li:not(:first-child) {
+    color:#FBB005;
+}
+.statusConfirm li:not(:first-child) {
+    color:#5DABD3;
+}
+.statusComplete li:not(:first-child) {
+    color:#4FB84B;
+}
+.planModal .modal-right .right-body .time-zone .zone-list .add-comon {
+   color:#000!important;
+   font-family:"微软雅黑"!important;
+   font-weight:400!important;
+}
+.planModal .modal-right .right-body .configure{
+    width:50px;
+    height:25px;
+}
+.planModal .modal-right .right-body .isEvent{
+    display:inline-block;
+    border:1px solid #D5CCC5;
+    padding:1px 5px;
+    color:#DCDCDC;
+}
+.planModal .modal-right .right-body .file-up{
+    border-radius:5px;
+    min-height: 31px;
+   
+    border:1px solid #bfbfbf;
+}
+.planModal .modal-right .right-body  .list-upload{
+    width:100%;
+    padding:0;
+    margin:0;
+    margin-top: 25px;
+    max-height:240px;
+    min-height:1px;
+    overflow-y:auto;
+    padding: 0 10px;
+
+}
+.planModal .modal-right .right-body  .list-upload p{
+    margin:0 50px 0 0 ;
+    overflow:hidden;
+    cursor:default;
+    height:30px;
+}
+.planModal .modal-right .right-body  .list-upload  i{
+    position:absolute;
+    right:5px;
+    top:0;
+    line-height:30px;
+    display:none;
+    cursor:pointer;
+}
+.planModal .modal-right .right-body  .list-upload i:hover{
+    color:green;
+
+}
+.planModal .modal-right .right-body  .list-upload  .file-down{
+    right:30px;
+}
+.planModal .modal-right .right-body  .list-upload li{
+    line-height:30px;
+    position:relative;
+}
+.planModal .modal-right .right-body  .list-upload li:hover i{
+    display:block;
+}
+.planModal .modal-right .right-body .file-up .file-up-btn{
+    color: #fff;
+    height: 25px;
+    width: 100px;
+    border-radius: 4px;
+    background: #C1B4AA;
+    position: absolute;
+    top: 2px;
+    left: 5px;
+    line-height:25px;
+    text-align:center;
+}
+.planModal .modal-right .right-body .file-up .file-up-btn i{
+    margin:0 5px;
+}
+.planModal .modal-right .right-body .isEvent:last-child{
+    border-left:none;
+}
+.planModal .modal-right .right-body .choosed{
+    background:#D5CCC5;
+    color:#000;
+}
+.planModal .modal-right .ui-slider-horizontal .ui-slider-range-min {
+    background:#C9BCB3;
+}
+#uploadFile {
+    padding:0;
+    margin:0;
+    width:100%;
+    height:100%;
+    position:absolute;
+    top:0;
+    left:0;
+    opacity:0;
+}
+.planModal .ui-slider-handle {
+    outline:none!important;
+    margin-top: 1px!important;
+    width: 15px!important;
+    height: 15px!important;
+    /*background: url("../../../Images/plan/sliderDrag.png");*/
+    background: url("../../../Images/common/pcircle.png")!important;
+    border: none!important;
+    background-size: 150% 150%!important;
+    background-position: center!important;
+}
+#complete-info,#complete-number,#complete-time,#complete-quality{
+    margin:3px 50px 0 70px ;
+    height: 12px;
+    width: auto!important;
+
+}
+
+.planModal .modal-content {
+    height: 100%;
+    width: 710px;
+    /*float: left;*/
+}
+.planModal .modal-body {
+    padding:0 15px;
+    height:calc(100% - 80px);
+    overflow-y:auto;
+}
+#detailPlanModal .modal-body {
+    height:calc(100% - 35px);
+}
+
+.planModal .modal-rows {
+    padding:0;
+
+}
+.planModal .choose-container {
+    cursor:pointer;
+    padding-left: 0;
+}
+.planModal .planName {
+    padding-right: 0;
+}
+.planModal .do-method,.do-circle,.do-part {
+    line-height:31px;
+    text-indent:10px;
+    border-radius:3px;
+    border:1px solid #E5DAD4;
+}
+.planModal .do-circle {
+    border:none;
+    cursor:pointer;
+    line-height:28px;
+}
+.planModal .dropdown-menu {
+    margin-top: 2px;
+    width: calc(100% - 5px);
+    border-radius:3px;
+    border:1px solid #E5DAD4;
+    padding:0;
+    min-width:100px;
+}
+.planModal .dropdown-menu input{
+    width:100%;
+    background: #F1F1F1;
+    border-radius: 2px;
+}
+.planModal .user-menu {
+    width:100%;
+}
+.planModal .common-menu {
+    width:125px;
+}
+.planModal .user-menu .search-link{
+    height:36px;
+}
+.planModal .user-menu .search-link input{
+    border:1px solid #DDDDDD!important;
+    border-radius:2px;
+    height:100%;
+}
+.planModal .user-menu .search-link:hover{
+    background:none;
+    
+}
+.planModal .dropdown-menu li{
+    padding:5px;
+}
+.planModal .dropdown-menu .img-lists {
+    width:25px;
+    height:25px;
+    margin-right:10px;
+}
+.planModal .dropdown-menu .list-contain {
+    max-height: 200px;
+    overflow-y: auto;
+}
+.planModal .dropdown-menu .eventput {
+    cursor:pointer;
+}
+.planModal .dropdown-menu .circlePut {
+    line-height:20px;
+}
+.planModal .dropdown-menu .eventput:hover{
+    background-color:#E4E2E3;
+    color:#fff;
+}
+.planModal .dropdown-menu .msg-tip {
+    text-align:center!important;
+}
+.planModal .form-control {
+    border-radius:3px;
+    border:none;
+    background-color:#E3E3E3;
+}
+.planModal .down-list{
+    position:absolute;
+    right:20px;
+    top:0;
+    line-height:30px;
+}
+.planModal .detail-info {
+   border-radius:3px;
+   border:1px solid #E5DAD4;
+   line-height:31px;
+}
+.planModal .detail-other {
+    border:none;
+}
+.planModal .detail-other::after{
+    content:'';
+    position:absolute;
+    width:25px;
+    height:1px;
+    background:#B9B9B9;
+    left:50%;
+    margin-left:-12px;
+    top:17px;
+}
+.planModal .detail-other .col-xs-6{
+   padding:0
+}
+.planModal .detail-other .wrap-info{
+    border-radius:3px;
+   border:1px solid #E5DAD4;
+   margin-right:20px;
+   position:relative;
+   padding:2px 0;
+}
+.planModal .detail-info .col-xs-4{
+   border-right: 1px solid #E5DAD4;
+   padding-top: 2px;
+   padding-bottom: 2px;
+
+}
+.planModal .detail-info .col-xs-4:last-child{
+    border:none;
+}
+.planModal .detail-info .name-tip{
+    font-size: 16px;  
+    position: absolute; 
+    top: 2px;
+    left: 5px;
+    line-height: 31px;
+}
+.planModal .detail-info .icon-tip{
+    width:16px;
+    height:16px;
+    position: absolute; 
+    top: 9px;
+    left: 5px;
+    line-height: 31px;
+}
+.planModal .detail-info .name-title{
+    left:25px;
+    position:absolute
+}
+.planModal .detail-info .user-select{
+    margin-left:70px;
+    margin-right:10px;
+    height:28px;
+    position:relative;
+    background:#F1F1F1;
+    border-radius:2px;
+    border:1px solid #D3D3D3
+}
+
+.planModal .detail-info .user-select .img-select{
+    width:24px;
+    height:24px;
+    position:absolute;
+    top:1px;
+    left:5px;
+}
+.planModal .detail-info .user-select .fa-pencil{
+    position:absolute;
+    right:9px;
+    top:0px;
+    line-height:28px;
+}
+.planModal .detail-info .user-select .select-input{
+   height:100%;
+   margin-left:33px;
+   line-height: 26px;
+   margin-right:20px;
+}
+.planModal .detail-info .user-select .select-input input{
+   background:#F1F1F1;
+   width:100%;
+   border:none;
+}
+.planModal .isTemp {
+    border:1px solid #E5DAD4;
+    line-height:30px;
+    border-radius: 3px;
+}
+.circleType {
+    /*height:28px;*/
+}
+.planModal .isTemp .fa-clock-o{
+    font-size:16px;
+    margin-right:7px;
+    position:relative;
+    top:1px; 
+}
+.planModal .isTemp .tempOpt:first-child{
+    margin-left:85px;
+    border-right:none;
+}
+.planModal .isTemp a.select{
+    background:#D5CCC4;
+    color:#000;
+}
+.planModal .isTemp .tempOpt{
+    display:inline-block;
+    height:20px;
+    width:20px;
+    line-height:18px;
+    margin-top:6px;
+    border:1px solid #D5CCC4;
+    color:#D7D6D7;
+    text-align:center;
+}
+.planModal hr {
+    margin-top: 25px;
+}
+.planModal .detail-person {
+   border-radius:3px;
+   border:1px solid #E5DAD4;
+   width: auto;
+   /*min-width: 33.4%;*/
+   min-width:10%;
+   display: table;
+   position:relative;
+   min-height:30px;
+}
+.planModal .detail-person .person-tip{
+    position:absolute;
+    top:0;
+    line-height:31px;
+    left:5px;
+}
+.planModal .detail-person .tip-space{
+    position:absolute;
+    top:0;
+    line-height:31px;
+    left:45px;
+}
+.planModal .detail-person .person-lists{
+    padding:0;
+    margin:0 0 0 65px;    
+    line-height: initial;
+}
+.planModal .detail-person .person-lists li{
+    height:26px;
+    position:relative;
+    top:2px;
+    /*width:105px;*/
+    
+    overflow:hidden;
+    margin-left:2px;
+    border:1px solid rgba(210,210,210,0);
+    display:inline-block;
+    border-radius:2px;
+    cursor:default;
+}
+.planModal .detail-person .person-lists .person-user{
+    max-width: 105px;
+    min-width: 80px;
+}
+.planModal .detail-person .person-lists .tags-add{
+    min-width: 40px!important;
+}
+.planModal .detail-person .person-lists .tags-add p{
+    margin: 0 20px 0 5px;
+}
+#addPlanModal .detail-person .person-lists .person-user:hover{
+    border:1px solid rgba(210,210,210,1);
+    background:#F1F1F1;
+}
+#addPlanModal .detail-person .person-lists .person-user:hover .removeList{
+    display:block;  
+}
+#addPlanModal .detail-person .person-lists .person-user:hover span{
+    display:none;
+  
+}
+.planModal .detail-person .person-lists .add-list{
+    width:26px;
+    height:26px;
+    font-size:16px;
+    line-height:26px;
+    text-align:center;
+    border:none;
+    color:#51A7FE;
+}
+.planModal .detail-person .person-lists .target-li{
+    width:130px;
+}
+.planModal .person-lists .img-help {
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    left: 5px;
+}
+.planModal .person-lists .removeList{
+    position: absolute;
+    top: 0px;
+    line-height:24px;
+    right: 3px;
+    cursor:pointer;
+    display:none;
+}
+.planModal .person-lists p{
+    line-height:24px;
+    margin: 0 20px 0 35px;
+    overflow:hidden;
+}
+.planModal .detail-person .person-lists .person-user span {
+    position:absolute;
+    top:0;
+    right:5px;
+    line-height:24px;
+}
+.planModal .modal-footer {
+    padding:0;
+}
+
+.planModal .opt-upload {
+    width:50%;
+    display:block;
+    float:left;
+    height:45px;
+    line-height:45px;
+    text-align:center;
+    color:#A2A2A2;
+    position:relative;
+}
+
+.planModal .opt-upload:hover {
+   background:#fbac0f;
+   color:#fff;
+}
+
+.planModal .commentPlan {
+    height:120px;
+    border:1px solid #bfbfbf;
+    border-radius:3px;
+    position:relative;
+}
+
+.planModal .commentPlan .commentHeader{
+    width:100%;
+    height:30px;
+    border-bottom:1px solid #E8E8E8;
+}
+.planModal .commentPlan .commentHeader .addComment{
+    position:absolute;
+    line-height:20px;
+    background: #C1B4AA;
+    top: 3.5px;
+    border: none;
+    right: 10px;
+    font-size: 12px;
+    border-radius:3px;
+    color:#fff;
+    padding:0 5px;
+}
+
+.planModal .commentPlan .commentHeader .addComment i{
+    margin:0 5px 0 2px;
+}
+.planModal .commentPlan .commentHeader ul{
+    padding:0;
+    margin:0;
+    height:100%;
+}
+.planModal .commentPlan .commentHeader ul li{
+    line-height:30px;
+    display:inline-block;
+    padding:0 10px;
+    cursor:pointer;
+    position:relative;
+}
+.planModal .commentPlan .commentHeader ul li i{
+    position:absolute;
+    width:0;
+    
+    height:3px;
+    background:#de7577;
+    bottom:0;
+    left:0;
+    padding:0;    
+    transition:padding .5s, width 0.5s;
+
+}
+.planModal .commentPlan .commentHeader ul li.selected{
+    color:#59B455;
+}
+.planModal .commentPlan .commentHeader ul li.selected i{
+    width:100%;
+    padding:0 10px;
+    transition:padding .5s, width 0.5s;
+    
+}
+.planModal .commentPlan .tab-comment{
+    width:100%;
+    position:absolute;
+    top:31px;
+    bottom:0px;
+    overflow-y:auto;
+    padding-top:1px;
+}
+.planModal .commentPlan .tab-comment .list-log{
+    padding:0;
+    margin:0;
+    padding:0 5px 0 15px;
+}
+.planModal .commentPlan .tab-comment .list-log li{
+    line-height:25px;
+}
+.planModal .commentPlan .tab-comment .list-log .person-log{
+    color:green;
+}
+.planModal .commentPlan .tab-comment .list-log .operate-log{
+    left:90px;
+    position:absolute;
+    cursor:default;
+}
+.planModal .commentPlan .tooltip{
+    min-width:50px!important;
+    z-index:333;
+    
+    /*margin-top:20px;*/
+}
+.planModal .commentPlan .tooltip .tooltip-inner{
+    text-align:left!important;
+    max-width:300px!important;
+}
+.planModal .commentPlan .tab-comment .list-log .time-log{
+    position:absolute;
+    right:10px;
+    
+}
+.planModal .commentPlan .commentInfo{
+    display:none;
+}
+.planModal .commentPlan #commentCommit {
+    resize:none;
+    width:100%
+}
+.planModal .commentPlan .fillUp{
+    padding:3px 10px;
+    background:#CABDB5;
+    border:none;
+    border-radius:3px;
+    color:#fff;
+    font-size: 12px;
+    /*position: absolute;*/
+    margin-left:585px;
+    margin-top:5px;
+}
+.planModal .commentPlan .comment-wrap{
+    width:100%;
+    overflow: hidden;
+    /* display: none; */
+    /* margin-left: 100%; */
+    position: relative;
+    
+}
+.planModal .commentPlan .addHide{
+      height:0px;
+}
+
+.planModal .commentPlan .comment-wrap label{
+    position:absolute;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+.planModal .commentPlan .comment-wrap .wrap-text{
+    margin: 8px 15px 0 40px;
+    height:45px;
+}
+
+.planModal .comment-list {
+    /*margin:30px 0 0 0 ;*/
+    padding:0;
+}
+.planModal .comment-list .list-all{
+    position:relative;
+    margin-top:5px;
+}
+.planModal .comment-list .list-all .img-comment{
+    width:30px;
+    height:30px;
+    position:absolute;
+    left:10px;
+    top:6px;
+}
+.planModal .comment-list .list-all .comment-main{
+    margin: 0 0 0 50px;
+    padding:0;
+
+}
+.planModal .comment-list .list-all .comment-main li:first-child{
+    height:22px;
+    line-height:22px;
+    color:#88C4FC;
+}
+.planModal .comment-list .list-all .comment-main li:last-child{
+    min-height:22px;
+    line-height:22px;
+    position:relative;
+}
+.planModal .comment-list .list-all .comment-main li:last-child span{
+    position:absolute;
+    top:0px;
+    right:10px;
+}
+.planModal .comment-list .list-all .comment-main li:last-child p{
+   margin:0 140px 0 0;
+}
+#uploadIcon {
+    position:absolute;
+    width:100%;
+    height:100%;
+    top:0;
+    left:0;
+    filter:alpha(opacity=0); 
+    opacity:0;
+    cursor:pointer;
+}
+.laydateStyle {
+    margin-left: -105px!important;
+    margin-top: 7px!important;
+    border-radius: 5px;
+}
+.laydateOther {
+    margin-left: -20px!important;
+    margin-top: 7px!important;
+    border-radius: 5px;
+}
+

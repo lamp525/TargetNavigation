@@ -1,0 +1,176 @@
+﻿@using MB.Model
+@{
+    //ViewBag.Title = "NewList";
+    //Layout = "~/Views/ModelView/ModelView.cshtml";
+    var Newlist = ViewBag.NewsList as List<NewsInfo>;
+    var Dirtory = ViewBag.Directory as List<NewsDirectoryInfo>;
+    var implist = ViewBag.ImpNewsList as List<NewsInfo>;
+    var flag = ViewBag.Falg as string;
+}
+
+<link href="../../Styles/common/common-before-bs.css" rel="stylesheet" />
+<link href="~/Styles/index/index-news.css" rel="stylesheet" />
+
+ <div class="container-before-bootstrap clearfix">
+<!-- 新闻图片轮播 开始 -->
+@if (flag == "false")
+{
+    <div class="banner" id="banner">
+    </div>
+}
+<!-- 新闻图片轮播 结束 -->
+<!-- 新闻列表 开始 -->
+<div class="newsAllList">
+    <div class="newsTop">
+        @if (flag == "false")
+        {
+            <span class="newsLogo" onclick="GetNext(0)">新闻</span>
+        }
+        else
+        {
+            <span class="newsLogo" onclick="GetNext(0)">通知</span>
+        }
+        <input type="text" class="newsSearch" value="搜索">
+    </div>
+    @**@
+    <div class="newsNav">
+        <ul class="newsNavList">
+            @if (Dirtory != null)
+            {
+
+                foreach (var item in Dirtory)
+                {
+            
+                <li onclick="GetNext(@item.directoryId)">@item.directoryName </li>
+           
+                }
+
+            }
+        </ul>
+    </div>
+    <div class="newsCategory">
+        <ul>
+            <li class="newsCategoryUp">
+                <ul>
+                </ul>
+            </li>
+            <li class="newsCategoryDown">
+                <ul>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <!-- 重要新闻列表 开始 -->
+    <div class="importantNews">
+        <ul class="importantNewsUl">
+            <li class="importantNewsList importantNewsListL">
+                <ul>
+                    @if (implist != null)
+                    {
+                        int count = 0;
+                        foreach (var item in implist)
+                        {
+                            count++;
+                        <li>
+                            <span class="tagOfNew" onclick="NewsInfo(@item.newId)"><a>@MB.Common.StringUtils.CutString(item.title, 30) </a></span>
+                            <span class="summaryOfNew">@MB.Common.StringUtils.CutString(item.summary, 20)</span>
+                            <span class="dateOfNew">@item.createTime.ToString("yyyy-MM-dd")</span>
+                        </li>
+                            if (count > 5)
+                            {
+                                break;
+                            }
+                        }
+                    }
+
+                </ul>
+            </li>
+            <li class="importantNewsList importantNewsListR">
+                <ul>
+                    @if (implist != null)
+                    {
+                        for (int i = 5; i < implist.Count; i++)
+                        {
+                        <li>
+                            <span class="tagOfNew"  onclick="NewsInfo(@implist[i].newId)"><a>@MB.Common.StringUtils.CutString(implist[i].title, 30)</a></span>
+                            <span class="summaryOfNew">@implist[i].summary</span>
+                            <span class="dateOfNew">@implist[i].createTime.ToString("yyyy-MM-dd")</span>
+                        </li>
+                        }
+                    }
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <!-- 重要新闻列表 结束 -->
+    <!-- 其他新闻列表 开始 -->
+    <div class="generalNewsListArea">
+        <ul style="width: 1194px;">
+            @*    @foreach(var )
+         @Html.RenderAction("_NewsSeachList","NewsSeachList",new{flag:true,Driid:0})*@
+            @*<li class="generalNewsList">*@
+            @*     @if (Newlist != null)
+                {
+                    foreach (var item in Newlist)
+                    { 
+                    <ul>
+                        <a>
+                            <li onclick=" NewsInfo(@item.newId)">@MB.Common.StringUtils.CutString(item.title, 15)
+                                <span class="dateOfNew">@item.createTime.ToString("yyyy-mm-dd")</span>
+                            </li>
+                        </a>
+                    </ul> 
+                    }
+                }*@
+            @* </li>*@
+            @*              <li class="generalNewsList">
+                @if (Newlist != null)
+                {
+                    foreach (var item in Newlist)
+                    { 
+                    <ul>
+                        <a>
+                            <li onclick=" NewsInfo(@item.newId)">@MB.Common.StringUtils.CutString(item.title, 15)
+                                <span class="dateOfNew">@item.createTime.ToString("yyyy-mm-dd")</span>
+                            </li>
+                        </a>
+                    </ul> 
+                    }
+                }
+            </li>*@
+            <div class="clear" style="clear: both;"></div>
+        </ul>
+    </div>
+    <!-- 其他新闻列表 结束 -->
+</div>
+<!-- 新闻列表 结束 -->
+<footer style="height: 100px; width: 1202px; margin: 0 auto;"></footer>
+    </div>
+<!-- 图片轮播的模板 开始 -->
+<script type="text/html" id="tpl_banner">
+    {{# for(var i = 0,len = d.length; i < len; i ++){ }}
+                <a href="#" title="{{ d[i].title }}" id="{{d[i].newId}}" class="d1" style="background: url({{ d[i].titleImage }}) no-repeat;"></a>
+    {{# } }}
+            <div class="d2" id="banner_id">
+                <ul>
+                    {{# for(var i = 0; i < len; i ++){ }}
+                    <li></li>
+                    {{# } }}
+                </ul>
+            </div>
+</script>
+<!-- 图片轮播的模板 开始 -->
+<script>
+    function NewsInfo(id) {
+        loadViewToMain("/NewsDel/NewsDel?id=" + id);
+        //window.location.href = "/NewsDel/NewsDel?id=" + id + "";
+    }
+
+    function GetNext(id) {
+        loadViewToMain("/News/NewsList?Flag=" + @Session["Flag"].ToString() + "&DriID=" + id);
+        //window.location.href = "/News/NewsList?Flag=" + @Session["Flag"].ToString() + "&DriID=" + id + "";
+    }
+</script>
+
+<script src="~/Scripts/index/index-news.js"></script>
+<script src="~/Scripts/index/index_functionality.js"></script>

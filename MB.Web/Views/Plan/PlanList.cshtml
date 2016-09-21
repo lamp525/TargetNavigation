@@ -1,0 +1,463 @@
+﻿@using MB.Model
+@{
+    ViewBag.Title = "PlanList";
+    var list = ViewBag.PlanList as List<PlanInfo>;
+    var whoPlan = Convert.ToInt32(ViewBag.WhoPlan);
+}
+@if (list != null)
+{
+    foreach (var item in list)
+    {
+    <div class="PLChunk" term="@item.planId" status="@item.status" stop="@item.stop" initial="@item.initial">
+        <div class="plLabel">
+            <span class="labelOne"></span>
+            <div class="labelTwo">
+                @if (item.isLoopPlan == 1)
+                {
+                    <span class="recyclePlan" title="循环计划"></span>
+                }
+                @if (item.withSub == true)
+                {
+                    <span term="@item.planId" class="childrenPlan" title="子计划"></span>
+                }
+                @if (item.withFront == true)
+                {
+                    <span term="@item.planId" class="premisePlan" title="前提计划"></span>
+                }
+                @if (item.initial == 0)
+                {
+                    <span class="temporaryPlan" title="临时计划"></span>
+                }
+                @if (item.IsCollPlan == 1)
+                {
+                    <span class="cooperatePlan" title="协作计划"></span>
+                }
+                <span term="@item.planId" class="accessory" title="附件"></span>
+            </div>
+
+            <span class="labelThree"></span>
+            <span class="labelLast">部门:<span>@item.organizationNameNew</span>   &nbsp;&nbsp;项目分类:<span>@item.projectNameNew</span></span>
+            <div class="labelDiv">
+                <span class="labelDivBg"></span>
+                <ul>
+                </ul>
+            </div>
+            @if (item.withSub == true)
+            {
+                <div class="childPlanDiv" style="display: none">
+                </div>
+            }
+
+        </div>
+        <div class="main">
+            <div class="knobwrapper">
+                @if ((item.status == 20 || item.status == 40) && item.stop == 0)
+                {
+                    if (item.IsCollPlan==1)
+                    {
+                        <input term="@item.planId" data-readonly="true" data-max=90 data-angleArc = 324 data-fgColor="#be1d9a" class="knob"  data-skin="tron" data-displayinput="true" value="@(item.progress == null ? 0 : item.progress)">
+                    }
+                    else
+                    {
+                        <input term="@item.planId" data-readonly="false" data-max=90 data-angleArc = 324 data-fgColor="#be1d9a" class="knob"  data-skin="tron" data-displayinput="true" value="@(item.progress == null ? 0 : item.progress)">
+                    }
+                    
+                }
+                else if ((item.status == 0 || item.status == 15) && item.stop == 0)
+                {
+                    <input data-text = "待提交" data-font-weight="normal" data-max=90 data-angleArc = 324 data-fgColor="#57acdb" class="knob" data-readonly="true"  data-skin="tron" data-displayinput="true" value="@(item.progress == null ? 0 : item.progress)">
+                }
+                else if (((item.status == 10 || item.status == 25) && item.stop == 0) || item.stop == 10)
+                {
+                    if (whoPlan == 0)
+                    {
+                    <input  data-max=90 data-angleArc = 324 data-text = "待审核" data-font-weight="normal" data-fgColor="#e00e16" class="knob" data-readonly="true"  data-skin="tron" data-displayinput="true" value="@(item.progress == null ? 0 : item.progress)">
+                        
+                    }
+                    else
+                    {
+                        if (item.status == 10 && item.stop == 0)
+                        {
+                    <input  data-max=90 data-angleArc = 324 data-text = "请审核" data-font-weight="normal" data-fgColor="#e00e16" class="knob" data-readonly="true"  data-skin="tron" data-displayinput="true" value="@(item.progress == null ? 0 : item.progress)">
+                        }
+                        else if (item.status == 25 && item.stop == 0)
+                        {
+                    <input  data-max=90 data-angleArc = 324 data-text = "需修改" data-font-weight="normal" data-fgColor="#e00e16" class="knob" data-readonly="true"  data-skin="tron" data-displayinput="true" value="@(item.progress == null ? 0 : item.progress)">
+                        }
+                        else if (item.stop == 10)
+                        {
+                    <input  data-max=90 data-angleArc = 324 data-text = "需中止" data-font-weight="normal" data-fgColor="#e00e16" class="knob" data-readonly="true"  data-skin="tron" data-displayinput="true" value="@(item.progress == null ? 0 : item.progress)">
+                        }
+                    }
+
+
+                }
+                else if (item.status == 30 && item.stop == 0)
+                {
+                    if (whoPlan == 0)
+                    {
+                    <input  data-max=90 data-angleArc = 324 data-text = "待确认" data-font-weight="normal" data-fgColor="#fbab11" class="knob" data-readonly="true"  data-skin="tron" data-displayinput="true" value="@(item.progress == null ? 0 : item.progress)">
+                        
+                    }
+                    else
+                    {
+                    <input  data-max=90 data-angleArc = 324 data-text = "请确认" data-font-weight="normal" data-fgColor="#fbab11" class="knob" data-readonly="true"  data-skin="tron" data-displayinput="true" value="@(item.progress == null ? 0 : item.progress)">
+                    }
+
+
+                }
+                else if (item.status == 90 && item.stop == 0)
+                {
+                    <input data-fgColor="#58b557" class="knob" data-readonly="true"  data-skin="tron" data-displayinput="true" value="@(item.progress == null ? 0 : item.progress)">
+                }
+                else if (item.stop == 90)
+                {
+                    <input data-fgColor="#49dca7" class="knob" data-readonly="true"  data-skin="tron" data-displayinput="true" value="@(item.progress == null ? 0 : item.progress)">
+                }
+            </div>
+
+            <div class="runMode">
+                <ul>
+                    <div class="runModeInfo">
+                        <li>执行方式：<span>@item.executionMode</span></li>
+                        <li style="overflow: hidden;text-overflow: ellipsis;white-space: nowrap" title="@item.eventOutput">输出结果：<span>@item.eventOutput</span></li>
+                        <li>计划完成时间：<span>@item.endTimeNew</span></li>
+                        <li>确认人：<span>@item.confirmUserName</span></li>
+                    </div>
+                    <div class="runModeStar">
+                        <li>
+                            <span style="float: left;">重要度：</span>
+                            <div class="stars starsR">
+                                <ul>
+                                    @if (item.importance == null || item.importance == 0)
+                                    {
+                                        for (int i = 0; i < 5; i++)
+                                        {
+                                        <li></li>
+                                        }
+                                    }
+                                    else
+                                    {
+                                        for (int i = 0; i < item.importance; i++)
+                                        {
+                                        <li class="liHit"></li>
+                                        }
+                                        if (item.importance < 5)
+                                        {
+                                            for (int i = item.importance.Value; i < 5; i++)
+                                            {
+                                        <li></li> 
+                                    
+                                            }
+
+                                        }
+                                    }
+                                </ul>
+                            </div>
+                        </li>
+                        <li>
+                            <span style="float: left;">紧急度：</span>
+                            <div class="stars starsY">
+                                <ul>
+                                    @if (item.urgency == null || item.urgency == 0)
+                                    {
+                                        for (int i = 0; i < 5; i++)
+                                        {
+                                        <li></li>
+                                        }
+                                    }
+                                    else
+                                    {
+                                        for (int i = 0; i < item.urgency; i++)
+                                        {
+                                        <li class="liHit"></li>
+                                        }
+                                        if (item.urgency < 5)
+                                        {
+                                            for (int i = item.urgency.Value; i < 5; i++)
+                                            {
+                                        <li></li> 
+                                    
+                                            }
+                                        }
+                                    }
+                                </ul>
+                            </div>
+                        </li>
+                        <li>
+                            <span style="float: left;">难易度：</span>
+                            <div class="stars starsG">
+                                <ul>
+                                    @if (item.difficulty == null || item.difficulty == 0)
+                                    {
+                                        for (int i = 0; i < 5; i++)
+                                        {
+                                        <li></li>
+                                        }
+                                    }
+                                    else
+                                    {
+                                        for (int i = 0; i < item.difficulty; i++)
+                                        {
+                                        <li class="liHit"></li>
+                                        }
+                                        if (item.difficulty < 5)
+                                        {
+                                            for (int i = item.difficulty.Value; i < 5; i++)
+                                            {
+                                        <li></li> 
+                                    
+                                            }
+                                        }
+                                    }
+                                </ul>
+                            </div>
+                        </li>
+                    </div>
+                </ul>
+            </div>
+            @if (item.status == 90 && item.stop != 90)
+            {
+                <span class="arrowsBBLCom"></span>
+                <div class="accomplishment">
+                    <span class="arrowsBBRCom"></span>
+
+                    <ul>
+                        <li>完成数量：@item.completeQuantity</li>
+                        <li>完成质量：@item.completeQuality</li>
+                        <li>完成时间：@item.completeTime</li>
+                        <li>评定工时：@(item.effectiveTime.Value.ToString("0.0"))分</li>
+                        <li>实际工时：@(item.realTime.Value.ToString("0.0"))分</li>
+                    </ul>
+
+                </div>
+            }
+        </div>
+
+        <div class="xxc_choose" planId="@item.planId">
+            <span></span>
+        </div>
+
+        <div class="dutyPerson"><span>@item.responsibleUserName</span> @item.createTimeNew</div>
+
+        @ShowOrDisplayOperate(item, whoPlan)
+
+    </div>
+    }
+}
+@*<div class="PLChunk">
+    <div class="addPlan">
+        <span class="addB"></span>
+        <span class="new">新建计划</span>
+
+    </div>
+
+</div>*@
+@helper ShowOrDisplayOperate(PlanInfo item, int whoPlan)
+{
+    if (item.stop == 90)
+    {
+    <div class="susPlan">
+        <span class="susPlanBg"></span>
+        <div class="susPlanDiv">
+            <span class="susPlanImg"></span>
+            <span class="susPlanText">该计划已中止</span>
+        </div>
+    </div>
+    }
+    <div class="operate">
+        <div class="operateDiv">
+            <span class="operateBg"></span>
+            <div class="operateText">
+                <ul>
+                    @if (whoPlan == 0)//责任人显示的操作
+                    {
+                        //循环计划显示的操作
+                        if (item.isLoopPlan == 1)
+                        {
+                            if (item.IsCollPlan == 1)//协作计划
+                            {
+                        <li class="planDetail" withfront="@item.isFronPlan" collPlan="@item.IsCollPlan" term="@item.loopId" status="@item.status" stop="10" isloop="@item.isLoopPlan" initial="@item.initial" >详情</li>
+                            }
+                            else
+                            {
+                                if (item.status == 15 || item.status == 0 && item.loopStatus.Value)
+                                {
+                        <li class="planDetail" withfront="@item.isFronPlan" collPlan="@item.IsCollPlan" term="@item.loopId" status="@item.status" stop="@item.stop" isloop="@item.isLoopPlan" initial="@item.initial" >详情</li>
+                        <li class="xxc_submit submit" term="@item.loopId" initial="@item.initial" >提交</li>
+                        
+                                }
+                                else if ((item.status == 10 || item.status == 25) && item.loopStatus.Value)
+                                {
+                        <li class="planDetail" withfront="@item.isFronPlan" collPlan="@item.IsCollPlan"  term="@item.loopId" status="@item.status" stop="@item.stop" isloop="@item.isLoopPlan">详情</li>
+                        <li class="xxc_revoke revocation" term="@item.loopId" operate="0">撤销</li>
+                                }
+                                else if ((item.status == 20) && item.loopStatus.Value)
+                                {
+                        <li class="planDetail" withfront="@item.isFronPlan" collPlan="@item.IsCollPlan"  term="@item.loopId" status="@item.status" stop="@item.stop" isloop="@item.isLoopPlan">详情</li>
+                        <li term="@item.loopId" class="suspend">中止</li>
+                        <li class="xxc_update modification" term="@item.loopId">修改</li>
+                                }
+                            }
+
+                        }
+                        else
+                        {
+                            if (item.IsCollPlan == 1)
+                            {
+                        <li class="planDetail" withfront="@item.isFronPlan" collPlan="@item.IsCollPlan" term="@item.planId" status="@item.status" stop="10" isloop="@item.isLoopPlan" initial="@item.initial" >详情</li>
+                            }
+                            else
+                            {   //我的计划
+                                if ((item.status == 0 || item.status == 15) && item.stop == 0)
+                                {
+                        <li class="planDetail" withfront="@item.isFronPlan" collPlan="@item.IsCollPlan"  term="@item.planId" status="@item.status" stop="@item.stop" isloop="@item.isLoopPlan" initial="@item.initial" >详情</li>
+                        <li class="xxc_submit submit"  term="@item.planId" initial="@item.initial" >提交</li>
+                        <li class="xxc_transimitPlan transimitPlan" term="@item.planId">转办</li>
+                        
+                                }
+                                else if (((item.status == 10 || item.status == 25) && item.stop == 0) || item.stop == 10)
+                                {
+                        <li class="planDetail" withfront="@item.isFronPlan" collPlan="@item.IsCollPlan"  term="@item.planId" status="@item.status" stop="@item.stop" isloop="@item.isLoopPlan">详情</li>
+                        <li class="xxc_transimitPlan transimitPlan" term="@item.planId">转办</li>
+                                    if (item.stop == 10)
+                                    {
+                        <li class="xxc_revoke revocation" term="@item.planId" operate="1">撤销</li>
+                                    }
+                                    else
+                                    {
+                                        if (item.status == 10)
+                                        {
+                        <li class="xxc_revoke revocation" term="@item.planId" operate="0">撤销</li>
+                                        }
+                                        else
+                                        {
+                        <li class="xxc_revoke revocation" term="@item.planId" operate="20">撤销</li>
+                                        }
+                                    }
+                                }
+                                else if ((item.status == 20 || item.status == 40) && item.stop == 0)
+                                {
+                        <li class="planDetail" withfront="@item.isFronPlan" collPlan="@item.IsCollPlan"  term="@item.planId" status="@item.status" stop="@item.stop" isloop="@item.isLoopPlan">详情</li>
+                        <li term="@item.planId" class="submit xxc_submitconfirm" withfront="@item.isFronPlan" collPlan="@item.IsCollPlan"  status="@item.status" stop="@item.stop" isloop="@item.isLoopPlan">提交</li>
+                        <li term="@item.planId" class="suspend">中止</li>
+                        <li class="xxc_update modification" term="@item.planId">修改</li>
+                        <li class="xxc_transimitPlan transimitPlan" term="@item.planId">转办</li>
+                        <li class="decPlan" term="@item.planId" endTime="@item.endTimeNew">分解</li>
+                                }
+                                else if (item.status == 30 && item.stop == 0)
+                                {
+                        <li class="planDetail" withfront="@item.isFronPlan" collPlan="@item.IsCollPlan"  term="@item.planId" status="@item.status" stop="@item.stop" isloop="@item.isLoopPlan">详情</li>
+                        <li class="xxc_transimitPlan transimitPlan" term="@item.planId">转办</li>
+                        <li class="xxc_revoke revocation" term="@item.planId" operate="20">撤销</li>
+                                }
+                                else if (item.stop == 90)
+                                {
+                        <li class="planDetail" withfront="@item.isFronPlan" collPlan="@item.IsCollPlan"  term="@item.planId" status="@item.status" stop="@item.stop" isloop="@item.isLoopPlan">详情</li>
+                        <li class="restart" term="@item.planId">重新开始</li>
+                        
+                                }
+                                else if (item.status == 90 && item.stop == 0)
+                                {
+                        <li class="planDetail" withfront="@item.isFronPlan" collPlan="@item.IsCollPlan"  term="@item.planId" status="@item.status" stop="@item.stop" isloop="@item.isLoopPlan">详情</li>
+                                    //<li class="file" term="@item.planId">归档</li>
+                                }
+                            }
+                        }
+                    }//我的计划结束
+                    else
+                    {
+                        if (item.isLoopPlan == 1)//确认人的操作显示
+                        {
+                            if (item.IsCollPlan == 1)//协作计划的操作显示
+                            {
+                                <li class="planDetail" term="@item.loopId" status="0" stop="0" withfront="@item.isFronPlan" collPlan="@item.IsCollPlan" isloop="@item.isLoopPlan">详情</li>
+                            }
+                            else
+                            {
+                                if (item.status == 15 || item.status == 0 && item.loopStatus.Value)
+                                {
+                        <li class="planDetail" term="@item.loopId" status="@item.status" stop="@item.stop" withfront="@item.isFronPlan" collPlan="@item.IsCollPlan" isloop="@item.isLoopPlan">详情</li>
+                        
+                                }
+                                else if ((item.status == 10 || item.status == 25) && item.loopStatus.Value)
+                                {
+                        <li class="planDetail" term="@item.loopId" status="@item.status" stop="@item.stop" withfront="@item.isFronPlan" collPlan="@item.IsCollPlan" isloop="@item.isLoopPlan">详情</li>
+                        <li class="checks" term="@item.loopId" status="@item.status" stop="@item.stop" withfront="@item.isFronPlan" collPlan="@item.IsCollPlan" isloop="@item.isLoopPlan">审核</li>
+                                }
+                                else if ((item.status == 20) && item.loopStatus.Value)
+                                {
+                        <li class="planDetail" term="@item.loopId" status="@item.status" stop="@item.stop" withfront="@item.isFronPlan" collPlan="@item.IsCollPlan" isloop="@item.isLoopPlan">详情</li>
+                                }
+                            }
+                        }
+                        else
+                        {
+                            if (item.IsCollPlan==1)
+                            {
+                                 <li class="planDetail" term="@item.planId" status="0" stop="0" withfront="@item.isFronPlan" collPlan="@item.IsCollPlan" isloop="@item.isLoopPlan">详情</li>
+                            }
+                            else //下属计划
+                            {
+                                if ((item.status == 0 || item.status == 15) && item.stop == 0)
+                            {
+                        <li class="planDetail" term="@item.planId" status="@item.status" stop="@item.stop" withfront="@item.isFronPlan" collPlan="@item.IsCollPlan" isloop="@item.isLoopPlan">详情</li>
+                        <li class="xxc_transimitPlan transimitPlan" term="@item.planId">转办</li>
+                        
+                            }
+                            else if (((item.status == 10 || item.status == 25) && item.stop == 0) || item.stop == 10)
+                            {
+                        <li class="planDetail" term="@item.planId" status="@item.status" stop="@item.stop" withfront="@item.isFronPlan" collPlan="@item.IsCollPlan" isloop="@item.isLoopPlan">详情</li>
+                        <li class="checks"  withfront="@item.isFronPlan" collPlan="@item.IsCollPlan"  term="@item.planId" status="@item.status" stop="@item.stop" isloop="@item.isLoopPlan">审核</li>
+                        <li class="xxc_transimitPlan transimitPlan" term="@item.planId">转办</li>
+                            
+                            }
+                            else if ((item.status == 20 || item.status == 40) && item.stop == 0)
+                            {
+                        <li class="planDetail" term="@item.planId" status="@item.status" stop="@item.stop" withfront="@item.isFronPlan" collPlan="@item.IsCollPlan" isloop="@item.isLoopPlan" initial="@item.initial">详情</li>
+                        <li class="xxc_transimitPlan transimitPlan" term="@item.planId">转办</li>
+                                if (item.initial != 0)
+                                {
+                        <li class="xxc_revoke revocation" term="@item.planId" operate="10">撤销</li>
+                                }
+
+                            }
+                            else if (item.status == 30 && item.stop == 0)
+                            {
+                        <li class="planDetail" term="@item.planId" status="@item.status" stop="@item.stop" withfront="@item.isFronPlan" collPlan="@item.IsCollPlan" isloop="@item.isLoopPlan">详情</li>
+                        <li term="@item.planId" class="affirm"  withfront="@item.isFronPlan" collPlan="@item.IsCollPlan"  status="@item.status" stop="@item.stop" isloop="@item.isLoopPlan">确认</li>
+                        <li class="xxc_transimitPlan transimitPlan" term="@item.planId">转办</li>
+                            }
+                            else if (item.stop == 90)
+                            {
+                        <li class="planDetail" term="@item.planId" status="@item.status" stop="@item.stop" withfront="@item.isFronPlan" collPlan="@item.IsCollPlan" isloop="@item.isLoopPlan">详情</li>
+                            }
+                            else if (item.status == 90 && item.stop == 0)
+                            {
+                        <li class="planDetail" term="@item.planId" status="@item.status" stop="@item.stop" withfront="@item.isFronPlan" collPlan="@item.IsCollPlan" isloop="@item.isLoopPlan">详情</li>
+                                //<li class="file" term="@item.planId">归档</li>
+                            }
+                            }
+                        }
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+}
+
+<input id="xxc_planId" type="hidden" />
+<input id="xxc_status" type="hidden" value="0" />
+<input id="xxc_stop" type="hidden" value="0" />
+<input id="xxc_isloop" type="hidden" />
+<input id="xxc_initial" type="hidden" />
+<input id="xxc_endTime" type="hidden" />
+
+@* 判断是否滚到最后一页 *@
+<input id="pageflag" type="hidden" value="@ViewBag.PageFlag" />
+@* 单前页 *@
+<input id="currentPageCount" type="hidden" value="@ViewBag.CurrentPageCount" />
+@* 总页数 *@
+<input id="pageCount" type="hidden" value="@ViewBag.PageCount" />
+
+<script src="~/Scripts/plan/planList.js"></script>

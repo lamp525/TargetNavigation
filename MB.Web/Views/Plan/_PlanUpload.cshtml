@@ -1,0 +1,61 @@
+﻿
+<div class="uploadBox" style="position:absolute;width: 360px;top: 0px;left: 560px;height: 630px;padding: 0 20px;">
+                <div style="height: 30px;line-height: 30px;border-bottom: solid 1px #e3e3e3;font-size: 16px">
+                    完成情况
+                </div>
+                <div class="uploadArea" style="margin:10px 0;height: 100px;border-bottom:1px solid #bbb;">
+                    <div class="allProcessBar">
+                        <span>完成情况</span>
+                        <div class="processBar">
+                            <div id="slider"></div>
+                        </div>
+                        <span class="degree">90%</span>
+                    </div>
+                    <div class="file_upload">
+                        <div class="fileinput_frame">
+                            <span>上传附件：</span>
+                            <div class="fileinput-button">
+                                <div class="fileinput-button_l"></div>
+                                <span>上传</span>
+                                <input id="fileupload" type="file" name="files[]" multiple>
+                                <div class="fileinput-button_r"></div>
+                            </div>
+                            <div class="files">
+                                <span class="file">设计说明
+                                    <span>x</span>
+                                </span>
+                                <span class="file">设计说明
+                                    <span>x</span>
+                                </span>
+                                <span class="file">设计说明
+                                    <span>x</span>
+                                </span>
+                            </div>
+                            <!-- 图片上传进度条模块 -->
+                            <div id="up_progress">
+                                <div class="progress-bar" style="width: 0%;"></div>
+                            </div>
+                            <div style="clear:both;"></div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="finishTime">
+                    <span>完成时间：</span>
+                    <input type="text" id="time" value="10" /> 分钟 x
+                    <input type="text" id="num" value="1" />件 = <span class="allTime" style="color:#58b557">10</span> 分钟
+                </div>
+                <div class="uploadOperate">
+                    <span style="margin-left:10px;">提交</span>
+                    <span>取消</span>
+                </div>
+            </div>
+<script>
+    $(function () {
+        $("#fileupload").fileupload({
+            url: "/Plan/PlanUplpadMultipleFiles",
+            done: function (e, result) {
+            }
+        })
+    })
+</script>

@@ -1,0 +1,26 @@
+﻿<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+    <h4 class="modal-title" id="move_modal_label">移动</h4>
+</div>
+<div class="chosenbox">
+    <span class="chosen-count">已选分类：</span>
+    <span class="badge badge-success" id="move_modal_chosen_count">0</span>
+    <ul class="chosens" id="move_modal_chosen">
+    </ul>
+</div>
+<div class="input-group form-horizontal" id="move_modal_search">
+    <span style="float: left; display: inline-block">移动到：</span>
+    <input type="text" class="form-control" placeholder="选择表单类型" aria-describedby="basic-addon2" id="move_select">
+    <span class="input-group-btn">
+        <a class="btn btn-default" type="a"><span class="glyphicon glyphicon-search"></span></a>
+    </span>
+</div>
+
+<div class="fifty-fifty chosebox clearfix">
+    <div class="ztree" id="move_modal_folder"></div>
+
+</div>
+<div class="modal-footer fifty-fifty">
+    <a class="btn btn-transparency btn-lg" data-dismiss="modal">取消</a>
+    <a class="btn btn-transparency btn-lg" id="move_modal_submit">确定</a>
+</div>

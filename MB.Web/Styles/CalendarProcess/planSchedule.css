@@ -1,0 +1,3040 @@
+#dayMonthChosen li {
+    width: 53px;
+    border-left: 1px solid #DDD;
+    line-height: 33px;
+    text-align: center;
+    cursor: pointer;
+}
+
+    #dayMonthChosen li:first-child {
+        margin-right: -4px;
+    }
+
+    #dayMonthChosen li:hover, #timeBtnContent li:hover {
+        background-image: -webkit-linear-gradient(to top,#fefefe,#e8e8e8);
+        background-image: linear-gradient(to top,#fefefe,#e8e8e8);
+        color: #58b456;
+    }
+
+.timeChosen {
+    background-image: -webkit-linear-gradient(to top,#fefefe,#e8e8e8) !important;
+    background-image: linear-gradient(to top,#fefefe,#e8e8e8) !important;
+    color: #58b456;
+}
+
+#dayMonthChosen {
+    margin-right: -10px;
+}
+
+#timeBtnContent ul {
+    text-align: center;
+    overflow-y: hidden;
+    white-space: nowrap;
+    padding-left: 6px;
+    padding-bottom: 5px;
+}
+
+#timeBtnContent li {
+    border: 1px solid #bbbbbb;
+    width: 9%;
+    text-align: center;
+    cursor: pointer;
+    line-height: 30px;
+    position: relative;
+    margin-left: -5px;
+    min-width: 45px;
+    background-image: linear-gradient(to top,#f4f4f4,#ffffff);
+    background-image: -webkit-linear-gradient(to top,#f4f4f4,#ffffff);
+}
+
+    #timeBtnContent li:first-child {
+        border-left: 1px solid #bbbbbb;
+    }
+
+.markCircle {
+    height: 8px;
+    width: 8px;
+    border-radius: 4px;
+    background-color: #ff0106;
+    position: absolute;
+    right: 3px;
+    top: 2px;
+    display: none;
+}
+
+.timeChosen .markCircle {
+    background-color: #a1a1a1;
+}
+
+#prevPic, #nextPic {
+    font-size: 32px;
+    color: #dbdbdb;
+    cursor: pointer;
+}
+
+    #prevPic:hover, #nextPic:hover {
+        color: #58b456;
+    }
+
+
+.headTitle {
+    background-color: #dfdfdf;
+    line-height: 33px;
+    font-size: 14px;
+    border: 1px solid #bbbbbb;
+}
+
+.planContainer {
+    width: 96%;
+    min-height: 600px;
+    margin: 20px auto;
+}
+
+.containerListOne {
+    height: 114px;
+    background-color: #f2f2f2;
+    border: 1px solid #DDDDDD;
+}
+
+.hoverClass:hover .choseCheck {
+    display: block;
+}
+
+.personImage {
+    display: inline-block;
+    height: 60px;
+    width: 60px;
+    border-radius: 30px;
+    background: url("../../Images/common/portrait.png");
+    margin-top: 19px;
+}
+
+#planList .row, #flowList .row, #objectList .row {
+    margin-bottom: 10px;
+}
+
+.containerListOne > div {
+    height: 100%;
+}
+
+.imageCol {
+    text-align: center;
+    width: 10%;
+    position: relative;
+    float: left;
+}
+
+.choseCheck {
+    background-color: rgba(0,0,0,0.1);
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    border: 1px solid #bbbbbb;
+    box-shadow: 0px 0px 2px #e3e3e3 inset;
+}
+
+.hoverClass .choseCheck {
+    display: none;
+}
+
+.choseCheck a {
+    font-size: 20px;
+    top: 2px;
+    color: #ffffff;
+}
+
+.circleMark {
+    position: absolute;
+    right: 14px;
+    top: 8px;
+    font-size: 17px;
+}
+
+.circulation {
+    background: url("../../Images/planSchedule/circleMark.png") 1px 1px;
+    height: 24px;
+    width: 24px;
+    display: inline-block;
+}
+
+.listTwoPlan, .listOnePlan {
+    margin-top: 17px;
+}
+
+.createTimeSpan {
+    margin: 67px 8px 0px 0px;
+    display: inline-block;
+    color: #bbbbbb;
+}
+
+.weight {
+    position: absolute;
+    top: 27px;
+    right: 15px;
+}
+
+#contentObject .containerListOne {
+    padding-top: 10px;
+}
+
+.objectHeadTitle {
+    position: absolute;
+    background: #dfdfdf;
+    height: 22px !important;
+    width: 100%;
+    top: 0px;
+    left: 0px;
+    padding-left: 8px;
+    line-height: 22px;
+    font-weight: bold;
+}
+
+#contentObject .choseCheck {
+    top: 11px;
+}
+
+.containerListOne:hover .operate {
+    display: inline-block;
+}
+
+.operate {
+    position: absolute;
+    width: 100%;
+    bottom: 0px;
+    left: 0px;
+    height: 30px;
+    background: #58b456;
+    opacity: 0.8;
+    display: none;
+    margin-left: 0px;
+    text-align: right;
+}
+
+    .operate li {
+        line-height: 26px;
+        padding-left: 24px;
+        cursor: pointer;
+        color: white;
+        margin: 2px;
+    }
+
+        .operate li:hover {
+            color: #136012;
+        }
+
+
+/*人力资源*/
+.chosebox {
+    height: 200px;
+}
+
+.chosenbox {
+    height: 400px;
+}
+
+    .chosenbox .chosen-count {
+        padding: 3px 10px;
+        border-bottom: 1px solid #ccc;
+    }
+
+.chosens {
+    padding-left: 0;
+    list-style: none;
+}
+
+    .chosens li {
+        padding: 5px 10px;
+    }
+
+.choseClass {
+    height: 200px;
+    margin-top: -200px;
+    overflow-y: hidden;
+}
+
+.adopt {
+    height: 30px;
+    border-bottom: 1px solid #dddddd;
+}
+
+    .adopt > ul.list-inline {
+        padding: 5px 5px;
+    }
+
+.getadopt {
+    padding: 5px;
+    overflow-y: auto;
+    height: 172px;
+}
+
+ul.list-inline li input {
+    vertical-align: top;
+}
+
+
+/*操作图标*/
+.liDel {
+    background: url(../../Images/objective/deleteWhite.png) no-repeat 1px;
+}
+
+    .liDel:hover {
+        background: url(../../Images/objective/deleteHit.png) no-repeat 1px;
+    }
+
+.liCommit {
+    background: url(../../Images/plan/submit.png) no-repeat;
+}
+
+    .liCommit:hover {
+        background: url(../../Images/plan/submitHit.png) no-repeat;
+    }
+
+.liOpen {
+    background: url(../../Images/objective/unfold.png) no-repeat 1px;
+}
+
+    .liOpen:hover {
+        background: url(../../Images/objective/unfoldHit.png) no-repeat 1px;
+    }
+
+.liPower {
+    background: url(../../Images/objective/impower.png) no-repeat 1px;
+}
+
+    .liPower:hover {
+        background: url(../../Images/objective/impowerHit.png) no-repeat 1px;
+    }
+
+.liDetail {
+    background: url(../../Images/plan/planDetail.png) no-repeat;
+}
+
+    .liDetail:hover {
+        background: url(../../Images/plan/planDetailHit.png) no-repeat;
+    }
+
+.liChecks {
+    background: url(../../Images/plan/checks.png) no-repeat;
+}
+
+    .liChecks:hover {
+        background: url(../../Images/plan/checksHit.png) no-repeat;
+        color: #136012;
+    }
+
+.liSure {
+    background: url(../../Images/objective/sure.png) no-repeat;
+}
+
+    .liSure:hover {
+        background: url(../../Images/objective/sureHit.png) no-repeat;
+        color: #136012;
+    }
+
+.liModify {
+    background: url(../../Images/plan/modification.png) no-repeat;
+}
+
+    .liModify:hover {
+        background: url(../../Images/plan/modificationHit.png) no-repeat;
+    }
+
+.liSplit {
+    background: url(../../Images/plan/resolve.png) no-repeat;
+}
+
+    .liSplit:hover {
+        background: url(../../Images/plan/resolveHit.png) no-repeat;
+    }
+
+.liForward {
+    background: url(../../Images/plan/transmit.png) no-repeat;
+}
+
+    .liForward:hover {
+        background: url(../../Images/plan/transmitHit.png) no-repeat;
+    }
+
+.liStop {
+    background: url(../../Images/plan/suspend.png) no-repeat;
+}
+
+    .liStop:hover {
+        background: url(../../Images/plan/suspendHit.png) no-repeat;
+    }
+
+.liCheck {
+    background: url(../../Images/plan/checks.png) no-repeat;
+}
+
+    .liCheck:hover {
+        color: #136012;
+        background: url(../../Images/plan/checksHit.png) no-repeat;
+    }
+
+.liConfirm {
+    background: url(../../Images/plan/affirm.png) no-repeat;
+}
+
+    .liConfirm:hover {
+        color: #136012;
+        background: url(../../Images/plan/affirmHit.png) no-repeat;
+    }
+
+
+/*通用样式*/
+.optionCell-select {
+    z-index: 2000 !important;
+}
+
+.imitateSelect-img li {
+    text-align: left;
+    height: inherit;
+}
+
+.addon_icon {
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+}
+
+.traspanren_icon {
+    background: transparent;
+    border: 0px;
+    padding: 0px;
+}
+
+.noBorder {
+    border: 0px;
+}
+
+.noMargin {
+    margin: 0px;
+}
+
+.orangeColor {
+    color: #f9ab11 !important;
+    display: block;
+}
+
+.greenColor {
+    color: #58b456 !important;
+}
+
+.relativePos {
+    position: relative;
+}
+
+.pointerClass {
+    cursor: pointer;
+}
+
+.textOver {
+    max-width: 200px;
+    overflow: hidden;
+    white-space: nowrap;
+    display: inline-block;
+    text-overflow: ellipsis;
+    vertical-align: bottom;
+}
+
+.start li {
+    width: 20px;
+    height: 17px;
+    margin-right: -3px;
+    margin-top: 2px;
+    overflow: hidden;
+}
+
+
+.needStartNoChosen li,
+.start .planNoColorStart {
+    background: url(../../Images/plan/fiveStarR.png) no-repeat;
+    height: 20px;
+    margin-top: -3px;
+}
+
+
+
+.planNoColorStart {
+    background: url(../../Images/plan/fiveStarR.png) no-repeat;
+}
+
+.startImportant {
+    background: url("../../Images/planSchedule/startImportent.png") -24px -24px;
+}
+
+.importantDegree .liHover,
+.importantDegree .liHit {
+    background: url("../../Images/planSchedule/startImportent.png") -24px -20px;
+}
+
+.startDifficult {
+    background: url("../../Images/planSchedule/startDiffcult.png") -24px -24px;
+}
+
+.difficultDegree .liHover,
+.difficultDegree .liHit {
+    background: url("../../Images/planSchedule/startDiffcult.png") -24px -20px;
+}
+
+.startUrgent {
+    background: url("../../Images/planSchedule/startUrgent.png") -24px -24px;
+}
+
+.urgenceDegree .liHover,
+.urgenceDegree .liHit {
+    background: url("../../Images/planSchedule/startUrgent.png") -24px -20px;
+}
+
+.moreFooter button {
+    background-image: linear-gradient(to top,#e8e8e8,#fefefe);
+    background-image: -webkit-linear-gradient(to top,#e8e8e8,#fefefe);
+}
+
+    .moreFooter button:hover {
+        background-image: -webkit-linear-gradient(to top,#fefefe,#e8e8e8);
+        background-image: linear-gradient(to top,#fefefe,#e8e8e8);
+        color: #58b456;
+    }
+
+.blodLine {
+    border-top: 2px solid #bbb;
+    clear: both;
+    margin-left: -16px;
+    width: 106%;
+}
+
+#Object_HR_modal ul,
+#transpont_modal ul {
+    margin-top: 0px !important;
+}
+/*流程样式*/
+
+/*流程新建 开始*/
+#category_span {
+    width: 210px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+#addflow_modal_search .dropdown-menu {
+    width: 100%;
+    top: 30px;
+}
+
+.category_content {
+    height: 200px;
+    overflow: auto;
+}
+/*流程新建 结束*/
+
+/*流程详情*/
+.detial_template_name, .template-name {
+    font-size: 18px;
+    color: black;
+    font-weight: 400;
+}
+
+.file {
+    cursor: pointer;
+}
+
+.detial_template_name, .template-name, .template-desc, .detail_template_desc {
+    width: 100%;
+    display: block;
+    text-align: center;
+}
+
+.detail_form_title, .form-title {
+    margin-left: 22px;
+    width: 60%;
+    height: 33px;
+}
+
+.template-desc, .detail_template_desc {
+    word-wrap: break-word;
+    font-size: 17px;
+}
+
+.bottom-line {
+    border-bottom: 1px solid #dddddd;
+    margin-top: 10px;
+}
+
+.flow_message_title {
+    float: left;
+    width: 100px;
+    height: 25px;
+    line-height: 25px;
+}
+
+.flow_message_content {
+    outline: none;
+    width: 650px;
+    height: 80px;
+    overflow-x: hidden;
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 2px 5px;
+}
+
+.stars {
+    position: absolute;
+    right: 150px;
+    margin-top: 5px;
+}
+
+.starsR ul li {
+    background: url(../../Images/plan/fiveStarR.png) no-repeat;
+}
+
+.stars ul li {
+    float: left;
+    width: 18px;
+    height: 20px;
+    margin-top: -2px;
+    cursor: pointer;
+    list-style-type: none;
+}
+
+    .stars ul li.liHoverNot {
+        background: url(../../Images/plan/fiveStarR.png) no-repeat;
+    }
+
+.starsR ul li.liHover,
+.starsR ul li.liHit {
+    background: url(../../Images/plan/fiveStarR.png) 0 -20px no-repeat;
+}
+
+.starsR ul li {
+    background: url(../../Images/plan/fiveStarR.png) no-repeat;
+}
+
+.addflow-text {
+    margin-left: 10px;
+    height: 33px;
+    width: 10%;
+}
+
+.addflow-span {
+    margin-left: 10px;
+}
+
+#preview_modal .addflow_dropdown,
+#details-modal .addflow_dropdown {
+    display: inline-block;
+    width: 16%;
+    height: 33px;
+    vertical-align: middle;
+}
+
+.optionCell {
+    /* width: 31%; */
+    padding: 10px 0;
+    display: inline-block;
+}
+
+    .optionCell em {
+        margin-right: 5px;
+    }
+
+    .optionCell input, .optionCell select {
+        width: 150px;
+        height: 33px;
+        margin-left: 10px;
+    }
+
+
+/*计划新建*/
+.select-trigger {
+    cursor: pointer;
+}
+
+.mainContent .select-trigger {
+    display: inline-block;
+    width: 400px;
+    height: 16px;
+    margin-left: 20px;
+    padding-left: 5px;
+    color: #000;
+    vertical-align: bottom;
+}
+
+.select-options {
+    overflow-y: auto;
+    border: 1px solid #e3e3e3;
+    background-color: #fff;
+}
+
+.mainContent .select-options {
+    display: none;
+    position: absolute;
+    left: 70px;
+    z-index: 1;
+    width: 405px;
+    max-height: 100px;
+}
+
+.line {
+    border: none;
+    border-bottom: solid #e3e3e3 1px;
+}
+
+.mainContent .optionCell em {
+    margin-right: 5px;
+}
+
+.icon {
+    font-size: 0;
+    vertical-align: middle;
+}
+
+.mainContent .optionCell select {
+    cursor: pointer;
+}
+
+.mainContent .optionCell input, .mainContent .optionCell select {
+    width: 113px;
+}
+
+.mainContent .optionCell {
+    display: inline-block;
+    width: 31%;
+    padding: 10px 0;
+    display: inline-block;
+}
+
+.emptyInput {
+    /*border: none;*/
+    cursor: pointer;
+}
+
+.add-min {
+    display: inline-block;
+    height: 26px;
+    width: 26px;
+    background: url('../../Images/common/add.png') no-repeat;
+    cursor: pointer;
+}
+
+.hasborder {
+    border: 1px solid #e3e3e3;
+}
+
+    .hasborder:hover {
+        border-color: #58b456;
+    }
+
+.add-min:hover {
+    background-image: url("../../Images/common/addHit.png");
+}
+
+.add-min-grey:hover {
+    background-image: url("../../Images/common/addHit.png");
+    background-color: #ffffff !important;
+}
+
+.ztreeChosen {
+    width: 527px;
+    display: none;
+    overflow-y: auto;
+    max-height: 150px;
+}
+
+#canCon_add div a:hover {
+    background-color: #fbac0f !important;
+}
+
+#canCon_add div a {
+    width: 100%;
+    border-bottom: 1px solid #ddd;
+    background-color: #ececec;
+}
+
+
+#canCon_modify {
+    display: none;
+}
+
+#canCon_add div:hover .btn {
+    opacity: 1;
+}
+
+#canCon_add > * {
+    width: 33.33333333%;
+}
+
+.leaf-info span {
+    display: inline-block;
+}
+
+.planRightModal {
+    position: absolute;
+    width: 400px;
+    top: 0px;
+    left: 558px;
+    height: 100%;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgba(0, 0, 0, .2);
+    -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, .5);
+    box-shadow: 0 3px 9px rgba(0, 0, 0, .5);
+    z-index: -1;
+    padding-left: 10px;
+    display: none;
+}
+
+#addplan_list_table .mimusCircle {
+    background: url(../../Images/plan/cutCircle.png) no-repeat;
+}
+
+#addplan_list_table .plusCircle {
+    background: url(../../Images/plan/addCircle.png) no-repeat;
+}
+
+#addplan_list_table ul li div.focus {
+    background-color: #e3e3e3;
+}
+
+#addplan_list_table .circle {
+    display: inline-block;
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    z-index: 10;
+}
+
+#addplan_list_table ul {
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+}
+/*计划详情*/
+.bound {
+    height: 30px;
+    border-top: 1px solid #e3e3e3;
+    border-bottom: 1px solid #e3e3e3;
+    width: 540px;
+    margin: 5px 0 0 -10px;
+    line-height: 30px;
+    padding-left: 20px;
+    background-color: #fffffa;
+}
+
+span.close {
+    display: none;
+    float: none;
+}
+
+.tag:hover .close {
+    display: inline-block;
+}
+
+.add-min-grey {
+    display: inline-block;
+    height: 26px;
+    width: 26px;
+    background: url('../../Images/plan/add-mini.png') no-repeat;
+    cursor: pointer;
+}
+/*计划分解*/
+.addDecplan {
+    border-bottom: 1px solid #bbb;
+    border-top: 1px solid #bbb;
+    background-color: #f9f9f9;
+    width: 106%;
+    padding: 0px 9px;
+    line-height: 30px;
+    margin: 10px -15px;
+}
+
+.pic_corn {
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    cursor: pointer;
+}
+
+#decplanDone {
+    border-top: 2px solid #bbb;
+    margin-left: -10px;
+    height: auto;
+    width: 100%;
+}
+
+.decplanList li .operate_tr {
+    display: none;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    text-align: right;
+    height: 30px;
+    background: #7f7f7f;
+    opacity: 0.8;
+}
+
+.decplanList .operateDiv {
+    display: block !important;
+    background-color:initial;
+}
+
+.decplanList > li {
+    position: relative;
+    width: 100%;
+    line-height: 30px;
+}
+
+.decplanList li:hover .operate_tr {
+    display: block;
+}
+
+.addB {
+    display: none;
+    cursor:pointer;
+}
+
+.decplanList > li > span {
+    display: inline-block;
+}
+
+.decplanPerson {
+    width: 70px;
+}
+
+.decplanTitle {
+    width: 250px;
+    max-width: 250px;
+}
+
+.decplanState {
+    width: 100px;
+}
+
+.decplan_detail span, .decplan_delete span {
+    color: #ffffff;
+    cursor: pointer;
+}
+/*新建流程 开始*/
+.bottom-line {
+    border-bottom: 1px solid #dddddd;
+    margin-top: 10px;
+}
+
+ul.dropdown-menu.batch-menu {
+    min-width: 70px;
+    max-width: 100%;
+}
+
+.formClassify li {
+    cursor: pointer;
+}
+
+.row.form-list {
+    margin-top: 10px;
+    height: 450px;
+    overflow: auto;
+    display: block;
+}
+
+.form-list .cell {
+    position: relative;
+    padding: 10px 5px 0;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    height: 100px;
+    /*-moz-opacity:0.3;*/
+    /*opacity: 0.3;*/
+    /*filter:alpha(opacity=70);*/
+}
+
+.img-circle.templateId {
+    width: 30px;
+    height: 30px;
+    /*margin-top: 10px;*/
+    margin-left: 5px;
+    border: 1px solid;
+    text-align: center;
+    line-height: 25px;
+}
+
+.info-list {
+    /*margin-top: 10px;*/
+    margin-left: 45px;
+}
+
+.title {
+    width: 100px;
+    font-size: 14px;
+}
+
+.des {
+    margin-top: 3px;
+    line-height: 1.4em;
+    height: 2.8em;
+    position: absolute;
+    -webkit-line-clamp: 2;
+    width: 115px;
+    color: #bbbbbb;
+}
+
+.info-list ul {
+    height: 20px;
+}
+
+.form_preview {
+    float: right;
+    position: initial;
+    margin-top: 45px;
+}
+
+.addflow_select {
+    position: relative;
+    margin: 0 auto;
+    left: 20px;
+    display: none;
+    cursor: pointer;
+}
+
+#addflow_modal_search .caret, .addflow-text .caret {
+    position: absolute;
+    left: 120px;
+    top: 8px;
+}
+
+#addflow_modal_search .caret {
+    position: absolute;
+    left: 190px;
+    top: 13px;
+}
+/*.dropdown-menu{
+    width: 100%;
+    top: 30px;
+}*/
+.dropdown, .form_preview {
+    cursor: pointer;
+}
+
+.categoryinfo-div {
+    margin: 5px;
+}
+
+.category-name {
+    margin-bottom: 5px;
+}
+
+.gray-background {
+    background-color: #c0c0c0;
+}
+
+.template-name, .template-desc {
+    width: 100%;
+    display: block;
+    text-align: center;
+}
+
+.template-name {
+    font-size: 18px;
+    color: black;
+    font-weight: 400;
+}
+
+.template-desc {
+    word-wrap: break-word;
+    font-size: 17px;
+}
+
+.form-title {
+    margin-left: 22px;
+    width: 60%;
+    height: 33px;
+}
+
+
+/*五角星 开始*/
+.stars {
+    /*float:left;*/
+    position: absolute;
+    right: 150px;
+    margin-top: 5px;
+}
+
+    .stars ul li {
+        float: left;
+        width: 18px;
+        height: 20px;
+        margin-top: -2px;
+        cursor: pointer;
+        list-style-type: none;
+    }
+
+.starsR ul li {
+    background: url(../../Images/plan/fiveStarR.png) no-repeat;
+}
+
+.starsY ul li {
+    background: url(../../Images/plan/fiveStarY.png) no-repeat;
+}
+
+.starsG ul li {
+    background: url(../../Images/plan/fiveStarG.png) no-repeat;
+}
+
+.starsR ul li.liHover,
+.starsR ul li.liHit {
+    background: url(../../Images/plan/fiveStarR.png) 0 -20px no-repeat;
+}
+
+.starsY ul li.liHover,
+.starsY ul li.liHit {
+    background: url(../../Images/plan/fiveStarY.png) 0 -20px no-repeat;
+}
+
+.starsG ul li.liHover,
+.starsG ul li.liHit {
+    background: url(../../Images/plan/fiveStarG.png) 0 -20px no-repeat;
+}
+
+.stars ul li.liHoverNot {
+    background: url(../../Images/plan/fiveStarR.png) no-repeat;
+}
+/*五角星 结束*/
+.emptyInput {
+    /*border: none;*/
+    cursor: pointer;
+}
+
+.addflow-span {
+    margin-left: 10px;
+}
+
+.addflow-text {
+    margin-left: 10px;
+    height: 33px;
+    width: 10%;
+}
+
+.optionCell {
+    /*width: 31%;*/
+    padding: 10px 0;
+    display: inline-block;
+}
+
+    .optionCell em {
+        margin-right: 5px;
+    }
+
+    .optionCell input,
+    .optionCell select {
+        width: 130px;
+        height: 33px;
+        margin-left: 10px;
+    }
+
+    .optionCell select {
+        cursor: pointer;
+    }
+
+        .optionCell select option {
+            padding: 0;
+        }
+
+#addflow-mask {
+    position: absolute;
+    width: 100%;
+    z-index: 99999;
+    height: 100%;
+}
+/*新建流程 结束*/
+
+
+/* 目标 开始 */
+#objectiveNew_modal .modal-footer.thirty-thirty {
+    padding: 0;
+    margin: 0;
+}
+
+#objectiveNew_modal .thirty-thirty {
+    display: block;
+}
+
+#objectiveNew_modal .modal-footer.thirty-thirty > .btn {
+    margin: 0;
+    border-top: none;
+    border-bottom: none;
+    border-left: none;
+}
+
+#objectiveNew_modal .thirty-thirty > * {
+    float: left;
+    display: block;
+    width: 33.333333%;
+    height: 100%;
+    /* box-sizing: border-box; */
+    border-right: 1px solid #ccc;
+    overflow: auto;
+}
+
+#objectiveNew_modal .modal-header .nav-item {
+    font-size: 15px;
+    color: #aae3a7;
+}
+
+#objectiveNew_modal .modal-titleClick {
+    color: #fff !important;
+}
+
+#objectiveNew_modal .dropdown-toggle {
+    border: 1px solid #ccc;
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+    padding: 6px 12px;
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+#objectiveNew_modal .row {
+    margin-bottom: 10px;
+}
+
+#objectiveNew_modal .dropdown {
+    height: 33px;
+}
+
+#objectiveNew_modal .dropdown-menu {
+    width: 100%;
+    min-width: 0px;
+}
+
+#objectiveNew_modal .upPic {
+    background: url(../../Images/objective/up.png)no-repeat;
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    margin-top: -3px;
+    margin-right: -10px;
+    float: right;
+}
+
+#objectiveNew_modal .upPic_hit {
+    background: url(../../Images/objective/up.png)no-repeat;
+}
+/*目标内容 开始*/
+
+.operateDiv {
+    position: absolute;
+    bottom: -3px;
+    right: 0px;
+    z-index: 1;
+    display: none;
+    width: 88%;
+    height: 40px;
+    background-color: #58b456;
+    opacity: 0.8;
+}
+
+#modal_con_objective .modal-body {
+    margin-bottom: 150px;
+}
+
+#modal_con_objective table {
+    width: 100%;
+}
+
+    #modal_con_objective table td {
+        border-top: none;
+    }
+
+    #modal_con_objective table .table-span {
+        display: inline-block;
+        margin-top: 6px;
+    }
+
+#table-objective-content input, #table-objective-content .dropdown {
+    width: 75%;
+}
+
+#objectiveNew_modal .new-date {
+    background: url(../../Images/objective/date.png) 0 no-repeat;
+    width: 30px;
+    height: 33px;
+    border-left: 0;
+    background-position: center;
+}
+
+#objectiveNew_modal .new-responsibleUser {
+    background: url(../../Images/objective/response.png) 0 no-repeat;
+    width: 30px;
+    height: 33px;
+    border-left: 0;
+    background-position: center;
+}
+
+#objectiveNew_modal .new-confirmUser {
+    background: url(../../Images/objective/confirmUser.png) 0 no-repeat;
+    width: 30px;
+    height: 33px;
+    border-left: 0;
+    background-position: center;
+}
+
+#objectiveRule-setFormula:hover, #objectiveRule-Sure:hover {
+    color: #fff;
+    background-color: #fbac0f;
+    border-color: #d38e04;
+    background-image: none;
+}
+
+#new-objectiveValue-money-group a, #new-expectedValue-money-group a {
+    width: 30px;
+    height: 33px;
+    padding-left: 8px;
+    margin-top: -1px;
+    border-left: 0;
+}
+
+#objectiveNew_modal .modal-content {
+    width: 738px;
+}
+
+#table-objective-content .input-group {
+    width: 85%;
+}
+
+/*目标内容时间部分css样式设置*/
+#table-objective-date input {
+    width: 100px;
+}
+
+.operateDiv ul li {
+    height: 24px;
+    line-height: 24px;
+    margin: 8px 1px;
+    padding-left: 24px;
+    cursor: pointer;
+    color: white;
+}
+/*目标内容 结束*/
+
+/*目标详情弹窗*/
+#objectDetailLabel {
+    margin-right: 20px;
+    float: left;
+    cursor: pointer;
+}
+
+#objectRoleLabel {
+    cursor: pointer;
+}
+
+.borderTop {
+    border-top: 1px solid #eee;
+}
+
+#detailContent li label {
+    width: 65px;
+    display: inline-block;
+}
+
+#object_detail_modal ul {
+    padding-top: 10px;
+}
+
+#object_detail_modal table td, #object_modify_modal td {
+    border: 0px;
+    padding: 3px;
+}
+
+#object_detail_modal table, #object_modify_modal table {
+    margin-bottom: 0px;
+}
+
+.noMarginBottom {
+    margin-bottom: 0px;
+}
+
+#object_detail_modal hr, #object_modify_modal hr {
+    margin-left: -15px;
+    width: 735px;
+}
+
+.changeColor {
+    color: #d80100;
+}
+
+#object_detail_modal .modal-content, #object_modify_modal .modal-content {
+    width: 670px;
+}
+
+.textOverFlow {
+    white-space: nowrap;
+    max-width: 100px;
+    text-overflow: ellipsis;
+    display: inline-block;
+    overflow: hidden;
+    vertical-align: middle;
+}
+
+.maxWidthOne {
+    max-width: 180px;
+}
+
+.maxWidthTwo {
+    max-width: 490px;
+}
+
+#splitObject tr:hover, #objectDocument tr:hover {
+    background-color: #8b8b8b;
+}
+
+#objectDocument tr a, #splitObject tr a {
+    color: #fff;
+}
+
+.disabledColor {
+    color: #d1d1d1;
+}
+
+#object_detail_modal .formulaHr {
+    width: 87%;
+    margin: 3px 0px 3px -4px;
+    border-top: 1px solid #d6d6d6;
+}
+
+#object_detail_modal input[type='number'] {
+    margin-left: 3px;
+    width: 85px;
+    display: inline-block;
+}
+
+#formulaDefine .formulaIndex {
+    width: 20px;
+    line-height: 32px;
+}
+
+#formulaDefine .formulaTd {
+    width: 344px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: inline-block;
+    line-height: 32px;
+}
+
+#formulaDefine .formulaDropdown {
+    width: 125px;
+}
+
+#formulaDefine .formulaValue {
+    width: 150px;
+}
+
+#formulaDefine .dropdown {
+    margin-right: 15px;
+}
+
+#formulaDefine .dropdown-toggle {
+    text-align: left;
+    width: 100%;
+    padding: 6px 0px 3px 12px;
+}
+
+#formulaDefine .upPic {
+    margin-top: -2px;
+}
+
+.dropdown-menu {
+    min-width: 0px;
+}
+
+#object_detail_modal input:disabled, #object_detail_modal .btn:disabled {
+    cursor: default;
+    background-color: transparent;
+}
+
+#rightContent {
+    padding-right: 10px;
+}
+
+.rightModal {
+    background-color: #f9f9f9;
+    overflow: hidden;
+    position: absolute;
+    display: none;
+    top: 0px;
+    width: 330px;
+    height: 100%;
+    padding-left: 15px;
+    border: 1px solid #999;
+    border: 1px solid rgba(0, 0, 0, .2);
+    outline: 0;
+    -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, .5);
+    box-shadow: 0 3px 9px rgba(0, 0, 0, .5);
+    z-index: -1;
+}
+
+.btn_xs {
+    width: 70px;
+    margin-left: 20px;
+}
+
+textarea.message {
+    margin-bottom: 10px;
+}
+
+
+/*目标修改*/
+.confirmCorn {
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    background: url("../../Images/objective/confirmUser.png");
+}
+
+.responseCorn {
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    background: url("../../Images/objective/response.png");
+}
+
+.modifyDocumentAdd {
+    background: url("../../Images/objective/add.png");
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    margin-top: 8px;
+    cursor: pointer;
+}
+
+    .modifyDocumentAdd:hover {
+        background: url("../../Images/objective/add_hit.png");
+        cursor: pointer;
+    }
+
+.fileUploadBtn {
+    opacity: 0;
+    direction: rtl;
+    cursor: pointer;
+}
+
+#object_modify_modal .progress, #object_detail_modal .progress {
+    display: block;
+    height: 10px;
+    width: 100px;
+    float: right;
+    margin-top: 15px;
+    display: none;
+    margin-bottom: 0px;
+}
+
+#object_modify_modal .input-group-addon, #object_detail_modal .input-group-addon {
+    padding: 0px;
+}
+
+#modifyObjectContent .dropdown, #targetInput, #expectInput {
+    display: inline-block;
+}
+
+#object_modify_modal .control-label {
+    width: 11%;
+}
+
+#modifyObjectContent .form-control, #modifyObjectContent .dropdown, #expectInput {
+    width: 210px;
+}
+
+#modifyObjectContent .input-group .form-control {
+    width: 186px;
+}
+
+#modifyObjectTime .form-control, #modifyObjectPerson .form-control {
+    width: 100px;
+}
+
+#modifyObjectTime .input-group, #modifyObjectPerson .input-group {
+    margin-right: 5px;
+}
+
+#object_modify_modal .form-inline {
+    margin-bottom: 10px;
+}
+
+#modifyObjectContent, #modifyObjectTime, #modifyObjectPerson {
+    padding-top: 10px;
+}
+
+.marginSm {
+    margin-left: 40px;
+}
+
+#object_modify_modal .glyphicon-yen, #object_detail_modal .glyphicon-yen {
+    width: 24px;
+}
+
+.dropdownBtn {
+    width: 100%;
+    text-align: left;
+    background-color: transparent;
+    line-height: 26px;
+    height: 30px;
+    padding-right: 0px;
+    padding-top: 0px;
+}
+
+.noMarginTop {
+    margin-top: 0px;
+}
+
+#object_modify_modal .fifty-fifty > * {
+    width: 33.333333%;
+}
+
+input[type='button'] {
+    text-align: left;
+}
+
+#modifyView td a:not(.glyphicon-comment) {
+    color: #fff;
+}
+
+#modifySplitObject tr:hover, #modifyObjectDocument tr:hover {
+    background-color: #8b8b8b;
+}
+
+#objectModifyTab {
+    float: left;
+    margin-right: 20px;
+}
+
+/*右侧弹出树*/
+#personZtree {
+    width: 100%;
+    height: 246px;
+    overflow-y: auto;
+}
+
+#modifyPersonList {
+    padding-left: 5px;
+    height: 272px;
+    overflow-y: auto;
+}
+
+#orgChooseZtree {
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+}
+
+#modifyPersonList li {
+    margin: -5px 0px -5px 0px;
+}
+
+
+/*文档上传*/
+#myModal-newdoc .newdoc {
+    height: 300px;
+}
+
+.uploadBox .file_upload span.uploadTag {
+    display: block;
+    height: 30px;
+    line-height: 30px;
+    margin-bottom: 30px;
+}
+
+.uploadBox .file_upload .fileinput-button input {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    height: 30px;
+    opacity: 0;
+    direction: ltr;
+    cursor: pointer;
+}
+
+.fileinput-button .fileinput-button_r {
+    right: 0;
+    background: url("../../Images/plan/uploadBtnR.png") no-repeat;
+}
+
+.uploadBox .file_upload .fileinput-button .fileinput-button_r {
+    position: absolute;
+    width: 4px;
+    height: 32px;
+    top: 0;
+}
+
+.uploadBox .file_upload .files {
+    padding: 1px 0;
+    width: 100%;
+    max-height: 80px;
+    height: auto;
+    overflow: auto;
+}
+
+.files li.uploaded {
+    height: 25px;
+}
+
+.input-file, .input-doc {
+    height: 50px;
+    margin: 3px 0 10px 0;
+    position: relative;
+}
+
+span.group-laber {
+    height: 33px;
+    width: 13%;
+    line-height: 33px;
+    float: left;
+    margin-right: 5px;
+}
+
+span.outborder {
+    border: 1px solid #e3e3e3;
+    height: 30px;
+    width: 30px;
+    display: inline-block;
+    cursor: pointer;
+}
+
+
+
+#myModal-newdoc .fileSpan:hover .glyphicon-remove {
+    display: inline-block;
+}
+
+
+#completeRight {
+    margin-bottom: 100px;
+}
+
+    #completeRight input {
+        width: 150px;
+        margin-left: 10px;
+        text-align: left;
+    }
+
+
+/*目标详情 开始*/
+#objectRoleLabel {
+    cursor: pointer;
+}
+
+#objectDetailLabel {
+    margin-right: 20px;
+    float: left;
+    cursor: pointer;
+}
+
+.disabledColor {
+    color: #d1d1d1;
+}
+
+.textOverFlow {
+    white-space: nowrap;
+    max-width: 100px;
+    text-overflow: ellipsis;
+    display: inline-block;
+    overflow: hidden;
+    vertical-align: middle;
+}
+
+#object_detail_modal table, #object_modify_modal table {
+    margin-bottom: 0px;
+}
+
+    #object_detail_modal table td, #object_modify_modal td {
+        border: 0px;
+        padding: 3px;
+    }
+
+.glyphicon-comment {
+    margin-left: 5px;
+    vertical-align: middle;
+    display: none;
+}
+
+.operateMessage {
+    position: absolute;
+    top: 16px;
+    left: 3px;
+    display: none;
+    width: 90%;
+    height: 30px;
+    line-height: 30px;
+    max-width: 400px;
+}
+
+#object_detail_modal table td, #object_modify_modal td {
+    border: 0px;
+    padding: 3px;
+}
+
+#object_detail_modal table, #object_modify_modal table {
+    margin-bottom: 0px;
+}
+
+.noMarginBottom {
+    margin-bottom: 0px;
+}
+
+#object_detail_modal hr, #object_modify_modal hr {
+    margin-left: -15px;
+    width: 735px;
+}
+
+.changeColor {
+    color: #d80100;
+}
+
+#object_detail_modal .modal-content, #object_modify_modal .modal-content {
+    width: 670px;
+}
+
+.textOverFlow {
+    white-space: nowrap;
+    max-width: 100px;
+    text-overflow: ellipsis;
+    display: inline-block;
+    overflow: hidden;
+    vertical-align: middle;
+}
+
+.maxWidthOne {
+    max-width: 180px;
+}
+
+.maxWidthTwo {
+    max-width: 490px;
+}
+
+#splitObject tr:hover, #objectDocument tr:hover {
+    background-color: #8b8b8b;
+}
+
+#objectDocument tr a, #splitObject tr a {
+    color: #fff;
+}
+
+.disabledColor {
+    color: #d1d1d1;
+}
+
+#object_detail_modal .formulaHr {
+    width: 87%;
+    margin: 3px 0px 3px -4px;
+    border-top: 1px solid #d6d6d6;
+}
+
+#object_detail_modal input[type='number'] {
+    margin-left: 3px;
+    width: 85px;
+    display: inline-block;
+}
+
+#formulaDefine .formulaIndex {
+    width: 20px;
+    line-height: 32px;
+}
+
+#formulaDefine .formulaTd {
+    width: 344px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: inline-block;
+    line-height: 32px;
+}
+
+#formulaDefine .formulaDropdown {
+    width: 125px;
+}
+
+#formulaDefine .formulaValue {
+    width: 150px;
+}
+
+#formulaDefine .dropdown {
+    margin-right: 15px;
+}
+
+#formulaDefine .dropdown-toggle {
+    text-align: left;
+    width: 100%;
+    padding: 6px 0px 3px 12px;
+}
+
+#formulaDefine .upPic {
+    margin-top: -2px;
+}
+
+.dropdown-menu {
+    min-width: 0px;
+}
+
+#object_detail_modal input:disabled, #object_detail_modal .btn:disabled {
+    cursor: default;
+    background-color: transparent;
+}
+
+#rightContent {
+    padding-right: 10px;
+}
+
+.rightModal {
+    background-color: #f9f9f9;
+    overflow: hidden;
+    position: absolute;
+    display: none;
+    top: 0px;
+    width: 330px;
+    height: 100%;
+    padding-left: 15px;
+    border: 1px solid #999;
+    border: 1px solid rgba(0, 0, 0, .2);
+    outline: 0;
+    -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, .5);
+    box-shadow: 0 3px 9px rgba(0, 0, 0, .5);
+    z-index: -1;
+}
+
+.btn_xs {
+    width: 70px;
+    margin-left: 20px;
+}
+
+textarea.message {
+    margin-bottom: 10px;
+}
+/*目标详情 结束*/
+
+/*目标展开 开始*/
+
+.oneBlock:hover .operateDiv {
+    display: block;
+}
+
+.modifyDocumentAdd {
+    background: url("../../Images/objective/add.png");
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    margin-top: 8px;
+    cursor: pointer;
+}
+
+.noMarginTop {
+    margin-top: 0px;
+}
+
+.oneBlock {
+    width: 233px;
+    height: 98px;
+    background-color: #f9f9f9;
+    vertical-align: middle;
+    border: 1px solid #bbb;
+    margin-right: 20px;
+}
+
+.labels {
+    display: inline-block;
+    color: #fff;
+    width: 100%;
+    padding-top: 3px;
+}
+
+    .labels .labelOne {
+        float: left;
+        display: block;
+        width: 3px;
+        height: 24px;
+        background: url(../../Images/plan/labelOne.png) no-repeat;
+        margin-left: -3px;
+    }
+
+    .labels .labelTwo {
+        float: left;
+        width: auto;
+        height: 20px;
+        background: url(../../Images/plan/labelTwo.png) repeat-x;
+        padding: 0px 2px 0px 4px;
+        cursor: pointer;
+    }
+
+    .labels .labelThree {
+        float: left;
+        display: block;
+        width: 6px;
+        height: 20px;
+        background: url(../../Images/plan/labelThree.png) no-repeat;
+    }
+
+.unfoldWeight {
+    color: #f8ab0e;
+    font-size: 16px;
+    float: right;
+    margin-right: 20px;
+    margin-top: -5px;
+}
+
+.oneBlock > ul {
+    margin: 0px 3px;
+    text-align: left;
+}
+
+
+.oneBlock .glyphicon-remove {
+    font-size: 13px;
+}
+
+    .oneBlock .glyphicon-remove:hover {
+        color: #55b050;
+    }
+
+.unfoldChild {
+    text-align: center;
+    white-space: nowrap;
+}
+
+    .unfoldChild .oneBlock {
+        display: inline-block;
+        position: relative;
+    }
+
+.oneChild {
+    display: inline-block;
+    vertical-align: top;
+    position: relative;
+}
+
+.hrVertical {
+    height: 14px;
+    margin: 0px auto;
+    width: 0px;
+    border: 1px solid #bbbbbb;
+}
+
+.hrHorizontal {
+    border: 1px solid #bbbbbb;
+    margin: 0 auto;
+    display: none;
+    position: absolute;
+}
+
+.unfoldOperate .list-unstyled li {
+    margin: 3px !important;
+}
+
+.unfoldOperate ul {
+    margin: 0px;
+}
+
+.oneBlock .slideBtn {
+    margin: 3px;
+    z-index: 100;
+    cursor: pointer;
+}
+
+.operateDiv.unfoldOperate {
+    background-color: #a8d6a7;
+    opacity: 1;
+    padding-right: 23px;
+}
+
+
+.unfoldOperate {
+    width: 101%;
+    bottom: 0px;
+    left: -1px;
+    height: 30px;
+    text-align: right;
+}
+
+.operateDiv.unfoldOperate li {
+    margin: 3px 0px 3px 0px;
+}
+
+#object_modify_modal, #object_detail_modal {
+    z-index: 1051;
+}
+
+.unfoldObjName {
+    max-width: 155px;
+}
+
+.unfoldObjObject {
+    max-width: 170px;
+}
+
+#modal_detail_flowchart .glyphicon-comment {
+    margin-left: 5px;
+    vertical-align: middle;
+    display: block;
+}
+
+
+.operateMessage {
+    position: absolute;
+    top: 16px;
+    left: 3px;
+    display: none;
+    width: 90%;
+    height: 30px;
+    line-height: 30px;
+    max-width: 400px;
+}
+
+.noPaddingLeft {
+    padding-left: 0px;
+}
+/*目标展开 结束*/
+
+/*目标规则 开始*/
+#objectiveRule-setFormula {
+    float: right;
+}
+
+#objectiveRule-Sure {
+    float: right;
+}
+
+#objectiveNew_modal .label-conrtol {
+    font-weight: normal;
+}
+
+#objectiveNew_modal .formula {
+    margin-right: 7px !important;
+}
+
+#default-formula {
+    height: 38px;
+    width: 140px;
+}
+
+#default-formula-up {
+    float: left;
+    border-bottom: 1px solid;
+}
+
+#default-formula-down {
+    float: left;
+}
+
+#default-formula-right {
+    margin-top: 10px;
+    height: 38px;
+}
+
+/*公式列表中的输入框*/
+#modal_con_objectiveRule .table > tbody > tr > td {
+    border-top: 0;
+}
+
+#formula-set-content {
+    height: 300px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+    #formula-set-content input {
+        width: 65%;
+    }
+
+    #formula-set-content .input-group span, #formula-set-content .input-group a {
+        margin-top: 5px;
+        display: inline-block;
+        float: left;
+    }
+
+    #formula-set-content .formula-content {
+        width: 236px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        display: inline-block;
+        line-height: 33px;
+    }
+
+    #formula-set-content .new-formula-delete {
+        margin-right: 2px;
+    }
+
+#maxValue, #minValue {
+    width: 45%;
+    display: inline;
+}
+
+
+#modal_con_objectiveRule .form-control[disabled] {
+    cursor: default;
+    background-color: rgb(255, 255, 255);
+    color: #d1d1d1;
+}
+
+#modal_con_objectiveRule .disabledColor, #object_modify_modal .disabledColor {
+    color: #d1d1d1;
+}
+/*目标规则 结束*/
+
+/*计算器 开始*/
+#formula_modal .forty-sixty {
+    display: block;
+}
+
+    #formula_modal .forty-sixty > * {
+        float: left;
+        display: block;
+        height: 100%;
+        /* box-sizing: border-box; */
+        border-right: 1px solid #ccc;
+        overflow: auto;
+    }
+
+#formula_modal .area:nth-child(1) {
+    width: 39%;
+}
+
+#formula_modal .area:nth-child(2) {
+    width: 61%;
+}
+
+.calculator .monitor {
+    position: relative;
+    height: 100px;
+    margin: 10px 20px;
+}
+
+.calculator .monitor-inner {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    left: 10px;
+    max-height: 80px;
+    font-size: 23px;
+    line-height: 40px;
+    word-break: break-all;
+    overflow: auto;
+}
+
+.calculator .operate_btn {
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-bottom: 10px;
+}
+
+    .calculator .operate_btn .btn {
+        padding: 5px 18px;
+        margin-left: 10px;
+    }
+
+.calculator hr {
+    margin-bottom: 20px;
+}
+
+.calculator .area-key {
+    margin-bottom: 20px;
+}
+
+#formula_modal .area-key .area {
+    height: 350px;
+    padding-left: 20px;
+    padding-right: 10px;
+    overflow: visible;
+}
+
+#formula_modal .area .areabox {
+    <!-- margin-top: -10px; -->
+    margin-bottom: -10px;
+}
+
+#formula_modal .area-number {
+    border-right: none;
+}
+
+#formula_modal .area .btn.btn-operational {
+    background-color: #d7d7d7;
+}
+
+#formula_modal .area .btn.btn-long {
+    width: 114px;
+}
+
+#formula_modal .area-number .btn {
+    font-size: 14px;
+}
+
+#formula_modal .area .btn {
+    float: left;
+    width: 52px;
+    height: 52px;
+    padding: 0;
+    margin-right: 10px;
+    margin-bottom: 20px;
+    line-height: 52px;
+    background-color: #f9f9f9;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+#formula_modal .btn-height {
+    height: 87px!important;
+}
+
+#formula_modal .btn-marginSet {
+    margin-top: -35px;
+}
+
+#formula_modal_time_hidden {
+    position: absolute;
+    top: 476px;
+    right: 20px;
+    opacity: 0;
+    width: 52px;
+    height: 9px;
+}
+/*计算器 结束*/
+/*右侧树 开始*/
+#objectiveNew_modal .modal-right-content .modal-header {
+    background-color: #f9f9f9;
+}
+
+    #objectiveNew_modal .modal-right-content .modal-header .modal-title {
+        color: #333;
+    }
+
+#objectiveNew_modal .modal-right-content {
+    width: 300px !important;
+    position: absolute;
+    height: 100%;
+    top: 0;
+}
+
+#node-rightContent {
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+#newModal-ChooseList {
+    height: 275px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+    #newModal-ChooseList li {
+        margin-bottom: -5px;
+    }
+
+    #newModal-ChooseList span {
+        width: 70%;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        margin-left: 5px;
+    }
+
+    #newModal-ChooseList li input {
+        display: inline-block;
+        vertical-align: middle;
+        margin: 0;
+    }
+
+#modal_con_objective .disabled {
+    background-color: #eee;
+    cursor: default;
+}
+
+#objectiveNew_modal .modal-right-content {
+    left: 731px;
+}
+
+#objectiveNew_modal .ztree li a {
+    width: 200px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+#new-objectiveType-dropdown .dropdown-toggle {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 198px;
+}
+/*右侧树 结束*/
+
+#formula-set-content .dropdown-toggle {
+    height: 33px;
+}
+
+.progress .bar {
+    width: 100%;
+    background-color: #58b456;
+    height: 100%;
+}
+
+#chooseContent {
+    height: 100%;
+    margin-left: -7px;
+}
+
+#orgChooseZtree li a, #personZtree li a {
+    max-width: 260px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.TabActiveColor {
+    color: #58b456;
+}
+/* 目标 结束 */
+
+/* 评论 开始 */
+.commentBox {
+    position: absolute;
+    top: 0;
+    left: 560px;
+    display: none;
+    width: 360px;
+    height: 40px;
+    padding: 0 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #bbb;
+}
+
+    .commentBox .checkHeader {
+        display: block;
+        width: 360px;
+        height: 29px;
+        line-height: 29px;
+        font-size: 14px;
+        border-bottom: 1px solid #bbb;
+    }
+
+    .commentBox .commentList {
+        width: 360px;
+    }
+
+.commentList li {
+    width: 360px;
+    min-height: 50px;
+    /*border-bottom: 1px solid #e3e3e3;*/
+}
+
+.portraitComment {
+    float: left;
+    display: block;
+    width: 32px;
+    height: 32px;
+    margin: 9px;
+    border-radius: 50%;
+}
+
+.commentDiv .discuss {
+    float: left;
+    display: block;
+    width: 275px;
+    min-height: 30px;
+    line-height: 30px;
+    margin-right: 35px;
+    /*overflow-x:hidden;*/
+}
+
+.discuss .discussCon {
+    /*display:block;
+        margin-top:-30px;*/
+}
+
+.commentDiv .botComent {
+    float: left;
+    display: block;
+    width: 310px;
+    height: 20px;
+}
+
+.botComent .time {
+    float: left;
+    color: #bbb;
+    line-height: 20px;
+}
+
+.botComent .accessory {
+    position: relative;
+    float: left;
+    width: 20px;
+    height: 20px;
+    margin-left: 10px;
+    background: url(../../Images/plan/accessoryAsh.png) no-repeat;
+    cursor: pointer;
+}
+
+    .botComent .accessory:hover {
+        background: url(../../Images/plan/accessoryHit.png) no-repeat;
+    }
+
+.botComent .accessoryDiv {
+    position: absolute;
+    top: 0px;
+    left: 30px;
+    display: none;
+}
+
+.botComent .labelDivBg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    background: #000;
+    border-radius: 3px;
+    filter: alpha(opacity=50); /*IE滤镜，透明度50%*/
+    -moz-opacity: 0.5; /*Firefox私有，透明度50%*/
+    opacity: 0.5; /*其他，透明度50%*/
+}
+
+.botComent .accessoryDiv ul {
+    position: relative;
+    z-index: 1;
+}
+
+.botComent .accessoryDiv li {
+    width: auto;
+    height: 22px;
+    min-height: 22px;
+    line-height: 22px;
+    padding: 0 5px;
+    color: #fff;
+    border: 0;
+    cursor: pointer;
+}
+
+    .botComent .accessoryDiv li.liAccessory {
+        padding-left: 25px;
+        background: url(../../Images/plan/download.png) no-repeat;
+    }
+
+    .botComent .accessoryDiv li.allDownload {
+        text-align: right;
+        margin: 0 5px;
+        padding: 0;
+        border-bottom: 1px solid #333;
+        cursor: pointer;
+    }
+
+        .botComent .accessoryDiv li.allDownload:hover {
+            color: #58b456;
+        }
+
+.botComent .reply,
+.botComent .delete {
+    margin-right: 30px;
+    float: right;
+    line-height: 20px;
+    cursor: pointer;
+}
+
+.botComent .delete {
+    margin-right: 10px;
+}
+
+.replyDiv {
+    float: left;
+    display: none;
+    width: 360px;
+    height: 0;
+    min-height: 0px;
+    margin-left: -20px;
+    padding: 0 20px;
+    background-color: #fff;
+}
+
+    .replyDiv textarea {
+        float: left;
+        width: 270px !important;
+        height: 40px !important;
+        line-height: 26px;
+        margin: 10px 0;
+        border: 1px solid #bbb;
+        overflow: hidden;
+        resize: none;
+    }
+
+    .replyDiv .replyHandle {
+        float: left;
+        width: 360px;
+        height: 40px;
+    }
+
+.replyHandle span {
+    float: right;
+    margin-right: 40px !important;
+    width: 58px;
+    height: 28px;
+    line-height: 28px;
+    text-align: center;
+    margin-bottom: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid #bbb;
+    cursor: pointer;
+}
+
+    .replyHandle span:hover {
+        color: #fff;
+        background-color: #fbac0f;
+        border: 1px solid #fbbf3d;
+    }
+/* 评论 结束 */
+
+/* 确认上传 开始 */
+
+#detail_operateinfo .uploadBox {
+    background-color: white;
+}
+
+#submitUploadFile {
+    margin-right: 30px !important;
+}
+
+.uploadBox .allProcessBar {
+    height: 30px;
+    position: relative;
+}
+
+    .uploadBox .allProcessBar span {
+        display: block;
+        position: absolute;
+    }
+
+    .uploadBox .allProcessBar .processBar {
+        padding: 3px;
+        position: absolute;
+        width: 222px;
+        height: 12px;
+        left: 68px;
+    }
+
+#slider .ui-slider-range {
+    background: #58b557;
+}
+
+.ui-slider {
+    width: 216px;
+    height: 10px;
+    border: none;
+    background: url("../../Images/plan/sliderBg.png") repeat-x;
+}
+
+#slider .ui-slider-handle {
+    margin-top: 1px;
+    width: 15px;
+    height: 15px;
+    background: url("../../Images/plan/sliderDrag.png");
+    border: none;
+}
+
+    #slider .ui-slider-handle:focus {
+        outline: none;
+    }
+
+    #slider .ui-slider-handle:hover {
+        background: url("../../Images/plan/sliderDragHit.png");
+    }
+
+.uploadBox .allProcessBar span.degree {
+    right: 1px;
+}
+
+.uploadBox .file_upload .fileinput_frame {
+    height: auto;
+    /*line-height: 32px;*/
+    position: relative;
+}
+
+.uploadBox .file_upload .fileinput-button {
+    position: absolute;
+    top: 100px;
+    left: 70px;
+    overflow: hidden;
+    width: 70px;
+    height: 32px;
+    text-align: center;
+    line-height: 32px;
+    padding: 0;
+    margin: 0;
+    float: right;
+    top: 0;
+    right: 350px;
+    background: url("../../Images/plan/uploadBtnM.png") repeat-x;
+}
+
+    .uploadBox .file_upload .fileinput-button .fileinput-button_l,
+    .uploadBox .file_upload .fileinput-button .fileinput-button_r {
+        position: absolute;
+        width: 4px;
+        height: 32px;
+        top: 0;
+    }
+
+    .uploadBox .file_upload .fileinput-button .fileinput-button_l {
+        background: url("../../Images/plan/uploadBtnL.png") no-repeat;
+    }
+
+    .uploadBox .file_upload .fileinput-button .fileinput-button_r {
+        right: 0;
+        background: url("../../Images/plan/uploadBtnR.png") no-repeat;
+    }
+
+    .uploadBox .file_upload .fileinput-button input {
+        position: absolute;
+        top: 0;
+        right: 0;
+        margin: 0;
+        height: 30px;
+        opacity: 0;
+        direction: ltr;
+        cursor: pointer;
+    }
+
+.uploadBox .file_upload span.uploadTag {
+    display: block;
+    height: 30px;
+    line-height: 30px;
+}
+
+.uploadBox .file_upload .files {
+    padding: 1px 0;
+    top: 36px;
+    width: 100%;
+    min-height: 30px;
+    height: auto;
+}
+
+    .uploadBox .file_upload .files li {
+        width: 100%;
+        height: 20px;
+        vertical-align: bottom;
+        margin: 2px 0;
+        position: relative;
+    }
+
+        .uploadBox .file_upload .files li.uploaded {
+            height: 25px;
+        }
+
+        .uploadBox .file_upload .files li .file {
+            display: block;
+            position: absolute;
+            bottom: 5px;
+            left: 3px;
+        }
+
+.uploadBox .file_upload .file span {
+    display: none;
+    cursor: pointer;
+}
+
+.uploadBox .file_upload .files .up_progress {
+    position: absolute;
+    top: 2px;
+    height: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background: #58b557;
+}
+
+.uploadBox .uploadOperate {
+    width: 360px;
+    height: 30px;
+    margin-top: 30px;
+}
+
+    .uploadBox .uploadOperate span {
+        margin-right: 10px;
+        float: right;
+        width: 78px;
+        height: 28px;
+        line-height: 28px;
+        text-align: center;
+        border: 1px solid #e3e3e3;
+        cursor: pointer;
+    }
+
+        .uploadBox .uploadOperate span:hover {
+            color: #fff;
+            background-color: #fbac0f;
+            border-color: #fbbf3d;
+        }
+
+.uploadBox .finishTime {
+    padding-bottom: 7px;
+    border-bottom: 1px solid #bbb;
+}
+
+    .uploadBox .finishTime input {
+        width: 32px;
+        height: 20px;
+    }
+/* 确认上传 结束 */
+/* 确认 开始 */
+#detail_operateinfo .evaluateBox {
+    background-color: white;
+}
+
+.evaluateBox .evaluateArea .com {
+    position: relative;
+    height: 33px;
+    line-height: 33px;
+}
+
+.evaluateBox .com span {
+    display: block;
+    position: absolute;
+}
+
+.evaluateBox .com .degInput {
+    margin: 0;
+    margin-top: -2px;
+    padding: 0;
+    width: 40px;
+    height: 20px;
+    border: 1px solid #e3e3e3;
+    position: absolute;
+    right: -5px;
+    top: 9px;
+    text-align: center;
+}
+
+.evaluateBox .evaluateArea .processBar {
+    padding: 3px 0;
+    position: absolute;
+    width: 214px;
+    height: 12px;
+    left: 65px;
+    top: 9px;
+}
+
+#num_slider .ui-slider-range, #qua_slider .ui-slider-range, #time_slider .ui-slider-range {
+    background: #58b557;
+}
+
+.ui-slider {
+    width: 216px;
+    height: 10px;
+    border: none;
+    background: url("../../Images/plan/sliderBg.png") repeat-x;
+}
+
+.evaluateArea .ui-slider-handle {
+    margin-top: 1px;
+    width: 15px;
+    height: 15px;
+    background: url("../../Images/plan/sliderDrag.png");
+    border: none;
+}
+
+    .evaluateArea .ui-slider-handle:focus {
+        outline: none;
+    }
+
+    .evaluateArea .ui-slider-handle:hover {
+        background: url("../../Images/plan/sliderDragHit.png");
+    }
+
+.evaluateBox .evaluateArea span.degree {
+    right: 30px;
+}
+
+.evaluateBox .finishTime .number {
+    font-size: 14px;
+}
+
+.evaluateBox .auditOpinion {
+    padding-top: 10px;
+    height: 50px;
+    width: 100%;
+}
+
+    .evaluateBox .auditOpinion span {
+        display: block;
+    }
+
+    .evaluateBox .auditOpinion input {
+        margin-top: 5px;
+        border: 1px solid #e3e3e3;
+        height: 24px;
+        width: 100%;
+    }
+
+.evaluateBox .confirmOperate {
+    width: 330px;
+    height: 30px;
+    margin-top: 30px;
+}
+
+    .evaluateBox .confirmOperate span {
+        margin-right: 10px;
+        float: right;
+        width: 78px;
+        height: 28px;
+        line-height: 28px;
+        text-align: center;
+        border: 1px solid #e3e3e3;
+        cursor: pointer;
+    }
+
+        .evaluateBox .confirmOperate span:hover {
+            color: #fff;
+            background-color: #fbac0f;
+            border-color: #fbbf3d;
+        }
+
+.evaluateBox .finishTime {
+    padding-bottom: 7px;
+    border-bottom: 1px solid #bbb;
+}
+
+    .evaluateBox .finishTime input {
+        width: 30px;
+        height: 20px;
+    }
+/* 确认 结束 */
+/* 审核 开始 */
+#checksPopUp {
+    position: relative;
+}
+
+.checkBox,
+.commentBox {
+    position: absolute;
+    top: 0;
+    left: 560px;
+    display: none;
+    width: 360px;
+    height: 40px;
+    padding: 0 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #bbb;
+}
+
+    .checkBox .checkHeader,
+    .commentBox .checkHeader,
+    .evaluateBox .checkHeader {
+        display: block;
+        width: 338px;
+        height: 29px;
+        line-height: 29px;
+        font-size: 16px;
+        border-bottom: 1px solid #bbb;
+    }
+
+        .checkBox .checkHeader .closeWHit {
+            display: block;
+            float: right;
+            width: 16px;
+            height: 16px;
+            margin-top: 7px;
+            background: url(../../Images/common/closeWHit.png) no-repeat;
+            cursor: pointer;
+        }
+
+    .checkBox .degreeDiv {
+        width: 328px;
+        height: 60px;
+        border-bottom: 1px solid #e3e3e3;
+    }
+
+.degreeDiv .degree {
+    float: left;
+    width: 150px;
+    height: 30px;
+    line-height: 30px;
+}
+
+#plan_detail_modal .stars {
+    right: 200px !important;
+    margin-top: 0px !important;
+}
+
+.degree .stars ul li {
+    margin-top: 2px;
+}
+
+.checkBox .view {
+    width: 360px;
+    height: 60px;
+}
+
+.view span {
+    display: block;
+    width: 360px;
+    height: 25px;
+    line-height: 25px;
+    margin-top: 5px;
+}
+/*.view input[type="text"] {
+	width:356px;
+	height:26px;
+	line-height:26px;
+	border:1px solid #e3e3e3;
+}
+*/ .view textarea {
+    float: left;
+    width: 320px;
+    height: 26px;
+    line-height: 26px;
+    border: 1px solid #e3e3e3;
+    overflow: hidden;
+    resize: none;
+}
+
+#xxc_urgency {
+    margin-right: -150px;
+}
+
+.checkBox .checkOperate {
+    width: 320px;
+    height: 30px;
+    margin-top: 30px;
+}
+
+.checkOperate span {
+    float: right;
+    width: 78px;
+    height: 28px;
+    line-height: 28px;
+    text-align: center;
+    border: 1px solid #e3e3e3;
+    cursor: pointer;
+}
+
+    .checkOperate span:hover {
+        color: #fff;
+        background-color: #fbac0f;
+        border-color: #fbbf3d;
+    }
+
+/*批量审核 开始*/
+.plan_selected {
+    border-bottom: 1px solid #ccc;
+    margin-top: 10px;
+    width: 338px;
+}
+
+.check_name {
+    margin: 5px;
+    cursor: pointer;
+}
+
+.check_eventoutput {
+    margin-left: 10px;
+}
+/*批量审核 结束*/
+
+/* 审核 结束 */
+

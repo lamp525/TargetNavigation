@@ -1,0 +1,32 @@
+﻿@using MB.Model
+<!--新建文件夹-->
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+    <h4 class="modal-title" data-toggle="modal" id="newdir_modal_label">新建分类</h4>
+</div>
+<div class="modal-body newdir">
+    <div class="input-file">
+        <span class="group-laber">分类名称</span>
+        <span class="inputBox"><input type="text" class="form-control " maxlength="20"  aria-describedby="basic-addon2" id="input_filename"></span>
+    </div>
+    <div class="input-file">
+        <span class="group-laber">上级分类</span>
+        <div class="dropdown" style="position:relative">
+            <span class="btn dropdown-toggle"  id="dropMenu" data-toggle="dropdown"  aria-haspopup="true" role="button" aria-expanded="true" style="height:33px;width:60%;border: 1px solid #ccc;text-align:left;">
+               <span class="btnck"> </span>
+                <span class="caret" style="float:right;"></span>
+            </span>
+            <ul class="dirUl" role="dropMenu" style="display:none;">
+                <li>
+                    <div class="ztree" id="model_catalogue" style="display: block"></div>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+</div>
+<div class="modal-footer fifty-fifty">
+    <a class="btn btn-transparency btn-lg" data-dismiss="modal">取消</a>
+    <a class="btn btn-transparency btn-lg" id="dir_modal_submit">确定</a>
+</div>
+

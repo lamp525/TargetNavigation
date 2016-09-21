@@ -1,0 +1,32 @@
+.chosebox,
+.chosenbox {
+    height: 400px;
+}
+.chosenbox .chosen-count {
+    padding: 3px 10px;
+    border-bottom: 1px solid #ccc;
+}
+.operateBar {
+    height: 20px;
+    padding: 0 10px;
+    border-bottom: 1px solid #dddddd;
+}
+.operateBar label {
+    margin: 0;
+    font-weight: normal;
+}
+.operateBar input,
+.personList input {
+    vertical-align: top;
+}
+.personList {
+    height: 180px;
+    padding-left: 10px;
+}
+.chosens {
+    padding-left: 0;
+    list-style: none;
+}
+.chosens li {
+    padding: 5px 10px;
+}

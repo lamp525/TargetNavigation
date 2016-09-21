@@ -1,0 +1,32 @@
+﻿@{
+    ViewBag.Title = "ClientLogin";
+}
+
+<h2 id="msg">正在登录中...</h2>
+
+<input type="hidden" value="@ViewBag.UserName" id="userName" />
+<input type="hidden" value="@ViewBag.Password" id="passWord" />
+<script src="~/Libs/jQuery/jquery-1.11.2.js"></script>
+<script>
+    $(function () {
+        $.post("/Login/UserLogin", { userId: $("#userName").val(), userPass: $("#passWord").val(), VCode: "true" }, function (msg) {
+            if (msg == "ok") {
+                window.location.href = "../XXXViews/HomePageNavigation/HomePageNavigation";
+            }
+                //else if (msg == "Vf") {
+                //    fnWrongMessage("验证码错误");
+                //    fnValidateCode();
+                //    ClickRemoveChangeCode();
+                //} else {
+                //    fnWrongMessage("用户名或密码输入有误");
+                //    if (parseInt(msg) >= parseInt($("#errorTime").val())) {
+                //        fnValidateCode();
+                //        ClickRemoveChangeCode();
+                //    }
+                //}
+            else {
+                window.location.href = "/";
+            }
+        })
+    });
+</script>

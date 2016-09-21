@@ -1,0 +1,340 @@
+﻿@{
+    //ViewBag.Title = "Index";
+    //Layout = "~/Views/ModelView/ModelView.cshtml";
+    var execution = Convert.ToBoolean(ViewBag.Execution);
+}
+
+<link href="../../Styles/common/common-before-bs.css" rel="stylesheet" />
+<link href="~/Styles/plan/plan-statistics.css" rel="stylesheet" />
+
+ <div class="container-before-bootstrap clearfix">
+  <div class="main">
+    	<!-- 小标题（执行力统计） 开始 -->
+        <div class="title">
+            <div class="titleL">
+                <span class="text">计划完成情况</span>
+                <!--<div class="arrowsBBBCom">-->
+                    <!--<div class="arrowsBBBDiv">-->
+                        <!--<ul>-->
+                            <!--<li><a href="javascript:void(0)" value="0">功效价值</a></li>-->
+                            <!--<li class="line"></li>-->
+                            <!--<li><a href="javascript:void(0)" value="1">执行力统计</a></li>-->
+                            <!--<li class="line"></li>-->
+                            <!--<li><a href="javascript:void(0)" value="2">目标考核绩效</a></li>-->
+                        <!--</ul>-->
+                    <!--</div>-->
+                <!--</div>-->
+            </div>
+            <!--
+            <div class="titleR">
+                <span class="text">2015年4月</span>
+                <div class="arrowsBBBCom">
+                    <div class="arrowsBBBDiv">
+                        <ul>
+                            <li><a href="javascript:void(0)" value="0"></a></li>
+                            <li class="line"></li>
+                            <li><a href="javascript:void(0)" value="1"></a></li>
+                            <li class="line"></li>
+                            <li><a href="javascript:void(0)" value="2"></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            -->
+        </div>
+    	<!-- 小标题（执行力统计） 结束 -->
+        
+        
+        
+    	<!-- 内容 开始 -->
+        <div class="mainCon">
+        	<!-- 还没有统计表，点击添加 -->
+        	<div class="addSta" style="display: none">
+            	<span>还没有统计表</span>
+                @if (execution)
+                {
+                   <span>，点击</span>
+            	<div class="addBtn">
+                	<span class="addCom"></span>
+                </div>
+            	<span>添加</span>
+                }
+            </div>
+            
+            <!-- 具体内容 开始 -->
+        	<div class="contain" style="display: none">
+                <!-- 具体内容的头部 开始 -->
+            	<div class="conHeader">
+                	<div class="conHeaL">
+                        <select id="selectST">
+                            <!--<option>1</option>-->
+                            <!--<option>2</option>-->
+                            <!--<option>3</option>-->
+                        </select>
+
+                        @if (execution)
+                        {
+                            <div class="addBtn">
+                            <span class="addCom"></span>
+                        </div>
+                        }
+                    </div>
+                	<div class="conHeaR">
+                    	<!--
+                        <div class="time">
+                        	<span>周</span>/
+                        	<span>月</span>/
+                        	<span>季度</span>/
+                        	<span>年</span>
+                        </div>-->
+                        <div class="timeQuan">
+                            <span>开始日：</span>
+                            <input type="text" class="laydate-icon" id="start"/>
+                            <span style="margin:0 5px; font-size:16px;">-</span>
+                            <span style="margin-left:0;">结束日：</span>
+                            <input type="text" class="laydate-icon" id="end"/>
+                            <span class="handle" id="checkST" term="0">确定</span>
+                        </div>
+                    	<div class="departmentCompare planNum">
+                        	<span>计划量</span>
+                            <div class="arrows">
+                            	<span class="arrowSolidTCom"></span>
+                            	<span class="arrowSolidBCom hit"></span>
+                            </div>
+                        </div>
+                    	<div class="departmentCompare accomplishNum">
+                        	<span>完成量</span>
+                            <div class="arrows">
+                            	<span class="arrowSolidTCom"></span>
+                            	<span class="arrowSolidBCom"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 具体内容的头部 结束 -->
+                
+                <!-- 统计图 开始 -->
+                <div class="chartAll">
+                    <div id="dountDiv">
+                        <!--<div class="chartDiv">-->
+                            <!--<div class="chartSingle">-->
+                                <!--<div class="chart">-->
+                                    <!--<div id="chart3"></div>-->
+                                    <!--<div class="planNum">计划<span style="color:#58b456"></span>项</div>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                            <!--<span class="chartText">董事办</span>-->
+                        <!--</div>-->
+                        <!--<div class="chartDiv">-->
+                            <!--<div class="chartSingle"></div>-->
+                            <!--<span class="chartText">董事办</span>-->
+                        <!--</div>-->
+                        <!--<div class="chartDiv">-->
+                            <!--<div class="chartSingle"></div>-->
+                            <!--<span class="chartText">董事办</span>-->
+                        <!--</div>-->
+                        <!--<div class="chartDiv">-->
+                            <!--<div class="chartSingle"></div>-->
+                            <!--<span class="chartText">董事办</span>-->
+                        <!--</div>-->
+                        <!--<div class="chartDiv">-->
+                            <!--<div class="chartSingle"></div>-->
+                            <!--<span class="chartText">董事办</span>-->
+                        <!--</div>-->
+                        <!--<div style="clear: both"></div>-->
+                    </div>
+
+                	<div class="popUp chartDetail">
+                    	<div class="CDHeader">
+                        	<div class="CDHeaL">
+                            	<span></span>人
+                            </div>
+                        	<div class="CDHeaR">
+                                <div class="staffCompare planNum">
+                                    <span>计划量</span>
+                                    <div class="arrows">
+                                        <span class="arrowSolidTCom"></span>
+                                        <span class="arrowSolidBCom hit"></span>
+                                    </div>
+                                </div>
+                                <div class="staffCompare accomplishNum">
+                                    <span>完成量</span>
+                                    <div class="arrows">
+                                        <span class="arrowSolidTCom"></span>
+                                        <span class="arrowSolidBCom"></span>
+                                    </div>
+                                </div>
+                                <div class="staffCompare accomplishRate">
+                                    <span>完成率</span>
+                                    <div class="arrows">
+                                        <span class="arrowSolidTCom"></span>
+                                        <span class="arrowSolidBCom"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="CDAll">
+                            <!--<div class="CDDiv">-->
+                                <!--<div class="portraitBox">-->
+                                    <!--<div class="portrait">-->
+                                        <!--<img style="height: 64px;width: 64px;margin: 3px;border-radius: 50%" src="../../Images/common/portrait.png" />-->
+                                    <!--</div>-->
+                                    <!--<span class="name">名字</span>-->
+                                <!--</div>-->
+                                <!--<div class="CDText">-->
+                                	<!--<ul class="CDTextNum">-->
+                                    	<!--<li>事项总数：<span>120</span>件</li>-->
+                                    	<!--<li>完成件数：<span>25</span>件</li>-->
+                                    	<!--<li>待确认件数：<span>12</span>件</li>-->
+                                    	<!--<li>未完成件数：<span>12</span>件</li>-->
+                                    	<!--<li>审核件数：<span>12</span>件</li>-->
+                                    	<!--<li>待提交件数：<span>15</span>件</li>-->
+                                    	<!--<li>已中止件数：<span>55</span>件</li>-->
+                                    <!--</ul>-->
+                                    <!--<div class="CDTextR">-->
+                                        <!--<div class="accomRate">-->
+                                            <!--完成率<span>10</span>%-->
+                                        <!--</div>-->
+                                        <!--<ul class="CDTextRate">-->
+                                            <!--<li>确认率：<span>12</span>%</li>-->
+                                            <!--<li>未完成率：<span>12</span>%</li>-->
+                                            <!--<li>审核率：<span>12</span>%</li>-->
+                                            <!--<li>提交率：<span>15</span>%</li>-->
+                                            <!--<li>中止率：<span>55</span>%</li>-->
+                                        <!--</ul>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                            <!--<div class="CDDiv">-->
+                                <!--<div class="portraitBox">-->
+                                    <!--<div class="portrait">-->
+                                        <!--<img style="height: 64px;width: 64px;margin: 3px;border-radius: 50%" src="../../Images/common/portrait.png" />-->
+                                    <!--</div>-->
+                                    <!--<span class="name">名字</span>-->
+                                <!--</div>-->
+                                <!--<div class="CDText">-->
+                                	<!--<ul class="CDTextNum">-->
+                                    	<!--<li>事项总数：<span>120</span>件</li>-->
+                                    	<!--<li>完成件数：<span>25</span>件</li>-->
+                                    	<!--<li>待确认件数：<span>12</span>件</li>-->
+                                    	<!--<li>未完成件数：<span>12</span>件</li>-->
+                                    	<!--<li>审核件数：<span>12</span>件</li>-->
+                                    	<!--<li>待提交件数：<span>15</span>件</li>-->
+                                    	<!--<li>已中止件数：<span>55</span>件</li>-->
+                                    <!--</ul>-->
+                                    <!--<div class="CDTextR">-->
+                                        <!--<div class="accomRate">-->
+                                            <!--完成率<span>10</span>%-->
+                                        <!--</div>-->
+                                        <!--<ul class="CDTextRate">-->
+                                            <!--<li>确认率：<span>12</span>%</li>-->
+                                            <!--<li>未完成率：<span>12</span>%</li>-->
+                                            <!--<li>审核率：<span>12</span>%</li>-->
+                                            <!--<li>提交率：<span>15</span>%</li>-->
+                                            <!--<li>中止率：<span>55</span>%</li>-->
+                                        <!--</ul>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                            <!--<div class="CDDiv">-->
+                                <!--<div class="portraitBox">-->
+                                    <!--<div class="portrait">-->
+                                        <!--<img style="height: 64px;width: 64px;margin: 3px;border-radius: 50%" src="../../Images/common/portrait.png" />-->
+                                    <!--</div>-->
+                                    <!--<span class="name">名字</span>-->
+                                <!--</div>-->
+                                <!--<div class="CDText">-->
+                                	<!--<ul class="CDTextNum">-->
+                                    	<!--<li>事项总数：<span>120</span>件</li>-->
+                                    	<!--<li>完成件数：<span>25</span>件</li>-->
+                                    	<!--<li>待确认件数：<span>12</span>件</li>-->
+                                    	<!--<li>未完成件数：<span>12</span>件</li>-->
+                                    	<!--<li>审核件数：<span>12</span>件</li>-->
+                                    	<!--<li>待提交件数：<span>15</span>件</li>-->
+                                    	<!--<li>已中止件数：<span>55</span>件</li>-->
+                                    <!--</ul>-->
+                                    <!--<div class="CDTextR">-->
+                                        <!--<div class="accomRate">-->
+                                            <!--完成率<span>10</span>%-->
+                                        <!--</div>-->
+                                        <!--<ul class="CDTextRate">-->
+                                            <!--<li>确认率：<span>12</span>%</li>-->
+                                            <!--<li>未完成率：<span>12</span>%</li>-->
+                                            <!--<li>审核率：<span>12</span>%</li>-->
+                                            <!--<li>提交率：<span>15</span>%</li>-->
+                                            <!--<li>中止率：<span>55</span>%</li>-->
+                                        <!--</ul>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                            <!--<div class="CDDiv">-->
+                                <!--<div class="portraitBox">-->
+                                    <!--<div class="portrait">-->
+                                        <!--<img style="height: 64px;width: 64px;margin: 3px;border-radius: 50%" src="../../Images/common/portrait.png" />-->
+                                    <!--</div>-->
+                                    <!--<span class="name">名字</span>-->
+                                <!--</div>-->
+                                <!--<div class="CDText">-->
+                                	<!--<ul class="CDTextNum">-->
+                                    	<!--<li>事项总数：<span>120</span>件</li>-->
+                                    	<!--<li>完成件数：<span>25</span>件</li>-->
+                                    	<!--<li>待确认件数：<span>12</span>件</li>-->
+                                    	<!--<li>未完成件数：<span>12</span>件</li>-->
+                                    	<!--<li>审核件数：<span>12</span>件</li>-->
+                                    	<!--<li>待提交件数：<span>15</span>件</li>-->
+                                    	<!--<li>已中止件数：<span>55</span>件</li>-->
+                                    <!--</ul>-->
+                                    <!--<div class="CDTextR">-->
+                                        <!--<div class="accomRate">-->
+                                            <!--完成率<span>10</span>%-->
+                                        <!--</div>-->
+                                        <!--<ul class="CDTextRate">-->
+                                            <!--<li>确认率：<span>12</span>%</li>-->
+                                            <!--<li>未完成率：<span>12</span>%</li>-->
+                                            <!--<li>审核率：<span>12</span>%</li>-->
+                                            <!--<li>提交率：<span>15</span>%</li>-->
+                                            <!--<li>中止率：<span>55</span>%</li>-->
+                                        <!--</ul>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        </div>
+                    </div>
+                </div>
+                <!-- 统计图 开始 -->
+            </div>
+            <!-- 具体内容 结束 -->
+        </div>
+    	<!-- 内容 结束 -->
+    </div>
+    
+    
+    
+    
+    
+    <!-- 弹窗 开始 -->
+    <!-- 自定义统计表 开始 -->    
+    <div class="popUp statisTab" style="display: none">
+    	<div class="title">
+        	自定义名称
+            
+        </div><span class="closeWCom"></span>
+        <div class="STName">
+        	<span>统计名</span>
+            <input type="text" id="st_name" />
+        </div>
+        <div class="STList">
+        	<span class="STListHead">统计对象</span>
+            <div class="ztree" id="departmentTree" style="margin-top: 10px">
+
+            </div>
+        </div>
+        <div class="canCon">
+        	<span style="width:279px; border-right:1px solid #bbb;">取消</span>
+        	<span>确定</span>
+        </div>
+    </div>
+    <!-- 自定义统计表 结束 -->
+    </div>
+
+<script src="~/Scripts/plan/plan-statistics.js"></script>

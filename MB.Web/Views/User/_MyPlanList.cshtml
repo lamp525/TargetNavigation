@@ -1,0 +1,900 @@
+﻿@using MB.Model
+@{
+    var list = ViewBag.List as List<UserIndexModel>;
+}
+
+
+    @if (list != null)
+    {
+        foreach (var item in list)
+        {
+        <li  class="planDetail" withfront="@item.withfront" collPlan="@item.collPlan"  term="@item.planId" status="@item.status" stop="@item.stop" isloop="@item.isloop" initial="@item.initial">
+            @if (item.importance == 5 || item.urgency == 5)
+            {
+                <div class="level">
+                    <div class="levelDiv">
+                        <span class="levelBg"></span>
+                        <ul class="levelList">
+                            <li>紧急度：<span>@item.importance</span></li>
+                            <li>重要度：<span>@item.urgency</span></li>
+                        </ul>
+                    </div>
+                </div> 
+            }
+
+            <a href="#">
+                <span class="text">@item.eventOutput</span>
+                <span class="rate">@item.progress</span>
+            </a>
+
+            @if (item.endTime >= DateTime.Now)
+            {
+                if (item.TimeNum == 0)
+                {
+                <span class="index_span_text">
+                    <span class="importDate">今天</span>
+                </span>
+                }
+                else if (item.TimeNum == -1)
+                {
+                <span class="index_span_text">
+                    <span class="importDate">明天</span>
+                </span>
+                }
+                else if (item.TimeNum == -2)
+                {
+                <span class="index_span_text">
+                    <span class="importDate">后天</span>
+                </span>
+                }
+                else
+                {
+                    if (item.endTime.Value.Year == DateTime.Now.Year)
+                    {
+                <span class="index_span_text">@DateTime.Parse(item.endTime.ToString()).ToString("MM-dd")</span>  
+                    }
+                    else
+                    {
+                <span class="index_span_text">@DateTime.Parse(item.endTime.ToString()).ToString("YYYY-mm-dd")</span>  
+                    }
+                }
+            }
+            else
+            { 
+                <span class="index_span_text">
+                    <span class="overDate">超时@(item.TimeNum)天</span>
+                </span>
+            }
+
+        </li>
+        <li class="line"></li> 
+        }
+    }
+    <script>
+        fnLevel();
+    </script>
+
+
+<script>
+    $(function () {
+        
+
+
+        /* 计划详情 开始 */
+        //协作人
+        var collUsers = [];
+
+        //前提计划
+        var frontplans = [];
+
+        //设置计划详情界面不可编辑
+        function editDisabled() {
+            $('.planDetailMask').css('display', 'block');
+        }
+        //设置计划详情界面可编辑
+        function editEnable() {
+            $('.planDetailMask').css('display', 'none');
+        }
+        $(".planDetail").off('click');
+        $(".planDetail").click(function () {
+            //addplan执行方式加载
+            //var aaa = [{id:1,text:'孙子'},{}...]
+            $.ajax({
+                type: "post",
+                url: "/plan/GetExecutionList",
+                dataType: "json",
+                success: rsHandler(function (data) {
+                    $('.xxc_runmode').html('');
+                    for (var i = 0, len = data.length; i < len ; i++) {
+                        $("<option></option>").val(data[i].id).html(data[i].text).appendTo($(".xxc_runmode"));
+                    }
+                    if (planDetailExemode) {
+                        $("#detail_runmode option").each(function () {
+                            if (parseInt($(this).val()) == planDetailExemode) {
+                                $(this).attr("selected", "true");
+                            }
+                        });
+                    }
+                })
+            });
+            $('#detail_operateinfo').hide();
+            detail_window($(this));
+        });
+
+        function detail_window(obj) {
+
+            $(".listView").html('');
+            $("#xxc_planId").val(obj.attr('term'));
+            /*获取计划详情 开始*/
+            var planId = obj.attr('term');
+            var status = obj.attr('status');
+            var stop = obj.attr('stop');
+            var isloop = obj.attr('isloop');
+            var withfront = obj.attr('withfront');
+            var collPlan = obj.attr("collPlan");
+            $("#xxc_status").val(obj.attr('status'));
+            $("#xxc_stop").val(obj.attr('stop'));
+            $("#xxc_isloop").val(obj.attr('isloop'));
+            $.ajax({
+                type: "post",
+                url: "/plan/GetPlanInfoByPlanId",
+                dataType: "json",
+                data: { planId: planId, isloop: isloop, withfront: withfront, collPlan: collPlan },
+                success: rsHandler(function (data) {
+                    $("#details_department_v").text(data.organizationName).attr('term', data.organizationId);
+                    $("#details_project_v").text(data.projectName).attr('term', data.projectId);
+                    $("#detail_runmode option").each(function () {
+                        if (parseInt($(this).val()) == data.executionModeId) {
+                            $(this).attr("selected", "true");
+                        }
+                    });
+                    $("#detail_eventoutput").val(data.eventOutput);
+                    if (!data.isLoopPlan) {
+                        $("#detail_looptype option:eq(1)").attr("selected", "true");
+                        $("#xxx_startime").hide();
+                        $("#xxx_initial").show();
+                        $("#detail_initial option").each(function () {
+                            if (parseInt($(this).val()) == data.initial) {
+                                $(this).attr("selected", "true").attr("term", data.initial);
+                            }
+                        });
+                    }
+                    else {
+                        $("#detail_looptype option").each(function () {
+                            if (parseInt($(this).val()) == data.loopType) {
+                                $(this).attr("selected", "true");
+                            }
+                        });
+                        $("#xxx_startime").show();
+                        $("#detail_startime").val(data.startTimeNew);
+                        $("#xxx_initial").hide();
+                    }
+                    $("#detail_endtime").val(data.endTimeNew);
+                    $("#detail_responsibleUser").val(data.responsibleUserName).attr('term', data.responsibleUser);
+                    $("#detail_confirmUser").val(data.confirmUserName).attr('term', data.confirmUser);
+                    //$("#detail_initial option").each(function () {
+                    //    if (parseInt($(this).val()) == data.initial) {
+                    //        $(this).attr("selected", "true").attr("term", data.initial);
+                    //    }
+                    //});
+                    if (data.collPlanList.length > 0) {
+                        for (var i = 0; i < data.collPlanList.length; i++) {
+
+                            var $span = $("<span class='collplan' term='" + data.collPlanList[i].id + "'></span>").addClass("tag");
+                            var $close = $("<span term='" + data.collPlanList[i].id + "'>X</span>").addClass("close").css({ display: "none" });
+                            $span.hover(function () {
+                                $(".close", this).toggle();
+                            })
+
+                            $span.append([data.collPlanList[i].name, $close]);
+
+                            $("#detail_partner").parent().before($span);
+                            collUsers.push({ id: data.collPlanList[i].id });
+                            $close.click(function () {
+                                var collplanId = $(this).attr('term');//-------------------------------------
+                                $.ajax({
+                                    url: "/Plan/DeletePlanCooperation",
+                                    type: "post",
+                                    data: { planId: planId, userId: collplanId },
+                                    dataType: "JSON",
+                                    success: rsHandler(function (data) {
+
+                                    })
+                                });
+                                for (var i = 0; i < collUsers.length; i++) {
+                                    if (collUsers[i].id == collplanId) {
+                                        collUsers.splice(i, 1);
+                                    }
+                                }
+                                $(this).parent("span").remove();
+
+                                //$span.remove();
+                            });
+                        }
+                    }
+                    if (data.withFront) {
+                        for (var i = 0; i < data.frontLists.length; i++) {
+                            var $span = $("<span class='frontplan' term='" + data.frontLists[i].planId + "'></span>").addClass("tag");
+                            var $close = $("<span term='" + data.frontLists[i].planId + "'>X</span>").addClass("close").css({ display: "none" });
+
+                            $span.hover(function () {
+                                $close.toggle();
+                            });
+
+                            $span.append([data.frontLists.eventOutput, $close]);
+                            $("#detail_premise").parent().before($span);
+                            frontplans.push({ planId: data.frontLists[i].planId });
+                            $close.click(function () {
+                                var frontplanId = $(this).attr('term');
+
+                                for (var i = 0; i < frontplans.length; i++) {
+                                    if (frontplans[i].planId == frontplanId) {
+                                        frontplans.splice(i, 1);
+                                    }
+                                }
+                                $span.remove();
+                                removeValue(premise_v, data.id);
+                                removeValue(premise_text, data.name);
+                            });
+                        }
+                    }
+
+                    //加载附件
+                    if (data.planAttachmentList.length <= 0) {
+                        $("#detailAccessory").hide()
+                    }
+                    else {
+                        $("#detailAccessory").show();
+                        $('#detailAccessory .accessoryDiv ul').html('');
+                        $('#detailAccessory .accessoryDiv ul').append("<li class='allDownload'>全部下载</li>");
+                        for (var i = 0; i < data.planAttachmentList.length; i++) {
+                            $('#detailAccessory .accessoryDiv ul').append("<li class='liAccessory' savename='" + data.planAttachmentList[i].saveName + "' term='" + data.planAttachmentList[i].attachmentId + "'><span class='content'>" + data.planAttachmentList[i].attachmentName + "</span></li>");
+                        }
+                        $('.liAccessory').off('click');
+                        $('.liAccessory').click(function () {
+                            downloadfile($(this));
+                        });
+
+                        $('.allDownload').off('click');
+                        $('.allDownload').click(function () {
+                            downloadaddfile(planId);
+                        });
+
+                    }
+                })
+            });
+
+
+            /*获取计划详情 结束*/
+
+            //计划日志
+            $.ajax({
+                type: "post",
+                url: "/plan/GetPlanOperates",
+                dataType: "json",
+                data: {
+                    planId: planId, isloop: isloop
+                },
+                success: rsHandler(function (data) {
+                    var $ul = $("<ul></ul>");
+                    for (var i = 0, len = data.length; i < len; i++) {
+                        var info = data[i];
+                        var $li = $("<li></li>");
+                        var $span1 = $("<span style='width: 78%;word-break: break-all;'></span>");
+                        var $span2 = $("<span style='width: 20%'></span>");
+                        $li.append([$span1, $span2]).appendTo($ul);
+
+                        var str = "<span style='color:#58b456;'>" + info.user + "</span>";
+                        if (info.type == 1) {
+                            str += "提交了该计划";
+                        } else if (info.type == 2) {
+                            str += ("审核通过了该计划" + (info.message.length ? (":" + info.message) : ""));
+                        } else if (info.type == 3) {
+                            str += ("审核未通过该计划" + (info.message.length ? (":" + info.message) : ""));
+                        } else if (info.type == 4) {
+                            str += ("撤销了该计划的提交" + (info.message.length ? (":" + info.message) : ""));
+                        } else if (info.type == 5) {
+                            str += ("撤销了该计划的审核" + (info.message.length ? (":" + info.message) : ""));
+                        } else if (info.type == 6) {
+                            str += ("发表了评论" + (info.message.length ? (":" + info.message) : ""));
+                        } else if (info.type == 7) {
+                            str += ("下载了附件" + (info.message.length ? (":" + info.message) : ""));
+                        } else if (info.type == 8) {
+                            str += ("查看了你的计划" + (info.message.length ? (":" + info.message) : ""));
+                        } else if (info.type == 9) {
+                            str += ("转办" + (info.message.length ? (":" + info.message) : ""));
+                        } else if (info.type == 10) {
+                            str += ("申请修改该计划" + (info.message.length ? (":" + info.message) : ""));
+                        } else if (info.type == 11) {
+                            str += ("申请中止该计划" + (info.message.length ? (":" + info.message) : ""));
+                        } else if (info.type == 12) {
+                            str += ("重新开始该计划" + (info.message.length ? (":" + info.message) : ""));
+                        }
+                        else if (info.type == 13) {
+                            str += ("删除该计划" + (info.message.length ? (":" + info.message) : ""));
+                        }
+                        else if (info.type == 14) {
+                            str += ("该计划确认通过" + (info.message.length ? (":" + info.message) : ""));
+                        }
+                        else if (info.type == 15) {
+                            str += ("该计划确认未通过" + (info.message.length ? (":" + info.message) : ""));
+                        }
+                        else if (info.type == 16) {
+                            str += ("该计划更新了进度" + (info.message.length ? (":" + info.message) : ""));
+                        }
+                        else if (info.type == 17) {
+                            str += ("该计划进行了分解计划" + (info.message.length ? (":" + info.message) : ""));
+                        }
+                        else if (info.type == 18) {
+                            str += ("新建了计划" + (info.message.length ? (":" + info.message) : ""));
+                        }
+                        else if (info.type == 19) {
+                            str += ("新建了循环计划" + (info.message.length ? (":" + info.message) : ""));
+                        }
+                        else if (info.type == 20) {
+                            str += ("修改保存了该计划" + (info.message.length ? (":" + info.message) : ""));
+                        } else {
+                            str = "异常操作"
+                        }
+
+                        $span1.html(str);
+                        $span2.html(info.timeNew);
+                    }
+                    $("#layer_details .listView").html($ul);
+                })
+            });
+            $("#detail_canCon").show();
+            $("#detail_span1").show()
+            $("#detail_span2").show();
+            $("#detail_span3").show();
+
+            if ((status == 0 || status == 15) && stop == 0) {//待提交
+                $("#xxc_initial").val(obj.attr('initial'));
+                if (isloop == "1") {
+                    $("#detail_looptype").attr('disabled', false);
+                    $("#detail_span1").text('提交').attr('operatetype', '提交').css("width", "50%");
+                    $("#detail_span2").text('保存').attr('operatetype', '保存').css("width", "50%");
+                    $("#detail_span3").hide();
+                } else {
+                    $("#detail_looptype").attr('disabled', 'disabled');
+                    $("#detail_span1").text('提交').attr('operatetype', '提交').css("width", "33.3%");
+                    $("#detail_span2").text('保存').attr('operatetype', '保存').css("width", "33.3%");
+                    $("#detail_span3").text('评论').attr('operatetype', '评论').css("width", "33.3%");
+                }
+                editEnable();
+            } else if (((status == 10 || status == 25) && stop == 0) || stop == 10) {//待审核
+                if (isloop == "1") {
+                    $("#detail_span1").hide();
+                } else {
+                    $("#detail_span1").text('评论').attr('operatetype', '评论').css("width", "100%");
+                }
+                $("#detail_span2").hide();
+                $("#detail_span3").hide();
+                editDisabled();
+            } else if ((status == 20 || status == 40) && stop == 0) {//已审核
+                if (isloop == "1") {
+                    $("#detail_span1").text('提交').attr('operatetype', '提交确认').css("width", "100%");
+                    $("#detail_span2").hide();
+                } else {
+                    $("#detail_span2").text('评论').attr('operatetype', '评论').css("width", "50%");
+                    $("#detail_span1").text('提交').attr('operatetype', '提交确认').css("width", "50%");
+                }
+                $("#detail_span3").hide();
+                editDisabled();
+            } else if (status == 30 && stop == 0) {//待确认
+                if (isloop == "1") {
+                    $("#detail_span1").hide();
+                } else {
+                    $("#detail_span1").text('评论').attr('operatetype', '评论').css("width", "100%");
+                }
+                $("#detail_span2").hide();
+                $("#detail_span3").hide();
+                editDisabled();
+            }
+            else if (status == 90 && stop == 0) {//已完成
+                $("#detail_canCon").hide();
+                editDisabled();
+            }
+            else if (stop == 90) {
+                $("#detail_canCon").hide();
+                editDisabled();
+            }
+
+            planDetail = $.layer({
+                type: 1,
+                shade: [0.5, '#000'],
+                area: ['auto', 'auto'],
+                title: false,
+                border: [0],
+                page: { dom: '#layer_details' },
+                move: '.title',
+                closeBtn: true
+            });
+
+            //$(".planDetail .closeWCom").click(function () {
+            //    $("#detail_partner").html('');
+            //    $("#detail_premise").html('');
+            //    layer.close(planDetail);
+            //    $("#detail_operateinfo").html('');
+            //})
+        }
+        $("#detailAccessory .accessory").click(function () {
+            $(this).next(".accessoryDiv").toggle();
+        })
+
+        var setting = {
+            view: {
+                showIcon: false,
+                showLine: false,
+                selectedMulti: false
+            }
+        };
+
+        //关闭
+        $('#layer_details .closeWCom').off('click');
+        $('#layer_details .closeWCom').click(function () {
+            $("#detail_partner_div").find('span:not(.detail_partner_span)').remove();
+            $("#detail_front_div").find('span:not(.detail_front_span)').remove();
+            layer.close(planDetail);
+            $("#detail_operateinfo").html('');
+        });
+
+        /*详情中的按钮操作 开始*/
+        $('.xxc_operatebtn').off('click');
+        $('.xxc_operatebtn').click(function () {
+
+            var operatetype = $(this).attr("operatetype");
+            var planId = $("#xxc_planId").val();
+            var org = $("#details_department_v").attr('term');
+            var pro = $("#details_project_v").attr("term");
+            var runmode = $("#detail_runmode option:selected").val();
+            var eventoutput = $("#detail_eventoutput").val();
+            var resUser = $("#detail_responsibleUser").attr('term');
+            var conUser = $("#detail_confirmUser").attr('term');
+            var looptype = $("#detail_looptype option:selected").val();
+            var endtime = $("#detail_endtime").val();
+            var initial = $("#detail_initial option:selected").val();
+            
+            var plan = [{ planId: planId, organizationId: org, projectId: pro, executionModeId: runmode, eventOutput: eventoutput, responsibleUser: resUser, confirmUser: conUser, loopType: looptype, initial: initial, endTime: endtime, collPlanList: collUsers, frontLists: frontplans }];
+            var plans = [];
+            if (operatetype == "提交") {
+                if (org == "" || pro == "" || runmode == "" || eventoutput == "" || resUser == "" || conUser == "" || looptype == "" || endtime == "" || initial == "") {
+
+                    ncUnits.alert("存在空值，无法提交");
+                    return;
+                }
+                if (resUser == conUser) {
+                    ncUnits.alert("确认人不能与责任人相同，请重新选择");
+                    return;
+                }
+                var initial = $("#xxc_initial").val();
+                plans.push(plan);
+               
+                $.post("/plan/SaveUpdatePlan", { plans: JSON.stringify(plan) }, function (msg) {
+                    if (msg == "ok") {
+                        layer.close(planDetail);
+                        $("#detail_partner").html('');
+                        $("#detail_premise").html('');
+                        submitoperate(planId, initial);
+                        $("#detail_partner_div").find('span:not(.detail_partner_span)').remove();
+                        $("#detail_front_div").find('span:not(.detail_front_span)').remove();
+                    }
+                    else {
+                        ncUnits.alert("提交不成功");
+                    }
+                });
+
+
+            }
+            else if (operatetype == "保存") {
+                plans.push(plan);
+                $.post("/plan/SaveUpdatePlan", { plans: JSON.stringify(plans) }, function (msg) {
+                    if (msg == "ok") {
+                        layer.close(planDetail);
+                        fnScreCon();
+                        $("#detail_partner_div").find('span:not(.detail_partner_span)').remove();
+                        $("#detail_front_div").find('span:not(.detail_front_span)').remove();
+                    }
+                    else {
+                        ncUnits.alert("保存不成功");
+                    }
+                })
+            }
+            else if (operatetype == "评论") {
+                Discuss($("#layer_details"), planId);
+            }
+            else if (operatetype == "审核") {
+                checkclick($("#layer_details"));
+
+            }
+            else if (operatetype == "确认") {
+                DetailConfirm($("#layer_details"));
+            }
+            else if (operatetype == "提交确认") {
+                submitconfirm($("#layer_details"));
+            }
+            else if (operatetype == "撤销") {
+                layer.close(planDetail);
+                canceloperate(planId, 10);
+            }
+            collUsers = [];
+            frontplans = [];
+            plans = [];
+
+
+        })
+
+        function Discuss(obj, planId) {
+            $("#detail_operateinfo").load("/plan/DiscussView", { height: parseInt(obj.css('height')), planId: planId }, function () {
+                $("#detail_operateinfo").show();
+                $(".commentBox").show();
+                $(".commentBox .discussCon").each(function () {
+                    if ($(this).height() != 16) {
+                        $(this).parent('.discuss').height($(this).height() + 15);
+                    }
+                });
+                $('.commentDiv').each(function (index, element) {
+                    var height = $('.discuss', this).height();
+                    var replyHeight = $('.replyDiv', this).height();
+                    $('.discuss', this).height(height);
+                    $(this).height(height + 20 + replyHeight);
+                    if ($(this).index() == 0) {
+                        $(this).css({ 'margin-top': '95px' });
+                    }
+                    if (height != 30) {
+                        $('.botComent', this).css({ 'margin-left': '50px' });
+                    }
+                    commentDivLength += $(this).height();
+                });
+            });
+        }
+        /*详情中的按钮操作 结束*/
+
+        function getNodeNameLine(node, nameLine) {
+            if (node) {
+                return getNodeNameLine(node.getParentNode(), nameLine ? node.name + " - " + nameLine : node.name);
+            } else {
+                return nameLine;
+            }
+        }
+
+        //部门分类的tree
+        $.ajax({
+            type: "post",
+            url: "/plan/GetOrganizationInfo",
+            dataType: "json",
+            success: rsHandler(function (data) {
+                $.fn.zTree.init($("#details_department"), $.extend({
+                    callback: {
+                        onClick: function (e, id, node) {
+                            var nodeName = getNodeNameLine(node);
+                            $("#details_department_v").html(nodeName);
+                            $("#details_department_v").attr("term", node.id);
+                            department_v = node.id;
+                            department_text = nodeName;
+                        }
+                    }
+                }, setting), data);
+                //$.fn.zTree.init($("#addsubplan_department"), $.extend({
+                //    callback:{
+                //        onClick:function(e,id,node){
+                //            $("#addsubplan_department_v").html(getNodeNameLine(node));
+                //            sub_department_v = node.id;
+                //        }
+                //    }
+                //},setting),data);
+            })
+        });
+        //项目分类的tree
+        $.ajax({
+            type: "post",
+            url: "/plan/GetProjectInfo",
+            dataType: "json",
+            success: rsHandler(function (data) {
+                $.fn.zTree.init($("#details_project"), $.extend({
+                    callback: {
+                        onClick: function (e, id, node) {
+                            var nodeName = getNodeNameLine(node);
+                            $("#details_project_v").html(nodeName);
+                            $("#details_project_v").attr("term", node.id);
+                            project_v = node.id;
+                            project_text = nodeName;
+                        }
+                    }
+                }, setting), data);
+                //$.fn.zTree.init($("#addsubplan_project"),$.extend({
+                //    callback:{
+                //        onClick:function(e,id,node){
+                //            $("#addsubplan_project_v").html(getNodeNameLine(node));
+                //            sub_project_v = node.id;
+                //        }
+                //    }
+                //},setting),data);
+            })
+        });
+
+        //addplan部门分类的收缩展开
+        $("#detail_department_icon").off('click');
+        $("#detail_department_icon").click(function () {
+            if ($(this).hasClass("arrowsBBBCom")) {
+                $(this).removeClass("arrowsBBBCom");
+                $(this).addClass("arrowsBBTCom");
+                $("#details_department").slideDown();
+            } else {
+                $(this).addClass("arrowsBBBCom");
+                $(this).removeClass("arrowsBBTCom");
+                $("#details_department").slideUp();
+            }
+        });
+
+        //addplan项目分类的收缩展开
+        $("#detail_project_icon").off('click');
+        $("#detail_project_icon").click(function () {
+            if ($(this).hasClass("arrowsBBBCom")) {
+                $(this).removeClass("arrowsBBBCom");
+                $(this).addClass("arrowsBBTCom");
+                $("#details_project").slideDown();
+            } else {
+                $(this).addClass("arrowsBBBCom");
+                $(this).removeClass("arrowsBBTCom");
+                $("#details_project").slideUp();
+            }
+        });
+
+        //laydate.skin("huanglv");
+
+        //addplan完成时间选项的弹层
+        var end = {
+            elem: '#detail_endtime', //需显示日期的元素选择器
+            event: 'click', //触发事件
+            format: 'YYYY-MM-DD hh:mm', //日期格式
+            istime: true, //是否开启时间选择
+            isclear: true, //是否显示清空
+            istoday: true, //是否显示今天
+            issure: true, //是否显示确认
+            festival: true, //是否显示节日
+            //min: '1900-01-01 00:00:00', //最小日期
+            //max: '2099-12-31 23:59:59', //最大日期
+            //start: '2014-6-15 23:00:00',    //开始日期
+            //fixed: false, //是否固定在可视区域
+            //zIndex: 99999999, //css z-index
+            choose: function (dates) { //选择好日期的回调
+                endTime_v = dates;
+                start.max = dates;
+            }
+        }
+
+        $("#detail_endtime").off('click');
+        $("#detail_endtime").click(function () {
+            laydate(end);
+        });
+
+        //addplan循环时间选项的弹层
+        var start = {
+            elem: '#addplan_roundtime_v',
+            event: 'click',
+            format: 'YYYY-MM-DD',
+            isclear: true,
+            istoday: true,
+            issure: true,
+            festival: true,
+            choose: function (dates) {
+                roundTime_v = dates;
+                end.start = dates;
+                end.min = dates;
+            }
+        }
+        //$("#detail_roundtime").off('click');
+        //$("#detail_roundtime").click(function () {
+        //    laydate(start);
+        //});
+
+
+        $("#detail_runmode").change(function () {
+            runMode_v = $(this).val();
+            runMode_text = $("option:selected", $(this)).text();
+        });
+
+        $("#isTmp").change(function () {
+            isTmp_v = $(this).val();
+        });
+        //循环类型
+        $("#roundtype").change(function () {
+            roundType_v = $(this).val();
+            roundType_text = $("option:selected", this).text();
+            if (roundType_v == undefined || roundType_v == "") {
+                $(this).css({ color: "#a0a0a0" });
+                $("#addplan_roundtime").hide();
+                $("#worktimeDiv").hide();
+            } else {
+                $(this).css({ color: "#686868" });
+                if (roundType_v == 0) {
+                    $("#addplan_roundtime").hide();
+                    $("#worktimeDiv").hide();
+                    //$("#layer_addplan .title .sub").show();
+                } else {
+                    $("#addplan_roundtime").show();
+                    $("#worktimeDiv").show();
+                    //$("#layer_addplan .title .sub").hide();
+                }
+            }
+        });
+
+        //责任人选择
+        $("#detai_responsibleUser").searchStaffPopup({
+            url: "/plan/GetOfferUsers",
+            hasImage: true,
+            selectHandle: function (data) {
+                responsibleUser_v = data.id;
+                responsibleUser_name = data.name;
+                $(this).val(responsibleUser_name);
+                $(this).attr("term", data.id);
+            }
+        });
+
+        //确认人选择
+        $("#detail_confirmUser").searchStaffPopup({
+            url: "/plan/GetOfferUsers",
+            hasImage: true,
+            selectHandle: function (data) {
+                confirmUser_v = data.id;
+                confirmUser_name = data.name;
+                $(this).val(data.name);
+                $(this).attr("term", data.id);
+            }
+        });
+
+        //协作人选择
+        $("#detail_partner").searchStaffPopup({
+            url: "/plan/GetOfferUsers",
+            hasImage: true,
+            selectHandle: function (data) {
+                collUsers.push({ id: data.id });
+                var $span = $("<span class='collplan' term='" + data.id + "'></span>").addClass("tag");
+                var $close = $("<span term='" + data.id + "'>X</span>").addClass("close").css({ display: "none" });
+                $span.hover(function () {
+                    $close.toggle();
+                })
+
+                $span.append([data.name, $close]);
+
+                $(this).parent().before($span);
+
+                $close.click(function () {
+                    for (var i = 0; i < collUsers.length; i++) {
+                        if (collUsers[i].id == data.id) {
+                            collUsers.splice(i, 1);
+                        }
+                    }
+                    $span.remove();
+                });
+            }
+        });
+
+        //前提计划选择
+        $("#detail_premise").searchStaffPopup({
+            url: "/plan/GetFrontPlans",
+            selectHandle: function (data) {
+                frontplans.push({ planId: data.planId });
+                var $span = $("<span class='frontplan' term='" + data.planId + "'></span>").addClass("tag");
+                var $close = $("<span>X</span>").addClass("close").css({ display: "none" });
+
+                $span.hover(function () {
+                    $close.toggle();
+                });
+
+                $span.append([data.eventOutput, $close]);
+                $(this).parent().before($span);
+
+                $close.click(function () {
+                    for (var i = 0; i < frontplans.length; i++) {
+                        if (frontplans[i].planId == data.planId) {
+                            frontplans.splice(i, 1);
+                        }
+                    }
+                    $span.remove();
+                });
+            }
+        });
+
+        //addplan的标签设置
+        $("#detail_label").off('click');
+        $("#detail_label").click(function () {
+            var $this = $(this);
+            $this.hide();
+            var $con = $("<div style='display: inline-block;position: relative;'></div>");
+            var $input = $('<input type="text" style="border: 1px solid #e3e3e3;width: 100px;height: 22px"/>');
+            var $em = $("<em style='border: 1px solid #00B83F;background-color: #00B83F;  position: absolute;right: 0px;'></em>").addClass("icon add-min-grey");
+
+            function addtag() {
+
+                var $span = $("<span></span>").addClass("tag");
+                var $close = $("<span>X</span>").addClass("close").css({ display: "none" });
+
+                $span.hover(function () {
+                    $close.toggle();
+                })
+
+                var iv = $input.val();
+
+                $span.append([iv, $close]);
+                $this.parent().before($span);
+
+                tab_v.push(iv);
+
+                $close.click(function () {
+                    $span.remove();
+                    removeValue(tab_v, iv);
+                });
+
+                $con.remove();
+                $this.show();
+            }
+
+            $input.keypress(function (e) {
+                if (e.keyCode == 13 && $(this).val()) {
+                    addtag();
+                }
+            });
+            $em.click(function () {
+                if ($input.val()) {
+                    addtag();
+                }
+            });
+
+            $con.append([$input, $em]).appendTo($this.parent());
+        });
+
+        //addplan执行方式加载
+        //$.ajax({
+        //    type: "post",
+        //    url: "/plan/GetExecutionList",
+        //    dataType: "json",
+        //    success: rsHandler(function (data) {
+        //        for (var i = 0, len = data.length; i < len ; i++) {
+        //            $("<option term='" + data.id + "'></option>").val(data[i].id).html(data[i].text).appendTo($("#detail_runmode"));
+        //        }
+        //    })
+        //});
+
+        /* 计划详情 结束 */
+
+        //提交
+        function submitoperate(planIdNew, initial) {
+            $.post("/Plan/SubmitPlan", { "planId": planIdNew, "initial": initial }, function (msg) {
+                if (msg == "ok") {
+                    fnScreCon();
+                }
+                else {
+                    ncUnits.alert("系统繁忙，请稍候再试！");
+                }
+
+            });
+        }
+        //撤销
+        function canceloperate(planId, status) {
+            $.post("/Plan/ChangePlanStatus", { "planId": planId, "status": status, flag: 0 }, function (msg) {
+                if (msg == "ok") {
+                    fnScreCon();
+                }
+                else {
+                    ncUnits.alert("系统繁忙，请稍候再试！");
+                }
+
+            });
+        }
+        //提交确认
+        function submitconfirm(obj) {
+            $("#detail_operateinfo").load("/plan/GetSubmitConfirmView", { height: parseInt(obj.css("height")) }, function () {
+                $('#detail_operateinfo').show();
+            });
+        }
+    });
+
+</script>
+<input id="xxc_planId" type="hidden" />
+<input id="xxc_status" type="hidden" value="0" />
+<input id="xxc_stop" type="hidden" value="0" />
+<input id="xxc_isloop" type="hidden" />
+<input id="xxc_initial" type="hidden" />
+<input id="xxc_endTime" type="hidden" />

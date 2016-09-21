@@ -1,0 +1,1251 @@
+﻿<!-- 本页所需的样式 开始 -->
+<link href="~/Styles/common/common-before-bs.css" rel="stylesheet" />
+<link href="~/Styles/CalendarProcess/planSchedule.css" rel="stylesheet" />
+<link href="~/Styles/flow/widgetFormResolver.css" rel="stylesheet" />
+<!-- 本页所需的样式 结束 -->
+<!-- 页面内容 开始 -->
+
+<div class="row">
+    <div id="planScheduleContainer" class="col-xs-9">
+        <div class="panel panel-default">
+            <div class="panel-heading" style="padding-top: 0px; padding-bottom: 0px">
+                <div class="panel-title">
+                    <ul class="nav nav-tabs" style="border-bottom: 0px">
+                        <li role="presentation" class="active">
+                            <a href="#" role="tab" id="myScheduleTab" term="1">我的日程</a>
+                        </li>
+                        <li role="presentation">
+                            <a href="#" id="subScheduleTab" role="tab" term="2">下属日程</a>
+                        </li>
+                        <li class="nav-right" style="display: none">
+                            <ul class="list-inline" id="dayMonthChosen">
+                                <li term="2">日</li>
+                                <li term="1">月</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="panel-body">
+                <!--我的日程  下属日程-->
+                <div id="listTabContent">
+                    <div id="mySchedule">
+                        <div id="timeLine">
+                            <h4 style="margin-top: 0px; text-align: center">5月</h4>
+                            <div class="row">
+                                <div class="col-xs-1 text-center" style="width: 11%">
+                                    <h4 class="pull-left"></h4>
+                                    <span class="glyphicon glyphicon-menu-left" id="prevPic"></span>
+                                </div>
+                                <div class="col-xs-10" style="width: 78%" id="timeBtnContent">
+                                    <ul class="list-inline">
+                                    </ul>
+                                </div>
+                                <div class="col-xs-1 text-center" style="width: 11%">
+                                    <h4 class="pull-right"></h4>
+                                    <span class="glyphicon glyphicon-menu-right" id="nextPic"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="planContainer">
+                            <div id="planList">
+                                <div class="row headTitle">
+                                    <ul class="list-inline noMargin" style="padding: 0px 6px;">
+                                        <li class="myPlanScheduleLi">
+                                            <span>计划</span>
+                                        </li>
+                                        <li>
+                                            <a href="javaScript:void(0)" class="greenColor" term="1">待审核计划</a>
+                                        </li>
+                                        <li>
+                                            <a href="javaScript:void(0)" term="2">待确认计划</a>
+                                        </li>
+                                        <li class="pull-right">
+                                            <a href="javaScript:void(0)" term="3">批量审核</a>
+                                        </li>
+                                        <li class="pull-right">
+                                            <a href="javaScript:void(0)" term="4">全清</a>
+                                        </li>
+                                        <li class="pull-right myPlanScheduleLi">
+                                            <a href="javaScript:void(0)" id="planNewTab">新建</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div id="contentPlan">
+                                    <div class="row containerListOne">
+                                    </div>
+                                </div>
+                                @*<div class="row moreFooter">
+                                    <button class="btn btn-default  btn-block">展开更多<span class="glyphicon glyphicon-menu-down"></span></button>
+                                </div>*@
+                            </div>
+
+                            <div id="flowList">
+                                <div class="row headTitle">
+                                    <ul class="list-inline noMargin" style="padding: 0px 6px;">
+                                        <li class="myPlanScheduleLi">
+                                            <span>流程</span>
+                                        </li>
+                                        <li>
+                                            <span>流程</span>
+                                        </li>
+                                        <li class="pull-right myPlanScheduleLi">
+                                            <a href="#" data-toggle="modal" data-target="#addflow_modal">新建</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div id="contentFlow">
+                                    <div class="row containerListOne">
+                                    </div>
+                                </div>
+                                @*<div class="row moreFooter">
+                                    <button class="btn btn-default btn-block">展开更多<span class="glyphicon glyphicon-menu-down"></span></button>
+                                </div>*@
+                            </div>
+
+                            <div id="objectList">
+                                <div class="row headTitle">
+                                    <ul class="list-inline noMargin" style="padding: 0px 6px;">
+                                        <li>
+                                            <a href="javaScript:void(0)" class="greenColor" term="1">待审核目标</a>
+                                        </li>
+                                        <li>
+                                            <a href="javaScript:void(0)" term="2">待确认目标</a>
+                                        </li>
+                                        <li class="myPlanScheduleLi">
+                                            <span>目标</span>
+                                        </li>
+                                        <li class="pull-right myPlanScheduleLi">
+                                            <a href="javaScript:void(0)" id="newObjectiveBtn">新建</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div id="contentObject">
+                                    <div class="row containerListOne">
+                                    </div>
+                                </div>
+                                @*<div class="row moreFooter">
+                                    <button class="btn btn-default btn-block">展开更多<span class="glyphicon glyphicon-menu-down"></span></button>
+                                </div>*@
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="sidebarContainer" class="col-xs-3">
+        <div class="sidebar">
+            <a type="button" class="btn btn-block btn-warning" id="newObjectiveBtn1">新建目标</a>
+            @Html.Partial("~/Views/Shared/_UserInfo.cshtml")
+        </div>
+    </div>
+</div>
+
+
+<!-- 页面内容 结束 -->
+
+
+
+
+<!--弹出层  开始-->
+
+
+
+<!--人资添加开始-->
+<div class="modal fade" id="Object_HR_modal" tabindex="-1" role="dialog" aria-labelledby="station_modal_label" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+                <h4 class="modal-title" id="Objective_HR_modal_label">人力资源</h4>
+            </div>
+            <div class="input-group" id="Objective_HR_modal_search">
+                <input type="text" class="form-control" placeholder="选择人员" id="Objective_HR_search" aria-describedby="basic-addon2">
+                <span class="input-group-btn">
+                    <a class="btn btn-default" type="a"><span class="glyphicon glyphicon-search"></span></a>
+                </span>
+            </div>
+            <div class="fifty-fifty  clearfix">
+                <div class="chosebox">
+                    <div class="ztree" id="Objective_HR_modal_folder"></div>
+                </div>
+                <div class="chosenbox">
+                    <div class="chosen-count">
+                        已选: <span class="badge badge-success" id="Objective_HR_modal_chosen_count">0</span>
+                    </div>
+                    <ul class="chosens" id="Objective_HR_modal_chosen">
+                        <!--<li>证券<a class="close" aria-label="Close"><span aria-hidden="true">&times;</span></a></li>-->
+                    </ul>
+                </div>
+                <div class="choseClass">
+                    <div class="adopt">
+                        <ul class="list-inline pull-left">
+                            <li>
+                                <input id="Objective_person_haschildren" type="checkbox"></li>
+                            <li>包含下级</li>
+                        </ul>
+                        @*<ul class="list-inline pull-right">
+                            <li>
+                                <input type="checkbox" id="person-selectall"></li>
+                            <li>全部选择</li>
+                        </ul>*@
+                    </div>
+                    <div class="getadopt person_list">
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer fifty-fifty">
+                <a class="btn btn-transparency btn-lg" data-dismiss="modal" id="Objective_HR_cancel">取消</a>
+                <a class="btn btn-transparency btn-lg" id="Objective_HR_modal_submit">确定</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!--人资添加结束-->
+
+
+
+<!--流程-->
+
+
+
+<!--计划-->
+
+<!--详情 开始-->
+<div class="modal fade" id="plan_detail_modal" tabindex="-1" role="dialog" aria-labelledby="plan_new_modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+                <h4 class="modal-title">计划详情</h4>
+            </div>
+            <div class="modal-body" style="overflow-y: auto; overflow-x: hidden; height: 560px">
+                <div class="planDetailMask" style="width: 100%; height: 60%; position: absolute; top: 0; left: 0; z-index: 999999; display: none;"></div>
+                <div class="row">
+                    <div>
+                        <span>部门分类</span>
+                        <span style="margin-left: 20px; color: #000" id="details_department_v"></span>
+                        <em class="glyphicon glyphicon-menu-down pull-right pointerClass slideToggleCorn"></em>
+                    </div>
+                    <div id="details_department" class="ztree" style="display: none; overflow-y: auto; max-height: 150px"></div>
+                </div>
+                <hr />
+                <div class="row">
+                    <div>
+                        <span>项目分类</span>
+                        <span style="margin-left: 20px; color: #000" id="details_project_v"></span>
+                        <em class="glyphicon glyphicon-menu-down pull-right pointerClass slideToggleCorn"></em>
+                    </div>
+                    <div id="details_project" class="ztree" style="display: none; overflow-y: auto; max-height: 150px"></div>
+                </div>
+                <hr />
+                <div class="row">
+                    <div style="position: relative">
+                        <select id="detail_runmode" class="xxc_runmode" style="width: 150px; height: 30px; line-height: 30px; border: 1px solid #e0e0e0">
+                            <option value="" disabled selected style="display: none;">执行方式</option>
+                        </select>
+                        <input id="detail_eventoutput" type="text" placeholder="事项输出结果" style="height: 28px; width: 300px; line-height: 28px; margin-left: 10px; padding: 0; border: 1px solid #e0e0e0" />
+                        <div id="detailAccessory" style="position: absolute; right: 10px; top: 10px; z-index: 99999999">
+                            <em class="accessory" title="附件"></em>
+                            <div class="accessoryDiv" style="position: absolute; display: none">
+                                <span class="labelDivBg" style="width: 100%; height: 100%;"></span>
+                                <ul>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <span class="optionCell"><em class="icon" style="padding: 12px; background: url('../../Images/plan/recyclePlanAsh.png') no-repeat"></em>
+                            <select id="detail_looptype" style="border: none; color: #a0a0a0">
+                                <option value="" disabled selected style="display: none">选择循环类型</option>
+                                <option value="0">无循环</option>
+                                <option value="1">日循环</option>
+                                <option value="2">周循环</option>
+                                <option value="3">月循环</option>
+                                <option value="4">年循环</option>
+                            </select>
+                        </span>
+                        <span class="optionCell" id="xxx_startime"><em class="icon" style="padding: 12px; background: url('../../Images/plan/recycleDate.png') no-repeat"></em>
+                            <input id="detail_startime" class="emptyInput" placeholder="循环时间" /></span>
+                        <span class="optionCell"><em class="icon" style="padding: 12px; background: url('../../Images/plan/endDate.png') no-repeat"></em>
+                            <input id="detail_endtime" class="emptyInput" placeholder="完成时间" /></span>
+                    </div>
+                    <div>
+                        <span class="optionCell"><em class="icon" style="padding: 12px; background: url('../../Images/plan/responsibleUser.png') no-repeat"></em>
+                            <span style="position: relative">
+                                <input id="detail_responsibleUser" class="emptyInput" readonly placeholder="选择责任人" />
+                            </span>
+                        </span>
+                        <span class="optionCell"><em class="icon" style="padding: 12px; background: url('../../Images/plan/confirmUser.png') no-repeat"></em>
+                            <span style="position: relative">
+                                <input id="detail_confirmUser" class="emptyInput" readonly placeholder="选择确认人" />
+                            </span>
+                        </span>
+                        <span class="optionCell" id="xxx_initial"><em class="icon" style="padding: 12px; background: url('../../Images/plan/temporaryPlanAsh.png') no-repeat"></em>
+                            <select id="detail_initial" style="border: none; color: #a0a0a0">
+                                <option value="" disabled selected style="display: none">是否临时计划</option>
+                                <option value="0">是</option>
+                                <option value="1">否</option>
+                            </select>
+                        </span>
+                    </div>
+                </div>
+                <hr class="line" />
+                <div style="display: none">
+                    <div class="row">
+                        单位完成工时：
+                        <input type="text" style="width: 35px; height: 20px" />
+                        分钟
+                    </div>
+                    <hr class="line" />
+                </div>
+
+                <div class="row">
+                    <div id="detail_partner_div" style="padding: 10px 0; line-height: 28px">
+                        <div style="float: left; width: 20%">协作人</div>
+                        <div style="float: left; width: 79%">
+                            <span class="detail_partner_span" style="position: relative">
+                                <em id="detail_partner" class="icon add-min hasborder" style="margin: -3px 5px 0px;"></em>
+                            </span>
+                        </div>
+                        <div style="clear: both"></div>
+                    </div>
+                    <div id="detail_front_div" style="padding: 10px 0; line-height: 28px; display: none">
+                        <div style="float: left; width: 20%">前提计划</div>
+                        <div style="float: left; width: 79%">
+                            <span class="detail_front_span" style="position: relative">
+                                <em id="detail_premise" class="icon add-min hasborder" style="margin: -3px 5px 0px;"></em>
+                            </span>
+                        </div>
+                        <div style="clear: both"></div>
+                    </div>
+                    <div style="padding: 10px 0; line-height: 28px; display: none">
+                        <div style="float: left; width: 20%">标签</div>
+                        <div style="float: left; width: 79%;">
+                            <span style="position: relative;">
+                                <em id="detail_label" class="icon add-min hasborder" style="margin: -3px 5px 0px;"></em>
+                            </span>
+                        </div>
+                        <div style="clear: both"></div>
+                    </div>
+
+                </div>
+                <div class="bound" style="font-size: 14px">
+                    操作日志
+                </div>
+                <div class="row listView" style="height: 200px; overflow-y: auto;">
+                </div>
+            </div>
+            <div id="detail_operateinfo" style="display: block">
+            </div>
+            <div class="modal-footer fifty-fifty" style="display:none;">
+                <a class="btn btn-transparency btn-lg xxc_operatebtn" id="detail_span1">取消</a>
+                <a class="btn btn-transparency btn-lg xxc_operatebtn" id="detail_span2">提交</a>
+                <a class="btn btn-transparency btn-lg xxc_operatebtn" id="detail_span3">评论</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!--详情 结束-->
+
+<!-- 分解计划 开始 -->
+<div class="modal fade" id="planSplit_modal" tabindex="-1" role="dialog" aria-labelledby="plan_new_modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+                <h4 class="modal-title">分解计划</h4>
+            </div>
+            <div class="modal-body" style="overflow-y: auto; overflow-x: hidden; height: 560px">
+                <div class="row">
+                    <ul class="list-inline">
+                        <li class="col-xs-4">
+                            <span class="pull-left">重要度:</span>
+                            <ul class="list-inline start needStartNoChosen importantDegree">
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                            </ul>
+                        </li>
+                        <li class="col-xs-4">
+                            <span class="pull-left">紧急度:</span>
+                            <ul class="list-inline start needStartNoChosen urgenceDegree">
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                            </ul>
+                        </li>
+                        <li class="col-xs-4">
+                            <span class="pull-left">难易度:</span>
+                            <ul class="list-inline start needStartNoChosen difficultDegree">
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div class="row addDecplan" id="splitPlan">
+                    <span>分解计划</span>
+                    <span class="pull-right pic_corn addA" style="background: url(../../Images/plan/add.png) no-repeat; margin-top: 3px;"></span>
+                    <span class="pull-right addB">保存</span>
+                </div>
+                <div class="cla_decplan">
+                    <div class="row">
+                        <div>
+                            <span>部门分类</span>
+                            <span style="margin-left: 20px; color: #000" id="decplan_department_v"></span>
+                            <em class="glyphicon glyphicon-menu-down pull-right pointerClass slideToggleCorn"></em>
+                        </div>
+                        <div id="decplan_department" class="ztree ztreeChosen">
+                        </div>
+                    </div>
+                    <hr />
+                    <div class="row">
+                        <div>
+                            <span>项目分类</span>
+                            <span style="margin-left: 20px; color: #000" id="decplan_project_v"></span>
+                            <em class="glyphicon glyphicon-menu-down pull-right pointerClass slideToggleCorn"></em>
+                        </div>
+                        <div id="decplan_project" class="ztree ztreeChosen">
+                        </div>
+                    </div>
+                    <hr />
+
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <select class="form-control" id="splitRunMode">
+                                <option value="" disabled="" selected="" style="display: none;">执行方式</option>
+                            </select>
+                        </div>
+                        <div class="col-xs-8">
+                            <input type="text" class="form-control" id="spilt_eventoutput" style="margin-left: 20px" placeholder="事项输出结果">
+                        </div>
+                    </div>
+
+                    <form class="form-inline" style="padding-top: 20px; margin-left: -11px; height: 45px;">
+                        <div class="form-group col-xs-4 ">
+                            <div class="input-group">
+                                <div class="input-group-addon traspanren_icon"><em class="addon_icon" style="background: url('../../Images/plan/responsibleUser.png') no-repeat"></em></div>
+                                <input type="text" class="noBorder pointerClass" readonly id="splitPlan_responsibleUser" placeholder="选择责任人">
+                            </div>
+                        </div>
+                        <div class="form-group  col-xs-4">
+                            <div class="input-group ">
+                                <div class="input-group-addon traspanren_icon"><em class="addon_icon" style="background: url('../../Images/plan/confirmUser.png') no-repeat"></em></div>
+                                <input type="text" class="noBorder pointerClass" readonly id="splitPlan_confirmUser" placeholder="请选择确认人">
+                            </div>
+                        </div>
+                        <div class="form-group  col-xs-4">
+                            <div class="input-group ">
+                                <div class="input-group-addon traspanren_icon"><em class="addon_icon" style="background: url('../../Images/plan/completeDate.png') no-repeat"></em></div>
+                                <input type="text" class="noBorder pointerClass" readonly id="splitPlan_comTime" placeholder="选择完成时间">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <hr class="blodLine" />
+                <ul class="decplanList list-inline">
+                </ul>
+            </div>
+            <div class="modal-footer fifty-fifty">
+                <a class="btn btn-transparency btn-lg" data-dismiss="modal" id="planSplitCancel">取消</a>
+                <a class="btn btn-transparency btn-lg" id="planSplitSure">确定</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 分解计划 结束 -->
+
+
+
+<!-- 转办计划 开始 -->
+<div class="modal fade" id="layer_Transmitplan" tabindex="-1" role="dialog" aria-labelledby="plan_new_modal" aria-hidden="true" data-backdrop="false" data-keyboard="false" style="top: 100px">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+                <h4 class="modal-title">计划转办</h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-inline" style="height: 85px; padding-top: 30px">
+                    <div class="form-group col-xs-6 " style="padding-left: 60px">
+                        <div class="input-group">
+                            <div class="input-group-addon traspanren_icon"><em class="addon_icon" style="background: url('../../Images/plan/responsibleUser.png') no-repeat"></em></div>
+                            <input type="text" class="noBorder pointerClass" id="transmitplan_responsibleUser" placeholder="选择责任人">
+                        </div>
+                    </div>
+                    <div class="form-group  col-xs-6" style="padding-left: 60px">
+                        <div class="input-group ">
+                            <div class="input-group-addon traspanren_icon"><em class="addon_icon" style="background: url('../../Images/plan/confirmUser.png') no-repeat"></em></div>
+                            <input type="text" class="noBorder pointerClass" id="transmitplan_confirmUser" placeholder="请选择确认人">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer fifty-fifty">
+                <a class="btn btn-transparency btn-lg" data-dismiss="modal" id="addplan_cancel">取消</a>
+                <a class="btn btn-transparency btn-lg" id="xxc_makesure">确定</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 转办计划 结束 -->
+
+<!--新建流程开始-->
+<div class="modal fade" id="addflow_modal" tabindex="-1" role="dialog" aria-labelledby="addflow_modal_label" aria-hidden="true" data-backdrop="false" data-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+                <h4 class="modal-title" id="addflow_modal_label">新建流程</h4>
+            </div>
+            <div class="modal-body">
+                <div class="input-group col-xs-10" id="addflow_modal_search">
+                    <label for="category_select" class="col-xs-4 control-label" style="width: auto; margin-top: 8px">选择类型</label>
+                    <div class="col-xs-6">
+                        <!--<input type="text" class="form-control" placeholder="选择表单类型" id="category_select">-->
+                        <div class="dropdown">
+                            <span class="form-control" data-toggle="dropdown" aria-expanded="false">
+                                <span id="category_select" style="margin-right: 6px;">行政类</span><span class="caret"></span>
+                            </span>
+                            <ul class="dropdown-menu category_content" role="menu">
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="bottom-line"></div>
+                <div class="row form-list sortable">
+                    <!--<div class="categoryinfo-div">-->
+                    <!--<div id="category4" class="category-name col-xs-12">-->
+                    <!--财务类-->
+                    <!--</div>-->
+                    <!--<div class="template-category">-->
+                    <!--<div class="col-xs-4">-->
+                    <!--<div class="cell">-->
+                    <!--<div class="pull-left img-circle templateId">-->
+                    <!--<span class="content-center">2</span>-->
+                    <!--</div>-->
+                    <!--<div class="info-list">-->
+                    <!--<div class="title">应该用</div>-->
+                    <!--<div class="des" title="发的是啥" style="word-wrap: break-word;">发的是啥</div>-->
+                    <!--</div>-->
+                    <!--<div class="form_preview">-->
+                    <!--<span >预览</span>-->
+                    <!--</div>-->
+                    <!--<img src="../../Images/flow/addflow_select_hit.png" class="addflow_select" term="0" >-->
+                    <!--</div>-->
+                    <!--</div>-->
+                    <!--</div>-->
+                    <!--</div>-->
+                </div>
+            </div>
+            <div class="modal-footer fifty-fifty">
+                <a id="addflow_modal_cancel" class="btn btn-transparency btn-lg user-defined" data-dismiss="modal">取消</a>
+                <a class="btn btn-transparency btn-lg user-defined" id="addflow_modal_submit">确定</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 新建流程结束 -->
+
+<!-- 预览 开始 -->
+<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" id="preview_modal">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+                <h4 class="modal-title" id="preview_modal_title">预览</h4>
+            </div>
+            <div class="modal-content-fixedH">
+                <div class="modal-body" id="preview_modal_content">
+                    <div id="addflow-mask"></div>
+                    <div class="template-title">
+                        <span class="template-name"></span>
+                        <span class="template-desc"></span>
+                    </div>
+                    <div class="bottom-line"></div>
+                    <div style="margin-top: 10px;">
+                        <span>标题</span>
+                        <input type="text" class="form-title" id="preview_title" maxlength="50">
+                        <span style="margin-left: 5px;">紧急度：</span>
+                        <span class="stars starsR">
+                            <ul>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                            </ul>
+                        </span>
+                    </div>
+                    <div class="bottom-line"></div>
+                    <div style="margin-top: 10px; vertical-align: middle;">
+                        <span>创建人</span>
+                        <input id="yulan_createUser" class="addflow-text" type="text" readonly="true">
+                        <span class="addflow-span">创建部门</span>
+                        <span class="dropdown addflow-text">
+                            <span class="form-control addflow_dropdown" data-toggle="dropdown" aria-expanded="false">
+                                <span id="department_select"></span><span class="caret"></span>
+                            </span>
+                            <ul class="dropdown-menu department_ul" role="menu">
+                            </ul>
+                        </span>
+                        <span class="addflow-span">创建岗位</span>
+                        <span class="dropdown addflow-text">
+                            <span class="form-control addflow_dropdown" data-toggle="dropdown" aria-expanded="false">
+                                <span id="station_select"></span><span class="caret"></span>
+                            </span>
+                            <ul class="dropdown-menu station_ul" role="menu">
+                            </ul>
+                        </span>
+                        <span class="addflow-span">创建时间</span>
+                        <span class="optionCell" id="addflow_createtime"><em class="icon decplan_icon" style="background: url('../../Images/plan/completeDate.png') no-repeat"></em>
+                            <input class="emptyInput" id="addflow_createtime_v" placeholder="选择创建日期" />
+                        </span>
+                    </div>
+                    <div id="Label-content">
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer fifty-fifty addflow_footer" style="display: none">
+                <a class="btn btn-transparency btn-lg" data-dismiss="modal" id="addflow_cancel" style="width: 33.2%">取消</a>
+                <a class="btn btn-transparency btn-lg  addflow_sure" term="1" style="width: 33.4%">保存</a>
+                <a class="btn btn-transparency btn-lg addflow_sure" term="2" style="width: 33.4%">提交</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 预览 结束 -->
+
+<!--转发开始-->
+<div class="modal fade" id="transpont_modal" tabindex="-1" role="dialog" aria-labelledby="share_modal_label" aria-hidden="true" data-backdrop="true" data-keyboard="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        </div>
+    </div>
+</div>
+<!--转发结束-->
+
+
+<!--详情弹窗开始-->
+<div class="modal fade" id="details-modal" tabindex="-1" role="dialog" aria-labelledby="detail_modal_label" aria-hidden="true" data-backdrop="false" data-keyboard="false">
+    <div class="modal-dialog modal-lg" style="margin-left: 200px">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+                <h4 class="modal-title" id="detail_modal_title">详情</h4>
+            </div>
+            <div class="modal-content-fixedH">
+                <div class="modal-body" id="detail_modal_content">
+                    <div class="template-title">
+                        <span class="detial_template_name"></span>
+                        <span class="detail_template_desc"></span>
+                    </div>
+                    <div class="bottom-line"></div>
+                    <div style="margin-top: 10px;">
+                        <span>标题</span>
+                        <input type="text" class="detail_form_title" maxlength="50">
+                        <span style="margin-left: 24px;">紧急度：</span>
+                        <span class="stars starsR">
+                            <ul id="detail_urgencyStart">
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                            </ul>
+                        </span>
+                    </div>
+                    <div class="bottom-line"></div>
+                    <div style="margin-top: 10px; vertical-align: text-top;">
+                        <span>创建人：</span>
+                        <input id="detail_createuser_input" class="addflow-text" type="text" readonly="true">
+                        <span class="addflow-span">创建部门：</span>
+                        <span class="dropdown addflow-text">
+                            <span class="form-control addflow_dropdown" data-toggle="dropdown" aria-expanded="false">
+                                <span id="detail_createdepart_span"></span><span class="caret"></span>
+                            </span>
+                            <ul class="dropdown-menu detail_department_ul" role="menu">
+                            </ul>
+                        </span>
+                        <span class="addflow-span">创建岗位：</span>
+                        <span class="dropdown addflow-text">
+                            <span class="form-control addflow_dropdown" data-toggle="dropdown" aria-expanded="false">
+                                <span id="detail_createstation_span"></span><span class="caret"></span>
+                            </span>
+                            <ul class="dropdown-menu detail_station_ul" role="menu">
+                            </ul>
+                        </span>
+                        <span class="addflow-span">创建时间：</span>
+                        <span class="optionCell" id="flowdetail_createtime"><em class="icon decplan_icon" style="background: url('../../Images/plan/completeDate.png') no-repeat"></em>
+                            <input class="emptyInput" id="flowdetail_createtime_v" placeholder="选择创建日期" />
+                        </span>
+                    </div>
+                    <div id="detail_label-content">
+                    </div>
+                    <div id="xxc_detailsuggest" style="display: none">
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer fifty-fifty flowdetail_operate">
+            </div>
+            <div id="modal_detail_flowchart_con" class="modal-extend box-shadow">
+                <div class="modal-extend-container">
+                    <div class="modal-extend-content" style="width: 400px">
+                        <div class="modal-extend-header">
+                            <h4>流程图</h4>
+                        </div>
+                        <div class="modal-extend-body">
+                            <div id="modal_detail_flowchart">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="modal_detail_flowchart_switch" class="modal-extend-switch-r">
+                    <span class="fa fa-sitemap"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--详情弹窗结束-->
+
+<!--------公式设置弹窗 开始--------->
+<div class="modal fade calculator in" id="formula_modal" style="z-index: 1100" tabindex="-1" role="dialog" aria-labelledby="formula_modal_label" aria-hidden="true" data-backdrop="false" data-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                </button>
+                <h4 class="modal-title" id="formula_modal_label">公式设置</h4>
+            </div>
+            <div class="monitor well well-sm">
+                <div class="text-right monitor-inner" id="formula_modal_monitor"></div>
+            </div>
+            <div class="operate_btn clearfix">
+                <a class="btn btn-transparency pull-right" id="formula_modal_backspace">退格</a>
+                <a class="btn btn-transparency pull-right" id="formula_modal_clear">清除全部</a>
+            </div>
+            <hr>
+            <div class="forty-sixty clearfix area-key">
+                <div class="area">
+                    <fieldset class="areabox clearfix">
+                        <a class="btn btn-default btn-number" value="实际值">实际值</a>
+                        <a class="btn btn-default btn-number" value="指标值">指标值</a>
+                        <a class="btn btn-default btn-number" value="理想值">理想值</a>
+                        <a class="btn btn-default btn-number" value="开始时间">开始时间</a>
+                        <a class="btn btn-default btn-number" value="结束时间">结束时间</a>
+                        <a class="btn btn-default btn-number" value="警戒时间">警戒时间</a>
+                        <a class="btn btn-default btn-number" value="权重">权重</a>
+                        <a class="btn btn-default btn-number" value="奖励基数">奖励基数</a>
+                        <a class="btn btn-default btn-number" value="数字">数字</a>
+                    </fieldset>
+
+                    <!----<div class="areabox clearfix" id="formula_modal_cols">
+                                        </div>-->
+
+                </div>
+                <div class="area area-number">
+                    <fieldset class="areabox clearfix">
+                        <a class="btn btn-default btn-operational" value="(">(</a>
+                        <a class="btn btn-default btn-operational" value=")">)</a>
+                        <a class="btn btn-default btn-operational" value="+">+</a>
+                        <a class="btn btn-default btn-operational" value="-">-</a>
+                        <a class="btn btn-default btn-operational" value="*">*</a>
+                        <a class="btn btn-default btn-number" value="1">1</a>
+                        <a class="btn btn-default btn-number" value="2">2</a>
+                        <a class="btn btn-default btn-number" value="3">3</a>
+                        <a class="btn btn-default btn-operational" value=">">></a>
+                        <a class="btn btn-default btn-operational" value="/">/</a>
+                        <a class="btn btn-default btn-number" value="4">4</a>
+                        <a class="btn btn-default btn-number" value="5">5</a>
+                        <a class="btn btn-default btn-number" value="6">6</a>
+                        <a class="btn btn-default btn-operational" value="≥">≥ </a>
+                        <a class="btn btn-default btn-operational" value="且">且</a>
+                        <a class="btn btn-default btn-number " value="7">7</a>
+                        <a class="btn btn-default btn-number " value="8">8</a>
+                        <a class="btn btn-default btn-number " value="9">9</a>
+                        <a class="btn btn-default btn-operational" value="<">< </a>
+                        <a class="btn btn-default btn-operational" id="formula_modal_time" value="时间">时间 </a>
+                        <input type="text" id="formula_modal_time_hidden" value=""></input>
+
+                        <a class="btn btn-default btn-long btn-number" value="0">0</a>
+                        <a class="btn btn-default btn-number" value=".">·</a>
+                        <a class="btn btn-default btn-operational" value="≤">≤</a>
+                        <a class="btn btn-default btn-operational" value="或">或</a>
+                    </fieldset>
+                </div>
+            </div>
+            <div class="modal-footer fifty-fifty">
+                <a class="btn btn-transparency" data-dismiss="modal">取消</a>
+                <a class="btn btn-transparency" id="formula_modal_submit">确定</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!--------公式设置弹窗 结束--------->
+
+<!--------目标新建弹窗 开始--------->
+<div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="objectiveNew_modal" id="objectiveNew_modal" aria-hidden="true" data-backdrop="false" data-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content modal-left-content">
+            <div class="modal-header">
+                <a class="modal-titleClick nav-item" href="#modal_con_objective" aria-controls="modal_con_objective" role="tab" id="ModalObjectiveTab" data-toggle="tab">目标</a>
+                <a class=" nav-item" href="#modal_con_objectiveRule" aria-controls="modal_con_objectiveRule" role="tab" id="ModalObjectiveRuleTab" data-toggle="tab">目标规则 </a>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+            </div>
+            <div class="tab-content">
+                <div id="modal_con_objective" role="tabpanel" class="tab-pane active">
+                    <!--目标内容-->
+                    <div class="modal-body">
+                        <div class="row">
+                            <h4>目标内容</h4>
+                        </div>
+                        <hr />
+                        <table id="table-objective-content" class="table">
+                            <tr>
+                                <td style="width: 10%"><span class="table-span">目标名称:</span> </td>
+                                <td style="width: 40%">
+                                    <input type="text" id="new-objectiveName" maxlength="50" class="form-control"></td>
+                                <td style="width: 10%"><span class="table-span">目标对象:</span></td>
+                                <td style="width: 40%">
+                                    <div class="dropdown" id="new-objectiveType-dropdown">
+                                        <span class="dropdown-toggle" data-toggle="dropdown" data-delay="50" role="button" aria-expanded="false">
+                                            <span term="" value="" id="new-objectiveType"></span>
+                                            <!--term判断选择的是架构还是人员选择，value用于在选择架构时记录责任部门的架构id，在选择人员时 记录责任人所在架构名------->
+                                            <span class="upPic"></span>
+                                        </span>
+                                        <ul class="dropdown-menu" role="menu">
+                                            <li><a href="javascript:void(0)" term="1">架构</a></li>
+                                            <li class="divider short"></li>
+                                            <li><a href="javascript:void(0)" term="2">人员选择</a></li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width: 10%"><span class="table-span">奖励基数:</span></td>
+                                <td style="width: 40%">
+                                    <input id="new-bonus" type="text" class="form-control"></td>
+                                <td style="width: 10%"><span class="table-span">权重:</span></td>
+                                <td style="width: 40%">
+                                    <input class="form-control" id="new-weight" maxlength="18">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width: 10%"><span class="table-span">考核类型:</span></td>
+                                <td style="width: 40%">
+                                    <div class="dropdown" id="new-checkType-dropdown">
+                                        <span class="dropdown-toggle" data-toggle="dropdown" data-delay="50" role="button" aria-expanded="false">
+                                            <span term="1" id="new-checkType">金额</span>
+                                            <span class="upPic"></span>
+                                        </span>
+                                        <ul class="dropdown-menu" role="menu">
+                                            <li><a href="javascript:void(0)" term="1">金额</a></li>
+                                            <li class="divider short"></li>
+                                            <li><a href="javascript:void(0)" term="2">时间</a></li>
+                                            <li class="divider short"></li>
+                                            <li><a href="javascript:void(0)" term="3">数字</a></li>
+                                        </ul>
+                                    </div>
+                                </td>
+                                <td style="width: 10%"><span class="table-span">指标值:</span></td>
+                                <td style="width: 40%">
+                                    <div class="input-group" id="new-objectiveValue-money-group">
+                                        <input type="text" maxlength="20" id="new-objectiveValue-money" class="form-control">
+                                        <a class="btn btn-default glyphicon glyphicon-yen" type="button"></a>
+                                    </div>
+                                    <div class="input-group" style="display: none;" id="new-objectiveValue-date-group">
+                                        <input type="button" maxlength="20" id="new-objectiveValue-date" class="form-control">
+                                        <a class="btn btn-default new-date" type="button"></a>
+                                    </div>
+                                    <input type="text" maxlength="20" id="new-objectiveValue-number" style="display: none;" oninput="value=value.replace(/[^\d]/g,'')" class="form-control">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width: 10%"><span class="table-span">理想值:</span></td>
+                                <td style="width: 40%">
+                                    <div class="input-group" id="new-expectedValue-money-group">
+                                        <input type="text" maxlength="20" id="new-expectedValue-money" class="form-control">
+                                        <a class="btn btn-default glyphicon glyphicon-yen" type="button"></a>
+                                    </div>
+                                    <div class="input-group" style="display: none;" id="new-expectedValue-date-group">
+                                        <input type="button" maxlength="20" id="new-expectedValue-date" class="form-control">
+                                        <a class="btn btn-default new-date" type="button"></a>
+                                    </div>
+                                    <input type="text" maxlength="20" style="display: none;" id="new-expectedValue-number" class="form-control" oninput="value=value.replace(/[^\d]/g,'')">
+                                </td>
+                                <td style="width: 10%"><span class="table-span">备注项目:</span></td>
+                                <td style="width: 40%">
+                                    <input type="text" id="new-description" class="form-control" maxlength="100"></td>
+                            </tr>
+                        </table>
+                        <hr />
+                        <table id="table-objective-date" class="table">
+                            <tr>
+                                <!-------- style="border-bottom: 1px solid #eee;"---------------->
+                                <td style="width: 10%">
+                                    <span class="table-span">开始时间:</span>
+                                </td>
+                                <td style="width: 23%">
+                                    <div class="input-group">
+                                        <input type="button" id="new-startTime" class="form-control">
+                                        <a class="btn btn-default new-date" type="button"></a>
+                                    </div>
+                                </td>
+                                <td style="width: 10%">
+                                    <span class="table-span">截止时间:</span>
+                                </td>
+                                <td style="width: 23%">
+                                    <div class="input-group">
+                                        <input type="button" id="new-endTime" class="form-control">
+                                        <a class="btn btn-default new-date" type="button"></a>
+                                    </div>
+
+                                </td>
+                                @*<td style="width: 10%">
+                                            <span class="table-span">警戒时间:</span>
+                                        </td>
+                                        <td style="width: 23%">
+                                            <div class="input-group">
+                                                <input type="button" id="new-alarmTime" class="form-control">
+                                                <a class="btn btn-default new-date" type="button"></a>
+                                            </div>
+
+                                        </td>*@
+                            </tr>
+                            <tr>
+                                <td style="width: 10%;">
+                                    <span class="table-span">责任人:</span>
+                                </td>
+                                <td style="width: 23%">
+                                    <div class="input-group">
+                                        <input type="button" id="new-responsibleUser" term="" class="form-control">
+                                        <a class="btn btn-default new-responsibleUser" type="button"></a>
+                                    </div>
+                                </td>
+                                <td style="width: 10%;">
+                                    <span class="table-span">确认人:</span>
+                                </td>
+                                <td style="width: 23%">
+                                    <div class="input-group">
+                                        <input type="button" id="new-confirmUser" term="" class="form-control">
+                                        <a class="btn btn-default new-confirmUser" type="button"></a>
+                                    </div>
+
+                                </td>
+
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="modal-footer thirty-thirty">
+                        <a class="btn btn-transparency btn-lg" data-dismiss="modal" id="newModal-Cancel">取消</a>
+                        <a class="btn btn-transparency btn-lg" id="newModal-Save">保存</a>
+                        <a class="btn btn-transparency btn-lg" id="newModal-Submit">提交</a>
+                    </div>
+                </div>
+
+                <div id="modal_con_objectiveRule" role="tabpanel" class="tab-pane">
+                    <!--目标规则-->
+                    <div class="modal-body">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal-right-content modal-content" style="display: none">
+            <div class="modal-header">
+                <h4 class="modal-title" id="newModal-rightTitle"></h4>
+            </div>
+            <div id="node-rightContent">
+            </div>
+        </div>
+    </div>
+</div>
+
+<input id="xxc_planId" type="hidden" />
+<!--存取webconfig中的量质时的最大值-->
+<input type="hidden" id="completeQuantity" value="@ViewBag.CompleteQuantity"/>
+<input type="hidden" id="completeQuality" value="@ViewBag.CompleteQuality"/>
+<input type="hidden" id="completeTime" value="@ViewBag.CompleteTime"/>
+
+<!--------目标新建弹窗 结束--------->
+
+<!--目标展开 开始-->
+<div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="object_unfold_modal" id="object_unfold_modal" aria-hidden="true" data-backdrop="false" data-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content" style="min-width: 760px; height: 603px;">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+                <h4 class="modal-title">展开</h4>
+            </div>
+            <div class="modal-body" style="overflow: auto; height: 566px;">
+                <div class="unfoldChild">
+                    <div class="oneChild">
+                        <div class="oneBlock">
+                            <div class="labels">
+                                <span class="labelOne"></span>
+                                <div class="labelTwo">
+                                    <span>已分解</span>
+                                </div>
+                                <span class="labelThree"></span>
+                                <span class="modifyDocumentAdd pull-right noMarginTop" aria-hidden="true" term="0"></span>
+                            </div>
+                            <ul class="list-unstyled">
+                                <li><span class="unfoldObjName textOverFlow">目标导航项目</span> <span class="unfoldWeight">60%</span></li>
+                                <li>目标对象: </li>
+                                <li>起止时间:<span class="unfoldSETime"> 2012-01-01~2012-02-02 </span><span class="pull-right glyphicon glyphicon-triangle-top slideBtn"></span></li>
+                            </ul>
+                            <div class="operateDiv unfoldOperate">
+                                <ul class="list-inline">
+                                    <li class='liDetail'>详情</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!--目标展开 结束-->
+
+<!--目标详情 开始-->
+<div class="modal fade" id="object_detail_modal" tabindex="-1" role="dialog" aria-labelledby="object_detail_modal" aria-hidden="true" data-backdrop="false" data-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+                <h4 class="modal-title" id="objectDetailLabel">目标详情</h4>
+                <h4 class="modal-title" id="objectRoleLabel">目标规则</h4>
+            </div>
+            <div class="tab-content">
+                <div role="tabpanel" id="detailViewTab" class="tab-pane active">
+                    <div class="modal-body" style="overflow-y: auto; overflow-x: hidden; height: 590px">
+                    </div>
+                </div>
+                <div role="tabpanel" id="FormularViewTab" class="tab-pane ">
+                    <div class="modal-body" style="overflow-y: auto; overflow-x: hidden; height: 590px">
+                    </div>
+                </div>
+            </div>
+            <!--右边弹窗画面-->
+            <div class="rightModal">
+                <h4 id="rightTitle" style="margin-bottom: 7px;"></h4>
+                <hr />
+                <div id="rightContent">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--目标详情 结束-->
+
+<!--目标修改 开始-->
+<div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="object_modify_modal" id="object_modify_modal" aria-hidden="true" data-backdrop="false" data-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header" style="height: 35px">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+                <a href="#modifyView" aria-controls="modifyView" role="tab" data-toggle="tab">
+                    <h4 class="modal-title" id="objectModifyTab">目标修改</h4>
+                </a>
+                <a href="#modifyFormularView" aria-controls="modifyFormularView" role="tab" data-toggle="tab">
+                    <h4 class="modal-title disabledColor" id="objectModifyRole">目标规则</h4>
+                </a>
+            </div>
+
+            <div class="tab-content">
+                <div role="tabpanel" id="modifyView" class="tab-pane active">
+                    <div class="modal-body" style="overflow-y: auto; overflow-x: hidden; height: 560px">
+                        <h4 style="margin-top: 0px;">目标内容</h4>
+                        <hr />
+                        <form class="borderTop" id="modifyObjectContent">
+                            <div class="form-inline">
+                                <label for="objectName" class="control-label" style="">目标名称:</label>
+                                <input type="text" id="objectName" class="form-control" maxlength="50">
+                                <label for="modifyObjectInput" class="control-label  marginSm">目标对象:</label>
+                                <div class="dropdown" id="modifyObjectInput">
+                                    <button class="btn btn-default dropdown-toggle dropdownBtn" data-toggle="dropdown" data-delay="50" role="button" aria-expanded="false">
+                                        <span chooseid="" class="textOverFlow" style="max-width: 155px"></span>
+                                        <span class="pull-right upPic"></span>
+                                    </button>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li><a herf='#' term='1'>架构</a></li>
+                                        <li><a herf='#' term='2'>人员</a></li>
+                                    </ul>
+                                </div>
+                                <!--<input type="text" class="form-control" id="modifyObjectInput" maxlength="50">-->
+                            </div>
+                            <div class="form-inline">
+                                <label for="objectBonus" class="control-label">奖励基数:</label>
+                                <input type="text" id="objectBonus" class="form-control" maxlength="18">
+                                <label for="modifyWeight" class="control-label marginSm">权重</label>
+                                <input type="text" class="form-control" id="modifyWeight" maxlength="18">
+                            </div>
+                            <div class="form-inline">
+                                <label for="modifyCheckType" class="control-label">考核类型:</label>
+                                <div class="dropdown" id="modifyCheckType">
+                                    <button class="btn btn-default dropdown-toggle dropdownBtn" data-toggle="dropdown" data-delay="50" role="button" aria-expanded="false">
+                                        <span></span>
+                                        <span class="pull-right upPic"></span>
+                                    </button>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li><a herf='#' term='1'>金额</a></li>
+                                        <li><a herf='#' term='2'>时间</a></li>
+                                        <li><a herf='#' term='3'>数字</a></li>
+                                    </ul>
+                                </div>
+                                <label class="control-label marginSm">指标值:</label>
+                                <div id="targetInput" class="modifyObjectValue">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" id="targetMoney" maxlength="20">
+                                        <span class="input-group-addon">
+                                            <span class="glyphicon glyphicon-yen"></span>
+                                        </span>
+                                    </div>
+                                    <div class="input-group">
+                                        <input type="button" class="form-control" id="targetTime" placeholder="日期">
+                                        <span class="input-group-addon">
+                                            <span class="dateCorn"></span>
+                                        </span>
+                                    </div>
+                                    <input type="text" class="form-control" id="targetNumber" maxlength="20" oninput="value=value.replace(/[^\d]/g,'')">
+                                </div>
+                            </div>
+                            <div class="form-inline">
+                                <label class="control-label">理想值:</label>
+                                <div id="expectInput" class="modifyObjectValue">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" id="expectMoney" maxlength="20">
+                                        <span class="input-group-addon">
+                                            <span class="glyphicon glyphicon-yen"></span>
+                                        </span>
+                                    </div>
+                                    <div class="input-group">
+                                        <input type="button" class="form-control" id="expectTime" placeholder="日期">
+                                        <span class="input-group-addon">
+                                            <span class="dateCorn"></span>
+                                        </span>
+                                    </div>
+                                    <input type="text" class="form-control" id="expectNumber" maxlength="20" oninput="value=value.replace(/[^\d]/g,'')">
+                                </div>
+
+                                <label class="control-label marginSm">备注项目:</label>
+                                <input type="text" class="form-control" id="modifyRemark" maxlength="100">
+                            </div>
+                        </form>
+
+                        <div class="form-inline borderTop" id="modifyObjectTime">
+                            <label class="control-label">开始时间：</label>
+                            <div class="input-group">
+                                <input type="button" class="form-control" id="modifyStartTime" placeholder="开始时间">
+                                <span class="input-group-addon">
+                                    <span class="dateCorn"></span>
+                                </span>
+                            </div>
+                            <label class="control-label">结束时间：</label>
+                            <div class="input-group">
+                                <input type="button" class="form-control" id="modifyEndTime" placeholder="结束时间">
+                                <span class="input-group-addon">
+                                    <span class="dateCorn"></span>
+                                </span>
+                            </div>
+                            @*<label class="control-label">警戒时间：</label>
+                            <div class="input-group">
+                                <input type="button" class="form-control" id="modifyAlertTime" placeholder="警戒时间">
+                                <span class="input-group-addon">
+                                    <span class="dateCorn"></span>
+                                </span>
+                            </div>*@
+                        </div>
+
+                        <div class="form-inline borderTop" id="modifyObjectPerson">
+                            <label class="control-label">责任人：</label>
+                            <div class="input-group">
+                                <input type="button" class="form-control" id="responsePerson">
+                                <button class="input-group-addon" style="height: 33px;">
+                                    <span class="responseCorn"></span>
+                                </button>
+                            </div>
+                            <label class="control-label">确认人：</label>
+                            <div class="input-group">
+                                <input type="button" class="form-control" id="confirmPerson">
+                                <span class="input-group-addon">
+                                    <span class="confirmCorn"></span>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <h4 class="col-xs-6">相关文档 </h4>
+                            <span class="modifyDocumentAdd  pull-right">
+                                <input type="file" class="fileUploadBtn" id="fileUpload" name="files[]" multiple></span>
+                            <div class="progress">
+                                <div class="bar" style="width: 0%;"></div>
+                            </div>
+                        </div>
+                        <hr class="noMarginTop" />
+                        <table class="table table-hover" id="modifyObjectDocument">
+                        </table>
+
+                        <h4>意见</h4>
+                        <hr class="noMarginTop" />
+                        <textarea class="form-control" id="modifyMessage" rows="2" maxlength="250"></textarea>
+
+                        <h4>操作日志</h4>
+                        <hr class="noMarginTop" />
+                        <table class="table table-hover" id="modifyObjectLog">
+                        </table>
+                    </div>
+
+                    <div class="modal-footer fifty-fifty">
+                        <a class="btn btn-transparency " data-dismiss="modal" id="objectModifyCancel">取消</a>
+                        <a class="btn btn-transparency " term="1" id="objectModifySave">保存</a>
+                        <a class="btn btn-transparency " term="2" id="objectModifyCommit">提交</a>
+                    </div>
+                </div>
+                <div role="tabpanel" id="modifyFormularView" class="tab-pane ">
+                    <div class="modal-body" style="overflow-y: auto; overflow-x: hidden; height: 590px">
+                    </div>
+                </div>
+            </div>
+            <!--右边弹窗画面-->
+            <div class="rightModal">
+                <h4 id="chooseTitle" style="margin-bottom: 7px;"></h4>
+                <hr />
+                <div id="chooseContent">
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!--目标修改 结束-->
+
+<!--目标展开操作的目标Id-->
+<input id="objective_open_id" type="hidden" />
+
+<!--弹出层  结束-->
+<script src="../../Scripts/component/flowChart.js"></script>
+<script src="../../Scripts/flow/widgetFormResolver.js"></script>
+<script src="~/Scripts/CalendarProcess/planSchedule.js"></script>
+<script src="~/Scripts/component/searchPopup.js"></script>
+<script src="~/Scripts/component/selection.js"></script>
+<!-- 本页调用的JS 结束 -->
+<!--新建 开始-->
+@Html.Partial("~/Views/BuildNewPlan/_buildNewPlan.cshtml")
+<!--新建 结束-->

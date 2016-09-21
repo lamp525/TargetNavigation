@@ -1,0 +1,294 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<objects xmlns="http://www.springframework.net">
+
+  <!--放容器里面的所有的节点  type属性的规范：程序集名称在内的类型全名,程序集名-->
+  <object type="MB.Web.Controllers.LoginController,MB.Web" singleton="false" >
+    <!--给Controller注入引用对象(与控制器中命名一致)-->
+    <property name="UserBLL" ref="UserBLL" />
+  </object>
+  
+  <object type="MB.Web.Controllers.NewControllers.LoginController,MB.Web" singleton="false" >
+    <property name="facade" ref="LoginFacade" />
+  </object>
+  
+  <object type="MB.Web.Controllers.NewControllers.PlanController,MB.Web" singleton="false" >
+    <property name="facade" ref="PlanFacade" />
+  </object>
+  <object type="MB.Web.Controllers.NewControllers.PlanOperateController,MB.Web" singleton="false" >
+    <property name="facade" ref="PlanOperateFacade" />
+  </object>
+  <object type="MB.Web.Controllers.NewControllers.SearchController,MB.Web" singleton="false" >
+  </object>
+  <object type="MB.Web.Controllers.NewControllers.SharedController,MB.Web" singleton="false" >
+  </object>
+  <object type="MB.Web.Controllers.NewControllers.UserIndexController,MB.Web" singleton="false" >
+    <property name="facade" ref="UserIndexFacade" />
+  </object>
+  <object type="MB.Web.Controllers.NewControllers.VersionController,MB.Web" singleton="false" >
+    <property name="facade" ref="VersionFacade" />
+  </object>
+  <object type="MB.Web.Controllers.NewControllers.CalendarController,MB.Web" singleton="false" >
+    <property name="facade" ref="CalendarFacade" />
+  </object>
+  <object type="MB.Web.Controllers.NewControllers.UserController,MB.Web" singleton="false" >
+    <property name="facade" ref="UserFacade" />
+  </object>
+  <object type="MB.Web.Controllers.NewControllers.FileOperateController,MB.Web" singleton="false" >
+    <property name="facade" ref="FileOperateFacade" />
+  </object>
+
+  <object type="MB.Web.Controllers.AuthManagementController,MB.Web" singleton="false" >
+    <property name="authManagementBLL" ref="authManagementBLL" />
+  </object>
+  <object type="MB.Web.Controllers.BankInfoManageController,MB.Web" singleton="false" >
+    <property name="BankCardBLL" ref="BankCardBLL" />
+    <property name="BankBLL" ref="BankBLL" />
+  </object>
+  <object type="MB.Web.Controllers.BuildNewPlanController,MB.Web" singleton="false" >
+    <property name="PlanBLL" ref="PlanBLL" />
+    <property name="TagManagementBLL" ref="TagManagementBLL" />
+  </object>
+  <object type="MB.Web.Controllers.CalendarProcessController,MB.Web" singleton="false" >
+    <property name="ObjectiveIndexBLL" ref="ObjectiveIndexBLL" />
+    <property name="FlowIndexBLL" ref="FlowIndexBLL" />
+  </object>
+  <object type="MB.Web.Controllers.ChatController,MB.Web" singleton="false" >
+  </object>
+  <object type="MB.Web.Controllers.CompanyController,MB.Web" singleton="false" >
+    <property name="CompanyBLL" ref="CompanyBLL"/>
+  </object>
+  <object type="MB.Web.Controllers.DelayRuleController,MB.Web" singleton="false" >
+    <property name="DelayRuleBLL" ref="DelayRuleBLL"/>
+  </object>
+  <object type="MB.Web.Controllers.DocumentManagementController,MB.Web" singleton="false" >
+    <property name="DocumentManagementBLL" ref="DocumentManagementBLL"/>
+    <property name="SharedBLL" ref="SharedBLL"/>
+  </object>
+  <object type="MB.Web.Controllers.DownloadController,MB.Web" singleton="false" >
+  </object>
+  <object type="MB.Web.Controllers.ExecutionModeController,MB.Web" singleton="false" >
+    <property name="ExecutionModeBLL" ref="ExecutionModeBLL"/>
+  </object>
+  <object type="MB.Web.Controllers.FlowChartController,MB.Web" singleton="false" >
+    <property name="FlowChartBLL" ref="FlowChartBLL"/>
+  </object>
+  <object type="MB.Web.Controllers.FlowEditController,MB.Web" singleton="false" >
+    <property name="FlowEditBLL" ref="FlowEditBLL"/>
+    <property name="FlowCommonBLL" ref="FlowCommonBLL"/>
+  </object>
+  <object type="MB.Web.Controllers.FlowEntrustController,MB.Web" singleton="false" >
+    <property name="FlowEntrustBLL" ref="FlowEntrustBLL"/>
+  </object>
+  <object type="MB.Web.Controllers.FlowIndexController,MB.Web" singleton="false" >
+    <property name="FlowIndexBLL" ref="FlowIndexBLL"/>
+  </object>
+  <object type="MB.Web.Controllers.FlowTestController,MB.Web" singleton="false" >
+    <property name="FlowTestBLL" ref="FlowTestBLL"/>
+  </object>
+  <object type="MB.Web.Controllers.HolidayController,MB.Web" singleton="false" >
+  </object>
+  <object type="MB.Web.Controllers.HomePageNavigationController,MB.Web" singleton="false" >
+  </object>
+  <object type="MB.Web.Controllers.IMMessageController,MB.Web" singleton="false" >
+    <property name="IMMessageBLL" ref="IMMessageBLL"/>
+  </object>
+  <object type="MB.Web.Controllers.IncentiveContarstController,MB.Web" singleton="false" >
+    <property name="Incentivecontrast" ref="Incentivecontrast"/>
+  </object>
+  <object type="MB.Web.Controllers.IncentiveIndexController,MB.Web" singleton="false" >
+    <property name="IncentiveIndexBLL" ref="IncentiveIndexBLL" />
+  </object>
+  <object type="MB.Web.Controllers.IndexManagementController,MB.Web" singleton="false" >
+    <property name="IndexManagementBLL" ref="IndexManagementBLL" />
+  </object>
+  <object type="MB.Web.Controllers.LoginController,MB.Web" singleton="false" >
+    <property name="UserBLL" ref="UserBLL" />
+  </object>
+  <object type="MB.Web.Controllers.MeetingRoomController,MB.Web" singleton="false" >
+    <property name="MeetingRoomBLL" ref="MeetingRoomBLL" />
+  </object>
+  <object type="MB.Web.Controllers.ModelViewController,MB.Web" singleton="false" >
+    <property name="PlanBLL" ref="PlanBLL" />
+    <property name="SharedBLL" ref="SharedBLL" />
+  </object>
+  <object type="MB.Web.Controllers.NewsController,MB.Web" singleton="false" >
+    <property name="NewsBLL" ref="NewsBLL" />
+  </object>
+  <object type="MB.Web.Controllers.NewsDelController,MB.Web" singleton="false" >
+    <property name="NewsBLL" ref="NewsBLL" />
+  </object>
+  <object type="MB.Web.Controllers.NewsManagementController,MB.Web" singleton="false" >
+    <property name="NewsManagementBLL" ref="NewsManagementBLL" />
+    <property name="TagManagementBLL" ref="TagManagementBLL" />
+  </object>
+  <object type="MB.Web.Controllers.NewsSeachListController,MB.Web" singleton="false" >
+    <property name="NewsBLL" ref="NewsBLL" />
+  </object>
+  <object type="MB.Web.Controllers.NodeEditController,MB.Web" singleton="false" >
+    <property name="NodeEditBLL" ref="NodeEditBLL" />
+    <property name="FlowCommonBLL" ref="FlowCommonBLL" />
+  </object>
+  <object type="MB.Web.Controllers.ObjectiveIndexController,MB.Web" singleton="false" >
+    <property name="ObjectiveIndexBLL" ref="ObjectiveIndexBLL" />
+    <property name="TagManagementBLL" ref="TagManagementBLL" />
+  </object>
+  <object type="MB.Web.Controllers.OrganizationManagementController,MB.Web" singleton="false" >
+    <property name="OrganizationManagementBLL" ref="OrganizationManagementBLL" />
+  </object>
+  <object type="MB.Web.Controllers.PlanController,MB.Web" singleton="false" >
+    <property name="PlanBLL" ref="PlanBLL" />
+    <property name="TagManagementBLL" ref="TagManagementBLL" />
+  </object>
+  <object type="MB.Web.Controllers.PlanStatisticsController,MB.Web" singleton="false" >
+    <property name="PlanStatisticsBLL" ref="PlanStatisticsBLL" />
+    <property name="PlanBLL" ref="PlanBLL" />
+  </object>
+  <object type="MB.Web.Controllers.RosterController,MB.Web" singleton="false" >
+    <property name="RosterBLL" ref="RosterBLL" />
+  </object>
+  <object type="MB.Web.Controllers.SearchController,MB.Web" singleton="false" >
+    <property name="TagSearchBLL" ref="TagSearchBLL" />
+  </object>
+  <object type="MB.Web.Controllers.SharedController,MB.Web" singleton="false" >
+    <property name="SharedBLL" ref="SharedBLL" />
+    <property name="PlanBLL" ref="PlanBLL" />
+    <property name="TagManagementBLL" ref="TagManagementBLL" />
+  </object>
+  <object type="MB.Web.Controllers.SystemSettingController,MB.Web" singleton="false" >
+
+  </object>
+  <object type="MB.Web.Controllers.TemplateCategoryController,MB.Web" singleton="false" >
+    <property name="TemplateCategoryBLL" ref="TemplateCategoryBLL" />
+  </object>
+  <object type="MB.Web.Controllers.TemplateController,MB.Web" singleton="false" >
+    <property name="TemplateBLL" ref="TemplateBLL" />
+  </object>
+  <object type="MB.Web.Controllers.TemplateEditController,MB.Web" singleton="false" >
+    <property name="TemplateEditBLL" ref="TemplateEditBLL" />
+    <property name="FlowCommonBLL" ref="FlowCommonBLL" />
+  </object>
+  <object type="MB.Web.Controllers.UserController,MB.Web" singleton="false" >
+    <property name="PlanBLL" ref="PlanBLL" />
+    <property name="UserBLL" ref="UserBLL" />
+    <property name="FlowIndexBLL" ref="FlowIndexBLL" />
+  </object>
+  <object type="MB.Web.Controllers.UserDocumentController,MB.Web" singleton="false" >
+    <property name="UserDocumentBLL" ref="UserDocumentBLL" />
+    <property name="SharedBLL" ref="SharedBLL" />
+    <property name="TagManagementBLL" ref="TagManagementBLL" />
+  </object>
+  <object type="MB.Web.Controllers.UserHeadController,MB.Web" singleton="false" >
+    <property name="UserBLL" ref="UserBLL" />
+  </object>
+  <object type="MB.Web.Controllers.UserIndexWorkTimeController,MB.Web" singleton="false" >
+  </object>
+  <object type="MB.Web.Controllers.ValidateCodeController,MB.Web" singleton="false" >
+  </object>
+  <object type="MB.Web.Controllers.WorkTimeIndexController,MB.Web" singleton="false" >
+  </object>
+  <object type="MB.Web.Controllers.HomePageNavigationController,MB.Web" singleton="false" >
+  </object>
+
+  <!--↓↓↓配置引用对象↓↓↓-->
+  <object id="PlanFacade" name="PlanFacade" type="MB.Facade.Plan.PlanFacade,MB.Facade" singleton="false" >
+  </object>
+  <object id="UserIndexFacade" name="UserIndexFacade" type="MB.Facade.Index.UserIndexFacade,MB.Facade" singleton="false" >
+  </object>
+  <object id="CalendarFacade" name="CalendarFacade" type="MB.Facade.Calendar.CalendarFacade,MB.Facade" singleton="false" >
+  </object> 
+  <object id="UserFacade" name="UserFacade" type="MB.Facade.User.UserFacade,MB.Facade" singleton="false" >
+  </object>
+  <object id="PlanOperateFacade" name="PlanOperateFacade" type="MB.Facade.PlanOperate.PlanOperateFacade,MB.Facade" singleton="false" >
+  </object>
+  <object id="VersionFacade" name="VersionFacade" type="MB.Facade.Version.VersionFacade,MB.Facade" singleton="false" >
+  </object>
+  <object id="FileOperateFacade" name="FileOperateFacade" type="MB.Facade.File.FileOperateFacade,MB.Facade" singleton="false" >
+  </object>
+  
+
+  <object id="UserBLL" name="UserBLL" type="MB.BLL.UserBLL,MB.BLL" singleton="false" >
+  </object>
+  <object id="authManagementBLL" name="authManagementBLL" type="MB.BLL.AuthManagementBLL,MB.BLL" singleton="false" >
+  </object>
+  <object id="BankCardBLL" name="BankCardBLL" type="MB.BLL.BankCardBLL,MB.BLL" singleton="false" >
+  </object>
+  <object id="BankBLL" name="BankBLL" type="MB.BLL.BankBLL,MB.BLL" singleton="false" >
+  </object>
+  <object id="UserDocumentBLL" name="UserDocumentBLL" type="MB.BLL.UserDocumentBLL,MB.BLL" singleton="false" >
+  </object> 
+  <object id="PlanBLL" name="PlanBLL" type="MB.BLL.PlanBLL,MB.BLL" singleton="false" >
+  </object> 
+  <object id="TemplateEditBLL" name="TemplateEditBLL" type="MB.BLL.TemplateEditBLL,MB.BLL" singleton="false" >
+  </object>
+  <object id="FlowCommonBLL" name="FlowCommonBLL" type="MB.BLL.FlowCommonBLL,MB.BLL" singleton="false" >
+  </object>
+  <object id="TemplateBLL" name="TemplateBLL" type="MB.BLL.TemplateBLL,MB.BLL" singleton="false" >
+  </object>
+  <object id="TemplateCategoryBLL" name="TemplateCategoryBLL" type="MB.BLL.TemplateCategoryBLL,MB.BLL" singleton="false" >
+  </object>
+  <object id="TagSearchBLL" name="TagSearchBLL" type="MB.BLL.TagSearchBLL,MB.BLL" singleton="false" >
+  </object>
+  <object id="RosterBLL" name="RosterBLL" type="MB.BLL.RosterBLL,MB.BLL" singleton="false" >
+  </object>
+  <object id="PlanStatisticsBLL" name="PlanStatisticsBLL" type="MB.BLL.PlanStatisticsBLL,MB.BLL" singleton="false" >
+  </object>
+  <object id="OrganizationManagementBLL" name="OrganizationManagementBLL" type="MB.BLL.OrganizationManagementBLL,MB.BLL" singleton="false" >
+  </object>
+  <object id="ObjectiveIndexBLL" name="ObjectiveIndexBLL" type="MB.BLL.ObjectiveIndexBLL,MB.BLL" singleton="false" >
+  </object>
+  <object id="NodeEditBLL" name="NodeEditBLL" type="MB.BLL.NodeEditBLL,MB.BLL" singleton="false" >
+  </object>
+  <object id="NewsBLL" name="NewsBLL" type="MB.BLL.NewsBLL,MB.BLL" singleton="false" >
+  </object>
+  <object id="NewsManagementBLL" name="NewsManagementBLL" type="MB.BLL.NewsManagementBLL,MB.BLL" singleton="false" >
+  </object>
+  <object id="MeetingRoomBLL" name="MeetingRoomBLL" type="MB.BLL.MeetingRoomBLL,MB.BLL" singleton="false" >
+  </object> 
+  <object id="IndexManagementBLL" name="IndexManagementBLL" type="MB.BLL.IndexManagementBLL,MB.BLL" singleton="false" >
+  </object>
+  <object id="IncentiveIndexBLL" name="IncentiveIndexBLL" type="MB.BLL.IncentiveIndexBLL,MB.BLL" singleton="false" >
+  </object> 
+  <object id="TagManagementBLL" name="TagManagementBLL" type="MB.BLL.TagManagementBLL,MB.BLL" singleton="false" >
+  </object> 
+  <object id="FlowIndexBLL" name="FlowIndexBLL" type="MB.BLL.FlowIndexBLL,MB.BLL" singleton="false" >
+  </object>
+  <object id="CompanyBLL" name="CompanyBLL" type="MB.BLL.CompanyBLL,MB.BLL" singleton="false" >
+  </object>
+  <object id="DelayRuleBLL" name="DelayRuleBLL" type="MB.BLL.DelayRuleBLL,MB.BLL" singleton="false" >
+  </object>
+  <object id="DocumentManagementBLL" name="DocumentManagementBLL" type="MB.BLL.DocumentManagementBLL,MB.BLL" singleton="false" >
+  </object>
+  <object id="SharedBLL" name="SharedBLL" type="MB.BLL.SharedBLL,MB.BLL" singleton="false" >
+  </object>
+  <object id="ExecutionModeBLL" name="ExecutionModeBLL" type="MB.BLL.ExecutionModeBLL,MB.BLL" singleton="false" >
+  </object>
+  <object id="FlowChartBLL" name="FlowChartBLL" type="MB.BLL.FlowChartBLL,MB.BLL" singleton="false" >
+  </object>
+  <object id="FlowEditBLL" name="FlowEditBLL" type="MB.BLL.FlowEditBLL,MB.BLL" singleton="false" >
+  </object> 
+  <object id="FlowEntrustBLL" name="FlowEntrustBLL" type="MB.BLL.FlowEntrustBLL,MB.BLL" singleton="false" >
+  </object>
+  <object id="FlowTestBLL" name="FlowTestBLL" type="MB.BLL.FlowTestBLL,MB.BLL" singleton="false" >
+  </object>
+  <object id="IMMessageBLL" name="IMMessageBLL" type="MB.BLL.IMMessageBLL,MB.BLL" singleton="false" >
+  </object>
+  <object id="Incentivecontrast" name="Incentivecontrast" type="MB.BLL.Incentivecontrast,MB.BLL" singleton="false" >
+  </object>
+  <!--↑↑↑配置引用对象↑↑↑-->
+
+  <!--↓↓↓通知处理↓↓↓-->
+  <object id="ProxyCreator" type="Spring.Aop.Framework.AutoProxy.ObjectNameAutoProxyCreator, Spring.Aop">
+    <property name="ObjectNames">
+      <list>
+        <value>*Facade</value>
+      </list>
+    </property>
+    <property name="InterceptorNames">
+      <list>
+        <value>AroundAdvice</value>
+      </list>
+    </property>
+  </object>
+  <object id="AroundAdvice" type="MB.Web.Common.MethodAroundHandle, MB.Web" />
+  <!--↑↑↑通知处理↑↑↑-->
+</objects>

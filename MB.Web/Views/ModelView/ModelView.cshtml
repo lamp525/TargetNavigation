@@ -1,0 +1,52 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+   <link href="~/Styles/index/graph.css" rel="stylesheet" />
+	<link type="text/css" href="~/Styles/common.css" rel="stylesheet" />
+    <link href="~/Libs/messenger/css/messenger.css" rel="stylesheet" />
+    <link href="~/Libs/messenger/css/messenger-theme-flat.css" rel="stylesheet" />
+    <script src="~/Libs/excanvas/excanvas.js"></script>
+	<script src="~/Libs/jQuery/jquery-1.11.2.js" type="text/javascript"></script>
+    <script src="~/Libs/layer/layer.js"></script>
+    <script src="~/Libs/messenger/js/messenger.js"></script>
+    <!-- 导航条悬浮  -->
+	<script src="~/Libs/smint/jquery.smint.js" type="text/javascript"></script>
+    <!-- 折线图  -->
+	<script src="~/Libs/flot/jquery.flot.js" type="text/javascript"></script>
+    <script src="~/Libs/laytpl/laytpl.js" type="text/javascript"></script>
+    <script src="~/Scripts/common/units.js"></script>
+    <script src="~/Scripts/common/common.js"></script>
+</head>
+<body>
+     <div class="all">
+        <!-- 头部 开始 -->
+    	<div class="nav">
+        	<div class="navOne">
+            	<div class="logo"></div>
+                @*<div class="arrowsBBBCom">
+                    <div class="arrowsBBBDiv">
+                        <ul>
+                            <li><a href="@Url.Action("CompanyIndex", "Company")">公司首页</a></li>
+                            <li class="line"></li>
+                            <li><a href="@Url.Action("UserIndex", "User")">个人首页</a></li>
+                            <li class="line"></li>*@
+                       @*     <li><a href="@Url.Action("UserIndex", "User")">个人首页</a></li>
+                            <li class="line"></li>
+                            <li><a href="@Url.Action("UserIndex", "User")">个人首页</a></li>*@
+                     @*   </ul>
+                    </div>
+                </div>*@
+            </div>
+            @Html.Action("Top","ModelView")
+        </div>
+        <!-- 头部 结束 -->
+        @RenderBody()
+    </div>
+</body>
+</html>
+

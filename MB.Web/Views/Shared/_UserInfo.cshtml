@@ -1,0 +1,64 @@
+﻿@{
+    ViewBag.Title = "_UserInfo";
+}
+
+@*<a type="button" class="btn btn-block btn-warning">新建计划</a>*@
+<div class="panel panel-default" id="personal_info">
+    <div class="panel-body personal_info_con">
+        <h4 class="pull-left" style="line-height: 25px">
+        <span class="personal_info_name"></span>
+        <br>
+        <small class="personal_info_job"></small>
+        </h4>
+        <img class="img-thumbnail img-circle x64 pull-right personal_info_portrait" src="">
+    </div>
+    <ul class="list-group condensed">
+        <a term="1" href="/Plan/Index/8" class="list-group-item ">今日未完成<span class="badge badge-danger personal_info_unfinished"></span></a>
+        <a term="2"href="/Plan/Index/9" class="list-group-item ">超时计划<span class="badge badge-danger personal_info_overtime"></span></a>
+        <a href="/FlowIndex/FlowIndex/2" class="list-group-item ">我的流程<span class="badge badge-danger personal_info_flow"></span></a>
+        <a href="#" class="list-group-item ">我的邀请<span class="badge personal_info_invite"></span></a>
+    </ul>
+</div>
+<div class="input-group">
+    <input type="text" class="form-control autoSearch" onkeydown="this.value=this.value.replace(/[^\s\w\u4e00-\u9fa5]$/g,'')" onkeyup="this.value=this.value.replace(/[^\s\w\u4e00-\u9fa5]$/g,'')" placeholder="计划、目标、新闻、文档" aria-describedby="basic-addon2">
+    <span class="input-group-addon searchClick"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></span>
+</div>
+
+<div class="modal fade" id="personal_modal" tabindex="-1" role="dialog" aria-labelledby="personal_modal_label" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            @Html.Partial("~/Views/Shared/_EditUserInfo.cshtml")
+        </div>
+    </div>
+</div>
+
+<script>
+
+
+
+    var autoResult;
+    $('.conR .input-group input[type="text"]').autocompleter({
+        source:  function () {
+            if (autoResult) {
+                return autoResult;
+            }
+                $.ajax({
+                    url: "/Search/GetUserRecentSearchTag",
+                    type: "post",
+                    async:false,
+                    dataType: "json",
+                    success: rsHandler(function (data) {
+                        var tagsList = $.map(data, function (n) {
+                            return {
+                                label: n
+                            }
+                        })
+                        autoResult = tagsList;
+                    })
+                });
+                return autoResult;
+
+        }()
+    })
+
+</script>

@@ -1,0 +1,180 @@
+﻿@model  MB.Model.UploadImageModel
+@*@{
+
+    ViewBag.Title = "头像上传";
+        //Layout = "~/Views/ModelView/ModelView.cshtml";
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <link href="~/Styles/index/graph.css" rel="stylesheet" />
+    <link type="text/css" href="~/Styles/common.css" rel="stylesheet" />
+    <link href="~/Libs/messenger/css/messenger.css" rel="stylesheet" />
+    <link href="~/Libs/messenger/css/messenger-theme-flat.css" rel="stylesheet" />
+    <script src="~/Libs/excanvas/excanvas.js"></script>
+    <script src="@Url.Content("~/Scripts/jquery-1.7.1.min.js")"></script>
+    <script src="~/Libs/layer/layer.js"></script>
+    <script src="~/Libs/messenger/js/messenger.js"></script>
+    <!-- 导航条悬浮  -->
+    <script src="~/Libs/smint/jquery.smint.js" type="text/javascript"></script>
+    <!-- 折线图  -->
+    <script src="~/Libs/flot/jquery.flot.js" type="text/javascript"></script>
+    <script src="~/Libs/laytpl/laytpl.js" type="text/javascript"></script>
+    <script src="~/Scripts/common/units.js"></script>
+    <script src="~/Scripts/common/common.js"></script>
+</head>
+<body>*@
+    <link href="~/Scripts/imgareaselect/img/imgareaselect-animated.css" rel="stylesheet" />
+<link href="~/Styles/head/User.css" rel="stylesheet" />
+@*<link href="~/Styles/head/popup.css" rel="stylesheet" />*@
+<link href="../../Styles/common/common-before-bs.css" rel="stylesheet" />
+<link href="~/Styles/index/portrait-edit.css" rel="stylesheet" />
+    <div class="container-before-bootstrap clearfix">
+        
+        <div class="all">
+            <dl class="mydl">
+            <dt>选择你喜欢的头像~</dt>
+        </dl>
+
+        <div class="upbox clearfix">
+            <div class="upPhoto">
+                @using (Html.BeginForm("uploadHead", "UserHead", FormMethod.Post, new { ID = "user_head_form", enctype = "multipart/form-data" }))
+                {
+                    <div class="upcon" id="user_head_upload_box">
+                        <p class="phototxt">选择你要上传的头像</p>
+                        <dd class="myphoto">
+                            <img id="origin_user_head_75" src="/Images/common/portrait.png" width="75" height="75" style="display: none;"></dd>
+                    </div>
+                    <div class="upfile">
+                        <input type="file" name="head" class="filebtn" onchange="$('#user_head_upload_box').hide();$('#user_head_show_box').show();$('#user_head_form').submit();" />
+                        <input type="button" class="upimgbtn" value="上传头像" />
+                    </div>	
+                }
+                <div id="user_head_show_box" style="width: 854px; height: 480px; line-height: 300px; text-align: center; background: gray no-repeat; margin-bottom: 40px; display: none">
+                    <img id="user_head_origin" style="vertical-align: middle;" src="/Styles/head/img/load.gif">
+                </div>
+                <div class="sysbtn">
+                    @using (Html.BeginForm("saveHead", "UserHead", FormMethod.Post, new { ID = "user_head_param_form", enctype = "multipart/form-data" }))
+                    {
+                        @Html.HiddenFor(model => model.headFileName, new { id = "head_name" })
+                        @Html.HiddenFor(model => model.x, new { id = "head_x" })
+                        @Html.HiddenFor(model => model.y, new { id = "head_y" })
+                        @Html.HiddenFor(model => model.rx, new { id = "head_selectX" })
+                        @Html.HiddenFor(model => model.ry, new { id = "head_selectY" })
+                        @Html.HiddenFor(model => model.width, new { id = "head_width" })
+                        @Html.HiddenFor(model => model.height, new { id = "head_height" })    
+                        @Html.HiddenFor(model => model.ratioW, new { id = "head_ratiow" })                      
+                        @Html.HiddenFor(model => model.ratioH, new { id = "head_ratioh" })                      
+                        <input type="submit" class="btnyes" value="确认">
+                    }
+
+                </div>
+            </div>
+            <div class="upPhotolist clearfix">
+                <div class="head">预览</div>
+                <div class="upimg upbig">
+                    <div class="upimgbox up_1">
+                        <img src="/Images/common/portrait.png" style="width: 140px; height: 140px" id="user_head_180">
+                    </div>
+                    <p>140×140像素</p>
+                </div>
+                <div class="upimg upsmall">
+                    <div class="upsm">
+                        <div class="upimgbox up_2">
+                            <img src="/Images/common/portrait.png" style="width: 64px; height: 64px" id="user_head_75">
+                        </div>
+                        <p>64×64像素</p>
+                    </div>
+                    <div class="upsm">
+                        <div class="upimgbox up_3">
+                            <img src="/Images/common/portrait.png" style="width: 32px; height: 32px" id="user_head_50">
+                        </div>
+                        <p>32×32像素</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        </div>
+
+<script src="@Url.Content("~/Libs/jquery-form/jquery.form.js")"></script>
+        <script src="@Url.Content("~/Scripts/imgareaselect/jquery.imgareaselect.pack.js")"></script>
+        <script src="@Url.Content("~/Scripts/user/head.js")"></script>
+        <script src="@Url.Content("~/Scripts/user/popup.js")"></script>
+
+        <script type="text/javascript">
+
+            $(function () {
+                $("#user_head_form").ajaxForm({
+                    success: function (data) {
+                        $('#user_head_upload_box').show();
+                        $('#user_head_show_box').hide();
+                        if (data != undefined && data != null) {
+                            if (data.msg == 0) {
+                                ncUnits.alert("请上传图片");
+                                getUrl();
+                            } else if (data.msg == -1) {
+                                ncUnits.alert("文件格式不对");
+                                getUrl();
+                            } else if (data.msg == -2) {
+                                ncUnits.alert("上传图片不能超过10M");
+                                getUrl();
+                            } else if (data.msg == -3) {
+                                ncUnits.alert("上传图片不能超过10M");
+                                getUrl();
+                            } else {
+                                var path = "/HeadImage/" + data.msg + "?" + Date.now();
+                                $("#head_name").val(data.msg);
+                                UserHeadUtil.initialize(path);
+
+                            }
+                        }
+                    }
+                });
+                $("#user_head_param_form").ajaxForm({
+                    success: function (data) {
+                        if (data.msg == 0) {
+                            ncUnits.alert("网络出现异常，请稍后再试");
+                            getUrl();
+                        } else if (data.msg == -1) {
+                            ncUnits.alert("系统出现异常，请稍后再试");
+                            getUrl();
+                        } else if (data.msg == 2) {
+                            ncUnits.alert("请上传图片");
+                            getUrl();
+                        } else {
+                            ncUnits.alert("修改成功");
+
+                            $("img#origin_user_head_75").attr("src", "/HeadImage/" + data);
+                            $("img#top_user_head_25").attr("src", "/HeadImage/" + data);
+                            $('img#user_head_origin').imgAreaSelect({ remove: false });
+                        }
+                    }
+                });
+                getUrl();
+                function getUrl() {
+                    $.ajax({
+                        type: "post",
+                        url: "/UserHead/getUrl",
+                        dataType: "json",
+                        success: rsHandler(function (data) {
+                            if (data.OriginalImage == '') {
+                                //$('img#user_head_origin').imgAreaSelect({ remove: true });
+                                var path = "/Images/common/portrait.png?" + Date.now();
+                                UserHeadUtil.initialize(path,data.ImagePosition);
+                                //cancelHead();
+                            }
+                            else {
+                                var path = "/HeadImage/" + data.OriginalImage + "?" + Date.now();
+                                UserHeadUtil.initialize(path, data.ImagePosition);
+                            }
+                        })
+
+                    });
+                }
+            });
+
+        </script>
+
+

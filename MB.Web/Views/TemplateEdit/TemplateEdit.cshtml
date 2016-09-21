@@ -1,0 +1,711 @@
+﻿@{
+    var id  = ViewBag.TemplateId;
+    var jumpSign = ViewBag.JumpSign;
+    var systemOrFalse = ViewBag.SystemOrFalse;
+}
+
+<!-- 引入的组件的样式 开始 -->
+    <link rel="stylesheet" href="../../Libs/colorpicker/css/evol.colorpicker.css">
+
+    <!-- 引入的组件的样式 结束 -->
+
+    <!-- 本页所需的样式 开始 -->
+    <link rel="stylesheet" href="../../Styles/flow/widgetFormEditor.css" />
+    <link rel="stylesheet" href="../../Styles/flow/widgetFormResolver.css" />
+    <link rel="stylesheet" href="../../Styles/flow/flowEdit.css" />
+    <!-- 本页所需的样式 结束 -->
+<div class="row">
+ <div id="flowContainer" class="col-xs-12">
+    <div class="panel panel-default" style="margin-bottom: 0">     
+        <div class="panel-heading">
+            <ul class="nav nav-pills">
+               <li role="presentation" class="active"><a href="#template_edit" aria-controls="template_edit" role="tab"  id="nav_template_edit">模版编辑</a></li>
+               <li role="presentation"><a href="#flow_edit" aria-controls="flow_edit" role="tab"  id="nav_flow_edit">流程编辑</a></li>
+            </ul>
+        </div>
+
+        <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active" id="template_edit">
+                <div class="dis-table clearfix edit-panel">
+                    <div class="dis-cell panel panel-default box-shadow left-panel" id="widget_list">
+                        <div class="panel-heading">
+                            控件区
+                        </div>
+                        <div class="widget-box">
+                            <div class="box-title">布局控件</div>
+                            <div class="clearfix" id="widget_layout_list">
+                                <div class="widget-item layout i-col2" wtype="col2">一行两列</div>
+                                <div class="widget-item layout i-col3" wtype="col3">一行三列</div>
+                                <div class="widget-item layout i-table account" wtype="account">明细列表</div>
+                            </div>
+                        </div>
+                        <div class="widget-box">
+                            <div class="box-title">字段控件</div>
+                            <div class="clearfix" id="widget_component_list">
+                                <div class="widget-item component i-label" wtype="label">标签</div>
+                                <div class="widget-item component i-input" wtype="input">输入框</div>
+                                <div class="widget-item component i-date" wtype="date">日期</div>
+                                <div class="widget-item component i-checkbox" wtype="check">复选框</div>
+                                <div class="widget-item component i-radio" wtype="radio">单选框</div>
+                                <div class="widget-item component i-browse" wtype="browse">浏览框</div>
+                                <div class="widget-item component i-select" wtype="select">下拉框</div>
+                                <div class="widget-item component i-money" wtype="money">金额</div>
+                                <div class="widget-item component i-line" wtype="line">分割线</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dis-cell panel panel-default box-shadow center-panel pos-r">
+                        <div class="panel-heading">
+                            编辑显示区
+                        </div>
+                                    <div class="form-head pos-r">
+                                        <div class="text-center form-title-main h4" id="form_name"></div>
+                                    <div class="text-center word-break-all" id="form_description"></div>
+                                    <hr>
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-xs-8">
+                                        <span class="control-label">标题</span>
+                                        <div class="control-content">
+                                            <input type="text" class="form-control" id="form_title" disabled />
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-4">
+                                        <span class="control-label">紧急度</span>
+                                        <div class="control-content clearfix">
+                                            <div class="rating"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-4">
+                                        <span class="control-label">创建人</span>
+                                        <div class="control-content">
+                                            <input type="text" class="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-4">
+                                        <span class="control-label">创建部门</span>
+                                        <div class="control-content">
+                                            <input type="text" class="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-4">
+                                        <span class="control-label">创建时间</span>
+                                        <div class="control-content">
+                                            <input type="text" class="form-control" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="widget-mask"></div>
+                        </div>
+                        <div class="form-content pos-r" id="widget_container"></div>
+                        <div class="form-footer">
+                            <a class="btn btn-transparency" id="form_edit_preview">预览</a>
+                            <a class="btn btn-transparency" id="form_edit_cancel">取消</a>
+                            <a class="btn btn-transparency" id="form_edit_save">保存</a>
+                        </div>
+                    </div>
+                    <div class="dis-cell panel panel-default box-shadow right-panel">
+                        <div class="panel-heading">
+                            设置区
+                        </div>
+                        <div class="edit-box">
+                            <div class="box-title">表单设置</div>
+                            <div class="box-content">
+                                <div class="form-group">
+                                    <label>表单名称</label>
+                                            <input type="text" class="form-control" maxlength="20" id="edit_form_name"/>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>描述</label>
+                                            <input type="text" class="form-control" maxlength="100" id="edit_form_description"/>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>选项布局</label>
+                                            <div>
+                                                <label class="radio-inline"><input type="radio" name="formTitle" value="1" checked> 系统标题 </label>
+                                                <label class="radio-inline"><input type="radio" name="formTitle" value="0"> 自定义标题 </label>
+                                            </div>
+                                    <!--<input type="text" class="form-control" style="display: none;margin-top: 5px" id="edit_form_title"/>-->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="edit-box">
+                            <div class="box-title">控件设置</div>
+                            <div class="box-content" id="widget_edit">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <div role="tabpanel" class="tab-pane" id="flow_edit">
+                <div class="sub-nav">
+                    <a class="nav-item" href="#con_set_node" aria-controls="con_set_node" role="tab"  id="nodeSetTab"><i class="fa fa-cog"></i> 节点设置</a>
+                    <a class="nav-item" href="#con_set_flow" aria-controls="con_set_flow" role="tab"  id="flowSetTab"><i class="fa fa-sitemap"></i> 流程设置</a>
+                    <a class="nav-item" href="#con_flowchart" aria-controls="con_flowchart" role="tab"  id="picSetTab"><i class="fa fa-picture"></i> 流程图</a>
+                    <div class="pull-right">
+                        <a href="javascript:void(0)"><span class="glyphicon glyphicon-plus" id="addNode"></span></a>
+                    </div>
+                </div>
+                <div class="tab-content">
+                    <div id="con_set_node" role="tabpanel" class="tab-pane active">
+                        <!--节点设置---->
+
+                        <div style="min-height: 493px;">
+                              <table class="table table-hover" id="nodeTable">
+                               </table>
+                         </div>
+                        <div class="fifty-fifty">
+                            <a style="width:100%;height: 10px;border: 0px;"></a>
+                            <a class="btn btn-transparency" id="nodeAllSave">保存</a>
+                            <a class="btn btn-transparency" id="nodeAllSaveReturn" >保存并返回</a>
+                        </div>
+                    </div>
+
+                    <div id="con_set_flow" role="tabpanel" class="tab-pane" >
+                        <!--流程设置-->
+                        <div style="min-height: 493px;">
+                        <table class="table table-hover" id="flowTable">
+
+                        </table>
+                        </div>
+                        <div class="fifty-fifty">
+                            <a style="width:100%;height: 10px;border: 0px;"></a>
+                            <a class="btn btn-transparency" id="flowAllSave">保存</a>
+                            <a class="btn btn-transparency" id="flowAllSaveReturn" >保存并返回</a>
+                        </div>
+                    </div>
+
+                            <div id="con_flowchart" role="tabpanel" class="tab-pane pos-r" style="min-height: 600px">
+
+                            </div>
+                </div>
+            </div>
+        </div>
+    </div>
+ </div>
+
+     <div id="sidebarContainer" class="col-lg-3" style="display: none">
+         <div class="sidebar">
+           @Html.Partial("~/Views/Shared/_UserInfo.cshtml")
+            <div class="panel panel-default panel-chart" id="file_statistics">
+                <div class="panel-heading">流程进程</div>
+                <div class="chart">
+                    <div id="chart3"></div>
+                    <div class="planNum">流程<span style="color: #58b456"></span>项</div>
+                    <div class="month">
+                        <span style="width: 23px" class="arrowsBBLCom"></span>
+                        <span class="text"></span>
+                        <span style="width: 23px; display: none" class="arrowsBBRCom"></span>
+                    </div>
+                </div>
+
+                <div class="sign">
+                </div>
+            </div>
+        </div>
+           @* <div class="sidebar">
+                <a type="button" class="btn btn-block btn-warning">新建计划</a>
+                <div class="panel panel-default" id="personal_info">
+                    <div class="panel-body personal_info_con">
+                        <h4 class="pull-left" style="line-height: 25px">
+                            <span class="personal_info_name"></span>
+                            <br>
+                            <small class="personal_info_job"></small>
+                        </h4>
+                        <img class="img-thumbnail img-circle x64 pull-right personal_info_portrait" src="../../Images/common/portrait.png">
+                    </div>
+                    <ul class="list-group condensed">
+                        <a href="#" class="list-group-item">今日未完成<span class="badge badge-danger personal_info_unfinished"></span></a>
+                        <a href="#" class="list-group-item">超时计划<span class="badge badge-danger personal_info_overtime"></span></a>
+                        <a href="#" class="list-group-item">我的流程<span class="badge personal_info_flow"></span></a>
+                        <a href="#" class="list-group-item">我的邀请<span class="badge personal_info_invite"></span></a>
+                    </ul>
+                </div>
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="新闻、文档、计划、激励、流程" aria-describedby="basic-addon2">
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></span>
+                </div>
+                <div class="panel panel-default panel-chart" id="file_statistics">
+                    <div class="panel-heading">文档</div>
+                    <div class="panel-body pos-r chart-container">
+                        <div class="chart-content" id="file_statistics_chart">
+
+                        </div>
+                        <div class="chart-center"></div>
+                    </div>
+                    <div class="panel-footer">
+                        <ul class="list-inline chart-label">
+                            <!--<li>集团文档</li>-->
+                            <!--<li>个人文档</li>-->
+                            <!--<li>我的共享</li>-->
+                            <!--<li>他人共享</li>-->
+                        </ul>
+                    </div>
+                </div>
+                <!--<div class="process">-->
+                <!--<span class="title">文档</span>-->
+
+                <!--<div class="chart">-->
+                <!--<div id="chart3"></div>-->
+                <!--<div class="planNum"></div>-->
+                <!--<div class="month">-->
+                <!--<span class="arrowsBBLCom"></span>-->
+                <!--<span class="text"></span>-->
+                <!--<span class="arrowsBBRCom" style="display: none"></span>-->
+                <!--</div>-->
+                <!--</div>-->
+
+                <!--<div class="sign">-->
+                <!--<ul>-->
+                <!--<li><span class="color" style="background-color:#57acdb"></span><span class="text">&lt;!&ndash;待确认&ndash;&gt;</span></li>-->
+                <!--<li><span class="color" style="background-color:#e00e16"></span><span class="text">&lt;!&ndash;已中止&ndash;&gt;</span></li>-->
+                <!--<li><span class="color" style="background-color:#be1d9a"></span><span class="text">&lt;!&ndash;待提交&ndash;&gt;</span></li>-->
+                <!--<li><span class="color" style="background-color:#fbab11"></span><span class="text">&lt;!&ndash;已审核&ndash;&gt;</span></li>-->
+                <!--<li><span class="color" style="background-color:#58b557"></span><span class="text">&lt;!&ndash;已完成&ndash;&gt;</span></li>-->
+                <!--<li><span class="color" style="background-color:#49dca7"></span><span class="text">&lt;!&ndash;待审核&ndash;&gt;</span></li>-->
+                <!--</ul>-->
+                <!--</div>-->
+                <!--<a href="#" class="topCom"></a>-->
+            </div>*@
+     </div>
+</div>
+
+<!-- 弹出层 开始 -->
+
+<!-- 预览 开始 -->
+<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" id="preview_modal">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+                <h4 class="modal-title" id="preview_modal_title">预览</h4>
+            </div>
+            <div class="modal-content-fixedH">
+                <div class="form-head pos-r">
+                    <div class="text-center h4 form-title-main" id="preview_form_name"></div>
+                    <div class="text-center word-break-all" id="preview_form_description"></div>
+                    <hr>
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-xs-8">
+                                <span class="control-label">标题</span>
+                                <div class="control-content">
+                                    <input type="text" class="form-control" id="preview_form_title" disabled/>
+                                </div>
+                            </div>
+                            <div class="col-xs-4">
+                                <span class="control-label">紧急度</span>
+                                <div class="control-content clearfix">
+                                    <div class="rating"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-4">
+                                <span class="control-label">创建人</span>
+                                <div class="control-content">
+                                    <input type="text" class="form-control" id="preview_form_create_user"/>
+                                </div>
+                            </div>
+                            <div class="col-xs-4">
+                                <span class="control-label">创建部门</span>
+                                <div class="control-content">
+                                    <input type="text" class="form-control" id="preview_form_create_department"/>
+                                </div>
+                            </div>
+                            <div class="col-xs-4">
+                                <span class="control-label">创建时间</span>
+                                <div class="control-content">
+                                    <input type="text" class="form-control" id="preview_form_create_time"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-body" id="preview_modal_content">
+                </div>
+            </div>
+            @*<div class="modal-footer fifty-fifty">
+                <a class="btn btn-transparency" data-dismiss="modal">修改</a>
+                <a class="btn btn-transparency" id="preview_modal_submit">保存并使用</a>
+            </div>*@
+        </div>
+    </div>
+</div>
+<!-- 预览 结束 -->
+
+
+<!-------------------流程条件 开始-------------------->
+<div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="flowSet_modal" id="flowSet_modal" aria-hidden="true" data-backdrop="false" data-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+                <h4 class="modal-title">流程条件</h4>
+            </div>
+            <div class="modal-body" id="flowSet_modal_content">
+                <h4 style="margin-top: 0px;">字段</h4>
+                <hr style="margin-top: 5px;"/>
+                <div id="flowField">
+                 <div  class="row">
+                    <label class="radio-inline col-xs-2" title="申请人部门">
+                        <input type="radio" name="conditionType" value="1" checked> 申请人部门
+                    </label>
+                    <div class="col-xs-3">
+                        <div class="dropdown">
+                            <span class="dropdown-toggle" data-toggle="dropdown"  data-delay="50" role="button" aria-expanded="false">
+                               <span term="1" class='flowCondition belong'>属于</span>
+                               <span class="upPic"></span>
+                            </span>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="#" term="1">属于</a></li>
+                                <li class="divider short"></li>
+                                <li><a href="#" term="2">不属于</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <em class="icon add-min col-xs-1" id="flow_addDepart" style="margin: 5px 0px 0px;"></em>
+                    <ul class="list-inline col-xs-5 chooseName" id="flow_orgTarget"></ul>
+                </div>
+                 <div  class="row">
+                        <label class="radio-inline col-xs-2" title="申请人岗位">
+                            <input type="radio" name="conditionType" value="2"> 申请人岗位
+                        </label>
+                        <div class="col-xs-3">
+                            <div class="dropdown">
+                                <span class="dropdown-toggle" data-toggle="dropdown"  data-delay="50" role="button" aria-expanded="false">
+                                   <span term="1" class='flowCondition belong'>属于</span>
+                                   <span class="upPic"></span>
+                                </span>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="#" term="1">属于</a></li>
+                                    <li class="divider short"></li>
+                                    <li><a href="#" term="2">不属于</a></li>
+                                 </ul>
+                            </div>
+                        </div>
+                        <em class="icon add-min col-xs-1" id="flow_addJob" style="margin: 5px 0px 0px;"></em>                   
+                        <ul class="list-inline col-xs-5 chooseName" id="flow_jobTarget"></ul>
+                    </div>
+             
+                <div  class="row">
+                    <label class="radio-inline col-xs-2" title="申请人">
+                        <input type="radio"  name="conditionType" value="3"> 申请人
+                    </label>
+                    <div class="col-xs-3">
+                        <div class="dropdown">
+                            <span class="dropdown-toggle" data-toggle="dropdown"  data-delay="50" role="button" aria-expanded="false">
+                               <span term="1" class='flowCondition belong'>属于</span>
+                               <span class="upPic"></span>
+                            </span>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="#" term="1">属于</a></li>
+                                <li class="divider short"></li>
+                                <li><a href="#" term="2">不属于</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <em class="icon add-min col-xs-1" id="flow_addPerson" style="margin: 5px 0px 0px;"></em>
+                    <ul class="list-inline col-xs-5 chooseName" id="flow_personTarget"></ul>
+                </div>
+                    <div id="fieldOther" style="padding-bottom:40px">
+
+                    </div>
+                </div>
+                <div class="conditionAdd">
+                    <a class="btn btn-transparency pull-right flow_btn_sm">添加</a>
+                </div>
+                <hr class="hrAll"/>
+                <div class="row">
+                    <div class="col-xs-2">
+                        <label class="control-label">公式符号</label>
+                    </div>
+                    <div class="col-xs-8" id="mathLetter">
+                        <button class="btn btn-transparency mathBtn" term="1">或</button>
+                        <button class="btn btn-transparency mathBtn" term="2">且</button>
+                        <button class="btn btn-transparency mathBtn" term="3">(</button>
+                        <button class="btn btn-transparency mathBtn" term="4">)</button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-2">
+                       <label class="control-label">条件编号</label>
+                    </div>
+                    <div class="col-xs-8" id="conditionIndex">
+
+                    </div>
+                </div>
+                <hr/>
+
+                <div class="row">
+                    <div class="col-xs-2">
+                       <label class="control-label">公式结果</label>
+                    </div>
+                    <div class="col-xs-8" id="mathResult">
+
+                    </div>
+                    <a class="col-xs-1 btn btn-transparency pull-right flow_btn_sm" id="flowClearBack" style="margin-right:20px">退格</a>
+                </div>
+            </div>
+            <div class="modal-footer fifty-fifty">
+                <a class="btn btn-transparency btn-lg"  id="flowSet_cancel">取消</a>
+                <a class="btn btn-transparency btn-lg" id="flowSet_save">保存</a>
+            </div>
+
+
+            <!--条件设置画面-->
+            <div class="rightModal" id="rightCondition">
+                <h4 id="rightTitle" style="margin-bottom: 7px;" >条件设置</h4>
+                <hr class="hrAll" style="margin-top:0px;margin-bottom: 0px"/>
+                <div id="rightContent">
+
+                </div>
+            </div>
+
+            <!--部门 岗位 人员选择画面-->
+            <div class="rightModal" id="rightZtree">
+                <h4 id="flowZtreeTitle" style="margin-bottom: 7px;" >岗位选择</h4>
+                <hr class="hrAll" style="margin-top:0px;margin-bottom: 0px"/>
+                <div id="flowZtreecontent">
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-------------------------流程条件 结束-------->
+
+
+<!--------节点字段设置弹窗 开始--------->
+<div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="nodeFieldSet_modal" id="nodeFieldSet_modal" aria-hidden="true" data-backdrop="false" data-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+                <h4 class="modal-title">节点字段设置</h4>
+            </div>
+            <div class="modal-body" id="nodeFieldSet_modal_content" style="min-height:300px"><!--------nodeFieldSet_modal_content--------->
+
+            </div>
+            <div class="modal-footer fifty-fifty">
+                <a class="btn btn-transparency btn-lg"  data-dismiss="modal">取消</a>
+                <a class="btn btn-transparency btn-lg" id="nodeFieldSet_save">保存</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--------节点字段设置弹窗 结束--------->
+
+
+<!--------操作者设置弹窗 开始--------->
+<div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="nodeOperateSet_modal" id="nodeOperateSet_modal" aria-hidden="true" data-backdrop="false" data-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+                <h4 class="modal-title">操作者设置</h4>
+            </div>
+            <div class="modal-body" id="nodeOperateSet_modal_content"><!--------nodeOperateSet_modal_content--------->
+                <h4 style="margin-top: 0px;">操作者</h4>
+                <hr style="margin-top: 5px;"/>
+                <div  class="row">
+                    <div class="col-xs-5">
+                        <label class="control-label">节点名称</label>
+                        <div class="Operate-nodeName"></div>
+                        
+                    </div>
+                    <div class="col-xs-2">
+                    </div>
+                    
+                    <label class="control-label col-xs-2">操作类型</label>
+                    
+                    <div class="col-xs-3">
+                        <div class="dropdown">
+                                <span class="dropdown-toggle" data-toggle="dropdown"  data-delay="50" role="button" aria-expanded="false">
+                                   <span term="" id="node-countersign"></span>
+                                   <span class="upPic"></span>
+                                </span>
+                            <ul class="dropdown-menu" role="menu">
+                                <li id="countersign-no"><a href="javascript:void(0)" term="0" >审批</a></li>
+                                
+                                <li id="countersign-sign"><a href="javascript:void(0)" term="1">会签</a></li>
+                                
+                                <li  id="countersign-copy"><a href="javascript:void(0)" term="2">抄送</a></li>
+                               
+                                <li><a href="javascript:void(0)" term="3">提交</a></li>
+                                <li id="countersign-file"><a href="javascript:void(0)" term="4">归档</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <hr class="hrAll"/>
+                <div style="height:180px;overflow-y: auto; overflow-x: hidden;">
+                     <div  class="row">
+                        <label class="radio-inline col-xs-2">
+                            <input type="radio" name="NodeOperate-type" class="NodeOperate-type" term="1"> 操作者部门
+                        </label>
+                                       
+                        <em class="icon add-min col-xs-1" id="node_addOperatorDepart" style="margin: 2px 0px 0px;"></em>
+                       <div class="col-xs-8 chooseName" title=""></div>
+                     </div>
+                     <div  class="row">
+                         <label class="radio-inline col-xs-2">
+                        <input type="radio" name="NodeOperate-type" class="NodeOperate-type"  term="2"> 操作者岗位
+                    </label>
+                                                                                  
+                        <em class="icon add-min col-xs-1" id="node_addOperatorPost" style="margin: 2px 0px 0px;"></em>
+                        <div class="col-xs-8 chooseName" title=""></div>
+                     </div>
+                     <div  class="row">
+                        <label class="radio-inline col-xs-2">
+                        <input type="radio" name="NodeOperate-type" class="NodeOperate-type"  term="3"> 操作者
+                    </label>
+                                         
+                       <em class="icon add-min col-xs-1" id="node_addOperator" style="margin: 2px 0px 0px;"></em>
+                       <div class="col-xs-8 chooseName" title=""></div>
+                     </div>
+                     <div  class="row">
+                        <label class="radio-inline col-xs-2">
+                           <input type="radio" name="NodeOperate-type" class="NodeOperate-type"  term="4"> 上级岗位
+                        </label>
+                     </div>
+                    <div  class="row">
+                        <label class="radio-inline col-xs-2">
+                           <input type="radio" name="NodeOperate-type" class="NodeOperate-type"  term="5"> 所有人
+                        </label>
+                     </div>
+                </div>
+               
+                <hr class="hrAll"/>
+                <h4 style="margin-top: 0px;">条件</h4>
+                <hr style="margin-top: 5px;"/>
+                <div style="height:145px;overflow-y: auto; overflow-x: hidden;">
+                      <div  class="row">
+                         <label class="radio-inline col-xs-2">
+                        <input type="radio"  name="NodeOperate-batchType" class="NodeOperate-batchType"> 申请人部门
+                    </label>
+                         <div class="col-xs-3">
+                        <div class="dropdown">
+                                <span class="dropdown-toggle" data-toggle="dropdown"  data-delay="50" role="button" aria-expanded="false">
+                                   <span term="1"  class="node-batchCondition">属于</span>
+                                   <span class="upPic"></span>
+                                </span>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="javascript:void(0)" term="1">属于</a></li>
+                                <li class="divider short"></li>
+                                <li><a href="javascript:void(0)" term="2">不属于</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                         <em class="icon add-min col-xs-1" id="node_addProposerDepart" style="margin: 5px 0px 0px;"></em>
+                         <div class="col-xs-5 chooseName" title=""></div>
+                      </div>
+
+                      <div  class="row">
+                        <label class="radio-inline col-xs-2">
+                             <input type="radio" name="NodeOperate-batchType" class="NodeOperate-batchType"> 申请人岗位
+                        </label>
+                        <div class="col-xs-3">
+                        <div class="dropdown">
+                                <span class="dropdown-toggle" data-toggle="dropdown"  data-delay="50" role="button" aria-expanded="false">
+                                   <span term="1"  class="node-batchCondition">属于</span>
+                                   <span class="upPic"></span>
+                                </span>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="#" term="1">属于</a></li>
+                                <li class="divider short"></li>
+                                <li><a href="#" term="2">不属于</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                        <em class="icon add-min col-xs-1" id="node_addProposerPost" style="margin: 5px 0px 0px;"></em>
+                        <div class="col-xs-5 chooseName" title=""></div>
+                      </div>
+                           
+                      <div  class="row">
+                         <label class="radio-inline col-xs-2">
+                        <input type="radio"  name="NodeOperate-batchType" class="NodeOperate-batchType"> 申请人
+                    </label>
+                         <div class="col-xs-3">
+                        <div class="dropdown">
+                                <span class="dropdown-toggle" data-toggle="dropdown"  data-delay="50" role="button" aria-expanded="false">
+                                   <span term="1"  class="node-batchCondition">属于</span>
+                                   <span class="upPic"></span>
+                                </span>
+                            <!-- <ul class="dropdown-menu" role="menu">
+                                <li><a href="#" term="1">属于</a></li>
+                                <li class="divider short"></li>
+                                <li><a href="#" term="2">不属于</a></li>
+                            </ul>-->
+                           
+                        </div>
+                    </div>
+                         <em class="icon add-min col-xs-1" id="node_addProposer" style="margin: 5px 0px 0px;"></em>
+                         <div class="col-xs-3 chooseName" title=""></div>
+
+                         <a class="btn btn-transparency pull-right nodeOperate-btn" id="nodeOperateSet-clear"  href="#">清空</a>
+                         <a class="btn btn-transparency pull-right "  id="nodeOperateSet-add" href="#">添加</a>
+                </div>
+                </div>
+              
+                <hr class="hrAll"/>
+                <table  style="width: 100%;"id="nodeOperateTableHead">
+                    <thead class="colorGray"><tr><th style="width:8%">编号</th><th style="width:30%">操作者</th><th style="width:30%">批次条件</th><th style="width:15%">操作类型</th><th style="width:17%">操作</th><th></th></tr></thead>
+                </table>
+                <div style="width:100% ;height:82px;overflow:auto;">
+                    <table class="table table-hover" style="width:100% ;" id="nodeOperateConditionTable">
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="modal-footer fifty-fifty">
+                <a class="btn btn-transparency btn-lg"  id="nodeOperateSet_cancle" >取消</a>
+                <a class="btn btn-transparency btn-lg" id="nodeOperateSet_save">保存</a>
+            </div>
+
+            <div class="node-rightModal" >
+                <div class="modal-header">
+                    <h4 class="modal-title"id="nodeZtreeTitle" >人员</h4>
+                </div>
+                <div id="node-rightContent">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--------操作者设置弹窗 结束----------->
+
+
+<!-- 个人资料设置 开始 -->
+  <div class="modal fade" id="personal_modal" tabindex="-1" role="dialog" aria-labelledby="personal_modal_label" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                @Html.Partial("~/Views/Shared/_EditUserInfo.cshtml")
+            </div>
+        </div>
+    </div>
+<!-- 个人资料设置 结束 -->
+<script type="text/javascript">
+    var templateId = parseInt("@id");
+    var jumpSign = parseInt("@jumpSign");
+    var systemOrFalse = parseInt("@systemOrFalse");
+</script>
+<!-- 本页调用的JS 开始 --
+<!-- 引入的组件的JS 开始 -->
+    
+    <script src="../../Libs/colorpicker/evol.colorpicker.js"></script>
+<script src="~/Scripts/component/flowChart.js"></script>
+    <!-- 引入的组件的JS 结束 -->
+
+    <script src="../../Scripts/flow/widgetFormEditor.js"></script>
+    <script src="../../Scripts/flow/widgetFormResolver.js"></script>
+    <script src="../../Scripts/flow/flowEdit.js"></script>
+<!-- 本页调用的JS 结束 -->

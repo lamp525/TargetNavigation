@@ -1,0 +1,300 @@
+﻿@using MB.Model
+@{
+    //ViewBag.Title = "Company";
+    //Layout = "~/Views/ModelView/ModelView.cshtml";
+    var list = ViewBag.NewsList as List<NewsInfo>;
+    var download = ViewBag.DownLoad as List<DocumentInfo>;
+}
+<link href="../../Styles/index/graph.css" rel="stylesheet" />
+<link href="../../Styles/common/common-before-bs.css" rel="stylesheet" />
+<link href="../../Styles/index/index-company.css" rel="stylesheet" />
+<!-- 公司新闻 开始 -->
+<div class="container-before-bootstrap clearfix">
+
+    <div class="box newsContainer">
+    <div class="title">
+        公司新闻
+            	<span class="refresh" onclick=" RefNews()"></span>
+    </div>
+    <!-- 公司图片新闻 开始 -->
+    <div class="banner" id="banner">
+        <!--<a href="#" class="d1" style="background:url(../../Images/index/pic0.png) no-repeat;"></a>-->
+        <!--<a href="#" class="d1" style="background:url(../../Images/index/pic1.png) no-repeat;"></a>-->
+        <!--<a href="#" class="d1" style="background:url(../../Images/index/pic0.png) no-repeat;"></a>-->
+        <!--<a href="#" class="d1" style="background:url(../../Images/index/pic1.png) no-repeat;"></a>-->
+        <!--<a href="#" class="d1" style="background:url(../../Images/index/pic0.png) no-repeat;"></a>-->
+        <!--<div class="d2" id="banner_id">-->
+        <!--<ul>-->
+        <!--<li></li>-->
+        <!--<li></li>-->
+        <!--<li></li>-->
+        <!--<li></li>-->
+        <!--<li></li>-->
+        <!--</ul>-->
+        <!--</div>-->
+    </div>
+    <!-- 公司图片新闻 结束 -->
+    <!-- 公司新闻 开始 -->
+    <div class="news" id="newslist">
+        @*         <ul class="list">
+                <li><a href="http://115.236.13.58:888/" style="font-size: 14px;"><span class="label label-danger" style="float: none">NEW</span>  能诚BBS论坛</a></li>
+
+                @if (list != null)
+                {
+                    int count = 0;
+                    foreach (var item in list)
+                    {
+                        if (item.notice == false)
+                        {
+                            count++;
+                            DateTime startWeek = DateTime.Now.AddDays(1 - Convert.ToInt32(DateTime.Now.DayOfWeek.ToString("d")));  //本周周一
+                            DateTime endWeek = startWeek.AddDays(6);  //本周周日
+                            if (@item.createTime >= startWeek && @item.createTime <= endWeek)
+                            {
+                             <li> <span class="label label-danger" style="float: none">NEW</span><a href="#" onclick="NewsInfo(@item.newId)">@item.title</a><span>@item.createTime.ToString("yyyy-MM-dd")</span></li>
+                            }
+                            else
+                            {
+                    <li><a href="#" onclick="NewsInfo(@item.newId)">@item.title</a><span>@item.createTime.ToString("yyyy-MM-dd")</span></li>
+                            }
+                    <li class="line"></li>
+                            if (count > 7)
+                            {
+                                break;
+                            }
+                        }
+                    }
+                }
+                <div id="news_list">
+                </div>
+            </ul>
+            <div class="more" onclick="NewsList()">更多</div>*@
+    </div>
+    <!-- 公司新闻 结束 -->
+</div>
+<!-- 公司新闻 结束 -->
+
+
+
+<!-- 通知、文档中心 开始 -->
+<div class="box" style="width: 1202px; border: 0px;">
+    <!-- 通知 开始 -->
+    <div class="message" id="notsList">
+
+        @*      <ul id="message_list" class="list">
+                @if (list != null)
+                {
+                    int count = 0;
+                    foreach (var item in list)
+                    {
+                        if (item.notice == true)
+                        {
+                            count++;
+                    <li><a href="#" onclick="NewsInfo(@item.newId)">@item.title</a><span>@item.createTime.ToString("yyyy-MM-dd")</span></li>
+                    <li class="line"></li>
+                            if (count > 7)
+                            {
+                                break;
+                            }
+                        }
+                    }
+                }
+            </ul>*@
+        @*  <div class="more" onclick="NewsList2()">更多</div>*@
+    </div>
+    <!-- 通知 结束 -->
+
+    <!-- 文档中心 开始 -->
+    <div class="docuInfor">
+        <div class="title">
+            文档中心
+                    <span class="refresh"></span>
+        </div>
+        <ul id="docu_list" class="list">
+        </ul>
+        <div class="more"><a href="/UserDocument/UserDocument">更多</a></div>
+    </div>
+    <!-- 文档中心 结束 -->
+</div>
+<!-- 通知、文档中心 结束 -->
+
+
+
+<!-- 功效价值、TOP10 开始 -->
+<div class="box" style="width: 1202px; margin-bottom: 30px; border: 0px;" id="worktime">
+</div>
+<!-- 功效价值、TOP10 结束 -->
+
+@*<script type="text/html" id="tpl_banner">
+    {{# for(var i = 0,len = d.length; i < len; i ++){ }}
+            <a href="{{ d[i][3] }}" nodeid="{{ d[i][0] }}" title="{{ d[i][1] }}" class="d1" style="background: url({{ d[i][2] }}) no-repeat;"></a>
+    {{# } }}
+        <div class="d2" id="banner_id">
+            <ul>
+                {{# for(var i = 0; i < len; i ++){ }}
+                <li></li>
+                {{# } }}
+            </ul>
+        </div>
+</script>*@
+        </div>
+<script type="text/html" id="tpl_banner">
+    {{# for(var i = 0,len = d.length; i < len; i ++){ }}
+            <a href="#" nodeid="{{ d[i].imageId }}" class="d1" style="background: url({{ d[i].imgUrl }}) no-repeat;"></a>
+    {{# } }}
+        <div class="d2" id="banner_id">
+            <ul>
+                {{# for(var i = 0; i < len; i ++){ }}
+                <li></li>
+                {{# } }}
+            </ul>
+        </div>
+</script>
+<script>
+
+    function NewsList() {
+        var Flag = true;
+        loadViewToMain("/News/NewsList?Flag=" + Flag + "&DriID=0");
+        //window.location.href = "/News/NewsList?Flag=" + Flag + "&DriID=0";
+    }
+    function NewsList2() {
+        var Flag = false;
+        loadViewToMain("/News/NewsList?Flag=" + Flag + "&DriID=0");
+        //window.location.href = "/News/NewsList?Flag=" + Flag + "&DriID=0";
+    }
+    function NewsInfo(id) {
+        loadViewToMain("/NewsDel/NewsDel?id=" + id + "&Flag=false");
+        //window.location.href = "/NewsDel/NewsDel?id=" + id + "&Flag=false";
+    }
+    function NewsInfo2(id) {
+        loadViewToMain("/NewsDel/NewsDel?id=" + id + "&Flag=true");
+        //window.location.href = "/NewsDel/NewsDel?id=" + id + "&Flag=true";
+    }
+    function RefNews() {
+        var lodi2 = getLoadingPosition('#newslist');
+        $("#newslist").load("/Company/newsIndex", function () {
+            lodi2.remove();
+        });
+    }
+    //function Refworktime() {
+    //    $("#worktime").load("/Company/GetWorktime", function () {
+    //    });
+
+    //}
+
+    $(document).ready(function () {
+        $("#worktime").load("/Company/GetWorktime", function () {
+        });
+        var lodi2 = getLoadingPosition('#newslist');
+        $("#newslist").load("/Company/newsIndex", function () {
+            lodi2.remove();
+        });
+        var lodi3 = getLoadingPosition('#notsList');
+        $("#notsList").load("/Company/notesIndex", function () {
+            lodi3.remove();
+        });
+
+    });
+</script>
+
+<script type="text/html" id="tpl_link_list">
+    {{# for(var i = 0,len = d.length; i < len; i ++){ }}
+            <li><a href="{{ d[i][3] }}" nodeid="{{ d[i][0] }}">{{ d[i][1] }}</a><span>{{ d[i][2] }}</span></li>
+    {{# if(i != len - 1){ }}
+                <li class="line"></li>
+    {{# } }}
+        {{# } }}
+</script>
+
+
+@*<script type="text/html" id="tpl_docu_list">
+
+    {{# for(var i = 0,len = d.length; i < len; i ++){ }}
+        <li>
+            <a href="{{ d[i][3] }}" nodeid="{{ d[i][0] }}">{{ d[i][1] }}</a>
+            <span>{{ d[i][2] }}</span>
+            <div class="liHover">
+                <em class="bg"></em>
+                <em class="down">下载</em>
+                <em class="updown"></em>
+            </div>
+        </li>
+    {{# if(i != len - 1){ }}
+        <li class="line"></li>
+    {{# } }}
+        {{# } }}
+</script>*@
+
+<script type="text/html" id="tpl_docu_list">
+    {{# for(var i = 0,len = d.length; i < len; i ++){ }}
+        <li>
+            <a href="{{ d[i].documentId }}" nodeid="{{ d[i].saveName  }}">{{ d[i].displayName }}</a>
+            <span>{{ d[i].dtShort}}</span>
+            <div class="liHover">
+                <em class="bg"></em>
+                <em class="down" onclick="Down('{{d[i].documentId}}')">下载</em>
+                <em class="updown"></em>
+            </div>
+        </li>
+    {{# if(i != len - 1){ }}
+        <li class="line"></li>
+    {{# } }}
+        {{# } }}
+</script>
+
+
+<script type="text/javascript">
+    function Down(documentId) {
+        var id = documentId;
+        jQuery(function () {
+            //alert("Jquery方法成功");
+            //loadViewToMain("/Company/DownDocument?DownDocumentid=" + id);
+            window.location.href = "/Company/DownDocument?DownDocumentid=" + id;
+        })
+    }
+</script>
+
+<script type="text/html" id="tpl_top10_list">
+    {{# for(var i = 0,len = d.length; i < len; i ++){ }}
+        {{# if(i == 0){ }}
+    @*<<<<<<< .mine
+        <li><a href="javascript:void(0)"><em class="topBox" style="color: #fff; background: #eb2d2c; border-color: #f45250;">{{ i + 1 }}</em>{{ d[i].orgname }}</a><span>{{ d[i].totaleffective }} h</span></li>
+    {{# }else if(i == 1){ }}
+        <li><a href="javascript:void(0)"><em class="topBox" style="color: #fff; background: #ef7b27; border-color: #f58f62;">{{ i + 1 }}</em>{{ d[i].orgname }}</a><span>{{ d[i].totaleffective }} h</span></li>
+    {{# }else if(i == 2){ }}
+        <li><a href="javascript:void(0)"><em class="topBox" style="color: #fff; background: #fbac0f; border-color: #f9c036;">{{ i + 1 }}</em>{{ d[i].orgname }}</a><span>{{ d[i].totaleffective }} h</span></li>
+    {{# }else{ }}
+=======*@
+    <li><a href="javascript:void(0)"><em class="topBox" style="color: #fff; background: #eb2d2c; border-color: #f45250;">{{ i + 1 }}</em>{{ d[i].orgname }}</a><span>{{ d[i].totaleffective }} h/人</span></li>
+    {{# }else if(i == 1){ }}
+        <li><a href="javascript:void(0)"><em class="topBox" style="color: #fff; background: #ef7b27; border-color: #f58f62;">{{ i + 1 }}</em>{{ d[i].orgname }}</a><span>{{ d[i].totaleffective }} h/人</span></li>
+    {{# }else if(i == 2){ }}
+        <li><a href="javascript:void(0)"><em class="topBox" style="color: #fff; background: #fbac0f; border-color: #f9c036;">{{ i + 1 }}</em>{{ d[i].orgname }}</a><span>{{ d[i].totaleffective }} h/人</span></li>
+    {{# }else{ }} 
+        <li><a href="javascript:void(0)"><em class="topBox">{{ i + 1 }}</em>{{ d[i].orgname }}</a><span>{{ d[i].totaleffective }} h/人</span></li>
+    {{# } }}
+        {{# if(i != len - 1){ }}
+        <li class="line"></li>
+    {{# } }}
+        {{# } }}
+</script>
+@*<script type="text/html" id="tpl_top10_list">
+    {{# for(var i = 0,len = d.length; i < len; i ++){ }}
+        {{# if(i == 0){ }}
+        <li><a href="javascript:void(0)"><em class="topBox" style="color: #fff; background: #eb2d2c; border-color: #f45250;">{{ i + 1 }}</em>{{ d[i][1] }}</a><span>{{ d[i][2] }}</span></li>
+    {{# }else if(i == 1){ }}
+        <li><a href="javascript:void(0)"><em class="topBox" style="color: #fff; background: #ef7b27; border-color: #f58f62;">{{ i + 1 }}</em>{{ d[i][1] }}</a><span>{{ d[i][2] }}</span></li>
+    {{# }else if(i == 2){ }}
+        <li><a href="javascript:void(0)"><em class="topBox" style="color: #fff; background: #fbac0f; border-color: #f9c036;">{{ i + 1 }}</em>{{ d[i][1] }}</a><span>{{ d[i][2] }}</span></li>
+    {{# }else{ }}
+        <li><a href="javascript:void(0)"><em class="topBox">{{ i + 1 }}</em>{{ d[i][1] }}</a><span>{{ d[i][2] }}</span></li>
+    {{# } }}
+        {{# if(i != len - 1){ }}
+        <li class="line"></li>
+    {{# } }}
+        {{# } }}
+</script>*@
+
+
+    <script src="../../Scripts/index/index_functionality.js" type="text/javascript"></script>
+    <script src="../../Scripts/index/index-company.js" type="text/javascript"></script>

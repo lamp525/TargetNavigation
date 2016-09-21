@@ -1,0 +1,976 @@
+﻿<link href="~/Scripts/imgareaselect/img/imgareaselect-animated.css" rel="stylesheet" />
+<link href="~/Styles/Styles/Dialog/dialog.css" rel="stylesheet" />
+@*新建日程*@
+<div class="modal fade in commonMoal" id="scheduleMoal" tabindex="-1" role="dialog" aria-labelledby="plan_new_modal" aria-hidden="true">
+   <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="gridSystemModalLabel">新建日程</h4>
+      </div>
+      <div class="modal-body">
+          <div class="modal-rows">
+              <div class="content-head">
+                  时间
+              </div>
+              <div class="content-body">
+                  <div class="body-div"><input type="text" class="form-control laydate-icon" id="start-times"  placeholder="开始时间"><i class="fa fa-calendar"></i></div><div class="body-div"><input type="text" class="form-control laydate-icon" id="end-times" placeholder="结束时间"><i class="fa fa-calendar"></i></div>
+              </div>
+          </div>
+          <div class="modal-rows">
+              <div class="content-head">
+                  地点
+              </div>
+              <div class="content-body">
+                  <input type="text" class="form-control" id="place" maxlength="100">
+              </div>
+          </div>
+          <div class="modal-rows">
+              <div class="content-head">
+                  备忘
+              </div>
+              <div class="content-body">
+                  <input type="text" class="form-control" id="comment" maxlength="250">
+              </div>
+          </div>
+          @*<hr />*@
+@*          <div class="modal-rows">
+              <div class="content-head">
+                  参与者
+              </div>
+              <div class="content-body" id="list-attend">
+                  
+              </div>
+          </div>*@
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+        <button type="button" class="btn btn-primary commitData">提交</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div>
+
+@*修改头像*@
+<div class="modal fade commonMoal" id="iconMoal" tabindex="-1" role="dialog" aria-labelledby="icon_new_modal" aria-hidden="true">
+   <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">修改头像</h4>
+      </div>
+      <div class="modal-body">
+          <div class="row">
+              <div class="icon-upload-head d-7">本地上传</div>
+              <div class="icon-pre-head d-3">预览</div>
+          </div>
+          <div class="row">
+              <div class="icon-upload d-7">
+                  <div class="upload-area">
+                      <ul class="upload-btn">
+                          <li><div class="btn up-load" type="button"><i class="fa fa-plus"></i>选择图片<input id="uploadIcon" type="file" name="files[]" multiple/></div></li>
+                          <li>只支持PNG，JPG，GIF，大小不超过2M</li>
+                      </ul>
+                      <img src="#" alt="" id="icon-image" style="width:100%;height:100%;display:none" />
+                  </div>
+              </div>
+              <div class="icon-pre d-3">
+                  <div class="pre-area">
+                      <ul>
+                          <li>
+                              <div class="big-pre"><img src="#" alt="" id="icon-large" style="display:none" /></div>
+                              <p>140×140像素</p>
+                          </li>
+                          <li>
+                              <div class="middle-pre"><img src="#" alt="" id="icon-middle" style="display:none" /></div>
+                              <p>60×60像素</p>
+                          </li>
+                          <li>
+                              <div class="small-pre"><img src="#" alt="" id="icon-small" style="display:none" /></div>
+                              <p>30×30像素</p>
+                          </li>
+                      </ul>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div class="modal-footer">
+          <a href="javascript:;" class="opt-upload re-upload">重新上传</a>
+          <a href="javascript:;" class="opt-upload save-upload">保存</a>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div>
+
+@*文件预览和下载*@
+<div class="modal fade in commonMoal" id="fileMoal" tabindex="-1" role="dialog" aria-labelledby="plan_new_modal" aria-hidden="true">
+   <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">文档预览</h4>
+      </div>
+      <div class="modal-body">
+          <div class="row">
+              <div class="col-xs-9 preview-main">
+                  
+                  <ul class="is_exit">
+                      <li>所选文档无法预览，请下载查看</li>
+                      <li><button class="btn btn-default downfile nopreview"><i class="fa fa-download"></i>下载</button></li>
+                  </ul>
+              </div>
+              <div class="col-xs-3 preview-list">
+                  <div class="list-title ellipsis">
+
+                  </div>
+                  <div class="file-opt">
+                      <a href="javascript:;" class="confirmFile"><i class="fa fa-download"></i>确认该计划</a><a href="javascript:;" class="downfiles"><i class="fa fa-download"></i>下载全部文档</a>                      
+                  </div>
+                  <ul class="file-main">
+                      
+                  </ul>
+              </div>
+          </div>
+
+      </div>
+@*      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+        <button type="button" class="btn btn-primary commitData">提交</button>
+      </div>*@
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div>
+
+
+
+@*修改密码*@
+<div class="modal fade in commonMoal" id="pwdModal" tabindex="-1" role="dialog" aria-labelledby="plan_new_modal" aria-hidden="true">
+   <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">修改密码</h4>
+      </div>
+      <div class="modal-body">
+          <div class="modal-rows">
+              <div class="content-head">
+                  当前密码：
+              </div>
+              <div class="content-body">
+                  <input type="password" maxlength="50" placeholder="请输入数字和字母" onkeyup="value=value.replace(/[^\w\.\/]/ig,'')" class="form-control nowPwd">
+              </div>
+              @*<i class="fa fa-check info-tip"></i>
+              <i class="fa fa-remove info-tip now-tip"></i>*@
+          </div>
+          <div class="modal-rows">
+              <div class="content-head">
+                  新密码：
+              </div>
+              <div class="content-body">
+                  <input type="password" maxlength="50" placeholder="请输入数字和字母" onkeyup="value=value.replace(/[^\w\.\/]/ig,'')" class="form-control newPwd">
+              </div>
+          </div>
+          <div class="modal-rows">
+              <div class="content-head">
+                  确认密码：
+              </div>
+              <div class="content-body">
+                  <input type="password" maxlength="50" placeholder="请输入数字和字母" onkeyup="value=value.replace(/[^\w\.\/]/ig,'')" class="form-control rePwd">
+              </div>
+              <i class="fa fa-check info-tip right-tip"></i>
+              <i class="fa fa-remove info-tip wrong-tip"></i>
+          </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+        <button type="button" class="btn btn-primary upPwd">提交</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div>
+
+@*计划转办*@
+<div class="modal fade commonMoal" id="transModal" tabindex="-1" role="dialog" aria-labelledby="icon_new_modal" aria-hidden="true">
+   <div class="modal-dialog" style="width:620px;">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">计划转办</h4>
+      </div>
+      <div class="modal-body">
+          <div class="row clearfix" style="padding:0 5px">
+              <div class="trans-head">
+                  计划信息
+              </div>
+              <div class="trans-info clearfix">
+                  <div class="col-xs-5 event" style="width:45%">
+                      <div class="col-xs-6 ellipsis"></div>
+                      <div class="col-xs-6 ellipsis"></div>
+                  </div>
+                  <div class="col-xs-5 complete-time ellipsis col-xs-offset-2" style="width:45%;margin-left:10%">完成时间：<span></span></div>
+              </div>
+          </div>
+          <div class="row clearfix" style="padding:20px 5px">
+              <div class="trans-head row" style="line-height:30px;">
+                  <div class="col-xs-5">原负责人</div>
+                  <div class="col-xs-5 col-xs-offset-2">现负责人</div>
+              </div>
+              <div class="col-xs-5 clearfix trans-p">
+                  <div class="wrap-select">
+                      <img src="../../Images/common/response.png" alt="" class="img-circle img-trans" />
+                      <span class="trans-title">责任人：</span>
+                      <img src="/Images/common/portrait.png" alt="" class="img-circle img-trans img-selected old-response" />
+                      <div class="select-trans">
+                          <input type="text" class="show-response" name="name" readonly=true />                      
+                      </div>
+
+                  </div>
+                  <div class="wrap-select">
+                      <img src="../../Images/common/confirm.png" alt="" class="img-circle img-trans" />
+                      <span class="trans-title">确认人：</span>
+                      <img src="/Images/common/portrait.png" alt="" class="img-circle img-trans img-selected old-confirm" />
+                      <div class="select-trans">
+                          <input type="text" class="show-confirm" name="name" readonly=true />                      
+                      </div>
+
+                  </div>
+                   
+              </div>
+              <div class="col-xs-2 trans-relative" style="width:10%">
+                  <i class="fa fa-chevron-right"></i>
+              </div>
+              <div class="col-xs-5 clearfix trans-p trans-diff">
+                  <div class="wrap-select" style="border-color:#d8d1cb">
+                      <img src="../../Images/common/response.png" alt="" class="img-circle img-trans" />
+                      <span class="trans-title">责任人：</span>
+                      <img src="/Images/common/portrait.png" alt="" class="img-circle img-trans img-selected" />
+                      <div class="select-trans">
+                          <input type="text" class="show-input" name="name" placeholder="选择责任人" readonly=true data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" />
+                        <ul class="dropdown-menu" aria-labelledby="dLabel">
+                          <li class="search-trans">
+                             <input type="text" name="name" value="" class="trans-input trans-response"  />
+                           </li> 
+                            <li class="list-trans">
+                                <ul>   
+                                </ul>
+                            </li>   
+                      </ul>
+                      </div>
+
+                  </div>
+                  <div class="wrap-select">
+                      <img src="../../Images/common/confirm.png" alt="" class="img-circle img-trans" />
+                      <span class="trans-title">确认人：</span>
+                      <img src="/Images/common/portrait.png" alt="" class="img-circle img-trans img-selected" />
+                      <div class="select-trans">
+                          <input type="text" name="name" value="" class="show-input" readonly=true data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" placeholder="选择确认人" />
+                        <ul class="dropdown-menu" aria-labelledby="dLabel">
+                          <li class="search-trans">
+                             <input type="text" name="name" value="" class="trans-input trans-confirm"  />
+                           </li> 
+                            <li class="list-trans">
+                                <ul>  
+                                </ul>
+                            </li>   
+                      </ul>
+                      </div>
+                  </div>
+                  
+                   
+              </div>
+          </div>
+      </div>
+      <div class="modal-footer">
+          <a href="javascript:;" class="opt-upload cancel-trans" data-dismiss="modal">取消</a>
+          <a href="javascript:;" class="opt-upload sure-trans">确定</a>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div>
+    </div>
+
+
+
+@*新建计划*@
+<div class="modal fade commonMoal planModal" id="addPlanModal" tabindex="-1" role="dialog" aria-labelledby="icon_new_modal" aria-hidden="true">
+   <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">新建计划</h4>
+          </div>
+          
+          <div class="modal-body">
+              <div class="modal-rows clearfix" style="margin-top:15px;margin-bottom:0">
+                 <div class="col-xs-2 choose-container">
+                     <div class="do-part" style="cursor:default">
+                              部门分类         
+                      </div>
+                </div>
+                 <div class="col-xs-10 planName">
+                     <div class="part-level do-part part-done" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="cursor:pointer"><span>请选择部门</span><i class="fa fa-caret-down down-list"></i></div>
+                     
+                     <ul class="dropdown-menu partlist" aria-labelledby="dLabel" style="margin-left: 5px">  
+                             
+                     </ul>
+                 </div>
+            </div>
+              <div class="content-title">
+                   内容
+              </div>
+              <div class="modal-rows clearfix" id="load-after">
+                 <div class="col-xs-2 choose-container">
+                     <div class="do-method" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              完成方式         
+                      </div>
+                      <i class="fa fa-caret-down down-list"></i>
+                      <ul class="dropdown-menu runmode" aria-labelledby="dLabel">
+                               
+                      </ul>
+                </div>
+                 <div class="col-xs-10 planName">
+                     <input type="text" class="form-control" id="outPut" maxlength="50" placeholder="输入计划名称...">
+                 </div>
+            </div>
+              @*新建计划和循环计划载入*@
+
+
+              @*新建计划和循环计划载入结束*@
+              <hr />    
+               <div class="content-title">
+                   附加
+              </div>
+              <div class="modal-rows clearfix">
+                  <div class="detail-person" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <span style="margin-left:5px;" class="person-tip">协作人：</span>
+                      <ul class="person-lists col-lists">
+                          <li class="add-list"><i class="fa fa-plus addMember"></i></li>
+                      </ul>
+                  </div>
+                  <ul class="dropdown-menu common-menu" aria-labelledby="dLabel">
+                      <li class="search-link">
+                         <input type="text" name="name" value="" class="search-input responseUser helpMember"/>
+                       </li> 
+                        <li class="list-contain">
+                            <ul>
+                                    
+                            </ul>
+                        </li>   
+                  </ul>
+              </div>
+            <div class="modal-rows clearfix">
+                  <div class="detail-person" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <span style="margin-left:5px;letter-spacing:10px;" class="person-tip">标签</span><span class="tip-space">：</span>
+                      <ul class="person-lists tag-lists">
+                          <li class="add-list"><i class="fa fa-plus addMember"></i></li>
+                      </ul>
+                  </div>
+                   <ul class="dropdown-menu common-menu" aria-labelledby="dLabel">
+                      <li class="search-link">
+                         <input type="text" name="name" value="" class="search-input userTag"/>
+                       </li> 
+                        <li class="list-contain">
+                            <ul>
+                                    
+                            </ul>
+                        </li>   
+                  </ul>
+              </div>
+           <hr />
+              <div class="content-title">
+                   目标
+              </div>
+              <div class="modal-rows clearfix">
+                  <div class="detail-person" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <span style="margin-left:5px;letter-spacing:10px;" class="person-tip">目标</span><span class="tip-space">：</span>
+                      <ul class="person-lists">
+                         @*</li><li class="target-li"></li>*@<li class="add-list"><i class="fa fa-plus addMember"></i></li>
+                      </ul>
+                  </div>
+                    <ul class="dropdown-menu common-menu" aria-labelledby="dLabel">
+                      <li class="search-link">
+                         <input type="text" name="name" value="" class="search-input userTarget"/>
+                       </li> 
+                        <li class="list-contain">
+                            <ul>
+                                    
+                            </ul>
+                        </li>   
+                  </ul>                  
+              </div>
+@*               <hr />
+              <div class="content-title">
+                   其他
+              </div>
+              <div class="modal-rows" id="commentPlan">
+                  <div class="commentHeader">
+
+                  </div>
+              </div>*@
+                <div class="modal-rows commentPlan">
+                  <div class="commentHeader">
+                      <ul>
+                          <li class="tab-log log-opt selected">日志操作<i></i></li>
+                      </ul>
+                  </div>
+                  <div class="log-info tab-comment">
+                      <ul class="list-log">
+                          
+                      </ul>
+                  </div>
+              </div>
+
+         </div>
+         <div class="modal-footer">
+             <a href="javascript:;" class="opt-upload savePlan">保存</a>
+             <a href="javascript:;" class="opt-upload commitPlan">提交</a>
+         </div>
+      </div>
+   </div>
+</div>
+
+
+@*计划详情*@
+<div class="modal fade commonMoal planModal" id="detailPlanModal" tabindex="-1" role="dialog" aria-labelledby="icon_new_modal" aria-hidden="true">
+   <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">计划详情</h4>
+          </div>
+          <div class="modal-body">
+
+              <div class="modal-rows clearfix" style="margin-top:15px;margin-bottom:0">
+                 <div class="col-xs-2 choose-container">
+                     <div class="do-part" style="cursor:default">
+                              部门分类         
+                      </div>
+                </div>
+                 <div class="col-xs-10 planName">
+                     <div class="part-level do-part part-done">请选择部门</div>
+                     <i class="fa fa-caret-down down-list"></i>
+              </div>
+            </div>
+              <div class="content-title">
+                   内容
+              </div>
+              <div class="modal-rows clearfix" id="load-after">
+                 <div class="col-xs-2 choose-container">
+                     <div class="do-method">
+                              编制完成         
+                      </div>
+                      <i class="fa fa-caret-down down-list"></i>
+                </div>
+                 <div class="col-xs-10 planName">
+                     <input type="text" class="form-control" id="showPut"  readonly=true>
+                 </div>
+            </div>
+              @*新建计划和循环计划载入*@
+              <div id="detailLoad">
+
+              </div>
+         
+              @*新建计划和循环计划载入结束*@
+              <hr />    
+               <div class="content-title">
+                   附加
+              </div>
+              <div class="modal-rows clearfix">
+                  <div class="detail-person">
+                      <span style="margin-left:5px;" class="person-tip">协作人：</span>
+                      <ul class="person-lists persons">
+                         
+                      </ul>
+                  </div>
+              </div>
+            <div class="modal-rows clearfix">
+                  <div class="detail-person">
+                      <span style="margin-left:5px;letter-spacing:10px;" class="person-tip">标签</span><span class="tip-space">：</span>
+                      <ul class="person-lists tags">
+                      </ul>
+                  </div>
+              </div>
+           <hr />
+              <div class="content-title">
+                   目标
+              </div>
+              <div class="modal-rows clearfix">
+                  <div class="detail-person">
+                      <span style="margin-left:5px;letter-spacing:10px;" class="person-tip">目标</span><span class="tip-space">：</span>
+                      <ul class="person-lists">
+                      </ul>
+                  </div>
+                         
+              </div>
+               <hr />
+              <div class="content-title">
+                   其他
+              </div>
+              <div class="modal-rows commentPlan">
+                  <div class="commentHeader">
+                      <ul>
+                          <li class="tab-log log-opt selected">日志操作<i></i></li><li class="tab-log commont-opt">评论<i></i></li>
+                      </ul>
+                      <button class="addComment" style="display:none"><i class="glyphicon glyphicon-comment" style="display:inline-block"></i>我要评论</button>
+                  </div>
+                  <div class="log-info tab-comment">
+                      <ul class="list-log">
+                          
+                      </ul>
+                  </div>
+                  <div class="comment-info tab-comment" style="display:none">
+                      <div class="comment-wrap addHide">
+                          <label>我：</label>
+                          <div class="wrap-text">
+                              <textarea id="commentCommit" rows="2" placeholder="填写内容..." maxlength="250"></textarea>
+
+                          </div>
+                          <button class="fillUp">填写评论</button>    
+                      </div>
+                      <ul class="comment-list">
+                          
+                      </ul>
+                      
+                  </div>
+              </div>
+
+
+         </div>
+      @*   <div class="modal-footer">
+        
+         </div>*@
+      </div>
+       
+       <div class="modal-right" id="right-content">
+           <div class="right-head">提交确定</div>
+           <div class="right-body">
+               
+              
+           </div>
+       </div>
+   </div>
+</div>
+
+
+
+@*确认弹窗*@
+
+<div class="modal fade in" id="confirmModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+    <div class="modal-dialog modal-sm" style="z-index:222">
+      <div class="modal-content">
+        <div class="modal-body confirmMsg">
+            <i class="fa fa-close" data-dismiss="modal"></i>
+            <span></span>
+        </div>
+        <div class="modal-footer">
+            <a href="javascript:;" class="opt-upload" data-dismiss="modal">取消</a>
+            <a href="javascript:;" class="opt-upload sureConfirm">确定</a>
+           
+      </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div>
+
+<script id="newPlan" type="text/html">
+             <div class="modal-rows clearfix detail-info newPlanHtml">
+                <div class="col-xs-4 userContact"><img src="../../Images/common/response.png" class="icon-tip" /><span class="name-title">责任人：</span>
+                    <div class="user-select select-person">
+                        <img src="../../Images/index/pic0.png" alt="" class="img-circle img-select responsed-icon"/>
+                        <div class="select-input ueser-input">
+                            <input type="text" name="name" value=" " id="responsibleUsers" class="memberShow" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"  readonly=true />
+                            <ul class="dropdown-menu user-menu" aria-labelledby="dLabel">
+                                <li class="search-link">
+                                  <input type="text" name="name" value=" " class="search-input responseUser"/>
+
+                              </li> 
+                              <li class="list-contain">
+                                   <ul>
+                                    
+                                   </ul>
+                               </li>   
+                            </ul>
+                        </div>
+                        <i class="fa fa-pencil"></i>
+                    </div>
+                </div>
+                <div class="col-xs-4 userContact"><img src="../../Images/common/confirm.png" class="icon-tip" /></i><span class="name-title">确认人：</span>
+                    <div class="user-select select-person">
+                        <img src="../../Images/index/pic0.png" alt="" class="img-circle img-select confirmd-icon"/>
+                        <div class="select-input ueser-input">
+                            <input type="text" name="name" value=" " id="confirmUsers" class="memberShow" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" readonly=true />
+                            <ul class="dropdown-menu user-menu" aria-labelledby="dLabel">
+                              <li class="search-link">
+                                  <input type="text" name="name" value=" " class="search-input confirmUser"/>
+
+                              </li>
+                               <li class="list-contain">
+                                   <ul>
+                                       
+                                   </ul>
+                               </li>           
+                              
+                            </ul>
+                        </div>
+                        <i class="fa fa-pencil"></i>
+                    </div>
+                </div>
+                <div class="col-xs-4"><i class="fa fa-calendar name-tip"></i><span class="name-title">完成时间：</span>
+                    <div class="user-select" style="margin-left:80px;">
+                        <div class="select-input" style="margin-right:2px;margin-left:2px;">
+                            <input type="type" name="name" value="" id="endTimes"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-rows clearfix newPlanHtml">
+                <div class="col-xs-4 isTemp">
+                    <i class="fa fa-clock-o"></i>临时计划：<a href="javascript:;" class="tempOpt" flag="0">是</a><a href="javascript:;" class="tempOpt select" flag="1">否</a>
+                </div>
+            </div>
+            
+</script>
+
+<script id="circlePlan" type="text/html">
+     <div class="modal-rows clearfix detail-info circlePlanHtml">
+                <div class="col-xs-4 userContact"><img src="../../Images/common/response.png" class="icon-tip" /></i><span class="name-title">责任人：</span>
+                    <div class="user-select select-person">
+                        <img src="../../Images/index/pic0.png" alt="" class="img-circle img-select responsed-icon"/>
+                        <div class="select-input ueser-input">
+                            <input type="type" name="name" value=" " id="responsibleUsers" class="memberShow" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"  readonly=true />
+                            <ul class="dropdown-menu user-menu" aria-labelledby="dLabel">
+                                <li class="search-link">
+                                  <input type="type" name="name" value=" " class="search-input responseUser"/>
+
+                              </li> 
+                              <li class="list-contain">
+                                   <ul>
+                                    
+                                   </ul>
+                               </li>   
+                            </ul>
+                        </div>
+                        <i class="fa fa-pencil"></i>
+                    </div>
+                </div>
+                <div class="col-xs-4 userContact"><img src="../../Images/common/confirm.png" class="icon-tip" /><span class="name-title">确认人：</span>
+                    <div class="user-select select-person">
+                        <img src="../../Images/index/pic0.png" alt="" class="img-circle img-select confirmd-icon"/>
+                        <div class="select-input ueser-input">
+                            <input type="type" name="name" value=" " id="confirmUsers" class="memberShow" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" readonly=true />
+                            <ul class="dropdown-menu user-menu" aria-labelledby="dLabel">
+                              <li class="search-link">
+                                  <input type="type" name="name" value=" " class="search-input confirmUser"/>
+
+                              </li>
+                               <li class="list-contain">
+                                   <ul>
+                                       
+                                   </ul>
+                               </li>           
+                              
+                            </ul>
+                        </div>
+                        <i class="fa fa-pencil"></i>
+                    </div>
+                </div>
+                <div class="col-xs-4 circleType">
+                    <i class="fa fa-refresh name-tip" ></i><span class="name-title">循环类型：</span> 
+                    <div class="user-select" style="margin-left:80px;">
+                      <div class="do-circle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" flag="1">
+                              每日循环         
+                      </div>
+                      <i class="fa fa-caret-down down-list"></i>
+                      <ul class="dropdown-menu" aria-labelledby="dLabel" style="width:100%">
+                          <li class="eventput circlePut" flag="1">每日循环</li>
+                          <li class="eventput circlePut" flag="2">每周循环</li>
+                          <li class="eventput circlePut" flag="3">每月循序</li>    
+                          <li class="eventput circlePut" flag="4">每年循环</li>          
+                      </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-rows clearfix circlePlanHtml detail-info detail-other" style="height:32px;">                              
+                <div class="col-xs-6">
+                    <div class="wrap-info">
+                        <i class="fa fa-calendar name-tip"></i><span class="name-title" style="left:28px;">开始时间：</span>
+                        <div class="user-select" style="margin-left:90px;margin-right: 12px;">
+                            <div class="select-input" style="margin-right:2px;margin-left:2px;">
+                                <input type="type" name="name" value="" id="startTimes"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-6">
+                    <div class="wrap-info" style="margin-left:25px;margin-right:0">
+                        <i class="fa fa-calendar name-tip"></i><span class="name-title" style="left:28px;">完成时间：</span>
+                        <div class="user-select" style="margin-left:90px;margin-right: 12px;">
+                            <div class="select-input" style="margin-right:2px;margin-left:2px;">
+                                <input type="type" name="name" value="" id="endTimes"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+            
+</script>
+
+@*系数评定*@
+<script id="passAudit" type="text/html">
+    <div class="modal-rows importance common-star" style="margin-top:30px;" flag="1">
+               <span>重要度：</span><i class="fa fa-star i-star"></i><i class="fa fa-star-o i-star"></i><i class="fa fa-star-o i-star"></i><i class="fa fa-star-o i-star"></i><i class="fa fa-star-o i-star"></i>    
+               </div>
+               <div class="modal-rows ergence common-star" flag="2">
+                   <span>紧急度：</span><i class="fa fa-star e-star"></i><i class="fa fa-star-o e-star"></i><i class="fa fa-star-o e-star"></i><i class="fa fa-star-o e-star"></i><i class="fa fa-star-o e-star"></i>
+               </div>
+               <div class="modal-rows hard common-star" flag="3">
+                   <span>难易度：</span><i class="fa fa-star h-star"></i><i class="fa fa-star-o h-star"></i><i class="fa fa-star-o h-star"></i><i class="fa fa-star-o h-star"></i><i class="fa fa-star-o h-star"></i>
+               </div>
+               <div class="content-title" style="text-indent:0;">
+                   审核意见
+              </div>
+                <div class="modal-rows">
+                    <textarea rows="3" id="comments" class="common-text" style='overflow-y: hidden;'  maxlength="250"></textarea>     
+               </div>
+               <div class="modal-rows">
+                    <button class="btn btn-default pass auditBtn">通过</button> <button class="btn btn-default deny auditBtn cancelBtn" style="margin-right:10px;">不通过</button> 
+                 </div>
+</script>
+@*一般计划提交*@
+<script id="confirmCommit" type="text/html">
+     <div class="modal-rows importance common-star" style="margin-top:10px;" flag="1">
+               <span>重要度：</span><i class="fa fa-star i-star"></i><i class="fa fa-star-o i-star"></i><i class="fa fa-star-o i-star"></i><i class="fa fa-star-o i-star"></i><i class="fa fa-star-o i-star"></i>    
+               </div>
+               <div class="modal-rows ergence common-star" flag="2">
+                   <span>紧急度：</span><i class="fa fa-star e-star"></i><i class="fa fa-star-o e-star"></i><i class="fa fa-star-o e-star"></i><i class="fa fa-star-o e-star"></i><i class="fa fa-star-o e-star"></i>
+               </div>
+               <div class="modal-rows hard common-star" flag="3">
+                   <span>难易度：</span><i class="fa fa-star h-star"></i><i class="fa fa-star-o h-star"></i><i class="fa fa-star-o h-star"></i><i class="fa fa-star-o h-star"></i><i class="fa fa-star-o h-star"></i>
+               </div>
+                
+               
+</script>
+
+@*循环计划提交*@
+<script id="circleCommit" type="text/html">
+    <ul class="status-show">
+        <li class="statusCommit"><span class="circle-choose"></span>待提交</li><li class="statusConfirm"><span class="circle-choose"></span>待确认</li><li class="statusComplete"><span class="circle-choose"></span>已完成</li>
+    </ul>
+    <ul class="time-zone">
+    {{ each list as value i }}        
+            <li class="zone-list {{ {1:'statusCommit',2:'statusConfirm',3:'statusComplete'}[value.status] }}">
+                <span class="circle-choose"></span>
+                <button class="commit-circle">提交</button>
+                <ul class="zone-detail">
+                    <li class="zone-info">{{value.time.replace('T',' ')}}</li>
+                    <li class="zone-info add-comon"></li>
+                    <li class="zone-info">评定工时：{{value.acutal}}</li>
+                    <li class="zone-info">有效工时：{{value.effect}}</li>
+                </ul>
+            </li>
+        
+    {{/each}}
+    </ul>
+</script>
+
+@*一般和循环计划公用div*@
+<script id="commonCommit" type="text/html">
+    <div class="common-commit" style="background:#F8F8F8">
+        <div class="modal-rows">
+            <div class="modal-rows" style="margin-top:10px;">
+                   <span class="change-tip">完成情况：</span>
+                   <div id="complete-info"></div>
+                   <span class="info-tip"></span>
+               </div>
+                   <span>完成时间：</span>
+                   <input type="text" maxlength="4" onkeyup="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}" onafterpaste="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'0')}else{this.value=this.value.replace(/\D/g,'')}" class="minutes configure" />
+                   <span>分钟</span>
+                   <span>×</span>
+                   <input type="text"  maxlength="2" class="numbers configure" onkeyup="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}" onafterpaste="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'0')}else{this.value=this.value.replace(/\D/g,'')}" />
+                   <span>件</span>
+                   <span>=</span>
+                   <span class="totals">0分钟</span>
+               </div>
+               <hr />
+               <div class="modal-rows" style="margin-top:20px;">
+                   <span>结果类事项：</span>
+                   <a href="javascript:;" class="isEvent msgOut choosed">是</a><a href="javascript:;" class="isEvent fileOut">否</a>
+               </div>
+               <div class="intro" style="display:none;">
+                  <div class="content-title" style="text-indent:0px;">
+                   描述
+                 </div>
+                 <div class="modal-rows">
+                     <textarea class="common-text" id="introduction" rows="5"  maxlength="250"></textarea>
+                 </div>
+              </div>
+               <div class="upload">
+                  <div class="content-title" style="text-indent:0px;">
+                   附件
+                 </div>
+                 <div class="modal-rows file-up">
+                     <span class="file-up-btn"><i class="fa fa-upload"></i>本地上传<i class="fa fa-chevron-down"></i><input id="uploadFile" type="file" name="files[]" multiple/></span>
+                     <ul class="list-upload">
+                         
+                     </ul>
+               </div>
+               </div>
+
+                 <div class="modal-rows clearfix">
+                    <button class="btn btn-default comt">提交</button>
+                 </div>
+
+    </div>
+</script>
+
+@*提交确定*@
+<script id="confirmComplete" type="text/html">
+    <div class="modal-rows importance common-star" style="margin-top:10px;" flag="1">
+               <span>重要度：</span><i class="fa fa-star i-star"></i><i class="fa fa-star-o i-star"></i><i class="fa fa-star-o i-star"></i><i class="fa fa-star-o i-star"></i><i class="fa fa-star-o i-star"></i>    
+               </div>
+               <div class="modal-rows ergence common-star" flag="2">
+                   <span>紧急度：</span><i class="fa fa-star e-star"></i><i class="fa fa-star-o e-star"></i><i class="fa fa-star-o e-star"></i><i class="fa fa-star-o e-star"></i><i class="fa fa-star-o e-star"></i>
+               </div>
+               <div class="modal-rows hard common-star" flag="3">
+                   <span>难易度：</span><i class="fa fa-star h-star"></i><i class="fa fa-star-o h-star"></i><i class="fa fa-star-o h-star"></i><i class="fa fa-star-o h-star"></i><i class="fa fa-star-o h-star"></i>
+               </div>
+   <div class="modal-rows" style="margin-top:30px;">
+                   <span class="change-tip">完成数量：</span>
+                   <div id="complete-number"></div>
+                   <span class="info-tip info-num">1</span>
+               </div>
+                <div class="modal-rows">
+                   <span class="change-tip">完成质量：</span>
+                   <div id="complete-quality"></div>
+                   <span class="info-tip info-qua">1</span>
+               </div>
+                <div class="modal-rows">
+                   <span class="change-tip">完成时间：</span>
+                   <div id="complete-time"></div>
+                   <span class="info-tip info-time">1</span>
+               </div>
+               <hr />
+               <div class="modal-rows" style="margin-bottom:5px;">
+                   <span>自评工时：</span><span class="time-init"></span><span>分钟×</span><span class="num-init"></span><span>件=</span><span class="total-init"></span><span>分钟</span>
+               </div>
+               <div class="modal-rows" style="margin-bottom:5px;">
+                   <span>有效工时：</span><span class="total-time"></span><span>分钟</span>
+               </div>
+               <hr style="margin-top:10px;" />
+                
+                <div class="modal-rows" style="margin-bottom:5px;">
+                   <span>结果类事项：</span><span class="attach-is">否</span>
+               </div>
+                <div class="modal-rows event-intro" style="margin-bottom:5px;">
+                   <span >描述：</span>
+               </div>
+                <div class="modal-rows attach-intro" style="margin-bottom:5px;">
+                   <span >附件：</span><i class="fa fa-paperclip "></i>
+               </div>
+               <div class="modal-rows eventMsg" style="margin-bottom:5px;">
+                   <pre></pre>
+               </div>
+                <div class="modal-rows attachList" style="margin-bottom:5px;">
+                    <ul>                    
+                    </ul>
+               </div>
+               <hr style="margin-top:10px;" />
+
+
+
+                  <div class="content-title" style="text-indent:0px;">
+                   意见：
+                 </div>
+                 <div class="modal-rows">
+                     <textarea class="common-text" id="idea" rows="4"  maxlength="250"></textarea>
+                 </div>
+            
+
+                 <div class="modal-rows">
+                    <button class="btn btn-default confirmPass">通过</button>
+                    <button class="btn btn-default confirmPause cancelBtn" style="margin-right:15px;">不通过</button>
+                 </div>
+</script>
+
+@*一般计划详情*@
+<script id="newDetail" type="text/html">
+           <div class="modal-rows clearfix detail-info">
+                <div class="col-xs-4"><img src="../../Images/common/response.png" class="icon-tip" /><span class="name-title">责任人：</span>
+                    <div class="user-select select-person">
+                        <img src="../../Images/index/pic0.png" alt="" class="img-circle img-select response-icon"/>
+                        <div class="select-input ueser-input">
+                            <input type="text" name="name" value=" " id="responsibleUser" readonly=true />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-4"><img src="../../Images/common/confirm.png" class="icon-tip" /><span class="name-title">确认人：</span>
+                    <div class="user-select select-person">
+                        <img src="../../Images/index/pic0.png" alt="" class="img-circle img-select confirm-icon"/>
+                        <div class="select-input ueser-input">
+                            <input type="text" name="name" value=" " id="confirmUser" class="memberShow" readonly=true />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-4"><i class="fa fa-calendar name-tip"></i><span class="name-title">完成时间：</span>
+                    <div class="user-select" style="margin-left:80px;">
+                        <div class="select-input" style="margin-right:2px;margin-left:2px;">
+                            <input type="text" name="name" value=" " id="showEnd" readonly=true/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-rows clearfix">
+                <div class="col-xs-4 isTemp">
+                    <i class="fa fa-clock-o"></i>临时计划：<a href="javascript:;" class="tempOpt select" style="border:none;background:none">否</a><a href="#" style="border:none;background:none" class="tempOpt select">是</a>
+                </div>
+            </div>
+</script>
+@*循环计划详情*@
+<script id="circleDetail" type="text/html">
+    <div class="modal-rows clearfix detail-info">
+                <div class="col-xs-4"><img src="../../Images/common/response.png" class="icon-tip" /><span class="name-title">责任人：</span>
+                    <div class="user-select select-person">
+                        <img src="../../Images/index/pic0.png" alt="" class="img-circle img-select response-icon"/>
+                        <div class="select-input ueser-input">
+                            <input type="text" name="name" value="" id="responsibleUser" readonly=true />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-4"><img src="../../Images/common/confirm.png" class="icon-tip" /><span class="name-title">确认人：</span>
+                    <div class="user-select select-person">
+                        <img src="../../Images/index/pic0.png" alt="" class="img-circle img-select confirm-icon"/>
+                        <div class="select-input ueser-input">
+                            <input type="text" name="name" value="" id="confirmUser" class="memberShow" readonly=true />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-4"><i class="fa fa-calendar name-tip"></i><span class="name-title">循环类型：</span>
+                    <div class="user-select" style="margin-left:80px;">
+                        <div class="select-input" style="margin-right:2px;margin-left:2px;">
+                            <input type="text" name="name" value="" id="roundType" readonly=true/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-rows clearfix detail-info detail-other" style="height:32px;">                              
+                <div class="col-xs-6">
+                    <div class="wrap-info">
+                        <i class="fa fa-calendar name-tip"></i><span class="name-title" style="left:28px;">开始时间：</span>
+                        <div class="user-select" style="margin-left:90px;margin-right: 12px;">
+                            <div class="select-input" style="margin-right:2px;margin-left:2px;">
+                                <input type="text" name="name" value="" id="showStart" readonly=true/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-6">
+                    <div class="wrap-info" style="margin-left:25px;margin-right:0">
+                        <i class="fa fa-calendar name-tip"></i><span class="name-title" style="left:28px;">完成时间：</span>
+                        <div class="user-select" style="margin-left:90px;margin-right: 12px;">
+                            <div class="select-input" style="margin-right:2px;margin-left:2px;">
+                                <input type="text" name="name" value="" id="showEnd" readonly=true/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+</script>

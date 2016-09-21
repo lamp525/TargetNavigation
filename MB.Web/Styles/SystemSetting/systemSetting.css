@@ -1,0 +1,11 @@
+#systemSetting td{
+    border-top: none;
+}
+
+.set-text{
+    display: none;
+}
+#systemSetting td span{
+    width:550px;
+    display:inline-block;
+}

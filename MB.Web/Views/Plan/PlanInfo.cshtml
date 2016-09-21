@@ -1,0 +1,210 @@
+﻿@{
+    Layout = null;
+}
+@*计划详情开始*@
+ <div class="popUp">
+            <div class="title">
+                <div class="drapdiv" style="position: absolute;left:0px;height: 30px;width: 100%;z-index: 998"></div>
+                <a hrefto="#con_addplan" style="z-index: 999;position: relative">计划详情</a>
+            </div>
+            <span class="closeWCom" style="z-index: 999"></span>
+            <div id="con_addplan" class="content">
+                <div class="mainContent" style="min-height: 500px;">
+                    <div class="row">
+                        <div>
+                            <span>部门分类</span>
+                            <span style="margin-left: 20px;color: #000" id="addplan_department_v"></span>
+                            @*<em class="arrowsBBBCom" style="float: right" id="addplan_department_icon"></em>*@
+                        </div>
+                        <div id="addplan_department" class="ztree" style="display: none"></div>
+                    </div>
+                    <hr class="line"/>
+                    <div class="row">
+                        <div>
+                            <span>项目分类</span>
+                            <span style="margin-left: 20px;color: #000" id="addplan_project_v"></span>
+                            @*<em class="arrowsBBBCom" style="float: right" id="addplan_project_icon"></em>*@
+                        </div>
+                        <div id="addplan_project" class="ztree" style="display: none"></div>
+                    </div>
+                    <hr style="border: none;border-bottom: solid #e3e3e3 1px"/>
+                    <div class="row">
+                        <div>
+                            <input id="xxc_execut" type="text" readonly="true"></input>
+                            @*<select id="runmode" style="width:150px;height: 30px;line-height: 30px;border: 1px solid #e0e0e0">
+                                <option value="" disabled selected style="display: none;"> 执行方式</option>
+                                <!--<option> 执行方式1</option>-->
+                                <!--<option> 执行方式2</option>-->
+                                <!--<option> 执行方式3</option>-->
+                                <!--<option> 执行方式4</option>-->
+                            </select>*@
+                            <input id="output" type="text" readonly="true" placeholder="事项输出结果" style="height: 28px;width: 350px;line-height: 28px;margin-left: 10px;padding: 0;border: 1px solid #e0e0e0"/>
+                        </div>
+                        <div>
+                        <span class="optionCell"><em class="icon" style="padding:12px;background: url('../../Images/plan/recyclePlanAsh.png') no-repeat"></em>
+                            <!--<input class="emptyInput" id="" placeholder="选择循环类型"/>-->
+                            <span id="xxc_loopType"></span>
+                           @* <select id="roundtype" style="border: none;color: #a0a0a0">
+                                <option value="" disabled selected style="display: none">选择循环类型</option>
+                                <option value="0"> 无循环</option>
+                                <option value="1"> 日循环</option>
+                                <option value="2"> 周循环</option>
+                                <option value="3"> 月循环</option>
+                                <option value="4"> 年循环</option>
+                            </select>*@
+                        </span>
+                            <span>计划完成时间：</span><span id="xxc_completeTime"></span>
+                            <span class="optionCell" id="addplan_roundtime" style="display: none"><em class="icon" style="padding: 12px;background: url('../../Images/plan/recycleDate.png') no-repeat"></em><input class="emptyInput" id="addplan_roundtime_v1" placeholder="循环时间"/></span>
+                            <span class="optionCell" id="addplan_endtime"><em class="icon" style="padding: 12px;background: url('../../Images/plan/endDate.png') no-repeat"></em><input class="emptyInput" id="addplan_endtime_v1" placeholder="完成时间"/></span>
+                        </div>
+                        <div>
+                    <span class="optionCell"><em class="icon" style="padding:12px;background: url('../../Images/plan/responsibleUser.png') no-repeat"></em>
+                        <span id="xxc_responseUser" style="position: relative">
+                            @*<input class="emptyInput" readonly id="addplan_responsibleUser" placeholder="选择责任人"/>*@
+                        </span>
+
+                        <!--<div class="optionCell-select">-->
+                            <!--<div style="margin: 10px">-->
+                                <!--<input type="text" style="width: 100%"/>-->
+                            <!--</div>-->
+                            <!--<span style="margin-left: 10px">常用联系人</span>-->
+                            <!--<div class="imitateSelect-img">-->
+                            <!--&lt;!&ndash;<ul>&ndash;&gt;-->
+                                <!--&lt;!&ndash;<li><em class="icon portrait"></em>人1</li>&ndash;&gt;-->
+                                <!--&lt;!&ndash;<li><em class="icon portrait"></em>人2</li>&ndash;&gt;-->
+                                <!--&lt;!&ndash;<li><em class="icon portrait"></em>人3</li>&ndash;&gt;-->
+                                <!--&lt;!&ndash;<li><em class="icon portrait"></em>人4</li>&ndash;&gt;-->
+                                <!--&lt;!&ndash;<li><em class="icon portrait"></em>人5</li>&ndash;&gt;-->
+                            <!--&lt;!&ndash;</ul>&ndash;&gt;-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--<select style="border: none;color: #a0a0a0">-->
+                            <!--<option value="" disabled selected style="display: none">选择责任人</option>-->
+                            <!--<option> 人员1</option>-->
+                            <!--<option> 人员2</option>-->
+                            <!--<option> 人员3</option>-->
+                        <!--</select>-->
+                    </span>
+                    <span class="optionCell"><em  class="icon" style="padding: 12px;background: url('../../Images/plan/confirmUser.png') no-repeat"></em>
+                        <span id="xxc_confirmUser" style="position: relative">
+                           @* <input class="emptyInput" readonly id="addplan_confirmUser" placeholder="选择确认人"/>*@
+                        </span>
+                        <!--<div class="optionCell-select">-->
+                            <!--<div style="margin: 10px">-->
+                                <!--<input type="text" style="width: 100%"/>-->
+                            <!--</div>-->
+                            <!--<span style="margin-left: 10px">常用联系人</span>-->
+                            <!--<div class="imitateSelect-img">-->
+                                <!--<ul>-->
+                                    <!--<li><em class="icon" style="padding: 16px;background: url('../../Images/index/logo.png') no-repeat;border: 1px solid #e3e3e3; border-radius: 50%"></em>人1</li>-->
+                                    <!--<li><em class="icon" style="padding: 16px;background: url('../../Images/index/logo.png') no-repeat;border: 1px solid #e3e3e3; border-radius: 50%"></em>人2</li>-->
+                                    <!--<li><em class="icon" style="padding: 16px;background: url('../../Images/index/logo.png') no-repeat;border: 1px solid #e3e3e3; border-radius: 50%"></em>人3</li>-->
+                                    <!--<li><em class="icon" style="padding: 16px;background: url('../../Images/index/logo.png') no-repeat;border: 1px solid #e3e3e3; border-radius: 50%"></em>人4</li>-->
+                                    <!--<li><em class="icon" style="padding: 16px;background: url('../../Images/index/logo.png') no-repeat;border: 1px solid #e3e3e3; border-radius: 50%"></em>人5</li>-->
+                                <!--</ul>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--<select style="border: none;color: #a0a0a0">-->
+                            <!--<option value="" disabled selected style="display: none">选择责任人</option>-->
+                            <!--<option> 人员1</option>-->
+                            <!--<option> 人员2</option>-->
+                            <!--<option> 人员3</option>-->
+                        <!--</select>-->
+                    </span>
+                    <span class="optionCell"><em class="icon" style="padding: 12px;background: url('../../Images/plan/temporaryPlanAsh.png') no-repeat"></em>
+                        <!--<input class="emptyInput" id="" placeholder="是否临时计划"/>-->
+                        <span id="xxc_istmp"></span>
+                       @* <select id="isTmp" style="border: none;color: #a0a0a0">
+                            <option value="" disabled selected style="display: none">是否临时计划</option>
+                            <option value="1"> 是</option>
+                            <option value="0"> 否</option>
+                        </select>*@
+                    </span>
+                        </div>
+                    </div>
+                    <hr class="line"/>
+                    <div id="worktimeDiv" style="display: none">
+                        <div class="row">
+                            单位完成工时： <input type="text" id="worktime" style="width: 35px;height: 20px"/> 分钟
+                        </div>
+                        <hr class="line"/>
+                    </div>
+
+                    <div class="row">
+                        <div style="padding: 10px 0;line-height: 28px">
+                            <div style="float: left;width:20%">协作人</div>
+                            <div style="float: left;width:79%">
+                                <span style="position: relative">
+                                    <span id="xxc_addplan_partner"></span>
+                                    @*<em class="icon add-min hasborder" id="addplan_partner" style="margin: -3px 5px 0px;"></em>*@
+                                </span>
+
+                                <!--<div class="optionCell-select" style=" top: 30px;left: 0px;">-->
+                                <!--<div style="margin: 10px">-->
+                                <!--<input type="text" style="width: 100%"/>-->
+                                <!--</div>-->
+                                <!--<span style="margin-left: 10px">常用联系人</span>-->
+                                <!--<div class="imitateSelect-img">-->
+                                <!--<ul>-->
+                                <!--<li><em class="icon" style="padding: 16px;background: url('../../Images/index/logo.png') no-repeat;border: 1px solid #e3e3e3; border-radius: 50%"></em>人1</li>-->
+                                <!--<li><em class="icon" style="padding: 16px;background: url('../../Images/index/logo.png') no-repeat;border: 1px solid #e3e3e3; border-radius: 50%"></em>人2</li>-->
+                                <!--<li><em class="icon" style="padding: 16px;background: url('../../Images/index/logo.png') no-repeat;border: 1px solid #e3e3e3; border-radius: 50%"></em>人3</li>-->
+                                <!--<li><em class="icon" style="padding: 16px;background: url('../../Images/index/logo.png') no-repeat;border: 1px solid #e3e3e3; border-radius: 50%"></em>人4</li>-->
+                                <!--<li><em class="icon" style="padding: 16px;background: url('../../Images/index/logo.png') no-repeat;border: 1px solid #e3e3e3; border-radius: 50%"></em>人5</li>-->
+                                <!--</ul>-->
+                                <!--</div>-->
+                                <!--</div>-->
+                            </div>
+                            <div style="clear: both"></div>
+                        </div>
+                        <div style="padding: 10px 0;line-height: 28px;display:none;">
+                            <div style="float: left;width:20%">前提计划</div>
+                            <div style="float: left;width:79%">
+                                <span style="position: relative">
+                                    <span id="xxc_frontPlan"></span>
+                                    <@*em class="icon add-min hasborder" id="addplan_premise" style="margin: -3px 5px 0px;"></em>*@
+                                </span>
+                                <!--<div class="optionCell-select" style=" top: 30px;left: 0px; display: none">-->
+                                <!--<div style="margin: 10px">-->
+                                <!--<input type="text" style="width: 100%"/>-->
+                                <!--</div>-->
+                                <!--<span style="margin-left: 10px">近期计划</span>-->
+                                <!--<div class="imitateSelect-img">-->
+                                <!--<ul>-->
+                                <!--<li>《孙子》</li>-->
+                                <!--<li>《孙子》</li>-->
+                                <!--<li>《孙子》</li>-->
+                                <!--<li>《孙子》</li>-->
+                                <!--<li>《孙子》</li>-->
+                                <!--</ul>-->
+                                <!--</div>-->
+                                <!--</div>-->
+                            </div>
+                            <div style="clear: both"></div>
+                        </div>
+                        <div style="padding: 10px 0;line-height: 28px;display:none;">
+                            <div style="float: left;width:20%">标签</div>
+                            <div style="float: left;width:79%;position: relative;">
+                                <em class="icon add-min hasborder" id="addplan_label" style="margin: -3px 5px 0px;"></em>
+                            </div>
+                            <div style="clear: both"></div>
+                        </div>
+                    </div>
+                    <!--<div style="position: relative; left: -8px;width: 100%;padding: 8px;margin: 6px 0;border-top: solid #e3e3e3 1px;border-bottom: solid #e3e3e3 1px;background-color: #fefff0;">-->
+                    <!--操作日志-->
+                    <!--<em style="padding: 12px;background: url('../../Images/common/arrowsBBB.png');position: absolute;right: 5px;top: 3px;"></em>-->
+                    <!--&lt;!&ndash;<em class="icon add-min" style=" position: absolute;right: 35px;top: 3px;"></em>&ndash;&gt;-->
+                    <!--</div>-->
+                    <!--<div style="text-align: center;line-height: 28px">-->
+                    <!--还没有子计划，点击 <em class="icon add-min" style="vertical-align: top;cursor: default"></em> 添加~-->
+                    <!--</div>-->
+                </div>
+                <div class="canCon">
+                    <span id="addplan_save" style="width:33%; border-right:1px solid #bbb;">保存</span>
+                    <span id="addplan_continue" style="width:33%; border-right:1px solid #bbb;">继续添加</span>
+                    <span id="addplan_submit" style="width: 33.5%">提交</span>
+                </div>
+            </div>
+            
+        </div>
+    <!-- 计划详情 结束 -->

@@ -1,0 +1,66 @@
+﻿@using MB.Model
+@{
+    var list = ViewBag.NewsList as List<NewsInfo>;
+}
+<!-- 通知 开始 --> 
+    <div class="title">
+        通知
+                    <span class="refresh" onclick="Refnoits()"></span>
+    </div>
+    <ul id="message_list" class="list">
+        @if (list != null)
+        {
+            int count = 0;
+            foreach (var item in list)
+            {
+                if (item.notice == true)
+                {
+                    count++;
+                    if (DateTime.Now.AddDays(-7) <= @item.createTime)
+                    {
+            <li><span class="label label-danger" style="float: none">NEW</span><a href="#" style="width:240px" title="@item.title" onclick="NewsInfo(@item.newId)">@item.title</a><span>@item.createTime.ToString("yyyy-MM-dd")</span></li>
+                    }
+                    else
+                    {
+            <li><a href="#" title="@item.title" onclick="NewsInfo2(@item.newId)">@item.title</a><span>@item.createTime.ToString("yyyy-MM-dd")</span></li>
+                    }
+            <li class="line"></li>
+                    if (count > 7)
+                    {
+                        break;
+                    }
+                }
+            }
+        }
+    </ul>
+    <div class="more" onclick="NewsList2()">更多</div> 
+<!-- 通知 结束 -->
+<!-- 文档中心 开始 -->
+@*<div class="docuInfor">
+    <div class="title">
+        文档中心
+                    <span class="refresh"></span>
+    </div>
+    <ul id="docu_list" class="list">
+    </ul>
+    <div class="more">更多</div>
+</div>*@
+<!-- 文档中心 结束 -->
+<script>
+    function NewsList2() {
+        var Flag = true;
+        loadViewToMain("/News/NewsList?Flag=" + Flag + "&DriID=0");
+        //window.location.href = "/News/NewsList?Flag=" + Flag + "&DriID=0";
+    }
+    function NewsInfo2(id) {
+        loadViewToMain("/NewsDel/NewsDel?id=" + id + "&Flag=true");
+        //window.location.href = "/NewsDel/NewsDel?id=" + id + "&Flag=true";
+    }
+    function Refnoits() {
+        var lodi3 = getLoadingPosition('#notsList');
+        $("#notsList").load("/Company/notesIndex", function () {
+            lodi3.remove();
+        });
+
+    }
+</script>
