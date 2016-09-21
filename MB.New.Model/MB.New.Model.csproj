@@ -89,7 +89,9 @@
     <Compile Include="WorkTime\WorkTimeInfoModel.cs" />
     <Compile Include="WorkTime\WorkTimeStatisticsModel.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="app.config" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MB.New.Common\MB.New.Common.csproj">
       <Project>{0fac51d6-a678-439b-b9fe-a4225fb7eb68}</Project>
